@@ -126,12 +126,12 @@
         </li>
         
         
-        <li class="menu-item menu-item-标签">
-          <a href="/%E6%A0%87%E7%AD%BE">
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
             
             <i class="icon icon-tags"></i>
             
-            <span class="menu-title">menu.标签</span>
+            <span class="menu-title">Tags</span>
           </a>
         </li>
         
@@ -181,8 +181,6 @@
     <ul class="social-links">
     	
         <li><a href="https://github.com/Sch01ar" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
-        
-        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
         
     </ul>
 
@@ -342,8 +340,6 @@
     	
         <li><a href="https://github.com/Sch01ar" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
         
-        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
-        
     </ul>
 
     <div class="copyright">
@@ -405,7 +401,7 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
 
         platformContainer.text("Github");
 
-        url = "https://api.github.com/users/cofess/repos";
+        url = "https://api.github.com/users/Sch01ar/repos";
 
         $.get(url, function (result) {
           if (result) {
