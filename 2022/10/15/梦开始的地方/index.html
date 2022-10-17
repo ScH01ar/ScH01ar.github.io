@@ -45,8 +45,6 @@
   
   
   
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.css">
-  
 <meta name="generator" content="Hexo 6.3.0"></head>
 
 
@@ -431,7 +429,7 @@
     
   <section id="comments">
   	
-           
+      <div id="vcomments"></div>
     
   </section>
 
@@ -530,24 +528,29 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
 
    
     
-  <!-- <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css"> -->
-  <script src="//cdn.jsdelivr.net/npm/gitalk@1.6.2/dist/gitalk.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script>
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
   <script type="text/javascript">
-  var gitalk = new Gitalk({
-    clientID: '218dca2cede3466923ca',
-    clientSecret: 'a498ae4211138aa1ab1c2bf38d3a73756876767a',
-    repo: 'Sch01ar.github.io',
-    owner: 'Sch01ar',
-    admin: ['Sch01ar'],
-    id: md5(location.pathname),
-    distractionFreeMode: true,
-    language: 'zh-CN',
-    enableHotKey: 'true'
-  })
-  gitalk.render('comments')
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: 'Rhw3kBGfeXk25zumsz2Th5Sy-gzGzoHsz',
+    appKey: 'a1iD3B9BVfe3b1tHRmB8dCwE',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: false
+  });
   </script>
-      
+
+     
 
 
 
