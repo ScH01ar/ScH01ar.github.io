@@ -17,16 +17,21 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>归档: 2022 | Y&#39;s Blog</title>
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/archives/2022/index.html">
+  <title>BUU刷题日记20221020 | Y&#39;s Blog</title>
+  <meta name="description" content="[TOC] RSA1给定dp、dq类型dp ≡ d mod (p-1)dq ≡ d mod (q-1)m ≡ c^d^ mod nm &#x3D; c^d^ + k * nm &#x3D; c^d^ +k * p * q对上式两端同时对p、q分别取余，得：m1 ≡ c^d^ mod pm2 ≡ c^d^ mod q同理，可得到c^d^ &#x3D; m1 +kp代入到 m2 ≡ c^d^ mod">
+<meta property="og:type" content="article">
+<meta property="og:title" content="BUU刷题日记20221020">
+<meta property="og:url" content="http://example.com/2022/10/20/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B020221020/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="[TOC] RSA1给定dp、dq类型dp ≡ d mod (p-1)dq ≡ d mod (q-1)m ≡ c^d^ mod nm &#x3D; c^d^ + k * nm &#x3D; c^d^ +k * p * q对上式两端同时对p、q分别取余，得：m1 ≡ c^d^ mod pm2 ≡ c^d^ mod q同理，可得到c^d^ &#x3D; m1 +kp代入到 m2 ≡ c^d^ mod">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-10-19T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-10-20T06:28:24.859Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="diary">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://example.com/archives/2022/index.html">
+  <link rel="canonical" href="http://example.com/2022/10/20/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B020221020/index.html">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -334,88 +339,131 @@
   
   
 <main class="main" role="main">
-  	<article class="content article article-archives article-type-list" itemscope="">
-	    <header class="article-header">
-	      <h1 itemprop="title">归档: 2022</h1>
-	      <p class="text-muted">共 5 篇文章</p>
-	    </header>
-	    <div class="article-body">
-	      
-  
-  
+  <div class="content">
+  <article id="post-BUU刷题日记20221020" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
-    
+    <div class="article-header">
       
+        
+  
+    <h1 class="article-title" itemprop="name">
+      BUU刷题日记20221020
+    </h1>
+  
+
       
-      <section class="panel panel-default b-no">
-        <div class="panel-heading" role="tab">
-          <h3 class="panel-title">
-            <a data-toggle="collapse" href="#collapse2022" aria-expanded="true">
-              <i class="icon icon-calendar-plus text-active"></i><i class="icon icon-calendar-minus text"></i>
-              2022
-            </a>
-            <!-- <a href="/archives/2022" class="archive-year">2022</a> -->
-          </h3>
-        </div>
-        <div id="collapse2022" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading2022">
-        <div class="panel-body">
-          <div class="collection">
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2022/10/20/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B020221020/" class="article-date">
+	  <time datetime="2022-10-19T16:00:00.000Z" itemprop="datePublished">2022-10-20</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/CTF/">CTF</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/diary/" rel="tag">diary</a>
+  </span>
+
+
+        
+	<span class="article-read hidden-xs">
+	    <i class="icon icon-eye-fill" aria-hidden="true"></i>
+	    <span id="busuanzi_container_page_pv">
+			<span id="busuanzi_value_page_pv">0</span>
+		</span>
+	</span>
+
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2022/10/20/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B020221020/#comments" class="article-comment-link">评论</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <p>[TOC]</p>
+<h1 id="RSA1"><a href="#RSA1" class="headerlink" title="RSA1"></a>RSA1</h1><p>给定dp、dq类型<br>dp ≡ d mod (p-1)<br>dq ≡ d mod (q-1)<br>m ≡ c^d^ mod n<br>m &#x3D; c^d^ + k * n<br>m &#x3D; c^d^ +k * p * q<br>对上式两端同时对p、q分别取余，得：<br>m1 ≡ c^d^ mod p<br>m2 ≡ c^d^ mod q<br>同理，可得到<br>c^d^ &#x3D; m1 +k<em>p<br>代入到 m2 ≡ c^d^ mod q 中：<br>m2 ≡ (m1 + k</em>p)mod q ，两端减去m1得<br>m2 - m1 ≡ k<em>p mod q ，两端乘p的逆元得<br>(m2 - m1)p^-1^ ≡ k mod q<br>将k代入到 c^d^ &#x3D; m1 +k</em>p 中得：<br>c^d^ &#x3D; m1 + ((m2 - m1)p^-1^ mod q)*p</p>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
     
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://example.com/2022/10/20/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B020221020/" title="BUU刷题日记20221020" target="_blank" rel="external">http://example.com/2022/10/20/BUU刷题日记20221020/</a>
+    </li>
     
-<a href="/2022/10/20/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B020221020/" class="collection-item"   itemprop="url">
-  <time datetime="2022-10-19T16:00:00.000Z" itemprop="datePublished">2022-10-20</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> BUU刷题日记20221020
-</a>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/Sch01ar" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/Sch01ar" target="_blank"><span class="text-dark">yy</span><small class="ml-1x">Time tells</small></a></h3>
+        <div></div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
 
 
   
-    
-    
-    
-<a href="/2022/10/16/2022BUUCTF%E6%96%B0%E7%94%9F%E8%B5%9B-RSA/" class="collection-item"   itemprop="url">
-  <time datetime="2022-10-15T16:00:00.000Z" itemprop="datePublished">2022-10-16</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> 2022BUUCTF新生赛-RSA
-</a>
+</div>
 
-
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
   
+  <ul class="pager pull-left">
     
     
-    
-<a href="/2022/10/16/2021ByteCTF-easyxor/" class="collection-item"   itemprop="url">
-  <time datetime="2022-10-15T16:00:00.000Z" itemprop="datePublished">2022-10-16</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> 2021ByteCTF-easyxor
-</a>
-
-
-  
+    <li class="next">
+      <a href="/2022/10/16/2022BUUCTF%E6%96%B0%E7%94%9F%E8%B5%9B-RSA/" title="2022BUUCTF新生赛-RSA"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
     
     
-    
-<a href="/2022/10/15/%E6%A2%A6%E5%BC%80%E5%A7%8B%E7%9A%84%E5%9C%B0%E6%96%B9/" class="collection-item"   itemprop="url">
-  <time datetime="2022-10-15T07:59:58.000Z" itemprop="datePublished">2022-10-15</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> 梦开始的地方
-</a>
-
-
-  
-    
-    
-    
-<a href="/2022/10/15/hello-world/" class="collection-item"   itemprop="url">
-  <time datetime="2022-10-15T07:57:23.442Z" itemprop="datePublished">2022-10-15</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> Hello World
-</a>
-
-
+  </ul>
   
   
-    </div></div></div></section>
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
   
 
-	    </div>
-  	</article>
-  	 	
+
 </main>
 
   <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
@@ -468,6 +516,39 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
 
 
 
+
+   
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: 'Rhw3kBGfeXk25zumsz2Th5Sy-gzGzoHsz',
+    appKey: 'a1iD3B9BVfe3b1tHRmB8dCwE',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+  </script>
+
+     
 
 
 
