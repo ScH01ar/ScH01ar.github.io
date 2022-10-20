@@ -387,21 +387,21 @@
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h2 id="Mac下利用Hexo和github-pages搭建个人博客"><a href="#Mac下利用Hexo和github-pages搭建个人博客" class="headerlink" title="Mac下利用Hexo和github pages搭建个人博客"></a>Mac下利用Hexo和github pages搭建个人博客</h2><h3 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h3><h4 id="1-Node-js安装"><a href="#1-Node-js安装" class="headerlink" title="1.Node.js安装"></a>1.Node.js安装</h4><p>下载地址：<a target="_blank" rel="noopener" href="https://nodejs.org/en/">Node.js</a></p>
-<h4 id="2-淘宝镜像安装"><a href="#2-淘宝镜像安装" class="headerlink" title="2.淘宝镜像安装"></a>2.淘宝镜像安装</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//打开终端terminal</span><br><span class="line">$ npm install -g cnpm --registry=https://registry.npm.taobao.org </span><br></pre></td></tr></table></figure>
+        <h2><span id="mac下利用hexo和github-pages搭建个人博客">Mac下利用Hexo和github pages搭建个人博客</span></h2><h3><span id="环境配置">环境配置</span></h3><h4><span id="1nodejs安装">1.Node.js安装</span></h4><p>下载地址：<a target="_blank" rel="noopener" href="https://nodejs.org/en/">Node.js</a></p>
+<h4><span id="2淘宝镜像安装">2.淘宝镜像安装</span></h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//打开终端terminal</span><br><span class="line">$ npm install -g cnpm --registry=https://registry.npm.taobao.org </span><br></pre></td></tr></table></figure>
 
-<h4 id="3-安装Hexo"><a href="#3-安装Hexo" class="headerlink" title="3.安装Hexo"></a>3.安装Hexo</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 使用命令去安装Hexo</span><br><span class="line">cnpm install -g hexo-cli</span><br><span class="line">//安装成功后查看版本</span><br><span class="line">hexo -v</span><br></pre></td></tr></table></figure>
-<h3 id="初始化Hexo-Blog"><a href="#初始化Hexo-Blog" class="headerlink" title="初始化Hexo Blog"></a>初始化Hexo Blog</h3><h4 id="1-初始化Hexo"><a href="#1-初始化Hexo" class="headerlink" title="1.初始化Hexo"></a>1.初始化Hexo</h4><p>新建一个文件夹并进入，例如blog</p>
+<h4><span id="3安装hexo">3.安装Hexo</span></h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 使用命令去安装Hexo</span><br><span class="line">cnpm install -g hexo-cli</span><br><span class="line">//安装成功后查看版本</span><br><span class="line">hexo -v</span><br></pre></td></tr></table></figure>
+<h3><span id="初始化hexo-blog">初始化Hexo Blog</span></h3><h4><span id="1初始化hexo">1.初始化Hexo</span></h4><p>新建一个文件夹并进入，例如blog</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//初始化hexo</span><br><span class="line">hexo init</span><br></pre></td></tr></table></figure>
-<h4 id="2-本地启动Hexo"><a href="#2-本地启动Hexo" class="headerlink" title="2.本地启动Hexo"></a>2.本地启动Hexo</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+<h4><span id="2本地启动hexo">2.本地启动Hexo</span></h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
 <p>浏览器打开网站，即可看到本地博客</p>
-<h3 id="创建博客文章"><a href="#创建博客文章" class="headerlink" title="创建博客文章"></a>创建博客文章</h3><h4 id="1-创建文章"><a href="#1-创建文章" class="headerlink" title="1.创建文章"></a>1.创建文章</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo n <span class="string">&quot;我的第一篇文章&quot;</span></span><br></pre></td></tr></table></figure>
+<h3><span id="创建博客文章">创建博客文章</span></h3><h4><span id="1创建文章">1.创建文章</span></h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo n <span class="string">&quot;我的第一篇文章&quot;</span></span><br></pre></td></tr></table></figure>
 <p>在blog文件夹中的_post里即可看到新建的md文件</p>
-<h4 id="2-清理缓存项目"><a href="#2-清理缓存项目" class="headerlink" title="2.清理缓存项目"></a>2.清理缓存项目</h4><p>在新建博客或修改博客时，需要进行该操作</p>
+<h4><span id="2清理缓存项目">2.清理缓存项目</span></h4><p>在新建博客或修改博客时，需要进行该操作</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br></pre></td></tr></table></figure>
-<h4 id="3-重新生成博客"><a href="#3-重新生成博客" class="headerlink" title="3.重新生成博客"></a>3.重新生成博客</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure>
+<h4><span id="3重新生成博客">3.重新生成博客</span></h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure>
 
-<h4 id="4-启动博客"><a href="#4-启动博客" class="headerlink" title="4.启动博客"></a>4.启动博客</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+<h4><span id="4启动博客">4.启动博客</span></h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
 
       
     </div>
