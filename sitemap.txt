@@ -1,14 +1,15 @@
+http://example.com/2022/10/22/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B020221022/
 http://example.com/2022/10/21/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B020221021/
 http://example.com/2022/10/16/2021ByteCTF-easyxor/
 http://example.com/2022/10/16/2022BUUCTF%E6%96%B0%E7%94%9F%E8%B5%9B-RSA/
 http://example.com/2022/10/20/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B020221020/
 http://example.com/2022/10/15/%E6%A2%A6%E5%BC%80%E5%A7%8B%E7%9A%84%E5%9C%B0%E6%96%B9/
 http://example.com/about/index.html
+http://example.com/books/index.html
+http://example.com/links/index.html
 http://example.com/categories/index.html
 http://example.com/tags/index.html
-http://example.com/links/index.html
 http://example.com/repository/index.html
-http://example.com/books/index.html
 http://example.com/2022/10/15/hello-world/
 http://example.com/
 http://example.com/tags/wp/

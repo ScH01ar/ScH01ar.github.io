@@ -17,21 +17,21 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>BUU刷题日记20221021 | Y&#39;s Blog</title>
-  <meta name="description" content="RSA2题目给定n、e、dp、c非预期解：直接分解n下面考虑n不能分解的情况 推导过程dp ≡ d mod (p-1)ed ≡ 1 mod (p-1) * (q-1)ed &#x3D; 1 + k2(p-1)(q-1)对1式两端同乘e，得e * dp ≡ ed mod (p-1)e * dp &#x3D; k1(p-1) + ed代入ed得e * dp &#x3D; k1(p-1) + 1 + k">
+  <title>BUU刷题日记20221022 | Y&#39;s Blog</title>
+  <meta name="description" content="(先表示一下对RNG3:0输掉t1的遗憾，另外，EDG加油) RSA4题目只给了三组n、c，采用中国剩余定理，具体推导如下 推导过程m^e ≡ c1 mod n1m^e ≡ c2 mod n2m^e ≡ c3 mod n3 中国剩余定理（CRT）中国剩余定理的内容是：针对上述方程组，若n1、n2、n3互质，对于任意的c1、c2、c3，方程组都有解，使用条件是m^e &lt; n1、n2、n3。通解">
 <meta property="og:type" content="article">
-<meta property="og:title" content="BUU刷题日记20221021">
-<meta property="og:url" content="http://example.com/2022/10/21/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B020221021/index.html">
+<meta property="og:title" content="BUU刷题日记20221022">
+<meta property="og:url" content="http://example.com/2022/10/22/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B020221022/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="RSA2题目给定n、e、dp、c非预期解：直接分解n下面考虑n不能分解的情况 推导过程dp ≡ d mod (p-1)ed ≡ 1 mod (p-1) * (q-1)ed &#x3D; 1 + k2(p-1)(q-1)对1式两端同乘e，得e * dp ≡ ed mod (p-1)e * dp &#x3D; k1(p-1) + ed代入ed得e * dp &#x3D; k1(p-1) + 1 + k">
+<meta property="og:description" content="(先表示一下对RNG3:0输掉t1的遗憾，另外，EDG加油) RSA4题目只给了三组n、c，采用中国剩余定理，具体推导如下 推导过程m^e ≡ c1 mod n1m^e ≡ c2 mod n2m^e ≡ c3 mod n3 中国剩余定理（CRT）中国剩余定理的内容是：针对上述方程组，若n1、n2、n3互质，对于任意的c1、c2、c3，方程组都有解，使用条件是m^e &lt; n1、n2、n3。通解">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-10-20T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-10-21T09:09:16.105Z">
+<meta property="article:published_time" content="2022-10-21T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-10-22T12:47:51.674Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="diary">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://example.com/2022/10/21/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B020221021/index.html">
+  <link rel="canonical" href="http://example.com/2022/10/22/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B020221022/index.html">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -342,21 +342,21 @@
   <div class="slimContent">
     <nav id="toc" class="article-toc">
       <h3 class="toc-title">文章目录</h3>
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">RSA2</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.1.</span> <span class="toc-text">推导过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.2.</span> <span class="toc-text">EXP</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">RSA3</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">2.1.</span> <span class="toc-text">推导过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">2.2.</span> <span class="toc-text">EXP</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">RSA4</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.1.</span> <span class="toc-text">推导过程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.1.1.</span> <span class="toc-text">中国剩余定理（CRT）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.2.</span> <span class="toc-text">EXP</span></a></li></ol></li></ol>
     </nav>
   </div>
 </aside>
 
 <main class="main" role="main">
   <div class="content">
-  <article id="post-BUU刷题日记20221021" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-BUU刷题日记20221022" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      BUU刷题日记20221021
+      BUU刷题日记20221022
     </h1>
   
 
@@ -364,8 +364,8 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2022/10/21/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B020221021/" class="article-date">
-	  <time datetime="2022-10-20T16:00:00.000Z" itemprop="datePublished">2022-10-21</time>
+	<a href="/2022/10/22/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B020221022/" class="article-date">
+	  <time datetime="2022-10-21T16:00:00.000Z" itemprop="datePublished">2022-10-22</time>
 	</a>
 </span>
         
@@ -390,21 +390,19 @@
 	</span>
 
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2022/10/21/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B020221021/#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2022/10/22/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B020221022/#comments" class="article-comment-link">评论</a></span>
         
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h1><span id="rsa2">RSA2</span></h1><p>题目给定n、e、dp、c<br>非预期解：直接分解n<br>下面考虑n不能分解的情况</p>
-<h2><span id="推导过程">推导过程</span></h2><p>dp ≡ d mod (p-1)<br>ed ≡ 1 mod (p-1) * (q-1)<br>ed &#x3D; 1 + k2(p-1)(q-1)<br>对1式两端同乘e，得<br>e * dp ≡ ed mod (p-1)<br>e * dp &#x3D; k1(p-1) + ed<br>代入ed得<br>e * dp &#x3D; k1(p-1) + 1 + k2(p-1)(q-1)<br>由于两个未知数略显麻烦，发现公因子(p-1)，等式两边同时取余p-1，即可消掉n<br>e * dp ≡ 1 mod (p-1)<br>e * dp &#x3D;k(p-1) + 1<br>得到这个式子后，其实真正意义上的未知数只有我们要求的p，但是还存在一个k。<br>针对k，我们判断一下他的范围，看看能否采用爆破的方式。<br>k &#x3D; (e * dp - 1)&#x2F;(p-1)<br>因为dp &lt; p-1<br>所以k &lt; e<br>通过遍历k然后找到(e * dp - 1)可以整除k的情况即可。<br>(跑了一下发现限制条件还不够)<br>因此再加一个n能否整除p即可。</p>
-<h2><span id="exp">EXP</span></h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> gmpy2</span><br><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> long_to_bytes</span><br><span class="line">e = <span class="number">65537</span></span><br><span class="line">n = <span class="number">248254007851526241177721526698901802985832766176221609612258877371620580060433101538328030305219918697643619814200930679612109885533801335348445023751670478437073055544724280684733298051599167660303645183146161497485358633681492129668802402065797789905550489547645118787266601929429724133167768465309665906113</span></span><br><span class="line">dp = <span class="number">905074498052346904643025132879518330691925174573054004621877253318682675055421970943552016695528560364834446303196939207056642927148093290374440210503657</span></span><br><span class="line">c = <span class="number">140423670976252696807533673586209400575664282100684119784203527124521188996403826597436883766041879067494280957410201958935737360380801845453829293997433414188838725751796261702622028587211560353362847191060306578510511380965162133472698713063592621028959167072781482562673683090590521214218071160287665180751</span></span><br><span class="line"><span class="comment"># p = 13468634736343473907717969603434376212206335187555458742257940406618189481177835992217885676243155145465521141546915941147336786447889325606555333350540003</span></span><br><span class="line"><span class="comment"># q = 18432009829596386103558375461387837845170621179295293289126504231317130550979989727125205467379713835047300158256398009229511746203459540859429194971855371</span></span><br><span class="line"><span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,e):</span><br><span class="line">    <span class="keyword">if</span> (e*dp-<span class="number">1</span>)%k == <span class="number">0</span>:</span><br><span class="line">        p=(e*dp-<span class="number">1</span>)//k + <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> n%p == <span class="number">0</span>:</span><br><span class="line">            <span class="built_in">print</span>(p)</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">q=n//p</span><br><span class="line">phi= (p-<span class="number">1</span>)*(q-<span class="number">1</span>)</span><br><span class="line">d= gmpy2.invert(e,phi)</span><br><span class="line">m=<span class="built_in">pow</span>(c,d,n)</span><br><span class="line"><span class="built_in">print</span>(long_to_bytes(m))</span><br><span class="line"><span class="comment">#flag&#123;wow_leaking_dp_breaks_rsa?_98924743502&#125;</span></span><br></pre></td></tr></table></figure>
-
-<h1><span id="rsa3">RSA3</span></h1><p>给定n、e1、c1、e2、c2。<br>m ≡ c1^e1 mod n<br>m ≡ c2^e2 mod n<br>这里采用共模攻击，详细原理如下：</p>
-<p>扩展欧几里得算法：给定两个整数a、b，必定存在x、y，使得gcd(a,b)&#x3D;ax+by<br>对应到本题当中，由于e1、e2互为素数，因此gcd(e1,e2)&#x3D;1，从而存在s1、s2使得:<br>s1 * e1 + s2 * e2 &#x3D; 1</p>
-<h2><span id="推导过程">推导过程</span></h2><p>m &#x3D; m % n<br>m &#x3D; m^(s1 * e1 + s2 * e2) % n<br>m &#x3D; m^(e1 * s1) * m^(e2 * s2) % n<br>m &#x3D; (m^(e1 * s1) % n) * (m^(e2 * s2) % n) % n<br>m &#x3D; (c1^s1 % n) * (c2^s2 % n) % n</p>
-<h2><span id="exp">EXP</span></h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> gmpy2</span><br><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> long_to_bytes</span><br><span class="line">c1=<span class="number">22322035275663237041646893770451933509324701913484303338076210603542612758956262869640822486470121149424485571361007421293675516338822195280313794991136048140918842471219840263536338886250492682739436410013436651161720725855484866690084788721349555662019879081501113222996123305533009325964377798892703161521852805956811219563883312896330156298621674684353919547558127920925706842808914762199011054955816534977675267395009575347820387073483928425066536361482774892370969520740304287456555508933372782327506569010772537497541764311429052216291198932092617792645253901478910801592878203564861118912045464959832566051361</span></span><br><span class="line">n=<span class="number">22708078815885011462462049064339185898712439277226831073457888403129378547350292420267016551819052430779004755846649044001024141485283286483130702616057274698473611149508798869706347501931583117632710700787228016480127677393649929530416598686027354216422565934459015161927613607902831542857977859612596282353679327773303727004407262197231586324599181983572622404590354084541788062262164510140605868122410388090174420147752408554129789760902300898046273909007852818474030770699647647363015102118956737673941354217692696044969695308506436573142565573487583507037356944848039864382339216266670673567488871508925311154801</span></span><br><span class="line">e1=<span class="number">11187289</span></span><br><span class="line">c2=<span class="number">18702010045187015556548691642394982835669262147230212731309938675226458555210425972429418449273410535387985931036711854265623905066805665751803269106880746769003478900791099590239513925449748814075904017471585572848473556490565450062664706449128415834787961947266259789785962922238701134079720414228414066193071495304612341052987455615930023536823801499269773357186087452747500840640419365011554421183037505653461286732740983702740822671148045619497667184586123657285604061875653909567822328914065337797733444640351518775487649819978262363617265797982843179630888729407238496650987720428708217115257989007867331698397</span></span><br><span class="line">e2=<span class="number">9647291</span></span><br><span class="line"></span><br><span class="line">r,s1,s2=gmpy2.gcdext(e1,e2)</span><br><span class="line">m=(<span class="built_in">pow</span>(c1,s1,n) * <span class="built_in">pow</span>(c2,s2,n)) %n</span><br><span class="line"><span class="built_in">print</span>(long_to_bytes(m))</span><br><span class="line"><span class="comment">#flag&#123;49d91077a1abcb14f1a9d546c80be9ef&#125;</span></span><br></pre></td></tr></table></figure>
-
+        <p>(先表示一下对RNG3:0输掉t1的遗憾，另外，EDG加油)</p>
+<h1><span id="rsa4">RSA4</span></h1><p>题目只给了三组n、c，采用中国剩余定理，具体推导如下</p>
+<h2><span id="推导过程">推导过程</span></h2><p>m^e ≡ c1 mod n1<br>m^e ≡ c2 mod n2<br>m^e ≡ c3 mod n3</p>
+<h3><span id="中国剩余定理crt">中国剩余定理（CRT）</span></h3><p>中国剩余定理的内容是：<br>针对上述方程组，若n1、n2、n3互质，对于任意的c1、c2、c3，方程组都有解，使用条件是m^e &lt; n1、n2、n3。通解形式如下：</p>
+<p>令N &#x3D; n1 * n2 * n3，N1 &#x3D; N&#x2F;n1，N2、N3同理<br>令t1 &#x3D; N1^(-1)，即其对应的模n1运算的逆元，t2，t3同理，可用<code>t1=gmpy2.invert(N1,n1)</code>表示。</p>
+<p>有了Ni和ti的定义，我们就可以给出通解形式：<br>x &#x3D; c1 * N1 * t1 ……<br>有了通解公式我们就可以求出m^e，对e进行一下遍历即可，m开方成功即可。</p>
+<h2><span id="exp">EXP</span></h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> gmpy2</span><br><span class="line"><span class="keyword">from</span> sympy.ntheory.modular <span class="keyword">import</span> crt</span><br><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> long_to_bytes</span><br><span class="line">e = <span class="number">3</span></span><br><span class="line">n1 = <span class="string">&#x27;331310324212000030020214312244232222400142410423413104441140203003243002104333214202031202212403400220031202142322434104143104244241214204444443323000244130122022422310201104411044030113302323014101331214303223312402430402404413033243132101010422240133122211400434023222214231402403403200012221023341333340042343122302113410210110221233241303024431330001303404020104442443120130000334110042432010203401440404010003442001223042211442001413004&#x27;</span></span><br><span class="line">c1 = <span class="string">&#x27;310020004234033304244200421414413320341301002123030311202340222410301423440312412440240244110200112141140201224032402232131204213012303204422003300004011434102141321223311243242010014140422411342304322201241112402132203101131221223004022003120002110230023341143201404311340311134230140231412201333333142402423134333211302102413111111424430032440123340034044314223400401224111323000242234420441240411021023100222003123214343030122032301042243&#x27;</span></span><br><span class="line"></span><br><span class="line">n2 = <span class="string">&#x27;302240000040421410144422133334143140011011044322223144412002220243001141141114123223331331304421113021231204322233120121444434210041232214144413244434424302311222143224402302432102242132244032010020113224011121043232143221203424243134044314022212024343100042342002432331144300214212414033414120004344211330224020301223033334324244031204240122301242232011303211220044222411134403012132420311110302442344021122101224411230002203344140143044114&#x27;</span></span><br><span class="line">c2 = <span class="string">&#x27;112200203404013430330214124004404423210041321043000303233141423344144222343401042200334033203124030011440014210112103234440312134032123400444344144233020130110134042102220302002413321102022414130443041144240310121020100310104334204234412411424420321211112232031121330310333414423433343322024400121200333330432223421433344122023012440013041401423202210124024431040013414313121123433424113113414422043330422002314144111134142044333404112240344&#x27;</span></span><br><span class="line"></span><br><span class="line">n3 = <span class="string">&#x27;332200324410041111434222123043121331442103233332422341041340412034230003314420311333101344231212130200312041044324431141033004333110021013020140020011222012300020041342040004002220210223122111314112124333211132230332124022423141214031303144444134403024420111423244424030030003340213032121303213343020401304243330001314023030121034113334404440421242240113103203013341231330004332040302440011324004130324034323430143102401440130242321424020323&#x27;</span></span><br><span class="line">c3 = <span class="string">&#x27;10013444120141130322433204124002242224332334011124210012440241402342100410331131441303242011002101323040403311120421304422222200324402244243322422444414043342130111111330022213203030324422101133032212042042243101434342203204121042113212104212423330331134311311114143200011240002111312122234340003403312040401043021433112031334324322123304112340014030132021432101130211241134422413442312013042141212003102211300321404043012124332013240431242&#x27;</span></span><br><span class="line">c1=<span class="built_in">int</span>(c1,<span class="number">5</span>)</span><br><span class="line">n1=<span class="built_in">int</span>(n1,<span class="number">5</span>)</span><br><span class="line">c2=<span class="built_in">int</span>(c2,<span class="number">5</span>)</span><br><span class="line">n2=<span class="built_in">int</span>(n2,<span class="number">5</span>)</span><br><span class="line">c3=<span class="built_in">int</span>(c3,<span class="number">5</span>)</span><br><span class="line">n3=<span class="built_in">int</span>(n3,<span class="number">5</span>)</span><br><span class="line">e=<span class="number">3</span></span><br><span class="line">n=[n1,n2,n3]</span><br><span class="line">c=[c1,c2,c3]</span><br><span class="line">resultant,mod= crt(n, c)</span><br><span class="line"><span class="comment"># 有现成的库函数可以调用</span></span><br><span class="line"><span class="built_in">print</span>(gmpy2.iroot(resultant, e))</span><br><span class="line">m=<span class="number">259362307225540148883586283191025214233097658309244310540770399135748418469298031742173624766441014006294782333</span></span><br><span class="line"><span class="built_in">print</span>(long_to_bytes(m))</span><br><span class="line"><span class="comment">#noxCTF&#123;D4mn_y0u_h4s74d_wh47_4_b100dy_b4s74rd!&#125;</span></span><br></pre></td></tr></table></figure>
       
     </div>
     <div class="article-footer">
@@ -413,7 +411,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="http://example.com/2022/10/21/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B020221021/" title="BUU刷题日记20221021" target="_blank" rel="external">http://example.com/2022/10/21/BUU刷题日记20221021/</a>
+      <a href="http://example.com/2022/10/22/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B020221022/" title="BUU刷题日记20221022" target="_blank" rel="external">http://example.com/2022/10/22/BUU刷题日记20221022/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -459,13 +457,9 @@
   
   <ul class="pager pull-left">
     
-    <li class="prev">
-      <a href="/2022/10/22/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B020221022/" title="BUU刷题日记20221022"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
-    </li>
-    
     
     <li class="next">
-      <a href="/2022/10/20/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B020221020/" title="BUU刷题日记20221020"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/2022/10/21/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B020221021/" title="BUU刷题日记20221021"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     
