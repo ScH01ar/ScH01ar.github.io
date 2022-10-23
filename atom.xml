@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-10-22T12:47:51.674Z</updated>
+  <updated>2022-10-23T15:02:33.251Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>2022 DASCTF 10月挑战赛wp</title>
+    <link href="http://example.com/2022/10/23/2022DASCTF10%E6%9C%88%E6%8C%91%E6%88%98%E8%B5%9Bwp/"/>
+    <id>http://example.com/2022/10/23/2022DASCTF10%E6%9C%88%E6%8C%91%E6%88%98%E8%B5%9Bwp/</id>
+    <published>2022-10-22T16:00:00.000Z</published>
+    <updated>2022-10-23T15:02:33.251Z</updated>
+    
+    <content type="html"><![CDATA[<h1><span id="rsa">RSA</span></h1>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1&gt;&lt;span id=&quot;rsa&quot;&gt;RSA&lt;/span&gt;&lt;/h1&gt;</summary>
+      
+    
+    
+    
+    <category term="CTF" scheme="http://example.com/categories/CTF/"/>
+    
+    
+    <category term="wp" scheme="http://example.com/tags/wp/"/>
+    
+  </entry>
   
   <entry>
     <title>BUU刷题日记20221022</title>
@@ -93,6 +117,30 @@
   </entry>
   
   <entry>
+    <title>2022BUUCTF新生赛-RSA</title>
+    <link href="http://example.com/2022/10/16/2022BUUCTF%E6%96%B0%E7%94%9F%E8%B5%9B-RSA/"/>
+    <id>http://example.com/2022/10/16/2022BUUCTF%E6%96%B0%E7%94%9F%E8%B5%9B-RSA/</id>
+    <published>2022-10-15T16:00:00.000Z</published>
+    <updated>2022-10-21T02:17:55.524Z</updated>
+    
+    <content type="html"><![CDATA[<h1><span id="题目源码">题目源码</span></h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">import</span> gmpy2</span><br><span class="line"></span><br><span class="line">m = bytes_to_long(flag)</span><br><span class="line">p = getPrime(<span class="number">512</span>)</span><br><span class="line">q = getPrime(<span class="number">512</span>)</span><br><span class="line">n = p * p * q</span><br><span class="line">e = <span class="number">0x10001</span></span><br><span class="line">d = inverse(e, p * (p-<span class="number">1</span>) * (q-<span class="number">1</span>))</span><br><span class="line"><span class="keyword">assert</span> m &lt; n</span><br><span class="line">c = <span class="built_in">pow</span>(m, e, n)</span><br><span class="line">hint = <span class="built_in">pow</span>(d, e, n)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&#x27;c = <span class="subst">&#123;c&#125;</span>&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&#x27;hint = <span class="subst">&#123;hint&#125;</span>&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&#x27;n = <span class="subst">&#123;n&#125;</span>&#x27;</span>)</span><br><span class="line"><span class="comment">#c = 295390424904695335160238045484482823778874523176268561514416832384667341911461624807479360352155340771798064104910086195729675369023485015714514440154903376061747094964841316582559859939271083212458383263813162552258150862316694340739316654325015871916752667846321388549685578217102034863664378037876690856340358410405404601972377258035410485778168718251025950362254734939336524237028597772764421048442121802994478847811235518434239824115849516645106981074204342</span></span><br><span class="line"><span class="comment">#hint = 381689393821386814936953643422859595359427105930487728052490073810065861656721298489533943537291889430179955685768552743683931382858386278229412048061640902207419922278984960983464060741314251570306423515751064678573919676919458734440112312205062810416467534525851481716577433432802746104452081670842385746300503903217917867773267569384218933894515975838815295351900841003897643955266573211223356519224254883905741607839206824725522319870208594077622555096443077</span></span><br><span class="line"><span class="comment">#n = 1330047950007581682981905423145560321016033324862143764072994099149659943994269827526733343998097272206411640734177032076844564188190644548214106206913310385320478977860962140014336074250277764844699709526956803401392604949854612016074894825128737598849968249437120905834713554348840283463250157701334045079523107114507765969484185723955713386597151991074970735613177368468450679646585239506590480790958808030534070060413924423517044064816910208776798401702408317</span></span><br></pre></td></tr></table></figure><h1><span id="题目分析">题目分析</span></h1><p>发现n和phin都不常规，没入手点，发现hint，hint&#x3D;pow(d,e,n)，有趣，用d做明文，尝试推理一下：<br>d &#x3D; pow(hint,d,n)<br>d &#x3D; pow((d ** e % n),d,n)<br>d &#x3D; (d ** e % n) ** d % n<br>d &#x3D; d ** (e*d) % n<br>d &#x3D; pow(d ** e,d,n)<br>把d ** e再次看做密文，可得<br>d ** e &#x3D; pow(d,e,n)<br>因为hint &#x3D; pow(d,e,n)<br>可得hint &#x3D; d ** e<br>d ** e * e ** e-&gt;(ed) ** e-&gt;(ed) ** e &#x3D;&#x3D; 1 mod phin<br>因此根据e和hint即可求得phin<br>从而得到phin和n的最大公约数p<br>脚本如下</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">import</span> gmpy2</span><br><span class="line"><span class="keyword">import</span> math</span><br><span class="line">e = <span class="number">0x10001</span></span><br><span class="line">c = <span class="number">295390424904695335160238045484482823778874523176268561514416832384667341911461624807479360352155340771798064104910086195729675369023485015714514440154903376061747094964841316582559859939271083212458383263813162552258150862316694340739316654325015871916752667846321388549685578217102034863664378037876690856340358410405404601972377258035410485778168718251025950362254734939336524237028597772764421048442121802994478847811235518434239824115849516645106981074204342</span></span><br><span class="line">hint = <span class="number">381689393821386814936953643422859595359427105930487728052490073810065861656721298489533943537291889430179955685768552743683931382858386278229412048061640902207419922278984960983464060741314251570306423515751064678573919676919458734440112312205062810416467534525851481716577433432802746104452081670842385746300503903217917867773267569384218933894515975838815295351900841003897643955266573211223356519224254883905741607839206824725522319870208594077622555096443077</span></span><br><span class="line">n = <span class="number">1330047950007581682981905423145560321016033324862143764072994099149659943994269827526733343998097272206411640734177032076844564188190644548214106206913310385320478977860962140014336074250277764844699709526956803401392604949854612016074894825128737598849968249437120905834713554348840283463250157701334045079523107114507765969484185723955713386597151991074970735613177368468450679646585239506590480790958808030534070060413924423517044064816910208776798401702408317</span></span><br><span class="line">p=math.gcd((hint*<span class="built_in">pow</span>(e,e) -<span class="number">1</span>),n)</span><br><span class="line">q=n//(p**<span class="number">2</span>)</span><br><span class="line">phi=p*(p-<span class="number">1</span>)*(q-<span class="number">1</span>)</span><br><span class="line">d=gmpy2.invert(e,phi)</span><br><span class="line">m=<span class="built_in">pow</span>(c,d,n)</span><br><span class="line"><span class="built_in">print</span>(long_to_bytes(m))</span><br><span class="line"><span class="comment">#flag&#123;43075d24-77a7-4f57-ae89-54fe4f96db69&#125;</span></span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1&gt;&lt;span id=&quot;题目源码&quot;&gt;题目源码&lt;/span&gt;&lt;/h1&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span</summary>
+      
+    
+    
+    
+    <category term="CTF" scheme="http://example.com/categories/CTF/"/>
+    
+    
+    <category term="wp" scheme="http://example.com/tags/wp/"/>
+    
+  </entry>
+  
+  <entry>
     <title>2021ByteCTF-easyxor</title>
     <link href="http://example.com/2022/10/16/2021ByteCTF-easyxor/"/>
     <id>http://example.com/2022/10/16/2021ByteCTF-easyxor/</id>
@@ -106,30 +154,6 @@
       
     <summary type="html">&lt;p&gt;[TOC]&lt;/p&gt;
 &lt;h1&gt;&lt;span id=&quot;题目源码如下&quot;&gt;题目源码如下&lt;/span&gt;&lt;/h1&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;</summary>
-      
-    
-    
-    
-    <category term="CTF" scheme="http://example.com/categories/CTF/"/>
-    
-    
-    <category term="wp" scheme="http://example.com/tags/wp/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>2022BUUCTF新生赛-RSA</title>
-    <link href="http://example.com/2022/10/16/2022BUUCTF%E6%96%B0%E7%94%9F%E8%B5%9B-RSA/"/>
-    <id>http://example.com/2022/10/16/2022BUUCTF%E6%96%B0%E7%94%9F%E8%B5%9B-RSA/</id>
-    <published>2022-10-15T16:00:00.000Z</published>
-    <updated>2022-10-21T02:17:55.524Z</updated>
-    
-    <content type="html"><![CDATA[<h1><span id="题目源码">题目源码</span></h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">import</span> gmpy2</span><br><span class="line"></span><br><span class="line">m = bytes_to_long(flag)</span><br><span class="line">p = getPrime(<span class="number">512</span>)</span><br><span class="line">q = getPrime(<span class="number">512</span>)</span><br><span class="line">n = p * p * q</span><br><span class="line">e = <span class="number">0x10001</span></span><br><span class="line">d = inverse(e, p * (p-<span class="number">1</span>) * (q-<span class="number">1</span>))</span><br><span class="line"><span class="keyword">assert</span> m &lt; n</span><br><span class="line">c = <span class="built_in">pow</span>(m, e, n)</span><br><span class="line">hint = <span class="built_in">pow</span>(d, e, n)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&#x27;c = <span class="subst">&#123;c&#125;</span>&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&#x27;hint = <span class="subst">&#123;hint&#125;</span>&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&#x27;n = <span class="subst">&#123;n&#125;</span>&#x27;</span>)</span><br><span class="line"><span class="comment">#c = 295390424904695335160238045484482823778874523176268561514416832384667341911461624807479360352155340771798064104910086195729675369023485015714514440154903376061747094964841316582559859939271083212458383263813162552258150862316694340739316654325015871916752667846321388549685578217102034863664378037876690856340358410405404601972377258035410485778168718251025950362254734939336524237028597772764421048442121802994478847811235518434239824115849516645106981074204342</span></span><br><span class="line"><span class="comment">#hint = 381689393821386814936953643422859595359427105930487728052490073810065861656721298489533943537291889430179955685768552743683931382858386278229412048061640902207419922278984960983464060741314251570306423515751064678573919676919458734440112312205062810416467534525851481716577433432802746104452081670842385746300503903217917867773267569384218933894515975838815295351900841003897643955266573211223356519224254883905741607839206824725522319870208594077622555096443077</span></span><br><span class="line"><span class="comment">#n = 1330047950007581682981905423145560321016033324862143764072994099149659943994269827526733343998097272206411640734177032076844564188190644548214106206913310385320478977860962140014336074250277764844699709526956803401392604949854612016074894825128737598849968249437120905834713554348840283463250157701334045079523107114507765969484185723955713386597151991074970735613177368468450679646585239506590480790958808030534070060413924423517044064816910208776798401702408317</span></span><br></pre></td></tr></table></figure><h1><span id="题目分析">题目分析</span></h1><p>发现n和phin都不常规，没入手点，发现hint，hint&#x3D;pow(d,e,n)，有趣，用d做明文，尝试推理一下：<br>d &#x3D; pow(hint,d,n)<br>d &#x3D; pow((d ** e % n),d,n)<br>d &#x3D; (d ** e % n) ** d % n<br>d &#x3D; d ** (e*d) % n<br>d &#x3D; pow(d ** e,d,n)<br>把d ** e再次看做密文，可得<br>d ** e &#x3D; pow(d,e,n)<br>因为hint &#x3D; pow(d,e,n)<br>可得hint &#x3D; d ** e<br>d ** e * e ** e-&gt;(ed) ** e-&gt;(ed) ** e &#x3D;&#x3D; 1 mod phin<br>因此根据e和hint即可求得phin<br>从而得到phin和n的最大公约数p<br>脚本如下</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">import</span> gmpy2</span><br><span class="line"><span class="keyword">import</span> math</span><br><span class="line">e = <span class="number">0x10001</span></span><br><span class="line">c = <span class="number">295390424904695335160238045484482823778874523176268561514416832384667341911461624807479360352155340771798064104910086195729675369023485015714514440154903376061747094964841316582559859939271083212458383263813162552258150862316694340739316654325015871916752667846321388549685578217102034863664378037876690856340358410405404601972377258035410485778168718251025950362254734939336524237028597772764421048442121802994478847811235518434239824115849516645106981074204342</span></span><br><span class="line">hint = <span class="number">381689393821386814936953643422859595359427105930487728052490073810065861656721298489533943537291889430179955685768552743683931382858386278229412048061640902207419922278984960983464060741314251570306423515751064678573919676919458734440112312205062810416467534525851481716577433432802746104452081670842385746300503903217917867773267569384218933894515975838815295351900841003897643955266573211223356519224254883905741607839206824725522319870208594077622555096443077</span></span><br><span class="line">n = <span class="number">1330047950007581682981905423145560321016033324862143764072994099149659943994269827526733343998097272206411640734177032076844564188190644548214106206913310385320478977860962140014336074250277764844699709526956803401392604949854612016074894825128737598849968249437120905834713554348840283463250157701334045079523107114507765969484185723955713386597151991074970735613177368468450679646585239506590480790958808030534070060413924423517044064816910208776798401702408317</span></span><br><span class="line">p=math.gcd((hint*<span class="built_in">pow</span>(e,e) -<span class="number">1</span>),n)</span><br><span class="line">q=n//(p**<span class="number">2</span>)</span><br><span class="line">phi=p*(p-<span class="number">1</span>)*(q-<span class="number">1</span>)</span><br><span class="line">d=gmpy2.invert(e,phi)</span><br><span class="line">m=<span class="built_in">pow</span>(c,d,n)</span><br><span class="line"><span class="built_in">print</span>(long_to_bytes(m))</span><br><span class="line"><span class="comment">#flag&#123;43075d24-77a7-4f57-ae89-54fe4f96db69&#125;</span></span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1&gt;&lt;span id=&quot;题目源码&quot;&gt;题目源码&lt;/span&gt;&lt;/h1&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span</summary>
       
     
     
