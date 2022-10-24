@@ -18,12 +18,12 @@
   
   
   <title>BUU刷题日记20221020 | Y&#39;s Blog</title>
-  <meta name="description" content="RSA1给定dp、dq类型dp ≡ d mod (p-1)dq ≡ d mod (q-1)m ≡ c^d^ mod n $$ m &#x3D; c^d^ + k * n $$m &#x3D; c^d^ +k * p * q对上式两端同时对p、q分别取余，得：（中国剩余定理）m1 ≡ c^d^ mod pm2 ≡ c^d^ mod q同理，可得到c^d^ &#x3D; m1 +k * p代入到 m2">
+  <meta name="description" content="RSA1 给定dp、dq类型 dp ≡ d mod (p-1) dq ≡ d mod (q-1) m ≡ cd mod n $$ m &#x3D; cd + k * n $$ m &#x3D; cd +k * p * q 对上式两端同时对p、q分别取余，得：（中国剩余定理） m1 ≡ cd mod p m2 ≡ cd mod q 同理，可得到 cd &#x3D; m1 +k * p 代入到 m2 ≡ cd mod q 中： m">
 <meta property="og:type" content="article">
 <meta property="og:title" content="BUU刷题日记20221020">
 <meta property="og:url" content="http://example.com/2022/10/20/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B020221020/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="RSA1给定dp、dq类型dp ≡ d mod (p-1)dq ≡ d mod (q-1)m ≡ c^d^ mod n $$ m &#x3D; c^d^ + k * n $$m &#x3D; c^d^ +k * p * q对上式两端同时对p、q分别取余，得：（中国剩余定理）m1 ≡ c^d^ mod pm2 ≡ c^d^ mod q同理，可得到c^d^ &#x3D; m1 +k * p代入到 m2">
+<meta property="og:description" content="RSA1 给定dp、dq类型 dp ≡ d mod (p-1) dq ≡ d mod (q-1) m ≡ cd mod n $$ m &#x3D; cd + k * n $$ m &#x3D; cd +k * p * q 对上式两端同时对p、q分别取余，得：（中国剩余定理） m1 ≡ cd mod p m2 ≡ cd mod q 同理，可得到 cd &#x3D; m1 +k * p 代入到 m2 ≡ cd mod q 中： m">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-10-19T16:00:00.000Z">
 <meta property="article:modified_time" content="2022-10-21T02:17:03.606Z">
@@ -396,17 +396,40 @@
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h1><span id="rsa1">RSA1</span></h1><p>给定dp、dq类型<br>dp ≡ d mod (p-1)<br>dq ≡ d mod (q-1)<br>m ≡ c^d^ mod n</p>
-<p>$$ m &#x3D; c^d^ + k * n $$<br>m &#x3D; c^d^ +k * p * q<br>对上式两端同时对p、q分别取余，得：（中国剩余定理）<br>m1 ≡ c^d^ mod p<br>m2 ≡ c^d^ mod q<br>同理，可得到<br>c^d^ &#x3D; m1 +k * p<br>代入到 m2 ≡ c^d^ mod q 中：<br>m2 ≡ (m1 + k * p)mod q ，两端减去m1得<br>m2 - m1 ≡ k * p mod q ，两端乘p的逆元得<br>(m2 - m1)p^-1^ ≡ k mod q<br>将k代入到 c^d^ &#x3D; m1 +k * p 中得：<br>c^d^ &#x3D; m1 + ((m2 - m1)p^-1^ mod q) * p<br>m&#x3D;c^d^ mod n<br>得到<br>m ≡ (((m2 - m1) * p^-1^ mod q) * p + m1) mod n<br>接下来就是求解m1，m2<br>m1 ≡ c^dp+k*(p-1)^ mod p<br>m2 ≡ c^dq+k*(q-1)^ mod q<br>根据费马小定理<br>若p是素数，则a^(p-1)^ ≡ 1 mod p<br>因此 m1 ≡ c^dp^ mod p，m2 ≡ c^dq^ mod q<br>最终可求得m</p>
-<h2><span id="exp">exp</span></h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> gmpy2</span><br><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> long_to_bytes</span><br><span class="line">p = <span class="number">8637633767257008567099653486541091171320491509433615447539162437911244175885667806398411790524083553445158113502227745206205327690939504032994699902053229</span></span><br><span class="line">q = <span class="number">12640674973996472769176047937170883420927050821480010581593137135372473880595613737337630629752577346147039284030082593490776630572584959954205336880228469</span></span><br><span class="line">dp = <span class="number">6500795702216834621109042351193261530650043841056252930930949663358625016881832840728066026150264693076109354874099841380454881716097778307268116910582929</span></span><br><span class="line">dq = <span class="number">783472263673553449019532580386470672380574033551303889137911760438881683674556098098256795673512201963002175438762767516968043599582527539160811120550041</span></span><br><span class="line">c = <span class="number">24722305403887382073567316467649080662631552905960229399079107995602154418176056335800638887527614164073530437657085079676157350205351945222989351316076486573599576041978339872265925062764318536089007310270278526159678937431903862892400747915525118983959970607934142974736675784325993445942031372107342103852</span></span><br><span class="line">m1=<span class="built_in">pow</span>(c,dp,p)</span><br><span class="line">m2=<span class="built_in">pow</span>(c,dq,q)</span><br><span class="line">n=p*q</span><br><span class="line">p0=gmpy2.invert(p,q)</span><br><span class="line">m=(((m2-m1)*p0 % q)* p +m1)%n</span><br><span class="line"><span class="built_in">print</span>(long_to_bytes(m))</span><br><span class="line"><span class="comment">#noxCTF&#123;W31c0m3_70_Ch1n470wn&#125;</span></span><br></pre></td></tr></table></figure>
-
-<h1><span id="rsaroll">RSAROLL</span></h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">RSA roll！roll！roll！</span><br><span class="line">Only number and a-z</span><br><span class="line">（don&#x27;t use editor</span><br><span class="line">which MS provide）</span><br></pre></td></tr></table></figure>
+        <h1><span id="rsa1">RSA1</span></h1>
+<p>给定dp、dq类型<br>
+dp ≡ d mod (p-1)<br>
+dq ≡ d mod (q-1)<br>
+m ≡ c<sup>d</sup> mod n</p>
+<p>$$ m = c<sup>d</sup> + k * n $$<br>
+m = c<sup>d</sup> +k * p * q<br>
+对上式两端同时对p、q分别取余，得：（中国剩余定理）<br>
+m1 ≡ c<sup>d</sup> mod p<br>
+m2 ≡ c<sup>d</sup> mod q<br>
+同理，可得到<br>
+c<sup>d</sup> = m1 +k * p<br>
+代入到 m2 ≡ c<sup>d</sup> mod q 中：<br>
+m2 ≡ (m1 + k * p)mod q ，两端减去m1得<br>
+m2 - m1 ≡ k * p mod q ，两端乘p的逆元得<br>
+(m2 - m1)p<sup>-1</sup> ≡ k mod q<br>
+将k代入到 c<sup>d</sup> = m1 +k * p 中得：<br>
+c<sup>d</sup> = m1 + ((m2 - m1)p<sup>-1</sup> mod q) * p<br>
+m=c<sup>d</sup> mod n<br>
+得到<br>
+m ≡ (((m2 - m1) * p<sup>-1</sup> mod q) * p + m1) mod n<br>
+接下来就是求解m1，m2<br>
+m1 ≡ c<sup>dp+k*(p-1)</sup> mod p<br>
+m2 ≡ c<sup>dq+k*(q-1)</sup> mod q<br>
+根据费马小定理<br>
+若p是素数，则a<sup>(p-1)</sup> ≡ 1 mod p<br>
+因此 m1 ≡ c<sup>dp</sup> mod p，m2 ≡ c<sup>dq</sup> mod q<br>
+最终可求得m</p>
+<h2><span id="exp">exp</span></h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> gmpy2</span><br><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> long_to_bytes</span><br><span class="line">p = <span class="number">8637633767257008567099653486541091171320491509433615447539162437911244175885667806398411790524083553445158113502227745206205327690939504032994699902053229</span></span><br><span class="line">q = <span class="number">12640674973996472769176047937170883420927050821480010581593137135372473880595613737337630629752577346147039284030082593490776630572584959954205336880228469</span></span><br><span class="line">dp = <span class="number">6500795702216834621109042351193261530650043841056252930930949663358625016881832840728066026150264693076109354874099841380454881716097778307268116910582929</span></span><br><span class="line">dq = <span class="number">783472263673553449019532580386470672380574033551303889137911760438881683674556098098256795673512201963002175438762767516968043599582527539160811120550041</span></span><br><span class="line">c = <span class="number">24722305403887382073567316467649080662631552905960229399079107995602154418176056335800638887527614164073530437657085079676157350205351945222989351316076486573599576041978339872265925062764318536089007310270278526159678937431903862892400747915525118983959970607934142974736675784325993445942031372107342103852</span></span><br><span class="line">m1=<span class="built_in">pow</span>(c,dp,p)</span><br><span class="line">m2=<span class="built_in">pow</span>(c,dq,q)</span><br><span class="line">n=p*q</span><br><span class="line">p0=gmpy2.invert(p,q)</span><br><span class="line">m=(((m2-m1)*p0 % q)* p +m1)%n</span><br><span class="line"><span class="built_in">print</span>(long_to_bytes(m))</span><br><span class="line"><span class="comment">#noxCTF&#123;W31c0m3_70_Ch1n470wn&#125;</span></span><br></pre></td></tr></table></figure>
+<h1><span id="rsaroll">RSAROLL</span></h1>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">RSA roll！roll！roll！</span><br><span class="line">Only number and a-z</span><br><span class="line">（don&#x27;t use editor</span><br><span class="line">which MS provide）</span><br></pre></td></tr></table></figure>
 <p>给了一个data.txt文件，打开盲猜一下第一行是n，e，后面是c</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> gmpy2</span><br><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> long_to_bytes</span><br><span class="line">n = <span class="number">920139713</span></span><br><span class="line">e = <span class="number">19</span></span><br><span class="line">p=<span class="number">18443</span></span><br><span class="line">q=<span class="number">49891</span></span><br><span class="line">phi =(p-<span class="number">1</span>)*(q-<span class="number">1</span>)</span><br><span class="line">d=gmpy2.invert(e,phi)</span><br><span class="line">c=[<span class="number">704796792</span>,<span class="number">752211152</span>,<span class="number">274704164</span>,<span class="number">18414022</span>,<span class="number">368270835</span>,<span class="number">483295235</span>,<span class="number">263072905</span>,<span class="number">459788476</span>,<span class="number">483295235</span>,<span class="number">459788476</span>,<span class="number">663551792</span>,<span class="number">475206804</span>,<span class="number">459788476</span>,<span class="number">428313374</span>,<span class="number">475206804</span>,<span class="number">459788476</span>,<span class="number">425392137</span>,<span class="number">704796792</span>,<span class="number">458265677</span>,<span class="number">341524652</span>,<span class="number">483295235</span>,<span class="number">534149509</span>,<span class="number">425392137</span>,<span class="number">428313374</span>,<span class="number">425392137</span>,<span class="number">341524652</span>,<span class="number">458265677</span>,<span class="number">263072905</span>,<span class="number">483295235</span>,<span class="number">828509797</span>,<span class="number">341524652</span>,<span class="number">425392137</span>,<span class="number">475206804</span>,<span class="number">428313374</span>,<span class="number">483295235</span>,<span class="number">475206804</span>,<span class="number">459788476</span>,<span class="number">306220148</span>,</span><br><span class="line">]</span><br><span class="line">m=[]</span><br><span class="line">flag=<span class="string">b&#x27;&#x27;</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span> (<span class="built_in">len</span>(c)):</span><br><span class="line">    m.append(<span class="built_in">pow</span>(c[i],d,n))</span><br><span class="line">    flag+=long_to_bytes(m[i])</span><br><span class="line"><span class="built_in">print</span>(flag)</span><br><span class="line"><span class="comment">#flag&#123;13212je2ue28fy71w8u87y31r78eu1e2&#125;</span></span><br></pre></td></tr></table></figure>
-
-
-
-
 
       
     </div>
