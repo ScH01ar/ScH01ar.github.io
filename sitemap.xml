@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://sch01ar.github.io/2022/10/31/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%E7%AE%97%E6%B3%95/</loc>
+    
+    <lastmod>2022-10-31</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://sch01ar.github.io/2022/10/30/2022-10-30-2022%E7%A5%A5%E4%BA%91%E6%9D%AFwp-crypto/</loc>
     
     <lastmod>2022-10-30</lastmod>
@@ -101,25 +110,7 @@
   </url>
   
   <url>
-    <loc>https://sch01ar.github.io/books/index.html</loc>
-    
-    <lastmod>2022-10-15</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://sch01ar.github.io/links/index.html</loc>
-    
-    <lastmod>2022-10-15</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://sch01ar.github.io/categories/index.html</loc>
+    <loc>https://sch01ar.github.io/tags/index.html</loc>
     
     <lastmod>2022-10-15</lastmod>
     
@@ -137,7 +128,25 @@
   </url>
   
   <url>
-    <loc>https://sch01ar.github.io/tags/index.html</loc>
+    <loc>https://sch01ar.github.io/categories/index.html</loc>
+    
+    <lastmod>2022-10-15</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://sch01ar.github.io/links/index.html</loc>
+    
+    <lastmod>2022-10-15</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://sch01ar.github.io/books/index.html</loc>
     
     <lastmod>2022-10-15</lastmod>
     
@@ -157,7 +166,7 @@
 
   <url>
     <loc>https://sch01ar.github.io/</loc>
-    <lastmod>2022-10-30</lastmod>
+    <lastmod>2022-10-31</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -165,21 +174,28 @@
   
   <url>
     <loc>https://sch01ar.github.io/tags/wp/</loc>
-    <lastmod>2022-10-30</lastmod>
+    <lastmod>2022-10-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://sch01ar.github.io/tags/diary/</loc>
-    <lastmod>2022-10-30</lastmod>
+    <lastmod>2022-10-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://sch01ar.github.io/tags/%E9%9D%9E%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86-%E7%AE%97%E6%B3%95/</loc>
+    <lastmod>2022-10-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://sch01ar.github.io/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</loc>
-    <lastmod>2022-10-30</lastmod>
+    <lastmod>2022-10-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -188,14 +204,14 @@
   
   <url>
     <loc>https://sch01ar.github.io/categories/CTF/</loc>
-    <lastmod>2022-10-30</lastmod>
+    <lastmod>2022-10-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://sch01ar.github.io/categories/%E5%BB%BA%E7%AB%99/</loc>
-    <lastmod>2022-10-30</lastmod>
+    <lastmod>2022-10-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
