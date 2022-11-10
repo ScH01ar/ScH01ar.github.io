@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>二叉树建立与遍历 | Y&#39;s Blog</title>
+  <meta name="description" content="网上很多算法通过直接将二叉树结点连接，从而构成二叉树，这里我构建了一个二叉树类，通过用户控制输入来建立二叉树。 有层序遍历，递归、非递归的前序遍历、中序遍历、后序遍历算法。 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061">
+<meta property="og:type" content="article">
+<meta property="og:title" content="二叉树建立与遍历">
+<meta property="og:url" content="https://sch01ar.github.io/2022/11/10/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%BB%BA%E7%AB%8B%E4%B8%8E%E9%81%8D%E5%8E%86/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="网上很多算法通过直接将二叉树结点连接，从而构成二叉树，这里我构建了一个二叉树类，通过用户控制输入来建立二叉树。 有层序遍历，递归、非递归的前序遍历、中序遍历、后序遍历算法。 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-11-09T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-11-10T01:32:40.284Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="二叉树">
+<meta name="twitter:card" content="summary">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://sch01ar.github.io/2022/11/10/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%BB%BA%E7%AB%8B%E4%B8%8E%E9%81%8D%E5%8E%86/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/y.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/Sch01ar" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">yy</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">Time tells</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Dalian, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">项目</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="/books">
+            
+            <i class="icon icon-book-fill"></i>
+            
+            <span class="menu-title">书单</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">友链</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/Sch01ar" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>欢迎交流与分享经验!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CTF/">CTF</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BB%BA%E7%AB%99/">建站</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">数据结构与算法</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/diary/" rel="tag">diary</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wp/" rel="tag">wp</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/" rel="tag">二叉树</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" rel="tag">博客搭建</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%9E%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86-%E7%AE%97%E6%B3%95/" rel="tag">非对称加密 算法</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/diary/" style="font-size: 13.5px;">diary</a> <a href="/tags/wp/" style="font-size: 14px;">wp</a> <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/" style="font-size: 13px;">二叉树</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="font-size: 13px;">博客搭建</a> <a href="/tags/%E9%9D%9E%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86-%E7%AE%97%E6%B3%95/" style="font-size: 13px;">非对称加密 算法</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">十一月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">十月 2022</a><span class="archive-list-count">12</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">数据结构与算法</a>
+              </p>
+              <p class="item-title">
+                <a href="/2022/11/10/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%BB%BA%E7%AB%8B%E4%B8%8E%E9%81%8D%E5%8E%86/" class="title">二叉树建立与遍历</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-11-09T16:00:00.000Z" itemprop="datePublished">2022-11-10</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/CTF/">CTF</a>
+              </p>
+              <p class="item-title">
+                <a href="/2022/10/31/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%E7%AE%97%E6%B3%95/" class="title">背包加密算法</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-10-30T16:00:00.000Z" itemprop="datePublished">2022-10-31</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/CTF/">CTF</a>
+              </p>
+              <p class="item-title">
+                <a href="/2022/10/30/2022-10-30-2022%E7%A5%A5%E4%BA%91%E6%9D%AFwp-crypto/" class="title">2022祥云杯wp-crypto</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-10-29T16:00:00.000Z" itemprop="datePublished">2022-10-30</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/CTF/">CTF</a>
+              </p>
+              <p class="item-title">
+                <a href="/2022/10/27/2022NewStarCTF-flip_flop/" class="title">2022NewStarCTF-flip_flop</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-10-26T16:00:00.000Z" itemprop="datePublished">2022-10-27</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/CTF/">CTF</a>
+              </p>
+              <p class="item-title">
+                <a href="/2022/10/26/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B020221026/" class="title">BUU刷题日记20221026</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-10-25T16:00:00.000Z" itemprop="datePublished">2022-10-26</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+  <aside class="sidebar sidebar-toc collapse   in  " id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <nav id="toc" class="article-toc">
+      <h3 class="toc-title">文章目录</h3>
+      
+    </nav>
+  </div>
+</aside>
+
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-二叉树建立与遍历" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      二叉树建立与遍历
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2022/11/10/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%BB%BA%E7%AB%8B%E4%B8%8E%E9%81%8D%E5%8E%86/" class="article-date">
+	  <time datetime="2022-11-09T16:00:00.000Z" itemprop="datePublished">2022-11-10</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">数据结构与算法</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/" rel="tag">二叉树</a>
+  </span>
+
+
+        
+	<span class="article-read hidden-xs">
+	    <i class="icon icon-eye-fill" aria-hidden="true"></i>
+	    <span id="busuanzi_container_page_pv">
+			<span id="busuanzi_value_page_pv">0</span>
+		</span>
+	</span>
+
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2022/11/10/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%BB%BA%E7%AB%8B%E4%B8%8E%E9%81%8D%E5%8E%86/#comments" class="article-comment-link">评论</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <p>网上很多算法通过直接将二叉树结点连接，从而构成二叉树，这里我构建了一个二叉树类，通过用户控制输入来建立二叉树。</p>
+<p>有层序遍历，递归、非递归的前序遍历、中序遍历、后序遍历算法。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Binarytreenode</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">        <span class="type">int</span> data;</span><br><span class="line">        Binarytreenode *leftchild;</span><br><span class="line">        Binarytreenode *rightchild;</span><br><span class="line">        <span class="built_in">Binarytreenode</span>()&#123;&#125;;</span><br><span class="line">        <span class="built_in">Binarytreenode</span>(<span class="type">const</span> <span class="type">int</span> &amp;a,Binarytreenode *l=<span class="literal">NULL</span>,Binarytreenode*r=<span class="literal">NULL</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">this</span>-&gt;data=a;</span><br><span class="line">            <span class="keyword">this</span>-&gt;leftchild=l;</span><br><span class="line">            <span class="keyword">this</span>-&gt;rightchild=r;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">BinaryTree</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">private</span>:</span><br><span class="line">        </span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">        Binarytreenode *root;</span><br><span class="line">        <span class="built_in">BinaryTree</span>()&#123;root =<span class="keyword">new</span>  Binarytreenode;&#125;;</span><br><span class="line">        ~<span class="built_in">BinaryTree</span>()&#123;<span class="keyword">delete</span>[]root;&#125;</span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">visit</span><span class="params">(Binarytreenode*t)</span></span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            cout&lt;&lt;t-&gt;data&lt;&lt;<span class="string">&quot; &quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function">Binarytreenode* <span class="title">creatTree</span><span class="params">(Binarytreenode* temp)</span></span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            <span class="type">int</span> n;</span><br><span class="line">            cout&lt;&lt;<span class="string">&quot;请输入2叉树结点的值,输入-1以表示停止创建某子树&quot;</span>&lt;&lt;endl;</span><br><span class="line">            cin&gt;&gt;n;</span><br><span class="line">            <span class="keyword">if</span>(n==<span class="number">-1</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                temp = <span class="keyword">new</span> Binarytreenode;</span><br><span class="line">                temp-&gt;data=n;</span><br><span class="line">                temp-&gt;leftchild=<span class="built_in">creatTree</span>(temp-&gt;leftchild);</span><br><span class="line">                temp-&gt;rightchild=<span class="built_in">creatTree</span>(temp-&gt;rightchild);</span><br><span class="line">                &#125;</span><br><span class="line">            root=temp;</span><br><span class="line">            <span class="keyword">return</span> root;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">levelOrder</span><span class="params">()</span></span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            queue &lt;Binarytreenode *&gt; nodeQueue;</span><br><span class="line">            Binarytreenode *p=root;</span><br><span class="line">            <span class="keyword">if</span> (p)</span><br><span class="line">                nodeQueue.<span class="built_in">push</span>(p);</span><br><span class="line">            <span class="keyword">while</span>(!nodeQueue.<span class="built_in">empty</span>())</span><br><span class="line">            &#123;</span><br><span class="line">                p=nodeQueue.<span class="built_in">front</span>();</span><br><span class="line">                <span class="built_in">visit</span>(p);</span><br><span class="line">                nodeQueue.<span class="built_in">pop</span>();</span><br><span class="line">                <span class="keyword">if</span> (p-&gt;leftchild)</span><br><span class="line">                &#123;</span><br><span class="line">                    nodeQueue.<span class="built_in">push</span>(p-&gt;leftchild);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (p-&gt;rightchild)</span><br><span class="line">                &#123;</span><br><span class="line">                    nodeQueue.<span class="built_in">push</span>(p-&gt;rightchild);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">preOrder0</span><span class="params">(Binarytreenode *root)</span><span class="comment">//先序递归</span></span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (root!=<span class="literal">NULL</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="built_in">visit</span>(root);</span><br><span class="line">                <span class="built_in">preOrder0</span>(root-&gt;leftchild);</span><br><span class="line">                <span class="built_in">preOrder0</span>(root-&gt;rightchild);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">inOrder0</span><span class="params">(Binarytreenode *root)</span><span class="comment">//中序递归</span></span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (root!=<span class="literal">NULL</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="built_in">inOrder0</span>(root-&gt;leftchild);</span><br><span class="line">                <span class="built_in">visit</span>(root);</span><br><span class="line">                <span class="built_in">inOrder0</span>(root-&gt;rightchild);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">postOrder0</span><span class="params">(Binarytreenode *root)</span><span class="comment">//后序递归</span></span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (root!=<span class="literal">NULL</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="built_in">postOrder0</span>(root-&gt;leftchild);</span><br><span class="line">                <span class="built_in">postOrder0</span>(root-&gt;rightchild);</span><br><span class="line">                <span class="built_in">visit</span>(root);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">preOrder1</span><span class="params">(Binarytreenode *root)</span></span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            stack&lt;Binarytreenode *&gt;nodeStack;</span><br><span class="line">            Binarytreenode *p=root;</span><br><span class="line">            <span class="keyword">while</span> (!nodeStack.<span class="built_in">empty</span>()||p)</span><br><span class="line">            &#123;</span><br><span class="line">                </span><br><span class="line">                <span class="keyword">if</span>(p)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="built_in">visit</span>(p);<span class="comment">//先访问当前结点，也就是根</span></span><br><span class="line">                    <span class="keyword">if</span> (p-&gt;rightchild!=<span class="literal">NULL</span>)<span class="comment">//若右子树不空，则先存到栈中</span></span><br><span class="line">                    &#123;</span><br><span class="line">                        nodeStack.<span class="built_in">push</span>(p-&gt;rightchild);</span><br><span class="line">                    &#125;</span><br><span class="line">                    p=p-&gt;leftchild;<span class="comment">//p指向左子树，开始访问。</span></span><br><span class="line">                &#125;<span class="keyword">else</span><span class="comment">//左子树遍历完毕后，进行弹栈，继续遍历</span></span><br><span class="line">                &#123;</span><br><span class="line">                    p=nodeStack.<span class="built_in">top</span>();</span><br><span class="line">                    nodeStack.<span class="built_in">pop</span>();</span><br><span class="line">                &#125;   </span><br><span class="line">            &#125;   </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">inOrder1</span><span class="params">(Binarytreenode *root)</span></span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            stack&lt;Binarytreenode *&gt;nodeStack;</span><br><span class="line">            Binarytreenode *p=root;</span><br><span class="line">            <span class="keyword">while</span> (!nodeStack.<span class="built_in">empty</span>()||p)</span><br><span class="line">            &#123;</span><br><span class="line">                </span><br><span class="line">                <span class="keyword">if</span>(p)</span><br><span class="line">                &#123;</span><br><span class="line">                    nodeStack.<span class="built_in">push</span>(p);<span class="comment">//一路向左全压栈。</span></span><br><span class="line">                    p=p-&gt;leftchild;</span><br><span class="line">                &#125;<span class="keyword">else</span></span><br><span class="line">                &#123;</span><br><span class="line">                    p=nodeStack.<span class="built_in">top</span>();</span><br><span class="line">                    <span class="built_in">visit</span>(p);</span><br><span class="line">                    p=p-&gt;rightchild;</span><br><span class="line">                    nodeStack.<span class="built_in">pop</span>();</span><br><span class="line">                &#125;   </span><br><span class="line">            &#125;   </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">postOrder1</span><span class="params">(Binarytreenode *root)</span></span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            stack&lt;Binarytreenode *&gt;nodeStack;</span><br><span class="line">            Binarytreenode *p=root;</span><br><span class="line">            Binarytreenode *pre=root;</span><br><span class="line">            <span class="keyword">while</span> (p)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">while</span>(p-&gt;leftchild!=<span class="literal">NULL</span>)<span class="comment">//向左搜索全压栈，直到没有左子树。</span></span><br><span class="line">                &#123;</span><br><span class="line">                    nodeStack.<span class="built_in">push</span>(p);</span><br><span class="line">                    p=p-&gt;leftchild;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="comment">//读取栈顶，访问右子树</span></span><br><span class="line">                <span class="keyword">while</span> (p!=<span class="literal">NULL</span>&amp;&amp; (p-&gt;rightchild==<span class="literal">NULL</span> || p-&gt;rightchild==pre))</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="built_in">visit</span>(p);</span><br><span class="line">                    pre=p;</span><br><span class="line">                    <span class="keyword">if</span> (nodeStack.<span class="built_in">empty</span>())</span><br><span class="line">                    &#123;</span><br><span class="line">                        <span class="keyword">return</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                    p=nodeStack.<span class="built_in">top</span>();</span><br><span class="line">                    nodeStack.<span class="built_in">pop</span>();</span><br><span class="line">                &#125;</span><br><span class="line">                nodeStack.<span class="built_in">push</span>(p);</span><br><span class="line">                p=p-&gt;rightchild;</span><br><span class="line">                </span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    BinaryTree t1;</span><br><span class="line">    t1.<span class="built_in">creatTree</span>(t1.root);</span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;层次遍历:&quot;</span>&lt;&lt;endl;</span><br><span class="line">    t1.<span class="built_in">levelOrder</span>();</span><br><span class="line">    cout&lt;&lt;endl&lt;&lt;<span class="string">&quot;前序遍历(递归):&quot;</span>&lt;&lt;endl;</span><br><span class="line">    t1.<span class="built_in">preOrder0</span>(t1.root);</span><br><span class="line">    cout&lt;&lt;endl&lt;&lt;<span class="string">&quot;前序遍历(非递归):&quot;</span>&lt;&lt;endl;</span><br><span class="line">    t1.<span class="built_in">preOrder1</span>(t1.root);</span><br><span class="line">    cout&lt;&lt;endl&lt;&lt;<span class="string">&quot;中序遍历(递归):&quot;</span>&lt;&lt;endl;</span><br><span class="line">    t1.<span class="built_in">inOrder0</span>(t1.root);</span><br><span class="line">    cout&lt;&lt;endl&lt;&lt;<span class="string">&quot;中序遍历(非递归):&quot;</span>&lt;&lt;endl;</span><br><span class="line">    t1.<span class="built_in">inOrder0</span>(t1.root);</span><br><span class="line">    cout&lt;&lt;endl&lt;&lt;<span class="string">&quot;后序遍历(递归):&quot;</span>&lt;&lt;endl;</span><br><span class="line">    t1.<span class="built_in">postOrder0</span>(t1.root);</span><br><span class="line">    cout&lt;&lt;endl&lt;&lt;<span class="string">&quot;后序遍历(非递归):&quot;</span>&lt;&lt;endl;</span><br><span class="line">    t1.<span class="built_in">postOrder0</span>(t1.root);</span><br><span class="line">    cout&lt;&lt;endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//      1</span></span><br><span class="line"><span class="comment">//   2     3</span></span><br><span class="line"><span class="comment">// 4  5       7</span></span><br><span class="line"><span class="comment">//输入1 2 4 -1 -1 5 -1 -1 3 -1 7 -1 -1</span></span><br><span class="line"><span class="comment">//层序: 1 2 3 4 5 7</span></span><br><span class="line"><span class="comment">//前序: 1 2 4 5 3 7</span></span><br><span class="line"><span class="comment">//中序: 4 2 5 1 3 7</span></span><br><span class="line"><span class="comment">//后序: 4 5 2 7 3 1</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://sch01ar.github.io/2022/11/10/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%BB%BA%E7%AB%8B%E4%B8%8E%E9%81%8D%E5%8E%86/" title="二叉树建立与遍历" target="_blank" rel="external">https://sch01ar.github.io/2022/11/10/二叉树建立与遍历/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/Sch01ar" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/Sch01ar" target="_blank"><span class="text-dark">yy</span><small class="ml-1x">Time tells</small></a></h3>
+        <div></div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    
+    <li class="next">
+      <a href="/2022/10/31/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%E7%AE%97%E6%B3%95/" title="背包加密算法"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+    <li class="toggle-toc">
+      <a class="toggle-btn " data-toggle="collapse" href="#collapseToc" aria-expanded="false" title="文章目录" role="button">    <span>[&nbsp;</span><span>文章目录</span>
+        <i class="text-collapsed icon icon-anchor"></i>
+        <i class="text-in icon icon-close"></i>
+        <span>]</span>
+      </a>
+    </li>
+    
+  </ul>
+  
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/Sch01ar" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: 'Rhw3kBGfeXk25zumsz2Th5Sy-gzGzoHsz',
+    appKey: 'a1iD3B9BVfe3b1tHRmB8dCwE',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+  </script>
+
+     
+
+
+
+
+
+
+
+</body>
+</html>
