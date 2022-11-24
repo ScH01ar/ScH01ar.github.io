@@ -17,21 +17,21 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>梦开始的地方 | Y&#39;s Blog</title>
-  <meta name="description" content="Mac下利用Hexo和github pages搭建个人博客环境配置1.Node.js安装下载地址：Node.js 2.淘宝镜像安装12&#x2F;&#x2F;打开终端terminal$ npm install -g cnpm --registry&#x3D;https:&#x2F;&#x2F;registry.npm.taobao.org   3.安装Hexo1234&#x2F;&#x2F; 使用命令去安装Hexocnpm install -g hexo-cli&#x2F;&#x2F;">
+  <title>Gauss格基约简算法 | Y&#39;s Blog</title>
+  <meta name="description" content="由Gauss提出的二维格基约化算法 算法伪代码即对给定的两个基向量进行不断的相互约化，最终求得格上的最小向量Loop   (a) If ||v2|| &lt; ||v1||, swap v1, v2   (b) Compute m &#x3D; ⌊ v1∙v2 &#x2F; v1∙v1 ⌉   (c) If m &#x3D; 0, return v1, v2   (d) v2 &#x3D; v2">
 <meta property="og:type" content="article">
-<meta property="og:title" content="梦开始的地方">
-<meta property="og:url" content="https://sch01ar.github.io/2022/10/15/%E6%A2%A6%E5%BC%80%E5%A7%8B%E7%9A%84%E5%9C%B0%E6%96%B9/index.html">
+<meta property="og:title" content="Gauss格基约简算法">
+<meta property="og:url" content="https://sch01ar.github.io/2022/11/24/Gauss%E6%A0%BC%E5%9F%BA%E7%BA%A6%E7%AE%80%E7%AE%97%E6%B3%95/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Mac下利用Hexo和github pages搭建个人博客环境配置1.Node.js安装下载地址：Node.js 2.淘宝镜像安装12&#x2F;&#x2F;打开终端terminal$ npm install -g cnpm --registry&#x3D;https:&#x2F;&#x2F;registry.npm.taobao.org   3.安装Hexo1234&#x2F;&#x2F; 使用命令去安装Hexocnpm install -g hexo-cli&#x2F;&#x2F;">
+<meta property="og:description" content="由Gauss提出的二维格基约化算法 算法伪代码即对给定的两个基向量进行不断的相互约化，最终求得格上的最小向量Loop   (a) If ||v2|| &lt; ||v1||, swap v1, v2   (b) Compute m &#x3D; ⌊ v1∙v2 &#x2F; v1∙v1 ⌉   (c) If m &#x3D; 0, return v1, v2   (d) v2 &#x3D; v2">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-10-15T07:59:58.000Z">
-<meta property="article:modified_time" content="2022-10-16T05:22:27.882Z">
+<meta property="article:published_time" content="2022-11-23T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-11-24T07:57:32.447Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content="博客搭建">
+<meta property="article:tag" content="lattice">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://sch01ar.github.io/2022/10/15/%E6%A2%A6%E5%BC%80%E5%A7%8B%E7%9A%84%E5%9C%B0%E6%96%B9/index.html">
+  <link rel="canonical" href="https://sch01ar.github.io/2022/11/24/Gauss%E6%A0%BC%E5%9F%BA%E7%BA%A6%E7%AE%80%E7%AE%97%E6%B3%95/index.html">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -340,14 +340,14 @@
   
 <main class="main" role="main">
   <div class="content">
-  <article id="post-梦开始的地方" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-Gauss格基约简算法" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      梦开始的地方
+      Gauss格基约简算法
     </h1>
   
 
@@ -355,20 +355,20 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2022/10/15/%E6%A2%A6%E5%BC%80%E5%A7%8B%E7%9A%84%E5%9C%B0%E6%96%B9/" class="article-date">
-	  <time datetime="2022-10-15T07:59:58.000Z" itemprop="datePublished">2022-10-15</time>
+	<a href="/2022/11/24/Gauss%E6%A0%BC%E5%9F%BA%E7%BA%A6%E7%AE%80%E7%AE%97%E6%B3%95/" class="article-date">
+	  <time datetime="2022-11-23T16:00:00.000Z" itemprop="datePublished">2022-11-24</time>
 	</a>
 </span>
         
   <span class="article-category">
     <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/categories/%E5%BB%BA%E7%AB%99/">建站</a>
+    <a class="article-category-link" href="/categories/CTF/">CTF</a>
   </span>
 
         
   <span class="article-tag">
     <i class="icon icon-tags"></i>
-	<a class="article-tag-link-link" href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" rel="tag">博客搭建</a>
+	<a class="article-tag-link-link" href="/tags/lattice/" rel="tag">lattice</a>
   </span>
 
 
@@ -381,28 +381,19 @@
 	</span>
 
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2022/10/15/%E6%A2%A6%E5%BC%80%E5%A7%8B%E7%9A%84%E5%9C%B0%E6%96%B9/#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2022/11/24/Gauss%E6%A0%BC%E5%9F%BA%E7%BA%A6%E7%AE%80%E7%AE%97%E6%B3%95/#comments" class="article-comment-link">评论</a></span>
         
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h2><span id="mac下利用hexo和github-pages搭建个人博客">Mac下利用Hexo和github pages搭建个人博客</span></h2><h3><span id="环境配置">环境配置</span></h3><h4><span id="1nodejs安装">1.Node.js安装</span></h4><p>下载地址：<a target="_blank" rel="noopener" href="https://nodejs.org/en/">Node.js</a></p>
-<h4><span id="2淘宝镜像安装">2.淘宝镜像安装</span></h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//打开终端terminal</span><br><span class="line">$ npm install -g cnpm --registry=https://registry.npm.taobao.org </span><br></pre></td></tr></table></figure>
+        <p>由Gauss提出的二维格基约化算法</p>
+<h1><span id="算法伪代码">算法伪代码</span></h1><p>即对给定的两个基向量进行不断的相互约化，最终求得格上的最小向量<br>Loop<br>   (a) If ||v2|| &lt; ||v1||, swap v1, v2<br>   (b) Compute m &#x3D; ⌊ v1∙v2 &#x2F; v1∙v1 ⌉<br>   (c) If m &#x3D; 0, return v1, v2<br>   (d) v2 &#x3D; v2 - m*v1<br>Continue Loop</p>
+<h1><span id="代码实现">代码实现</span></h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#python</span></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">e_norm</span>(<span class="params">a</span>):</span><br><span class="line">    n = <span class="built_in">len</span>(a)</span><br><span class="line">    s = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">        res = a[i] * a[i]</span><br><span class="line">        s += res</span><br><span class="line">    <span class="keyword">return</span> s</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">gauss_reduction</span>(<span class="params">v1, v2</span>):</span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        v1_enorm = e_norm(v1)</span><br><span class="line">        v2_enorm = e_norm(v2)</span><br><span class="line">        <span class="keyword">if</span> v1_enorm &gt; v2_enorm:</span><br><span class="line">            v1, v2 = v2, v1</span><br><span class="line">            v1_enorm, v2_enorm = v2_enorm, v1_enorm</span><br><span class="line">        m = np.dot(v1, v2) / v1_enorm</span><br><span class="line">        m = <span class="built_in">int</span>(<span class="built_in">round</span>(m))</span><br><span class="line">        <span class="keyword">if</span> m == <span class="number">0</span>:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;v1:&quot;</span> + <span class="built_in">str</span>(v1))</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;v2:&quot;</span> + <span class="built_in">str</span>(v2))</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            v2 = v2 - np.dot(m, v1)</span><br><span class="line"><span class="comment">#最后输出的两个向量，v1即为格上最短向量</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<h4><span id="3安装hexo">3.安装Hexo</span></h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 使用命令去安装Hexo</span><br><span class="line">cnpm install -g hexo-cli</span><br><span class="line">//安装成功后查看版本</span><br><span class="line">hexo -v</span><br></pre></td></tr></table></figure>
-<h3><span id="初始化hexo-blog">初始化Hexo Blog</span></h3><h4><span id="1初始化hexo">1.初始化Hexo</span></h4><p>新建一个文件夹并进入，例如blog</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//初始化hexo</span><br><span class="line">hexo init</span><br></pre></td></tr></table></figure>
-<h4><span id="2本地启动hexo">2.本地启动Hexo</span></h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
-<p>浏览器打开网站，即可看到本地博客</p>
-<h3><span id="创建博客文章">创建博客文章</span></h3><h4><span id="1创建文章">1.创建文章</span></h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo n <span class="string">&quot;我的第一篇文章&quot;</span></span><br></pre></td></tr></table></figure>
-<p>在blog文件夹中的_post里即可看到新建的md文件</p>
-<h4><span id="2清理缓存项目">2.清理缓存项目</span></h4><p>在新建博客或修改博客时，需要进行该操作</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br></pre></td></tr></table></figure>
-<h4><span id="3重新生成博客">3.重新生成博客</span></h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure>
-
-<h4><span id="4启动博客">4.启动博客</span></h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
-
+<h1><span id="例题">例题</span></h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> getPrime, inverse, bytes_to_long,long_to_bytes</span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="keyword">import</span> math</span><br><span class="line"></span><br><span class="line">FLAG = <span class="string">b&#x27;crypto&#123;?????????????????????&#125;&#x27;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">gen_key</span>():</span><br><span class="line">    q = getPrime(<span class="number">512</span>)</span><br><span class="line">    upper_bound = <span class="built_in">int</span>(math.sqrt(q // <span class="number">2</span>))</span><br><span class="line">    lower_bound = <span class="built_in">int</span>(math.sqrt(q // <span class="number">4</span>))</span><br><span class="line">    f = random.randint(<span class="number">2</span>, upper_bound)</span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        g = random.randint(lower_bound, upper_bound)</span><br><span class="line">        <span class="keyword">if</span> math.gcd(f, g) == <span class="number">1</span>:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">    h = (inverse(f, q)*g) % q</span><br><span class="line">    <span class="keyword">return</span> (q, h), (f, g)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">encrypt</span>(<span class="params">q, h, m</span>):</span><br><span class="line">    <span class="keyword">assert</span> m &lt; <span class="built_in">int</span>(math.sqrt(q // <span class="number">2</span>))</span><br><span class="line">    r = random.randint(<span class="number">2</span>, <span class="built_in">int</span>(math.sqrt(q // <span class="number">2</span>)))</span><br><span class="line">    e = (r*h + m) % q</span><br><span class="line">    <span class="keyword">return</span> e</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">decrypt</span>(<span class="params">q, h, f, g, e</span>):</span><br><span class="line">    a = (f*e) % q</span><br><span class="line">    m = (a*inverse(f, g)) % g</span><br><span class="line">    <span class="keyword">return</span> m</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">public, private = gen_key()</span><br><span class="line">q, h = public</span><br><span class="line">f, g = private</span><br><span class="line"></span><br><span class="line">m = bytes_to_long(FLAG)</span><br><span class="line">e = encrypt(q, h, m)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&#x27;Public key: <span class="subst">&#123;(q,h)&#125;</span>&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&#x27;Encrypted Flag: <span class="subst">&#123;e&#125;</span>&#x27;</span>)</span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">Public key: (7638232120454925879231554234011842347641017888219021175304217358715878636183252433454896490677496516149889316745664606749499241420160898019203925115292257, 2163268902194560093843693572170199707501787797497998463462129592239973581462651622978282637513865274199374452805292639586264791317439029535926401109074800)</span></span><br><span class="line"><span class="string">Encrypted Flag: 5605696495253720664142881956908624307570671858477482119657436163663663844731169035682344974286379049123733356009125671924280312532755241162267269123486523</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
+<h2><span id="思路">思路</span></h2><p>给定公钥q、h，以及明文e<br>要求私钥f、g<br>他们之间有如下关系：<br>fh ≡ g mod q<br>即 kq + g &#x3D;fh<br>g &#x3D; fh -kq<br>根据这一特点即可构造格，也就是格密码中很经典的，遇到一个向量乘矩阵，即可进行构造<br>由于存在一组a、b，使得a（1，h）+ b（0，q）&#x3D;（f，g）<br>a &#x3D; f，b &#x3D; k<br>选取一组基底为（1，h）和（0，q），也就是上述高斯约简算法当中的v1与v2，求出v1与v2格上最小的向量，即为（f，g）</p>
+<h2><span id="exp">EXP</span></h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">q = <span class="number">7638232120454925879231554234011842347641017888219021175304217358715878636183252433454896490677496516149889316745664606749499241420160898019203925115292257</span></span><br><span class="line">h = <span class="number">2163268902194560093843693572170199707501787797497998463462129592239973581462651622978282637513865274199374452805292639586264791317439029535926401109074800</span></span><br><span class="line">e = <span class="number">5605696495253720664142881956908624307570671858477482119657436163663663844731169035682344974286379049123733356009125671924280312532755241162267269123486523</span></span><br><span class="line">u = np.array([<span class="number">1</span>,h])</span><br><span class="line">v = np.array([<span class="number">0</span>,q])</span><br><span class="line">gauss_reduction(u,v)</span><br><span class="line">f = <span class="number">47251817614431369468151088301948722761694622606220578981561236563325808178756</span></span><br><span class="line">g = <span class="number">43997957885147078115851147456370880089696256470389782348293341937915504254589</span></span><br><span class="line">m = decrypt(q,h,f,g,e)</span><br><span class="line"><span class="built_in">print</span>(long_to_bytes(m))</span><br><span class="line"><span class="comment">#crypto&#123;Gauss_lattice_attack!&#125;</span></span><br></pre></td></tr></table></figure>
       
     </div>
     <div class="article-footer">
@@ -411,7 +402,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="https://sch01ar.github.io/2022/10/15/%E6%A2%A6%E5%BC%80%E5%A7%8B%E7%9A%84%E5%9C%B0%E6%96%B9/" title="梦开始的地方" target="_blank" rel="external">https://sch01ar.github.io/2022/10/15/梦开始的地方/</a>
+      <a href="https://sch01ar.github.io/2022/11/24/Gauss%E6%A0%BC%E5%9F%BA%E7%BA%A6%E7%AE%80%E7%AE%97%E6%B3%95/" title="Gauss格基约简算法" target="_blank" rel="external">https://sch01ar.github.io/2022/11/24/Gauss格基约简算法/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -457,13 +448,9 @@
   
   <ul class="pager pull-left">
     
-    <li class="prev">
-      <a href="/2022/10/16/2022BUUCTF%E6%96%B0%E7%94%9F%E8%B5%9B-RSA/" title="2022BUUCTF新生赛-RSA"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
-    </li>
-    
     
     <li class="next">
-      <a href="/2022/10/15/hello-world/" title="Hello World"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/2022/11/10/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%BB%BA%E7%AB%8B%E4%B8%8E%E9%81%8D%E5%8E%86/" title="二叉树建立与遍历"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     
