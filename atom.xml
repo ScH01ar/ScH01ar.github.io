@@ -6,7 +6,7 @@
   <link href="https://sch01ar.github.io/atom.xml" rel="self"/>
   
   <link href="https://sch01ar.github.io/"/>
-  <updated>2022-11-28T09:46:25.947Z</updated>
+  <updated>2022-11-28T12:31:00.024Z</updated>
   <id>https://sch01ar.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>背包加密算法</title>
+    <link href="https://sch01ar.github.io/2022/11/29/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%E7%AE%97%E6%B3%95/"/>
+    <id>https://sch01ar.github.io/2022/11/29/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%E7%AE%97%E6%B3%95/</id>
+    <published>2022-11-28T16:00:00.000Z</published>
+    <updated>2022-11-28T12:31:00.024Z</updated>
+    
+    <content type="html"><![CDATA[<h1><span id="前言"> 前言</span></h1><p>在一次CTF比赛中遇到了，写了10个for嵌套硬爆出来了，复现的时候发现是背包加密。<br><img src="/themes/pure/source/images/bag.png" alt></p><h2><span id="merklehellman-公钥加密算法"> Merkle–Hellman 公钥加密算法</span></h2><p>整体加密流程</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy</span><br><span class="line">x = [<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>]<span class="comment">#明文对应的2进制数</span></span><br><span class="line">a = [<span class="number">3</span>,<span class="number">7</span>,<span class="number">16</span>,<span class="number">50</span>,<span class="number">120</span>]<span class="comment"># 产生一个超递增序列，称作私钥</span></span><br><span class="line"><span class="comment">#对私钥a进行加密，产生公钥b。</span></span><br><span class="line">m = <span class="number">251</span><span class="comment">#选取一个模数</span></span><br><span class="line">w = <span class="number">300</span><span class="comment">#选取一个乘数</span></span><br><span class="line">b = [w * x % m <span class="keyword">for</span> x <span class="keyword">in</span> a]<span class="comment">#产生公钥</span></span><br><span class="line">S = numpy.dot(x,b)<span class="comment">#加密结果</span></span><br></pre></td></tr></table></figure><p>可以发现，加密十分容易，但解密十分困难，这也是非对称加密的特点。</p><h3><span id="加密"> 加密</span></h3><h4><span id="生成私钥"> 生成私钥</span></h4><p>超递增序列，也就是a中每一位元素需要大于其之前所有元素的和。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a =[randint(<span class="number">20</span>, <span class="number">50</span>)]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(nbits - <span class="number">1</span>):</span><br><span class="line">    a.append(randint(<span class="number">2</span> * a[-<span class="number">1</span>], <span class="number">3</span> * a[-<span class="number">1</span>]))</span><br></pre></td></tr></table></figure><h4><span id="生成公钥"> 生成公钥</span></h4><p>模数m要求：<code>m &gt; sum(a)</code><br>乘数w要求：<code>gcd(w,m) == 1</code></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    m = randint(<span class="number">2</span> * a[-<span class="number">1</span>] + <span class="number">1</span>, <span class="number">3</span> * a[-<span class="number">1</span>])</span><br><span class="line">    w = randint(<span class="number">2</span> * a[-<span class="number">1</span>] + <span class="number">1</span>, <span class="number">3</span> * a[-<span class="number">1</span>])</span><br><span class="line">    <span class="keyword">if</span> gcd(w, m) == <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">b = [w * x % m <span class="keyword">for</span> x <span class="keyword">in</span> a]</span><br></pre></td></tr></table></figure><p>b和m作为公钥。<br>加密：<code>S = numpy.dot(x,b)</code></p><h3><span id="解密"> 解密</span></h3><p>拿到公钥<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mo>=</mo><mo stretchy="false">(</mo><msub><mi>m</mi><mn>1</mn></msub><mo separator="true">,</mo><msub><mi>m</mi><mn>2</mn></msub><mo separator="true">,</mo><mo>…</mo><mo separator="true">,</mo><msub><mi>m</mi><mi>n</mi></msub><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">M=(m_1,m_2,\ldots,m_n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">m</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathnormal">m</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="minner">…</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathnormal">m</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span>，构造如下矩阵</p><p class="katex-block katex-error" title="ParseError: KaTeX parse error: Expected &#039;EOF&#039;, got &#039;\right&#039; at position 175: …\\\end{array}\̲r̲i̲g̲h̲t̲) ">\begin{array}{cccc}2 &amp; 0 &amp; \ldots &amp; 0 &amp; m_1\\0 &amp; 2 &amp; \ldots &amp; 0 &amp; m_2\\\vdots &amp; \vdots &amp; \ddots &amp; \vdots\\0 &amp; 0 &amp; \ldots &amp; 2 &amp; m_n\\1 &amp; 1 &amp; \ldots &amp; 1 &amp; 1\\\end{array}\right) </p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1&gt;&lt;span id=&quot;前言&quot;&gt; 前言&lt;/span&gt;&lt;/h1&gt;
+&lt;p&gt;在一次CTF比赛中遇到了，写了10个for嵌套硬爆出来了，复现的时候发现是背包加密。&lt;br&gt;
+&lt;img src=&quot;/themes/pure/source/images/bag.png&quot; alt&gt;&lt;/p&gt;
+&lt;</summary>
+      
+    
+    
+    
+    <category term="CTF" scheme="https://sch01ar.github.io/categories/CTF/"/>
+    
+    
+    <category term="非对称加密" scheme="https://sch01ar.github.io/tags/%E9%9D%9E%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86/"/>
+    
+  </entry>
   
   <entry>
     <title>Hitcon 2022-㊙️BabySSS</title>
@@ -92,33 +119,6 @@ Loop&lt;br&gt;
     
     
     <category term="二叉树" scheme="https://sch01ar.github.io/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>背包加密算法</title>
-    <link href="https://sch01ar.github.io/2022/10/31/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%E7%AE%97%E6%B3%95/"/>
-    <id>https://sch01ar.github.io/2022/10/31/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%E7%AE%97%E6%B3%95/</id>
-    <published>2022-10-30T16:00:00.000Z</published>
-    <updated>2022-11-28T08:50:28.712Z</updated>
-    
-    <content type="html"><![CDATA[<h1><span id="前言"> 前言</span></h1><p>在一次CTF比赛中遇到了，写了10个for嵌套硬爆出来了，复现的时候发现是背包加密。<br><img src="/themes/pure/source/images/bag.png" alt></p><h2><span id="merklehellman-公钥加密算法"> Merkle–Hellman 公钥加密算法</span></h2><p>整体加密流程</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy</span><br><span class="line">x = [<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>]<span class="comment">#明文对应的2进制数</span></span><br><span class="line">a = [<span class="number">3</span>,<span class="number">7</span>,<span class="number">16</span>,<span class="number">50</span>,<span class="number">120</span>]<span class="comment"># 产生一个超递增序列，称作私钥</span></span><br><span class="line"><span class="comment">#对私钥a进行加密，产生公钥b。</span></span><br><span class="line">m = <span class="number">251</span><span class="comment">#选取一个模数</span></span><br><span class="line">w = <span class="number">300</span><span class="comment">#选取一个乘数</span></span><br><span class="line">b = [w * x % m <span class="keyword">for</span> x <span class="keyword">in</span> a]<span class="comment">#产生公钥</span></span><br><span class="line">S = numpy.dot(x,b)<span class="comment">#加密结果</span></span><br></pre></td></tr></table></figure><p>可以发现，加密十分容易，但解密十分困难，这也是非对称加密的特点。</p><h3><span id="加密"> 加密</span></h3><h4><span id="生成私钥"> 生成私钥</span></h4><p>超递增序列，也就是a中每一位元素需要大于其之前所有元素的和。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a =[randint(<span class="number">20</span>, <span class="number">50</span>)]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(nbits - <span class="number">1</span>):</span><br><span class="line">    a.append(randint(<span class="number">2</span> * a[-<span class="number">1</span>], <span class="number">3</span> * a[-<span class="number">1</span>]))</span><br></pre></td></tr></table></figure><h4><span id="生成公钥"> 生成公钥</span></h4><p>模数m要求：<code>m &gt; sum(a)</code><br>乘数w要求：<code>gcd(w,m) == 1</code></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    m = randint(<span class="number">2</span> * a[-<span class="number">1</span>] + <span class="number">1</span>, <span class="number">3</span> * a[-<span class="number">1</span>])</span><br><span class="line">    w = randint(<span class="number">2</span> * a[-<span class="number">1</span>] + <span class="number">1</span>, <span class="number">3</span> * a[-<span class="number">1</span>])</span><br><span class="line">    <span class="keyword">if</span> gcd(w, m) == <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">b = [w * x % m <span class="keyword">for</span> x <span class="keyword">in</span> a]</span><br></pre></td></tr></table></figure><p>b和m作为公钥。<br>加密：<code>S = numpy.dot(x,b)</code></p><h3><span id="解密"> 解密</span></h3>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1&gt;&lt;span id=&quot;前言&quot;&gt; 前言&lt;/span&gt;&lt;/h1&gt;
-&lt;p&gt;在一次CTF比赛中遇到了，写了10个for嵌套硬爆出来了，复现的时候发现是背包加密。&lt;br&gt;
-&lt;img src=&quot;/themes/pure/source/images/bag.png&quot; alt&gt;&lt;/p&gt;
-&lt;</summary>
-      
-    
-    
-    
-    <category term="CTF" scheme="https://sch01ar.github.io/categories/CTF/"/>
-    
-    
-    <category term="非对称加密" scheme="https://sch01ar.github.io/tags/%E9%9D%9E%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86/"/>
     
   </entry>
   

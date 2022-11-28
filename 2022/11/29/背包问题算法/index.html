@@ -21,19 +21,19 @@
   <meta name="description" content="前言 在一次CTF比赛中遇到了，写了10个for嵌套硬爆出来了，复现的时候发现是背包加密。   Merkle–Hellman 公钥加密算法 整体加密流程 12345678import numpyx &#x3D; [1,0,0,1,0]#明文对应的2进制数a &#x3D; [3,7,16,50,120]# 产生一个超递增序列，称作私钥#对私钥a进行加密，产生公钥b。m &#x3D; 251#选取一个模数w &#x3D; 300#选取一个">
 <meta property="og:type" content="article">
 <meta property="og:title" content="背包加密算法">
-<meta property="og:url" content="https://sch01ar.github.io/2022/10/31/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%E7%AE%97%E6%B3%95/index.html">
+<meta property="og:url" content="https://sch01ar.github.io/2022/11/29/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%E7%AE%97%E6%B3%95/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="前言 在一次CTF比赛中遇到了，写了10个for嵌套硬爆出来了，复现的时候发现是背包加密。   Merkle–Hellman 公钥加密算法 整体加密流程 12345678import numpyx &#x3D; [1,0,0,1,0]#明文对应的2进制数a &#x3D; [3,7,16,50,120]# 产生一个超递增序列，称作私钥#对私钥a进行加密，产生公钥b。m &#x3D; 251#选取一个模数w &#x3D; 300#选取一个">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://sch01ar.github.io/themes/pure/source/images/bag.png">
-<meta property="article:published_time" content="2022-10-30T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-11-28T08:50:28.712Z">
+<meta property="article:published_time" content="2022-11-28T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-11-28T12:31:00.024Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="非对称加密">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://sch01ar.github.io/themes/pure/source/images/bag.png">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://sch01ar.github.io/2022/10/31/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%E7%AE%97%E6%B3%95/index.html">
+  <link rel="canonical" href="https://sch01ar.github.io/2022/11/29/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%E7%AE%97%E6%B3%95/index.html">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -242,7 +242,7 @@
   <div class="widget">
     <h3 class="widget-title">归档</h3>
     <div class="widget-body">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">十一月 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">十月 2022</a><span class="archive-list-count">12</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">十一月 2022</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">十月 2022</a><span class="archive-list-count">11</span></li></ul>
     </div>
   </div>
 
@@ -254,6 +254,21 @@
     <div class="widget-body">
       <ul class="recent-post-list list-unstyled no-thumbnail">
         
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/CTF/">CTF</a>
+              </p>
+              <p class="item-title">
+                <a href="/2022/11/29/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%E7%AE%97%E6%B3%95/" class="title">背包加密算法</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-11-28T16:00:00.000Z" itemprop="datePublished">2022-11-29</time>
+              </p>
+            </div>
+          </li>
+          
           <li>
             
             <div class="item-inner">
@@ -295,21 +310,6 @@
               </p>
               <p class="item-date">
                 <time datetime="2022-11-09T16:00:00.000Z" itemprop="datePublished">2022-11-10</time>
-              </p>
-            </div>
-          </li>
-          
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                <a class="category-link" href="/categories/CTF/">CTF</a>
-              </p>
-              <p class="item-title">
-                <a href="/2022/10/31/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%E7%AE%97%E6%B3%95/" class="title">背包加密算法</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2022-10-30T16:00:00.000Z" itemprop="datePublished">2022-10-31</time>
               </p>
             </div>
           </li>
@@ -366,8 +366,8 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2022/10/31/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%E7%AE%97%E6%B3%95/" class="article-date">
-	  <time datetime="2022-10-30T16:00:00.000Z" itemprop="datePublished">2022-10-31</time>
+	<a href="/2022/11/29/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%E7%AE%97%E6%B3%95/" class="article-date">
+	  <time datetime="2022-11-28T16:00:00.000Z" itemprop="datePublished">2022-11-29</time>
 	</a>
 </span>
         
@@ -392,7 +392,7 @@
 	</span>
 
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2022/10/31/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%E7%AE%97%E6%B3%95/#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2022/11/29/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%E7%AE%97%E6%B3%95/#comments" class="article-comment-link">评论</a></span>
         
       </div>
     </div>
@@ -416,6 +416,19 @@
 <p>b和m作为公钥。<br>
 加密：<code>S = numpy.dot(x,b)</code></p>
 <h3><span id="解密"> 解密</span></h3>
+<p>拿到公钥<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mo>=</mo><mo stretchy="false">(</mo><msub><mi>m</mi><mn>1</mn></msub><mo separator="true">,</mo><msub><mi>m</mi><mn>2</mn></msub><mo separator="true">,</mo><mo>…</mo><mo separator="true">,</mo><msub><mi>m</mi><mi>n</mi></msub><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">M=(m_1,m_2,\ldots,m_n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">M</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">m</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathnormal">m</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="minner">…</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathnormal">m</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span>，构造如下矩阵</p>
+<p class="katex-block katex-error" title="ParseError: KaTeX parse error: Expected &#039;EOF&#039;, got &#039;\right&#039; at position 175: …\\
+\end{array}
+\̲r̲i̲g̲h̲t̲) 
+">\begin{array}{cccc}
+2 &amp; 0 &amp; \ldots &amp; 0 &amp; m_1\\
+0 &amp; 2 &amp; \ldots &amp; 0 &amp; m_2\\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots\\
+0 &amp; 0 &amp; \ldots &amp; 2 &amp; m_n\\
+1 &amp; 1 &amp; \ldots &amp; 1 &amp; 1\\
+\end{array}
+\right) 
+</p>
 
       
     </div>
@@ -425,7 +438,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="https://sch01ar.github.io/2022/10/31/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%E7%AE%97%E6%B3%95/" title="背包加密算法" target="_blank" rel="external">https://sch01ar.github.io/2022/10/31/背包问题算法/</a>
+      <a href="https://sch01ar.github.io/2022/11/29/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%E7%AE%97%E6%B3%95/" title="背包加密算法" target="_blank" rel="external">https://sch01ar.github.io/2022/11/29/背包问题算法/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -471,13 +484,9 @@
   
   <ul class="pager pull-left">
     
-    <li class="prev">
-      <a href="/2022/11/10/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%BB%BA%E7%AB%8B%E4%B8%8E%E9%81%8D%E5%8E%86/" title="二叉树建立与遍历"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
-    </li>
-    
     
     <li class="next">
-      <a href="/2022/10/30/2022-10-30-2022%E7%A5%A5%E4%BA%91%E6%9D%AFwp-crypto/" title="2022祥云杯wp-crypto"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/2022/11/28/hitcon2022-BabySSS/" title="Hitcon 2022-㊙️BabySSS"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     
