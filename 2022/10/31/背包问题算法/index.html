@@ -17,18 +17,23 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>书单 | Y&#39;s Blog</title>
-  <meta property="og:type" content="website">
-<meta property="og:title" content="书单">
-<meta property="og:url" content="https://sch01ar.github.io/books/index.html">
+  <title>背包加密算法 | Y&#39;s Blog</title>
+  <meta name="description" content="前言 在一次CTF比赛中遇到了，写了10个for嵌套硬爆出来了，复现的时候发现是背包加密。   Merkle–Hellman 公钥加密算法 整体加密流程 12345678import numpyx &#x3D; [1,0,0,1,0]#明文对应的2进制数a &#x3D; [3,7,16,50,120]# 产生一个超递增序列，称作私钥#对私钥a进行加密，产生公钥b。m &#x3D; 251#选取一个模数w &#x3D; 300#选取一个">
+<meta property="og:type" content="article">
+<meta property="og:title" content="背包加密算法">
+<meta property="og:url" content="https://sch01ar.github.io/2022/10/31/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%E7%AE%97%E6%B3%95/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="前言 在一次CTF比赛中遇到了，写了10个for嵌套硬爆出来了，复现的时候发现是背包加密。   Merkle–Hellman 公钥加密算法 整体加密流程 12345678import numpyx &#x3D; [1,0,0,1,0]#明文对应的2进制数a &#x3D; [3,7,16,50,120]# 产生一个超递增序列，称作私钥#对私钥a进行加密，产生公钥b。m &#x3D; 251#选取一个模数w &#x3D; 300#选取一个">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-10-16T02:30:27.247Z">
-<meta property="article:modified_time" content="2022-10-15T08:09:45.464Z">
+<meta property="og:image" content="https://sch01ar.github.io/themes/pure/source/images/bag.png">
+<meta property="article:published_time" content="2022-10-30T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-11-28T08:50:28.712Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="非对称加密">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://sch01ar.github.io/themes/pure/source/images/bag.png">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://sch01ar.github.io/books/index.html">
+  <link rel="canonical" href="https://sch01ar.github.io/2022/10/31/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%E7%AE%97%E6%B3%95/index.html">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -45,7 +50,7 @@
 <meta name="generator" content="Hexo 6.3.0"></head>
 
 
-<body class="main-center theme-black no-sidebar" itemscope itemtype="http://schema.org/WebPage">
+<body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage">
   <header class="header" itemscope itemtype="http://schema.org/WPHeader">
   <div class="slimContent">
     <div class="navbar-header">
@@ -334,41 +339,168 @@
 </aside>
 
   
-  <main class="main" role="main">
-  <article class="article article-links article-type-list" itemscope="">
-  <header class="article-header">
-    <h1 itemprop="title">书单</h1>
-    <p class="text-muted">个人收藏的书单推荐给大家 <a href="https://www.douban.com/people//" target="_blank">[我的豆瓣]</a></p>
-    <nav role="navigation" id="nav-main" class="okayNav">
-      <ul id="tabs">
-        <li><a id="reading-tab" href="javascript:show('reading')" rel="external">在读<span id="reading-total"></span></a></li>
-        <li><a id="wish-tab" href="javascript:show('wish')" rel="external">想读<span id="wish-total"></span></a></li>
-        <li><a id="read-tab" href="javascript:show('read')" rel="external">已读<span id="read-total"></span></a></li>
-      </ul>
+  
+  <aside class="sidebar sidebar-toc collapse   in  " id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <nav id="toc" class="article-toc">
+      <h3 class="toc-title">文章目录</h3>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text"> 前言</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.1.</span> <span class="toc-text"> Merkle–Hellman 公钥加密算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.1.1.</span> <span class="toc-text"> 加密</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-number">1.1.1.1.</span> <span class="toc-text"> 生成私钥</span></a></li><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-number">1.1.1.2.</span> <span class="toc-text"> 生成公钥</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.1.2.</span> <span class="toc-text"> 解密</span></a></li></ol></li></ol></li></ol>
     </nav>
-  </header>
-  <div class="article-body">
-    <div id="loading">
-      <p>正在加载...</p>
-    </div>
-    <div id="douban">
-      <div id="collections">
-        <div id="reading" class="row hide">
-        </div>
-        <div class="clearfix"></div>
-        <div id="wish" class="row hide">
-        </div>
-        <div class="clearfix"></div>
-        <div id="read" class="row hide">
-        </div>
-        <div class="clearfix"></div>
-      </div>
-    </div>
   </div>
-</article>
+</aside>
 
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-背包问题算法" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      背包加密算法
+    </h1>
   
 
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2022/10/31/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%E7%AE%97%E6%B3%95/" class="article-date">
+	  <time datetime="2022-10-30T16:00:00.000Z" itemprop="datePublished">2022-10-31</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/CTF/">CTF</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/%E9%9D%9E%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86/" rel="tag">非对称加密</a>
+  </span>
+
+
+        
+	<span class="article-read hidden-xs">
+	    <i class="icon icon-eye-fill" aria-hidden="true"></i>
+	    <span id="busuanzi_container_page_pv">
+			<span id="busuanzi_value_page_pv">0</span>
+		</span>
+	</span>
+
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2022/10/31/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%E7%AE%97%E6%B3%95/#comments" class="article-comment-link">评论</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h1><span id="前言"> 前言</span></h1>
+<p>在一次CTF比赛中遇到了，写了10个for嵌套硬爆出来了，复现的时候发现是背包加密。<br>
+<img src="/themes/pure/source/images/bag.png" alt></p>
+<h2><span id="merklehellman-公钥加密算法"> Merkle–Hellman 公钥加密算法</span></h2>
+<p>整体加密流程</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy</span><br><span class="line">x = [<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>]<span class="comment">#明文对应的2进制数</span></span><br><span class="line">a = [<span class="number">3</span>,<span class="number">7</span>,<span class="number">16</span>,<span class="number">50</span>,<span class="number">120</span>]<span class="comment"># 产生一个超递增序列，称作私钥</span></span><br><span class="line"><span class="comment">#对私钥a进行加密，产生公钥b。</span></span><br><span class="line">m = <span class="number">251</span><span class="comment">#选取一个模数</span></span><br><span class="line">w = <span class="number">300</span><span class="comment">#选取一个乘数</span></span><br><span class="line">b = [w * x % m <span class="keyword">for</span> x <span class="keyword">in</span> a]<span class="comment">#产生公钥</span></span><br><span class="line">S = numpy.dot(x,b)<span class="comment">#加密结果</span></span><br></pre></td></tr></table></figure>
+<p>可以发现，加密十分容易，但解密十分困难，这也是非对称加密的特点。</p>
+<h3><span id="加密"> 加密</span></h3>
+<h4><span id="生成私钥"> 生成私钥</span></h4>
+<p>超递增序列，也就是a中每一位元素需要大于其之前所有元素的和。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a =[randint(<span class="number">20</span>, <span class="number">50</span>)]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(nbits - <span class="number">1</span>):</span><br><span class="line">    a.append(randint(<span class="number">2</span> * a[-<span class="number">1</span>], <span class="number">3</span> * a[-<span class="number">1</span>]))</span><br></pre></td></tr></table></figure>
+<h4><span id="生成公钥"> 生成公钥</span></h4>
+<p>模数m要求：<code>m &gt; sum(a)</code><br>
+乘数w要求：<code>gcd(w,m) == 1</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    m = randint(<span class="number">2</span> * a[-<span class="number">1</span>] + <span class="number">1</span>, <span class="number">3</span> * a[-<span class="number">1</span>])</span><br><span class="line">    w = randint(<span class="number">2</span> * a[-<span class="number">1</span>] + <span class="number">1</span>, <span class="number">3</span> * a[-<span class="number">1</span>])</span><br><span class="line">    <span class="keyword">if</span> gcd(w, m) == <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">b = [w * x % m <span class="keyword">for</span> x <span class="keyword">in</span> a]</span><br></pre></td></tr></table></figure>
+<p>b和m作为公钥。<br>
+加密：<code>S = numpy.dot(x,b)</code></p>
+<h3><span id="解密"> 解密</span></h3>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://sch01ar.github.io/2022/10/31/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%E7%AE%97%E6%B3%95/" title="背包加密算法" target="_blank" rel="external">https://sch01ar.github.io/2022/10/31/背包问题算法/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/Sch01ar" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/Sch01ar" target="_blank"><span class="text-dark">yy</span><small class="ml-1x">Time tells</small></a></h3>
+        <div></div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2022/11/10/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%BB%BA%E7%AB%8B%E4%B8%8E%E9%81%8D%E5%8E%86/" title="二叉树建立与遍历"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2022/10/30/2022-10-30-2022%E7%A5%A5%E4%BA%91%E6%9D%AFwp-crypto/" title="2022祥云杯wp-crypto"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+    <li class="toggle-toc">
+      <a class="toggle-btn " data-toggle="collapse" href="#collapseToc" aria-expanded="false" title="文章目录" role="button">    <span>[&nbsp;</span><span>文章目录</span>
+        <i class="text-collapsed icon icon-anchor"></i>
+        <i class="text-in icon icon-close"></i>
+        <span>]</span>
+      </a>
+    </li>
+    
+  </ul>
+  
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
 
 
 </main>
@@ -423,156 +555,39 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
 
 
 
-   <script>
-function show(id) {
-  document.getElementById('reading').classList.remove('active');
-  document.getElementById('read').classList.remove('active');
-  document.getElementById('wish').classList.remove('active');
-  document.getElementById('reading').classList.add('hide');
-  document.getElementById('read').classList.add('hide');
-  document.getElementById('wish').classList.add('hide');
 
-  var ele = document.getElementById(id);
-  ele.classList.remove('hide');
-  ele.classList.add('active');
-
-  document.getElementById('reading-tab').classList.remove('active');
-  document.getElementById('read-tab').classList.remove('active');
-  document.getElementById('wish-tab').classList.remove('active');
-  document.getElementById(id + '-tab').classList.add('active');
-};
-
-(function() {
-  var read = [];
-  var wish = [];
-  var reading = [];
-
-  // XHR 获取豆瓣书单数据，数据格式json
-  // function loadDoubanCollections() {
-  //   var xhr = new XMLHttpRequest();
-  //   // https://api.douban.com/v2/book/user/:name/collections
-  //   xhr.open('GET', 'http://7b1fa0.com1.z0.glb.clouddn.com/douban-20170429-1.json', true);
-
-  //   xhr.onload = function() {
-  //     // console.log(this);
-  //     if (this.status >= 200 && this.status < 300) {
-  //       var res = JSON.parse(this.response);
-  //       searchData = res;
-  //       onLoadDouban(searchData);
-  //     } else {
-  //       console.error(this.statusText);
-  //     }
-  //   };
-
-  //   xhr.onerror = function() {
-  //     console.error(this.statusText);
-  //   };
-
-  //   xhr.send();
-  // }
-  
-  // Ajax 获取豆瓣书单数据，数据格式json
-  function loadDoubanCollections() {
-    var _this = this;
-    // https://api.douban.com/v2/book/user/:name/collections?start=0&count=100
-    var url = "https://api.douban.com/v2/book/user//collections"
-    $.ajax({
-      url: url,
-      type: 'GET',
-      data: {
-        start:0, // 从哪一条记录开始
-        count:100, // 获取豆瓣书单数据条数
-        apikey:'' // 豆瓣apikey
-      },
-      dataType: 'JSONP', //here
-      success: function(data) {
-        // console.log(data);
-        onLoadDouban(data);
-      }
-    });
-  }
-
-  function onLoadDouban(data) {
-    if (data['count'] > 0) {
-      for (var i = 0; i < data['collections'].length; ++i) {
-        resolveBook(data['collections'][i]);
-      }
-    }
-    render();
-  }
-
-  function resolveBook(book) {
-    if (book['status'] == 'read') {
-      read.push(book);
-    }
-    if (book['status'] == 'wish') {
-      wish.push(book);
-    }
-    if (book['status'] == 'reading') {
-      reading.push(book);
-    }
-  }
-
-  function render() {
-    renderList(read, 'read');
-    renderList(wish, 'wish');
-    renderList(reading, 'reading');
-
-    document.getElementById('reading-total').innerHTML = '(' + reading.length + ')';
-    document.getElementById('read-total').innerHTML = '(' + read.length + ')';
-    document.getElementById('wish-total').innerHTML = '(' + wish.length + ')';
-
-    show('reading');
-    document.getElementById('loading').classList.add('hide');
-  }
-
-  function renderList(list, id) {
-    for (var i = 0; i < list.length; ++i) {
-      var h = renderBook(list[i]);
-      if (i > 0 && i % 4 == 3) {
-        h += '<div class="clearfix"></div>';
-      }
-      document.getElementById(id).innerHTML = document.getElementById(id).innerHTML + h;
-    }
-  }
-
-  function renderBook(book) {
-    var html = '<div class="col-sm-6 col-md-6"><div class="panel panel-default hover-grow"><div class="panel-body">'
-      + '<div class="media media-middle book book-' + book['status'] + '" itemscope itemtype="http://schema.org/Book">' 
-      + '<div class="media-left"><a class="media-middle" target="_blank" href="' + book.book.alt + '" rel="external nofollow noopener noreferrer"><img class="media-object" src="' + book.book.image + '" itemprop="image"/></a></div><div class="media-body">' 
-      + '<h3 class="media-heading" itemprop="name"><a target="_blank" href="' + book.book.alt + '" rel="external nofollow noopener noreferrer">' + book.book.title + '</a></h3>' 
-      + '<p class="meta text-nowrap-1x"><small itemprop="author">' + book.book.author[0] + '</small> / <small itemprop="datePublished">' + book.book.pubdate + '</small> / <small itemprop="ratingValue">' + book.book.rating.average + '分</small></p>' 
-      + '<p class="meta text-nowrap-1x">' + book.updated.substring(0, 10) + resolveRating(book.rating) + resolveTags(book.tags) + '</p>' 
-      + '<div class="comments text-muted text-nowrap-3x" itemprop="comment">' + (book.comment ? book.comment : '') + '</div>' 
-      + '</div>' + '</div>' + '</div>' + '</div>' + '</div>';
-    return html;
-  }
-
-  function resolveRating(rating) {
-    if (rating && rating.value) {
-      return ' / ' + rating.value + '星';
-    }
-    return '';
-  }
-
-  function resolveTags(tags) {
-    if (tags && tags.length > 0) {
-      var html = ' / ';
-      for (var i = 0; i < tags.length; ++i) {
-        html += tags[i] + ' ';
-      }
-      return html;
-    }
-    return '';
-  }
-
-  setTimeout(function() {
-    loadDoubanCollections();
-  }, 0)
-})()
-</script>
+   
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
+
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: 'Rhw3kBGfeXk25zumsz2Th5Sy-gzGzoHsz',
+    appKey: 'a1iD3B9BVfe3b1tHRmB8dCwE',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+  </script>
+
+     
 
 
 
