@@ -18,12 +18,12 @@
   
   
   <title>背包加密算法 | Y&#39;s Blog</title>
-  <meta name="description" content="前言 在一次CTF比赛中遇到了，写了10个for嵌套硬爆出来了，复现的时候发现是背包加密。   Merkle–Hellman 公钥加密算法 整体加密流程 12345678import numpyx &#x3D; [1,0,0,1,0]#明文对应的2进制数a &#x3D; [3,7,16,50,120]# 产生一个超递增序列，称作私钥#对私钥a进行加密，产生公钥b。m &#x3D; 251#选取一个模数w &#x3D; 300#选取一个">
+  <meta name="description" content="前言 在一次CTF比赛中遇到了，写了10个for嵌套硬爆出来了，复现的时候发现是背包加密。  Merkle–Hellman 公钥加密算法 整体加密流程 &lt;!–code￼0–&gt; 可以发现，加密十分容易，但解密十分困难，这也是非对称加密的特点。 加密 生成私钥 超递增序列，也就是a中每一位元素需要大于其之前所有元素的和。 &lt;!–code￼1–&gt; 生成公钥 模数m要求：m &amp;gt">
 <meta property="og:type" content="article">
 <meta property="og:title" content="背包加密算法">
 <meta property="og:url" content="https://sch01ar.github.io/2022/10/31/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%E7%AE%97%E6%B3%95/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="前言 在一次CTF比赛中遇到了，写了10个for嵌套硬爆出来了，复现的时候发现是背包加密。   Merkle–Hellman 公钥加密算法 整体加密流程 12345678import numpyx &#x3D; [1,0,0,1,0]#明文对应的2进制数a &#x3D; [3,7,16,50,120]# 产生一个超递增序列，称作私钥#对私钥a进行加密，产生公钥b。m &#x3D; 251#选取一个模数w &#x3D; 300#选取一个">
+<meta property="og:description" content="前言 在一次CTF比赛中遇到了，写了10个for嵌套硬爆出来了，复现的时候发现是背包加密。  Merkle–Hellman 公钥加密算法 整体加密流程 &lt;!–code￼0–&gt; 可以发现，加密十分容易，但解密十分困难，这也是非对称加密的特点。 加密 生成私钥 超递增序列，也就是a中每一位元素需要大于其之前所有元素的和。 &lt;!–code￼1–&gt; 生成公钥 模数m要求：m &amp;gt">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://sch01ar.github.io/themes/pure/source/images/bag.png">
 <meta property="article:published_time" content="2022-10-30T16:00:00.000Z">
@@ -344,7 +344,7 @@
   <div class="slimContent">
     <nav id="toc" class="article-toc">
       <h3 class="toc-title">文章目录</h3>
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text"> 前言</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.1.</span> <span class="toc-text"> Merkle–Hellman 公钥加密算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.1.1.</span> <span class="toc-text"> 加密</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-number">1.1.1.1.</span> <span class="toc-text"> 生成私钥</span></a></li><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-number">1.1.1.2.</span> <span class="toc-text"> 生成公钥</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.1.2.</span> <span class="toc-text"> 解密</span></a></li></ol></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.1.</span> <span class="toc-text">Merkle–Hellman 公钥加密算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.1.1.</span> <span class="toc-text">加密</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-number">1.1.1.1.</span> <span class="toc-text">生成私钥</span></a></li><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-number">1.1.1.2.</span> <span class="toc-text">生成公钥</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.1.2.</span> <span class="toc-text">解密</span></a></li></ol></li></ol></li></ol>
     </nav>
   </div>
 </aside>
@@ -398,24 +398,24 @@
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h1><span id="前言"> 前言</span></h1>
+        <h1><span id="前言">前言</span></h1>
 <p>在一次CTF比赛中遇到了，写了10个for嵌套硬爆出来了，复现的时候发现是背包加密。<br>
 <img src="/themes/pure/source/images/bag.png" alt></p>
-<h2><span id="merklehellman-公钥加密算法"> Merkle–Hellman 公钥加密算法</span></h2>
-<p>整体加密流程</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy</span><br><span class="line">x = [<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>]<span class="comment">#明文对应的2进制数</span></span><br><span class="line">a = [<span class="number">3</span>,<span class="number">7</span>,<span class="number">16</span>,<span class="number">50</span>,<span class="number">120</span>]<span class="comment"># 产生一个超递增序列，称作私钥</span></span><br><span class="line"><span class="comment">#对私钥a进行加密，产生公钥b。</span></span><br><span class="line">m = <span class="number">251</span><span class="comment">#选取一个模数</span></span><br><span class="line">w = <span class="number">300</span><span class="comment">#选取一个乘数</span></span><br><span class="line">b = [w * x % m <span class="keyword">for</span> x <span class="keyword">in</span> a]<span class="comment">#产生公钥</span></span><br><span class="line">S = numpy.dot(x,b)<span class="comment">#加密结果</span></span><br></pre></td></tr></table></figure>
-<p>可以发现，加密十分容易，但解密十分困难，这也是非对称加密的特点。</p>
-<h3><span id="加密"> 加密</span></h3>
-<h4><span id="生成私钥"> 生成私钥</span></h4>
-<p>超递增序列，也就是a中每一位元素需要大于其之前所有元素的和。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a =[randint(<span class="number">20</span>, <span class="number">50</span>)]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(nbits - <span class="number">1</span>):</span><br><span class="line">    a.append(randint(<span class="number">2</span> * a[-<span class="number">1</span>], <span class="number">3</span> * a[-<span class="number">1</span>]))</span><br></pre></td></tr></table></figure>
-<h4><span id="生成公钥"> 生成公钥</span></h4>
+<h2><span id="merklehellman-公钥加密算法">Merkle–Hellman 公钥加密算法</span></h2>
+<p>整体加密流程<br>
+&lt;!–code￼0–&gt;<br>
+可以发现，加密十分容易，但解密十分困难，这也是非对称加密的特点。</p>
+<h3><span id="加密">加密</span></h3>
+<h4><span id="生成私钥">生成私钥</span></h4>
+<p>超递增序列，也就是a中每一位元素需要大于其之前所有元素的和。<br>
+&lt;!–code￼1–&gt;</p>
+<h4><span id="生成公钥">生成公钥</span></h4>
 <p>模数m要求：<code>m &gt; sum(a)</code><br>
-乘数w要求：<code>gcd(w,m) == 1</code></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    m = randint(<span class="number">2</span> * a[-<span class="number">1</span>] + <span class="number">1</span>, <span class="number">3</span> * a[-<span class="number">1</span>])</span><br><span class="line">    w = randint(<span class="number">2</span> * a[-<span class="number">1</span>] + <span class="number">1</span>, <span class="number">3</span> * a[-<span class="number">1</span>])</span><br><span class="line">    <span class="keyword">if</span> gcd(w, m) == <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">b = [w * x % m <span class="keyword">for</span> x <span class="keyword">in</span> a]</span><br></pre></td></tr></table></figure>
-<p>b和m作为公钥。<br>
+乘数w要求：<code>gcd(w,m) == 1</code><br>
+&lt;!–code￼2–&gt;<br>
+b和m作为公钥。<br>
 加密：<code>S = numpy.dot(x,b)</code></p>
-<h3><span id="解密"> 解密</span></h3>
+<h3><span id="解密">解密</span></h3>
 
       
     </div>
