@@ -6,7 +6,7 @@
   <link href="https://sch01ar.github.io/atom.xml" rel="self"/>
   
   <link href="https://sch01ar.github.io/"/>
-  <updated>2022-12-01T02:29:53.960Z</updated>
+  <updated>2022-12-01T02:52:45.948Z</updated>
   <id>https://sch01ar.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://sch01ar.github.io/2022/11/30/2022DASCTF_NOV-lllcccgggwp/"/>
     <id>https://sch01ar.github.io/2022/11/30/2022DASCTF_NOV-lllcccgggwp/</id>
     <published>2022-11-30T02:05:45.000Z</published>
-    <updated>2022-12-01T02:29:53.960Z</updated>
+    <updated>2022-12-01T02:52:45.948Z</updated>
     
     <content type="html"><![CDATA[<h1><span id="题目描述">题目描述</span></h1><p>如题目名字一样，有好多个lcg，<s>当时看晕了</s><br>&lt;!–code￼0–&gt;</p><h1><span id="题目分析">题目分析</span></h1><p>1.<code>key</code>是一个背包问题，已知公钥<code>m</code>，和的话目前不知道。</p><p>2.以1中的和为<code>seed</code>，通过LCG产生了一组序列<code>output</code>。</p><p>至此，已经可以根据<code>output</code>来求出LCG中的a、b、n，从而求出<code>seed</code>，从而通过背包可求得key。</p><p>3.以<code>key</code>为seed，称作<code>state</code>，再进行LCG，<code>state = (a * state + b) % c</code>，并且a，b，c已知。</p><p>但是想要直接正向求解出最后的state，十分困难，for循环了10^10000次，这里涉及到了<strong>矩阵快速幂</strong>的使用。</p><p>通过构造矩阵<br>$$<br>\mathbf{A} = \left[<br>\begin{array}{cccc}<br>state &amp; 1<br>\end{array}<br>\right]</p><p>\mathbf{C} = \left[<br>\begin{array}{cccc}<br>a &amp; 0\<br>b &amp; 1\<br>\end{array}<br>\right]<br>$$<br>通过计算$A<em>C^{10</em>10000}$即可得到矩阵B，B = [ state, 1]</p><p>4.求出state后进行异或解密即可。</p><h1><span id="exp">EXP</span></h1><p>&lt;!–code￼1–&gt;</p>]]></content>
     
