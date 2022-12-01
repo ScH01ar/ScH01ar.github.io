@@ -24,7 +24,7 @@
 <meta property="og:description" content="题目描述 如题目名字一样，有好多个lcg，当时看晕了 123456789101112131415161718192021222324252627282930313233343536373839404142434445from Crypto.Util.number import *key&#x3D;b&amp;#x27;*************&amp;#x27;key&#x3D;bytes_to_long(key)key&#x3D;bin(">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-11-30T02:05:45.000Z">
-<meta property="article:modified_time" content="2022-12-01T02:52:45.948Z">
+<meta property="article:modified_time" content="2022-12-01T03:42:22.752Z">
 <meta property="article:author" content="Roo1e">
 <meta property="article:tag" content="wp">
 <meta name="twitter:card" content="summary_large_image">
@@ -261,7 +261,7 @@
         
         
         
-          135 分钟
+          136 分钟
         
       </span>
     
@@ -320,8 +320,16 @@
 <p>至此，已经可以根据<code>output</code>来求出LCG中的a、b、n，从而求出<code>seed</code>，从而通过背包可求得key。</p>
 <p>3.以<code>key</code>为seed，称作<code>state</code>，再进行LCG，<code>state = (a * state + b) % c</code>，并且a，b，c已知。</p>
 <p>但是想要直接正向求解出最后的state，十分困难，for循环了10^10000次，这里涉及到了<strong>矩阵快速幂</strong>的使用。</p>
-<p>通过构造矩阵 $$ = </p>
-<p> = $$ 通过计算<span class="math inline">\(A*C^{10*10000}\)</span>即可得到矩阵B，B = [ state,
+<p>通过构造矩阵 $$ =</p>
+<span class="math display">\[\begin{bmatrix}
+state &amp; 1
+\end{bmatrix}\]</span>
+=
+<span class="math display">\[\begin{bmatrix}
+a &amp; 0\\
+b &amp; 1\\
+\end{bmatrix}\]</span>
+<p>$$ 通过计算<span class="math inline">\(A*C^{10*10000}\)</span>即可得到矩阵B，B = [ state,
 1]</p>
 <p>4.求出state后进行异或解密即可。</p>
 <h1><span id="exp">EXP</span></h1>
