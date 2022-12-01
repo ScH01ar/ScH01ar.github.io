@@ -16,12 +16,12 @@
   <meta name="author" content="Roo1e">
   <meta name="keywords" content="">
   
-    <meta name="description" content="RSA1 给定dp、dq类型 dp ≡ d mod (p-1) dq ≡ d mod (q-1) m ≡ cd mod n $$ m &#x3D; cd + k * n $$ m &#x3D; cd +k * p * q 对上式两端同时对p、q分别取余，得：（中国剩余定理） m1 ≡ cd mod p m2 ≡ cd mod q 同理，可得到 cd &#x3D; m1 +k * p 代入到 m2 ≡ cd mod q 中： m">
+    <meta name="description" content="RSA1 给定dp、dq类型 dp ≡ d mod (p-1) dq ≡ d mod (q-1) m ≡ cd mod n m &#x3D; c^d^ + k * n   m &#x3D; cd +k * p * q 对上式两端同时对p、q分别取余，得：（中国剩余定理） m1 ≡ cd mod p m2 ≡ cd mod q 同理，可得到 cd &#x3D; m1 +k * p 代入到 m2 ≡ cd mod q 中： m2">
 <meta property="og:type" content="article">
 <meta property="og:title" content="BUU刷题日记20221020">
 <meta property="og:url" content="https://sch01ar.github.io/2022/10/20/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B020221020/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="RSA1 给定dp、dq类型 dp ≡ d mod (p-1) dq ≡ d mod (q-1) m ≡ cd mod n $$ m &#x3D; cd + k * n $$ m &#x3D; cd +k * p * q 对上式两端同时对p、q分别取余，得：（中国剩余定理） m1 ≡ cd mod p m2 ≡ cd mod q 同理，可得到 cd &#x3D; m1 +k * p 代入到 m2 ≡ cd mod q 中： m">
+<meta property="og:description" content="RSA1 给定dp、dq类型 dp ≡ d mod (p-1) dq ≡ d mod (q-1) m ≡ cd mod n m &#x3D; c^d^ + k * n   m &#x3D; cd +k * p * q 对上式两端同时对p、q分别取余，得：（中国剩余定理） m1 ≡ cd mod p m2 ≡ cd mod q 同理，可得到 cd &#x3D; m1 +k * p 代入到 m2 ≡ cd mod q 中： m2">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-10-19T16:00:00.000Z">
 <meta property="article:modified_time" content="2022-10-21T02:17:03.606Z">
@@ -252,7 +252,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          479 字
+          477 字
         
       </span>
     
@@ -319,8 +319,10 @@
 dp ≡ d mod (p-1)<br>
 dq ≡ d mod (q-1)<br>
 m ≡ c<sup>d</sup> mod n</p>
-<p>$$ m = c<sup>d</sup> + k * n $$<br>
-m = c<sup>d</sup> +k * p * q<br>
+<p class="katex-block katex-error " title="ParseError: KaTeX parse error: Double superscript at position 8: m = c^d^̲ + k * n 
+">m = c^d^ + k * n 
+</p>
+<p>m = c<sup>d</sup> +k * p * q<br>
 对上式两端同时对p、q分别取余，得：（中国剩余定理）<br>
 m1 ≡ c<sup>d</sup> mod p<br>
 m2 ≡ c<sup>d</sup> mod q<br>
