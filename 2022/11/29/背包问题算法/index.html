@@ -23,13 +23,13 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="前言 在一次CTF比赛中遇到了，写了10个for嵌套硬爆出来了，复现的时候发现是背包加密。  Merkle–Hellman 公钥加密算法 整体加密流程 12345678import numpyx &#x3D; [1,0,0,1,0]#明文对应的2进制数a &#x3D; [3,7,16,50,120]# 产生一个超递增序列，称作私钥#对私钥a进行加密，产生公钥b。m &#x3D; 251#选取一个模数w &#x3D; 300#选取一个乘数">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://sch01ar.github.io/themes/pure/source/images/bag.png">
+<meta property="og:image" content="https://sch01ar.github.io/img/bag.png">
 <meta property="article:published_time" content="2022-11-28T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-12-01T03:52:07.721Z">
+<meta property="article:modified_time" content="2022-12-01T04:53:12.216Z">
 <meta property="article:author" content="Roo1e">
 <meta property="article:tag" content="非对称加密">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://sch01ar.github.io/themes/pure/source/images/bag.png">
+<meta name="twitter:image" content="https://sch01ar.github.io/img/bag.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
@@ -315,8 +315,8 @@
               <div class="markdown-body">
                 
                 <h2><span id="前言">前言</span></h2>
-<p>在一次CTF比赛中遇到了，写了10个for嵌套硬爆出来了，复现的时候发现是背包加密。
-<img src="/themes/pure/source/images/bag.png" srcset="/img/loading.gif" lazyload></p>
+<p>在一次CTF比赛中遇到了，写了10个for嵌套硬爆出来了，复现的时候发现是背包加密。</p>
+<p><img src="/.io//img/bag.png" srcset="/img/loading.gif" lazyload></p>
 <h2><span id="merklehellman-公钥加密算法">Merkle–Hellman 公钥加密算法</span></h2>
 <p>整体加密流程 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> numpy<br>x = [<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">0</span>]<span class="hljs-comment">#明文对应的2进制数</span><br>a = [<span class="hljs-number">3</span>,<span class="hljs-number">7</span>,<span class="hljs-number">16</span>,<span class="hljs-number">50</span>,<span class="hljs-number">120</span>]<span class="hljs-comment"># 产生一个超递增序列，称作私钥</span><br><span class="hljs-comment">#对私钥a进行加密，产生公钥b。</span><br>m = <span class="hljs-number">251</span><span class="hljs-comment">#选取一个模数</span><br>w = <span class="hljs-number">300</span><span class="hljs-comment">#选取一个乘数</span><br>b = [w * x % m <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> a]<span class="hljs-comment">#产生公钥</span><br>S = numpy.dot(x,b)<span class="hljs-comment">#加密结果</span><br></code></pre></td></tr></table></figure>
 可以发现，加密十分容易，但解密十分困难，这也是非对称加密的特点。 ###
