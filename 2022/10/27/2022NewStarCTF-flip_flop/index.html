@@ -24,7 +24,7 @@
 <meta property="og:description" content="flip-flop AES-CBC加密模式 题目 源码如下： &lt;!–code￼0–&gt; 题目分析 此题是通过注册得到的用户账户的密文，然后输入管理员账户对应的密文，才能得到flag。 对用户账户和管理员账户的加密解密均采用AES-CBC模式，但是本题仅有一组明文，iv仅作为偏移量，也就是本题中的user_key。 这里先来说一下我最一开始的思路，由于user_key每次是随机产生的，但是">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-10-26T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-10-27T06:19:54.682Z">
+<meta property="article:modified_time" content="2022-12-01T02:08:50.233Z">
 <meta property="article:author" content="Roo1e">
 <meta property="article:tag" content="wp">
 <meta name="twitter:card" content="summary_large_image">
@@ -308,14 +308,6 @@
             <!-- SEO header -->
             <h1 style="display: none">2022NewStarCTF-flip_flop</h1>
             
-              <p class="note note-info">
-                
-                  
-                    本文最后更新于：2022年10月27日 下午
-                  
-                
-              </p>
-            
             
               <div class="markdown-body">
                 
@@ -450,6 +442,34 @@ M = decrypt©^iv<br>
             </div>
 
             
+  <article id="comments" lazyload>
+    
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"Rhw3kBGfeXk25zumsz2Th5Sy-gzGzoHsz","appKey":"a1iD3B9BVfe3b1tHRmB8dCwE","path":"window.location.pathname","placeholder":null,"avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+  </article>
+
+
           </article>
         </div>
       </div>
