@@ -262,7 +262,7 @@
       
       <a class="index-excerpt index-excerpt__noimg" href="/2022/10/21/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B020221021/" target="_self">
         <div>
-          RSA2 题目给定n、e、dp、c 非预期解：直接分解n 下面考虑n不能分解的情况  推导过程 dp ≡ d mod (p-1) ed ≡ 1 mod (p-1) * (q-1) ed = 1 + k2(p-1)(q-1) 对1式两端同乘e，得 e * dp ≡ ed mod (p-1) e * dp = k1(p-1) + ed 代入ed得 e * dp = k1(p-1) + 1 + k2(
+          RSA2 题目给定n、e、dp、c 非预期解：直接分解n 下面考虑n不能分解的情况 ## 推导过程 dp ≡ d mod (p-1) ed ≡ 1 mod (p-1) * (q-1) ed = 1 + k2(p-1)(q-1) 对1式两端同乘e，得 e * dp ≡ ed mod (p-1) e * dp = k1(p-1) + ed 代入ed得 e * dp = k1(p-1) + 1 + k2
         </div>
       </a>
 
@@ -323,7 +323,7 @@
       
       <a class="index-excerpt index-excerpt__noimg" href="/2022/10/20/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B020221020/" target="_self">
         <div>
-          RSA1 给定dp、dq类型 dp ≡ d mod (p-1) dq ≡ d mod (q-1) m ≡ cd mod n m = c^d^ + k * n   m = cd +k * p * q 对上式两端同时对p、q分别取余，得：（中国剩余定理） m1 ≡ cd mod p m2 ≡ cd mod q 同理，可得到 cd = m1 +k * p 代入到 m2 ≡ cd mod q 中： m2
+          RSA1 给定dp、dq类型 dp ≡ d mod (p-1) dq ≡ d mod (q-1) m ≡ cd mod n \[ m = c^d^ + k * n \] m = cd +k * p * q 对上式两端同时对p、q分别取余，得：（中国剩余定理） m1 ≡ cd mod p m2 ≡ cd mod q 同理，可得到 cd = m1 +k * p 代入到 m2 ≡ cd mod q 中：
         </div>
       </a>
 
@@ -384,7 +384,7 @@
       
       <a class="index-excerpt index-excerpt__noimg" href="/2022/10/16/2021ByteCTF-easyxor/" target="_self">
         <div>
-          [TOC]  题目源码如下 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152#! /usr/bin/env pythonfrom Crypto.Util.number import bytes_to_long, long_to_bytesfrom rando
+          [TOC] # 题目源码如下 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152#! /usr/bin/env pythonfrom Crypto.Util.number import bytes_to_long, long_to_bytesfrom rand
         </div>
       </a>
 
@@ -451,7 +451,7 @@
       
       <a class="index-excerpt " href="/2022/10/16/2022BUUCTF%E6%96%B0%E7%94%9F%E8%B5%9B-RSA/" target="_self">
         <div>
-          题目源码 123456789101112131415161718from Crypto.Util.number import *import gmpy2m = bytes_to_long(flag)p = getPrime(512)q = getPrime(512)n = p * p * qe = 0x10001d = inverse(e, p * (p-1) * (q-1))assert m
+          题目源码 123456789101112131415161718from Crypto.Util.number import *import gmpy2m = bytes_to_long(flag)p = getPrime(512)q = getPrime(512)n = p * p * qe = 0x10001d = inverse(e, p * (p-1) * (q-1))assert m &
         </div>
       </a>
 
@@ -512,7 +512,7 @@
       
       <a class="index-excerpt index-excerpt__noimg" href="/2022/10/15/%E6%A2%A6%E5%BC%80%E5%A7%8B%E7%9A%84%E5%9C%B0%E6%96%B9/" target="_self">
         <div>
-          Mac下利用Hexo和github pages搭建个人博客  环境配置  1.Node.js安装 下载地址：Node.js  2.淘宝镜像安装 12//打开终端terminal$ npm install -g cnpm --registry=https://registry.npm.taobao.org   3.安装Hexo 1234// 使用命令去安装Hexocnpm install -g h
+          Mac下利用Hexo和github pages搭建个人博客 环境配置 1.Node.js安装 下载地址：Node.js 2.淘宝镜像安装 12//打开终端terminal$ npm install -g cnpm --registry=https://registry.npm.taobao.org  3.安装Hexo 1234// 使用命令去安装Hexocnpm install -g hexo-c
         </div>
       </a>
 
@@ -573,7 +573,7 @@
       
       <a class="index-excerpt index-excerpt__noimg" href="/2022/10/15/hello-world/" target="_self">
         <div>
-          Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.  Quic
+          Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick
         </div>
       </a>
 
