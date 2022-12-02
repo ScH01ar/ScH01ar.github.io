@@ -17,8 +17,8 @@ https://sch01ar.github.io/2022/10/30/2022-10-30-2022%E7%A5%A5%E4%BA%91%E6%9D%AFw
 https://sch01ar.github.io/about/index.html
 https://sch01ar.github.io/categories/index.html
 https://sch01ar.github.io/books/index.html
-https://sch01ar.github.io/repository/index.html
 https://sch01ar.github.io/links/index.html
+https://sch01ar.github.io/repository/index.html
 https://sch01ar.github.io/tags/index.html
 https://sch01ar.github.io/
 https://sch01ar.github.io/tags/wp/
