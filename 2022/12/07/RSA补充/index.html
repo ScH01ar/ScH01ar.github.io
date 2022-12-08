@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://sch01ar.github.io/img/rsa.jpg">
 <meta property="article:published_time" content="2022-12-07T13:05:45.000Z">
-<meta property="article:modified_time" content="2022-12-08T10:35:09.620Z">
+<meta property="article:modified_time" content="2022-12-08T10:37:41.440Z">
 <meta property="article:author" content="Roo1e">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://sch01ar.github.io/img/rsa.jpg">
@@ -251,7 +251,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          9.6k 字
+          9.5k 字
         
       </span>
     
@@ -343,8 +343,8 @@ n\)</span></p>
 <p>给定两个整数a、b，必定存在x、y，使得gcd(a,b)=ax+by</p>
 <p>运用该算法推导过程</p>
 <p>m = m % n</p>
-<p>m = m^s1 * e1 + s2 * e2^ % n</p>
-<p>m = m^e1<em>s1^ </em> m^(e2 * s2)^ % n</p>
+<p>m = m<sup>s1e1+s2e2</sup> % n</p>
+<p>m = m<sup>e1s1</sup> * m<sup>(e2s2)</sup> % n</p>
 <p>m = (m^(e1 * s1)^ % n) * (m^(e2 * s2)^ % n) % n</p>
 <p>m = (c1<sup>s1</sup> % n) * (c2<sup>s2</sup> % n) % n</p>
 <h2 id="exp">EXP</h2>
