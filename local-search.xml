@@ -8,7 +8,7 @@
     <link href="/2022/12/07/RSA%E8%A1%A5%E5%85%85/"/>
     <url>/2022/12/07/RSA%E8%A1%A5%E5%85%85/</url>
     
-    <content type="html"><![CDATA[<h1 id="回顾">回顾</h1><p>RSA中加、解密：</p><p>加密<span class="math inline">\(c = m^e\quadmod\quadn\)</span></p><p>解密<span class="math inline">\(m = c^d\quadmod\quadn\)</span></p><p>接下来证明一下解密过程，先引入欧拉定理。</p><h2 id="欧拉定理">欧拉定理</h2><p>对于任意的<span class="math inline">\(m^{\phi(n)} =1\quadmod\quadn\)</span>都有</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="回顾">回顾</h1><p>RSA中加、解密：</p><p>加密<span class="math inline">\(c = m^e\quad mod\quad n\)</span></p><p>解密<span class="math inline">\(m = c^d\quad mod\quad n\)</span></p><p>接下来证明一下解密过程，先引入欧拉定理。</p><h2 id="欧拉定理">欧拉定理</h2><p>对于任意的<span class="math inline">\(m^{\phi(n)} = 1\quad mod\quadn\)</span>都有</p>]]></content>
     
     
     <categories>

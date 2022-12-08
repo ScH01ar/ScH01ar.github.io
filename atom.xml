@@ -6,7 +6,7 @@
   <link href="https://sch01ar.github.io/atom.xml" rel="self"/>
   
   <link href="https://sch01ar.github.io/"/>
-  <updated>2022-12-08T05:11:57.639Z</updated>
+  <updated>2022-12-08T05:13:32.720Z</updated>
   <id>https://sch01ar.github.io/</id>
   
   <author>
@@ -21,17 +21,17 @@
     <link href="https://sch01ar.github.io/2022/12/07/RSA%E8%A1%A5%E5%85%85/"/>
     <id>https://sch01ar.github.io/2022/12/07/RSA%E8%A1%A5%E5%85%85/</id>
     <published>2022-12-07T13:05:45.000Z</published>
-    <updated>2022-12-08T05:11:57.639Z</updated>
+    <updated>2022-12-08T05:13:32.720Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="回顾">回顾</h1><p>RSA中加、解密：</p><p>加密<span class="math inline">\(c = m^e\quadmod\quadn\)</span></p><p>解密<span class="math inline">\(m = c^d\quadmod\quadn\)</span></p><p>接下来证明一下解密过程，先引入欧拉定理。</p><h2 id="欧拉定理">欧拉定理</h2><p>对于任意的<span class="math inline">\(m^{\phi(n)} =1\quadmod\quadn\)</span>都有</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="回顾">回顾</h1><p>RSA中加、解密：</p><p>加密<span class="math inline">\(c = m^e\quad mod\quad n\)</span></p><p>解密<span class="math inline">\(m = c^d\quad mod\quad n\)</span></p><p>接下来证明一下解密过程，先引入欧拉定理。</p><h2 id="欧拉定理">欧拉定理</h2><p>对于任意的<span class="math inline">\(m^{\phi(n)} = 1\quad mod\quadn\)</span>都有</p>]]></content>
     
     
       
       
     <summary type="html">&lt;h1 id=&quot;回顾&quot;&gt;回顾&lt;/h1&gt;
 &lt;p&gt;RSA中加、解密：&lt;/p&gt;
-&lt;p&gt;加密&lt;span class=&quot;math inline&quot;&gt;\(c = m^e\quadmod\quadn\)&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;解密&lt;span class=&quot;math inline&quot;&gt;\(m </summary>
+&lt;p&gt;加密&lt;span class=&quot;math inline&quot;&gt;\(c = m^e\quad mod\quad n\)&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;解密&lt;span class=&quot;math inline&quot;&gt;\(</summary>
       
     
     
