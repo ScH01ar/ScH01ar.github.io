@@ -16,11 +16,11 @@ https://sch01ar.github.io/2022/10/16/2022BUUCTF%E6%96%B0%E7%94%9F%E8%B5%9B-RSA/
 https://sch01ar.github.io/2022/10/15/hello-world/
 https://sch01ar.github.io/2022/10/15/%E6%A2%A6%E5%BC%80%E5%A7%8B%E7%9A%84%E5%9C%B0%E6%96%B9/
 https://sch01ar.github.io/2022/11/10/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%BB%BA%E7%AB%8B%E4%B8%8E%E9%81%8D%E5%8E%86/
-https://sch01ar.github.io/links/index.html
 https://sch01ar.github.io/books/index.html
+https://sch01ar.github.io/categories/index.html
+https://sch01ar.github.io/links/index.html
 https://sch01ar.github.io/repository/index.html
 https://sch01ar.github.io/tags/index.html
-https://sch01ar.github.io/categories/index.html
 https://sch01ar.github.io/
 https://sch01ar.github.io/tags/wp/
 https://sch01ar.github.io/tags/diary/
