@@ -16,16 +16,16 @@
   <meta name="author" content="Roo1e">
   <meta name="keywords" content="">
   
-    <meta name="description" content="回顾 RSA中加、解密： 加密\(c &#x3D; m^e\quad mod\quad n\) 解密\(m &#x3D; c^d\quad mod\quad n\) 接下来证明一下解密过程，先引入欧拉定理。 欧拉定理 对于任意的\(m^{\phi(n)} &#x3D; 1\quad mod\quad n\)都有">
+    <meta name="description" content="回顾 RSA中加、解密： 加密\(c &#x3D; m^e\quad mod\quad n\) 解密\(m &#x3D; c^d\quad mod\quad n\) 接下来证明一下解密过程，先引入欧拉定理。 欧拉定理 对于互为质数的m、n两个数，有\(m^{\phi(n)} &#x3D; 1\quad mod\quad n\)，其中\(\phi(n)\)表示小于n的质数的个数。 解密原理 通过\(c &#x3D; m^e\quad mo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="RSA补充">
 <meta property="og:url" content="https://sch01ar.github.io/2022/12/07/RSA%E8%A1%A5%E5%85%85/index.html">
 <meta property="og:site_name" content="Y&#39;s blog">
-<meta property="og:description" content="回顾 RSA中加、解密： 加密\(c &#x3D; m^e\quad mod\quad n\) 解密\(m &#x3D; c^d\quad mod\quad n\) 接下来证明一下解密过程，先引入欧拉定理。 欧拉定理 对于任意的\(m^{\phi(n)} &#x3D; 1\quad mod\quad n\)都有">
+<meta property="og:description" content="回顾 RSA中加、解密： 加密\(c &#x3D; m^e\quad mod\quad n\) 解密\(m &#x3D; c^d\quad mod\quad n\) 接下来证明一下解密过程，先引入欧拉定理。 欧拉定理 对于互为质数的m、n两个数，有\(m^{\phi(n)} &#x3D; 1\quad mod\quad n\)，其中\(\phi(n)\)表示小于n的质数的个数。 解密原理 通过\(c &#x3D; m^e\quad mo">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://sch01ar.github.io/img/buu11.png">
 <meta property="article:published_time" content="2022-12-07T13:05:45.000Z">
-<meta property="article:modified_time" content="2022-12-08T05:13:32.720Z">
+<meta property="article:modified_time" content="2022-12-08T05:24:23.557Z">
 <meta property="article:author" content="Roo1e">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://sch01ar.github.io/img/buu11.png">
@@ -251,7 +251,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          123 字
+          399 字
         
       </span>
     
@@ -262,7 +262,7 @@
         
         
         
-          2 分钟
+          4 分钟
         
       </span>
     
@@ -319,8 +319,21 @@
 <p>解密<span class="math inline">\(m = c^d\quad mod\quad n\)</span></p>
 <p>接下来证明一下解密过程，先引入欧拉定理。</p>
 <h2 id="欧拉定理">欧拉定理</h2>
-<p>对于任意的<span class="math inline">\(m^{\phi(n)} = 1\quad mod\quad
-n\)</span>都有</p>
+<p>对于互为质数的m、n两个数，有<span class="math inline">\(m^{\phi(n)} =
+1\quad mod\quad n\)</span>，其中<span
+class="math inline">\(\phi(n)\)</span>表示小于n的质数的个数。</p>
+<h2 id="解密原理">解密原理</h2>
+<p>通过<span class="math inline">\(c = m^e\quad mod\quad
+n\)</span>与欧拉定理<span class="math inline">\(m^{\phi(n)} = 1\quad
+mod\quad n\)</span>，我们便可进行推导。</p>
+<p>对欧拉定理进行变形，得到<span class="math inline">\(m^{k\phi(n)+1} =
+m\quad mod\quad n\)</span></p>
+<p>因为我们已经知道<span class="math inline">\(c = m^e\quad mod\quad
+n\)</span>，所以寻找一个d，使得若使得<span class="math inline">\(ed =
+k\phi(n)+1\)</span>,则可以得到<span class="math inline">\(m^{ed}=m\quad
+mod \quad n\)</span></p>
+<p>则得到了<span class="math inline">\(c^d =m\quad mod\quad
+n\)</span></p>
 
                 
               </div>

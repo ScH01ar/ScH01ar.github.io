@@ -8,7 +8,7 @@
     <link href="/2022/12/07/RSA%E8%A1%A5%E5%85%85/"/>
     <url>/2022/12/07/RSA%E8%A1%A5%E5%85%85/</url>
     
-    <content type="html"><![CDATA[<h1 id="回顾">回顾</h1><p>RSA中加、解密：</p><p>加密<span class="math inline">\(c = m^e\quad mod\quad n\)</span></p><p>解密<span class="math inline">\(m = c^d\quad mod\quad n\)</span></p><p>接下来证明一下解密过程，先引入欧拉定理。</p><h2 id="欧拉定理">欧拉定理</h2><p>对于任意的<span class="math inline">\(m^{\phi(n)} = 1\quad mod\quadn\)</span>都有</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="回顾">回顾</h1><p>RSA中加、解密：</p><p>加密<span class="math inline">\(c = m^e\quad mod\quad n\)</span></p><p>解密<span class="math inline">\(m = c^d\quad mod\quad n\)</span></p><p>接下来证明一下解密过程，先引入欧拉定理。</p><h2 id="欧拉定理">欧拉定理</h2><p>对于互为质数的m、n两个数，有<span class="math inline">\(m^{\phi(n)} =1\quad mod\quad n\)</span>，其中<spanclass="math inline">\(\phi(n)\)</span>表示小于n的质数的个数。</p><h2 id="解密原理">解密原理</h2><p>通过<span class="math inline">\(c = m^e\quad mod\quadn\)</span>与欧拉定理<span class="math inline">\(m^{\phi(n)} = 1\quadmod\quad n\)</span>，我们便可进行推导。</p><p>对欧拉定理进行变形，得到<span class="math inline">\(m^{k\phi(n)+1} =m\quad mod\quad n\)</span></p><p>因为我们已经知道<span class="math inline">\(c = m^e\quad mod\quadn\)</span>，所以寻找一个d，使得若使得<span class="math inline">\(ed =k\phi(n)+1\)</span>,则可以得到<span class="math inline">\(m^{ed}=m\quadmod \quad n\)</span></p><p>则得到了<span class="math inline">\(c^d =m\quad mod\quadn\)</span></p>]]></content>
     
     
     <categories>
