@@ -4,7 +4,7 @@
   <url>
     <loc>https://sch01ar.github.io/2023/02/04/2023%E5%AF%92%E5%81%87%E9%9B%86%E5%90%88/</loc>
     
-    <lastmod>2023-02-15</lastmod>
+    <lastmod>2023-02-16</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -173,6 +173,15 @@
   </url>
   
   <url>
+    <loc>https://sch01ar.github.io/books/index.html</loc>
+    
+    <lastmod>2022-10-15</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://sch01ar.github.io/categories/index.html</loc>
     
     <lastmod>2022-10-15</lastmod>
@@ -182,7 +191,7 @@
   </url>
   
   <url>
-    <loc>https://sch01ar.github.io/books/index.html</loc>
+    <loc>https://sch01ar.github.io/links/index.html</loc>
     
     <lastmod>2022-10-15</lastmod>
     
@@ -201,15 +210,6 @@
   
   <url>
     <loc>https://sch01ar.github.io/tags/index.html</loc>
-    
-    <lastmod>2022-10-15</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://sch01ar.github.io/links/index.html</loc>
     
     <lastmod>2022-10-15</lastmod>
     
