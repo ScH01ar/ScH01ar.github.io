@@ -1,0 +1,760 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/yt.png">
+  <link rel="icon" href="/img/yt.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Roo1e">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="crypto-sign-in-1 一道 ECDLP 题目，当时想到使用Pohlig-Hellman算法，但是一直没能找到合适的 A、B 来确定 G 的阶 n，赛后看大佬 wp，果然是用 pwntools 远程多试几组 y1、y2，找到光滑的阶，从而解密成功。 题目 1234567891011121314151617181920212223242526272829303132333435363738">
+<meta property="og:type" content="article">
+<meta property="og:title" content="VNCTF2023">
+<meta property="og:url" content="https://sch01ar.github.io/2023/02/20/VNCTF2023/index.html">
+<meta property="og:site_name" content="Y&#39;s blog">
+<meta property="og:description" content="crypto-sign-in-1 一道 ECDLP 题目，当时想到使用Pohlig-Hellman算法，但是一直没能找到合适的 A、B 来确定 G 的阶 n，赛后看大佬 wp，果然是用 pwntools 远程多试几组 y1、y2，找到光滑的阶，从而解密成功。 题目 1234567891011121314151617181920212223242526272829303132333435363738">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://sch01ar.github.io/img/snow1.heic">
+<meta property="article:published_time" content="2023-02-20T12:05:45.000Z">
+<meta property="article:modified_time" content="2023-02-20T12:50:29.436Z">
+<meta property="article:author" content="Roo1e">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://sch01ar.github.io/img/snow1.heic">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>VNCTF2023 - Y&#39;s blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"sch01ar.github.io","root":"/","version":"1.9.3","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6,h7,h8","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6,h7,h8","collapseDepth":1},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+  
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Y's blog" type="application/atom+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Y</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/skate.heic') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="VNCTF2023"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-02-20 20:05" pubdate>
+          2023年2月20日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          5.4k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          45 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">VNCTF2023</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="crypto-sign-in-1">crypto-sign-in-1</h1>
+<p>一道 ECDLP
+题目，当时想到使用<code>Pohlig-Hellman</code>算法，但是一直没能找到合适的
+A、B 来确定 G 的阶 n，赛后看大佬 wp，果然是用 pwntools 远程多试几组
+y1、y2，找到光滑的阶，从而解密成功。</p>
+<h2 id="题目">题目</h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br></pre></td><td class="code"><pre><code class="hljs python"><br><span class="hljs-keyword">from</span> sympy.ntheory.residue_ntheory <span class="hljs-keyword">import</span> nthroot_mod<br><span class="hljs-keyword">from</span> Crypto.Util.number <span class="hljs-keyword">import</span> *<br><span class="hljs-keyword">from</span> Crypto.Cipher <span class="hljs-keyword">import</span> AES<br><span class="hljs-keyword">from</span> random <span class="hljs-keyword">import</span> randrange,choice<br><span class="hljs-keyword">from</span> hashlib <span class="hljs-keyword">import</span> *<br><span class="hljs-keyword">from</span> secret <span class="hljs-keyword">import</span> flag<br><br><span class="hljs-keyword">import</span> socketserver<br><span class="hljs-keyword">import</span> os<br><span class="hljs-keyword">import</span> signal<br><span class="hljs-keyword">import</span> string<br><br>table = string.ascii_letters+string.digits<br><br>nbit = <span class="hljs-number">128</span><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">pad</span>(<span class="hljs-params">m,lenth</span>):<br>    <span class="hljs-keyword">return</span> m + <span class="hljs-built_in">bytes</span>([i <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(lenth-<span class="hljs-built_in">int</span>(<span class="hljs-built_in">len</span>(m)%lenth))])<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Task</span>(socketserver.BaseRequestHandler):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">_recvall</span>(<span class="hljs-params">self</span>):<br>        BUFF_SIZE = <span class="hljs-number">2048</span><br>        data = <span class="hljs-string">b&#x27;&#x27;</span><br>        <span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:<br>            part = self.request.recv(BUFF_SIZE)<br>            data += part<br>            <span class="hljs-keyword">if</span> <span class="hljs-built_in">len</span>(part) &lt; BUFF_SIZE:<br>                <span class="hljs-keyword">break</span><br>        <span class="hljs-keyword">return</span> data.strip()<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">send</span>(<span class="hljs-params">self, msg, newline=<span class="hljs-literal">True</span></span>):<br>        <span class="hljs-keyword">try</span>:<br>            <span class="hljs-keyword">if</span> newline:<br>                msg += <span class="hljs-string">b&#x27;\n&#x27;</span><br>            self.request.sendall(msg)<br>        <span class="hljs-keyword">except</span>:<br>            <span class="hljs-keyword">pass</span><br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">recv</span>(<span class="hljs-params">self, prompt=<span class="hljs-string">b&#x27;&#x27;</span></span>):<br>        self.send(prompt, newline=<span class="hljs-literal">False</span>)<br>        <span class="hljs-keyword">return</span> self._recvall()<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">proof_of_work</span>(<span class="hljs-params">self</span>):<br>        proof = (<span class="hljs-string">&#x27;&#x27;</span>.join([choice(table)<span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">20</span>)])).encode()<br>        sha = sha256(proof).hexdigest().encode()<br>        self.send(<span class="hljs-string">b&quot;[+] sha256(XXXX+&quot;</span> + proof[<span class="hljs-number">4</span>:] + <span class="hljs-string">b&quot;) == &quot;</span> + sha )<br>        XXXX = self.recv(prompt = <span class="hljs-string">b&#x27;[+] Plz Tell Me XXXX :&#x27;</span>)<br>        <span class="hljs-keyword">if</span> <span class="hljs-built_in">len</span>(XXXX) != <span class="hljs-number">4</span> <span class="hljs-keyword">or</span> sha256(XXXX + proof[<span class="hljs-number">4</span>:]).hexdigest().encode() != sha:<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span><br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">handle</span>(<span class="hljs-params">self</span>):<br>        proof = self.proof_of_work()<br>        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> proof:<br>            self.request.close()<br>        <span class="hljs-keyword">while</span> <span class="hljs-number">1</span>:<br>            qa = randrange(<span class="hljs-number">0</span>,<span class="hljs-number">2</span>**<span class="hljs-number">31</span>) * <span class="hljs-number">2</span><br>            qb = getPrime(nbit - <span class="hljs-number">32</span>)<br>            <span class="hljs-keyword">if</span> isPrime(qa * qb + <span class="hljs-number">1</span>):<br>                q = qa * qb + <span class="hljs-number">1</span><br>                <span class="hljs-keyword">break</span><br><br>        <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(<span class="hljs-string">b&#x27;vnctf2023&#x27;</span>) - <span class="hljs-number">8</span>):<br>            self.send(<span class="hljs-string">b&quot;Send 2 `y&#x27; elements to me:  &quot;</span>)<br>            ans = self.recv()<br>            <span class="hljs-keyword">try</span>:<br>                y1, y2 = [<span class="hljs-built_in">int</span>(_) % q <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> ans.split(<span class="hljs-string">b&#x27;,&#x27;</span>)]<br>            <span class="hljs-keyword">except</span>:<br>                self.send(<span class="hljs-string">b&quot;Your parameters are not valid! Bye!!&quot;</span>)<br>                <span class="hljs-keyword">break</span><br><br>            AA = (y1**<span class="hljs-number">2</span> - y2**<span class="hljs-number">2</span> - <span class="hljs-number">2022</span>**<span class="hljs-number">3</span> + <span class="hljs-number">2023</span>**<span class="hljs-number">3</span>) * inverse(-<span class="hljs-number">1</span>, q) % q<br>            BB = (y1**<span class="hljs-number">2</span> - <span class="hljs-number">2022</span>**<span class="hljs-number">3</span> - AA * <span class="hljs-number">2022</span>) % q<br><br>            <span class="hljs-keyword">def</span> <span class="hljs-title function_">add</span>(<span class="hljs-params">P,Q</span>):<br>                <span class="hljs-keyword">if</span> P[<span class="hljs-number">0</span>] != Q[<span class="hljs-number">0</span>] <span class="hljs-keyword">and</span> P[<span class="hljs-number">1</span>] != Q[<span class="hljs-number">1</span>]:<br>                    t = ((Q[<span class="hljs-number">1</span>]-P[<span class="hljs-number">1</span>]) * inverse(Q[<span class="hljs-number">0</span>]-P[<span class="hljs-number">0</span>],q)) %q<br>                <span class="hljs-keyword">else</span>:<br>                    t = ((<span class="hljs-number">3</span>*P[<span class="hljs-number">0</span>]*P[<span class="hljs-number">0</span>]+AA)*inverse(<span class="hljs-number">2</span>*P[<span class="hljs-number">1</span>],q))%q<br>                x3 = t*t - P[<span class="hljs-number">0</span>] - Q[<span class="hljs-number">0</span>]<br>                y3 = t*(P[<span class="hljs-number">0</span>] - x3) - P[<span class="hljs-number">1</span>]<br>                <span class="hljs-keyword">return</span> (x3%q, y3%q)<br><br>            <span class="hljs-keyword">def</span> <span class="hljs-title function_">mul</span>(<span class="hljs-params">t, A, B=<span class="hljs-number">0</span></span>):<br>                <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> t: <span class="hljs-keyword">return</span> B<br>                <span class="hljs-keyword">return</span> mul(t//<span class="hljs-number">2</span>, add(A,A), B <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> t&amp;<span class="hljs-number">1</span> <span class="hljs-keyword">else</span> add(B,A) <span class="hljs-keyword">if</span> B <span class="hljs-keyword">else</span> A)<br><br>            <span class="hljs-keyword">while</span> <span class="hljs-number">1</span>:<br>                Gx = randrange(<span class="hljs-number">0</span>,q - <span class="hljs-number">1</span>)<br>                <span class="hljs-keyword">try</span>:<br>                    Gy = <span class="hljs-built_in">int</span>(nthroot_mod((Gx**<span class="hljs-number">3</span> + AA * Gx + BB) % q,<span class="hljs-number">2</span>,q))<br>                    <span class="hljs-keyword">assert</span> (<span class="hljs-built_in">pow</span>(Gy,<span class="hljs-number">2</span>,q) == (Gx**<span class="hljs-number">3</span> + AA * Gx + BB) % q)<br>                    <span class="hljs-keyword">break</span><br>                <span class="hljs-keyword">except</span>:<br>                    <span class="hljs-keyword">continue</span><br><br>            G = (Gx,Gy)<br>            m = randrange(<span class="hljs-number">0</span>,q-<span class="hljs-number">1</span>)<br>            C = mul(m,G)<br>            aes = AES.new(m.to_bytes(<span class="hljs-number">16</span>, <span class="hljs-string">&#x27;big&#x27;</span>), AES.MODE_CBC, <span class="hljs-built_in">bytes</span>(<span class="hljs-number">16</span>))<br>            enc_flag = aes.encrypt(pad(flag,<span class="hljs-number">16</span>))<br><br>            self.send(<span class="hljs-string">b&#x27;The parameters and encrypted flag are:&#x27;</span>)<br>            self.send(<span class="hljs-string">b&#x27;q = &#x27;</span> + <span class="hljs-built_in">str</span>(q).encode())<br>            self.send(<span class="hljs-string">b&#x27;G = (&#x27;</span>+ <span class="hljs-built_in">str</span>(Gx).encode() + <span class="hljs-string">b&#x27;,&#x27;</span> + <span class="hljs-built_in">str</span>(Gy).encode() + <span class="hljs-string">b&#x27;)&#x27;</span>)<br>            self.send(<span class="hljs-string">b&#x27;m * G = (&#x27;</span>+ <span class="hljs-built_in">str</span>(C[<span class="hljs-number">0</span>]).encode() + <span class="hljs-string">b&#x27;,&#x27;</span> + <span class="hljs-built_in">str</span>(C[<span class="hljs-number">1</span>]).encode() + <span class="hljs-string">b&#x27;)&#x27;</span>)<br>            self.send(<span class="hljs-string">b&#x27;encrypt flag = &#x27;</span> + enc_flag.<span class="hljs-built_in">hex</span>().encode())<br>        self.request.close()<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">ThreadedServer</span>(socketserver.ThreadingMixIn, socketserver.TCPServer):<br>    <span class="hljs-keyword">pass</span><br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">ForkedServer</span>(socketserver.ForkingMixIn, socketserver.TCPServer):<br>    <span class="hljs-keyword">pass</span><br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&quot;__main__&quot;</span>:<br>    HOST, PORT = <span class="hljs-string">&#x27;0.0.0.0&#x27;</span>, <span class="hljs-number">10001</span><br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;HOST:POST &quot;</span> + HOST+<span class="hljs-string">&quot;:&quot;</span> + <span class="hljs-built_in">str</span>(PORT))<br>    server = ForkedServer((HOST, PORT), Task)<br>    server.allow_reuse_address = <span class="hljs-literal">True</span><br>    server.serve_forever()<br><br></code></pre></td></tr></table></figure>
+<h2 id="exp">EXP</h2>
+<p>以后终于能用 sage 跑远程了，个人用的 sage 的 console，在里面下了
+pwntools 库和 crypto 库，不知道为什么 remote
+使用的时候端口号也要加个引号，不然会报错。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment">#sage</span><br><span class="hljs-keyword">from</span> pwn <span class="hljs-keyword">import</span> *<br><span class="hljs-keyword">from</span> itertools <span class="hljs-keyword">import</span> product<br><span class="hljs-keyword">import</span> string<br><span class="hljs-keyword">from</span> hashlib <span class="hljs-keyword">import</span> sha256<br><span class="hljs-keyword">from</span> random <span class="hljs-keyword">import</span> getrandbits<br><span class="hljs-keyword">from</span> ast <span class="hljs-keyword">import</span> literal_eval<br><span class="hljs-keyword">from</span> Crypto.Util.number <span class="hljs-keyword">import</span> *<br><span class="hljs-keyword">from</span> Crypto.Cipher <span class="hljs-keyword">import</span> AES<br><br>table = string.ascii_letters+string.digits<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">set_connect_proof</span>():<br>    io=remote(<span class="hljs-string">&#x27;node4.buuoj.cn&#x27;</span>,<span class="hljs-string">&#x27;25385&#x27;</span>)<br>    io.recvuntil(<span class="hljs-string">b&quot;sha256(XXXX+&quot;</span>)<br>    alphabet = string.ascii_letters + string.digits<br>    lattar_part=io.recv(<span class="hljs-number">16</span>).decode(<span class="hljs-string">&#x27;utf8&#x27;</span>)<br>    io.recvuntil(<span class="hljs-string">b&#x27;== &#x27;</span>)<br>    h=io.recvline().strip().decode(<span class="hljs-string">&#x27;utf8&#x27;</span>)<br>    <span class="hljs-comment"># print(h)</span><br>    io.recvuntil(<span class="hljs-string">b&#x27;[+] Plz Tell Me XXXX :&#x27;</span>)<br>    bruteforce=[ <span class="hljs-string">&#x27;&#x27;</span>.join(prefix)+lattar_part  <span class="hljs-keyword">for</span> prefix <span class="hljs-keyword">in</span> product(alphabet,repeat=<span class="hljs-number">4</span>)]<br>    <span class="hljs-keyword">for</span> proof <span class="hljs-keyword">in</span> bruteforce:<br>        <span class="hljs-keyword">if</span> sha256(proof.encode()).hexdigest()==h:<br>            io.sendline(proof.encode()[:<span class="hljs-number">4</span>])<br>            <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;proof done&quot;</span>)<br>            <span class="hljs-keyword">return</span> io<br><br><span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:<br>    io = set_connect_proof()<br>    io.recvuntil(<span class="hljs-string">b&quot;Send 2 `y&#x27; elements to me:  &quot;</span>)<br>    y1,y2 = getrandbits(<span class="hljs-number">128</span>),getrandbits(<span class="hljs-number">128</span>)<br>    io.sendline(<span class="hljs-string">f&#x27;<span class="hljs-subst">&#123;<span class="hljs-built_in">str</span>(y1)&#125;</span>,<span class="hljs-subst">&#123;<span class="hljs-built_in">str</span>(y2)&#125;</span>&#x27;</span>.encode())<br>    q = <span class="hljs-built_in">int</span>(io.recvline_contains(<span class="hljs-string">b&#x27;q = &#x27;</span>).decode().strip()[<span class="hljs-number">4</span>:])<br>    G = literal_eval(io.recvline_contains(<span class="hljs-string">b&quot;G = &quot;</span>).decode().strip()[<span class="hljs-number">4</span>:])<br>    mG = literal_eval(io.recvline_contains(<span class="hljs-string">b&quot;m * G = &quot;</span>).decode().strip()[<span class="hljs-number">8</span>:])<br>    encflag = io.recvline_contains(<span class="hljs-string">b&#x27;encrypt flag = &#x27;</span>).decode().strip()[<span class="hljs-built_in">len</span>(<span class="hljs-string">b&#x27;encrypt flag = &#x27;</span>):]<br>    AA = (y1**<span class="hljs-number">2</span> - y2**<span class="hljs-number">2</span> - <span class="hljs-number">2022</span>**<span class="hljs-number">3</span> + <span class="hljs-number">2023</span>**<span class="hljs-number">3</span>) * inverse(-<span class="hljs-number">1</span>, q) % q<br>    BB = (y1**<span class="hljs-number">2</span> - <span class="hljs-number">2022</span>**<span class="hljs-number">3</span> - AA * <span class="hljs-number">2022</span>) % q<br>    E = EllipticCurve(GF(q), [AA, BB])<br>    g_order = E(G).order()<br>    order_ls = factor(g_order)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;[+] G order <span class="hljs-subst">&#123;order_ls&#125;</span>&quot;</span>)<br>    sub_group_order = <span class="hljs-number">1</span><br>    <span class="hljs-keyword">for</span> p,e <span class="hljs-keyword">in</span> order_ls:<br>        <span class="hljs-keyword">if</span> p.nbits() &lt;= <span class="hljs-number">42</span>:<br>            sub_group_order*= (p^e)<br>    expon = g_order//sub_group_order<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;[+] <span class="hljs-subst">&#123;sub_group_order.nbits() = &#125;</span>&quot;</span>)<br>    <span class="hljs-keyword">if</span> sub_group_order.nbits() &lt; <span class="hljs-number">120</span>:<br>        io.close()<br>        <span class="hljs-keyword">continue</span><br>    mm = discrete_log(expon*E(mG),expon*E(G),<span class="hljs-built_in">ord</span> = sub_group_order,operation = <span class="hljs-string">&quot;+&quot;</span>)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;[+] subgroup dlp (m mod <span class="hljs-subst">&#123;sub_group_order&#125;</span>) = &quot;</span>, mm)<br>    io.close()<br>    <span class="hljs-keyword">break</span><br><br>aes = AES.new(<span class="hljs-built_in">int</span>(mm).to_bytes(<span class="hljs-number">16</span>, <span class="hljs-string">&#x27;big&#x27;</span>), AES.MODE_CBC, <span class="hljs-built_in">bytes</span>(<span class="hljs-number">16</span>))<br>flag = aes.decrypt(<span class="hljs-built_in">bytes</span>.fromhex(encflag))<br><span class="hljs-built_in">print</span>(flag)<br></code></pre></td></tr></table></figure>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/CTF/" class="category-chain-item">CTF</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>VNCTF2023</div>
+      <div>https://sch01ar.github.io/2023/02/20/VNCTF2023/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Roo1e</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年2月20日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/02/04/2023%E5%AF%92%E5%81%87%E9%9B%86%E5%90%88/" title="2023寒假集合">
+                        <span class="hidden-mobile">2023寒假集合</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"Rhw3kBGfeXk25zumsz2Th5Sy-gzGzoHsz","appKey":"a1iD3B9BVfe3b1tHRmB8dCwE","path":"window.location.pathname","placeholder":null,"avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
