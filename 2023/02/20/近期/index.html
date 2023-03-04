@@ -16,16 +16,16 @@
   <meta name="author" content="Roo1e">
   <meta name="keywords" content="">
   
-    <meta name="description" content="假期和刚开学这两天做的一些，周末有考试，都是隔几天写个 wp，就都放在这吧 ECC 常用方程（维尔斯特拉斯标准形式） \(y^2\;&#x3D;x^3+ax+b\)，判别式\(\Delta&#x3D;-16(4a^3+27b^2)\;mod\;p&#x3D;0\) sage 环境 进行简单运算 1234567a &#x3D; 497b &#x3D; 1768p &#x3D; 9739E &#x3D; EllipticCurve(GF(p), [a, b])Q &#x3D; E">
+    <meta name="description" content="ECC 常用方程（维尔斯特拉斯标准形式） \(y^2\;&#x3D;x^3+ax+b\)，判别式\(\Delta&#x3D;-16(4a^3+27b^2)\;mod\;p&#x3D;0\) sage 环境 进行简单运算 1234567a &#x3D; 497b &#x3D; 1768p &#x3D; 9739E &#x3D; EllipticCurve(GF(p), [a, b])Q &#x3D; E(1539, 4742)R &#x3D; E(4403,5202)P &#x3D; E(2339">
 <meta property="og:type" content="article">
 <meta property="og:title" content="近期">
 <meta property="og:url" content="https://sch01ar.github.io/2023/02/20/%E8%BF%91%E6%9C%9F/index.html">
 <meta property="og:site_name" content="Y&#39;s blog">
-<meta property="og:description" content="假期和刚开学这两天做的一些，周末有考试，都是隔几天写个 wp，就都放在这吧 ECC 常用方程（维尔斯特拉斯标准形式） \(y^2\;&#x3D;x^3+ax+b\)，判别式\(\Delta&#x3D;-16(4a^3+27b^2)\;mod\;p&#x3D;0\) sage 环境 进行简单运算 1234567a &#x3D; 497b &#x3D; 1768p &#x3D; 9739E &#x3D; EllipticCurve(GF(p), [a, b])Q &#x3D; E">
+<meta property="og:description" content="ECC 常用方程（维尔斯特拉斯标准形式） \(y^2\;&#x3D;x^3+ax+b\)，判别式\(\Delta&#x3D;-16(4a^3+27b^2)\;mod\;p&#x3D;0\) sage 环境 进行简单运算 1234567a &#x3D; 497b &#x3D; 1768p &#x3D; 9739E &#x3D; EllipticCurve(GF(p), [a, b])Q &#x3D; E(1539, 4742)R &#x3D; E(4403,5202)P &#x3D; E(2339">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://sch01ar.github.io/img/snow1.heic">
 <meta property="article:published_time" content="2023-02-20T06:05:45.000Z">
-<meta property="article:modified_time" content="2023-02-27T07:58:12.306Z">
+<meta property="article:modified_time" content="2023-03-04T06:00:15.740Z">
 <meta property="article:author" content="Roo1e">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://sch01ar.github.io/img/snow1.heic">
@@ -313,9 +313,7 @@
             
               <div class="markdown-body">
                 
-                <p>假期和刚开学这两天做的一些，周末有考试，都是隔几天写个
-wp，就都放在这吧</p>
-<h1 id="ecc">ECC</h1>
+                <h1 id="ecc">ECC</h1>
 <p>常用方程（维尔斯特拉斯标准形式）</p>
 <p><span class="math inline">\(y^2\;=x^3+ax+b\)</span>，判别式<span
 class="math inline">\(\Delta=-16(4a^3+27b^2)\;mod\;p=0\)</span></p>
@@ -352,7 +350,7 @@ class="math inline">\(y^2=x^3+2x^2+x+C\)</span></p>
 <p>因为<code>193387944202565886198256260591909756040 = pow(89654903351345918131227153390056628523,2,p)</code>
 我们就可把 P、Q 点映射到乘法群上，从而进行简单的对数计算。</p>
 <p>映射法则如下: <span
-class="math display">\[(x,y)\rightarrow=\frac{y+tx}{y-tx}\]</span></p>
+class="math display">\[(x,y)\rightarrow\frac{y+tx}{y-tx}\]</span></p>
 <h4 id="exp-1">EXP</h4>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs python">p=<span class="hljs-number">193387944202565886198256260591909756041</span><br>P.&lt;x&gt; = GF(p)[]<br>f = x^<span class="hljs-number">3</span> + <span class="hljs-number">2</span>*x^<span class="hljs-number">2</span> + x<br>P = (<span class="hljs-number">4</span>, <span class="hljs-number">10</span>)<br>Q = (<span class="hljs-number">65639504587209705872811542111125696405</span>, <span class="hljs-number">125330437930804525313353306745824609665</span>)<br><span class="hljs-built_in">print</span>(f)<br>f_ = f.subs(x=x-<span class="hljs-number">1</span>)<br><span class="hljs-built_in">print</span>(f_)<br><span class="hljs-built_in">print</span> (f_.factor())<br>P_ = (P[<span class="hljs-number">0</span>] +<span class="hljs-number">1</span>, P[<span class="hljs-number">1</span>])<br>Q_ = (Q[<span class="hljs-number">0</span>] +<span class="hljs-number">1</span>, Q[<span class="hljs-number">1</span>])<br><br>t = GF(p)(<span class="hljs-number">193387944202565886198256260591909756040</span>).square_root()<br>u = (P_[<span class="hljs-number">1</span>] + t*P_[<span class="hljs-number">0</span>])/(P_[<span class="hljs-number">1</span>] - t*P_[<span class="hljs-number">0</span>]) % p<br>v = (Q_[<span class="hljs-number">1</span>] + t*Q_[<span class="hljs-number">0</span>])/(Q_[<span class="hljs-number">1</span>] - t*Q_[<span class="hljs-number">0</span>]) % p<br><span class="hljs-built_in">print</span> (v.log(u))<br><br></code></pre></td></tr></table></figure>
 <h1 id="rsa">RSA</h1>
