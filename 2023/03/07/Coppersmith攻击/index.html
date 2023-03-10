@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://sch01ar.github.io/img/snow1.heic">
 <meta property="article:published_time" content="2023-03-07T02:05:45.000Z">
-<meta property="article:modified_time" content="2023-03-10T08:30:43.310Z">
+<meta property="article:modified_time" content="2023-03-10T08:32:24.863Z">
 <meta property="article:author" content="Roo1e">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://sch01ar.github.io/img/snow1.heic">
@@ -329,10 +329,10 @@ class="math inline">\(g(x)\)</span>具有更小的系数，且定义域为整数
 <h2 id="howgrave-graham">Howgrave-Graham</h2>
 <p><img src="/img/Howgrave.png" srcset="/img/loading.gif" lazyload /> 需要构造一个系数更小的多项式，<span
 class="math inline">\(||g(x)||\)</span>代表范数，即最大的系数。构造方法如下
-<img src="../img/构造方法.png" srcset="/img/loading.gif" lazyload /></p>
+<img src="/img/构造方法.png" srcset="/img/loading.gif" lazyload /></p>
 <h2 id="lll-算法">LLL 算法</h2>
 <p>格基约化算法，通过对构造出的格，从而约化产生符合约束的多项式。 <img
-src="../img/LLL.png" srcset="/img/loading.gif" lazyload /></p>
+src="/img/LLL.png" srcset="/img/loading.gif" lazyload /></p>
 <h2 id="p-高位攻击">p 高位攻击</h2>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> gmpy2<br><span class="hljs-keyword">from</span> Crypto.Util.number <span class="hljs-keyword">import</span> *<br><span class="hljs-keyword">from</span> flag <span class="hljs-keyword">import</span> flag<br><br>m=bytes_to_long(flag)<br>n = <span class="hljs-number">25348605574630284342864323710011622959543974652863854537355760576386763162531478272446867731299572532294812374775121121761898206639041068156270466457595336452690367719842145233764550634280981441631262047763246059814963741143303914063537003244814908763379320576260885158458898112416692583017869283284022878603506583499699525249773663841642694427307104140944360804367072787670581252816486834658346431010523135392357008103555699542414687172408709153334263858639251735462278292703380745537045458408951791720967957274781161667526873251066303708008043058246747534357368350540174588670636827470901518225473676343782182718627</span><br>e = <span class="hljs-number">65537</span><br><br>high_p = p&gt;&gt;<span class="hljs-number">462</span><br>c=<span class="hljs-built_in">pow</span>(m,e,n)<br><br><span class="hljs-built_in">print</span>(high_p)<br><span class="hljs-built_in">print</span>(c)<br><br><span class="hljs-comment">#c = 2838585968727601235811102000208810377763570403442263788723014651093563843294336508586280687833863346617299165812054489406097873361940320732653656106836742334351707641172590772691775696065643337783752853707871271348294775407491819788305857447836923575366699374649494685209530440846553788854498950165868767060103944397665695513568787251626526985821169261973233666633938348865538364532419767347878581021598781082997830762785442482278387265054844200419966175619215512361010529309496176507520460375493466772893213031156341155066854128910227539653777680017545678773463877481232404008355330164324877400343396249494527269803</span><br><span class="hljs-comment">#high_p = 14719840533805965441436310401180369285271789871612468412671201109363519708733266615333097147637913934699335461421648585440665652199846830713164628016025539243988107497052</span><br><br></code></pre></td></tr></table></figure>
 <h2 id="dp-高位攻击">dp 高位攻击</h2>
