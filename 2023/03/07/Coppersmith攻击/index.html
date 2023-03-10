@@ -16,25 +16,25 @@
   <meta name="author" content="Roo1e">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Pohlig-Hellman 算法（光滑阶） 给定 a,b,p，p 是素数，求 x，\(a^x \equiv b (mod\;p)\) 在模 p 下，设该群的生成元为 g，则有 \[ a \equiv g^{a1} (mod\;p) \newline b \equiv g^{b1} (mod\;p) \] 联立条件有 \[ g^{a1x} \equiv g^{b1} (mod\;p) \] 由欧拉">
+    <meta name="description" content="原理 Coppersmith 定理是在一个 e 阶模 n 的多项式\(f(x)\)中，若有根小于\(n^{\frac{1}{e}}\)，则可以用 O(log n)的算法求出根。 直接求解\(f(x)\)的根可能比较困难，在此利用LLL算法求得多项式\(g(x)\)，求得的多项式与\(f(x)\)具有相同的根\(x_0\)，\(g(x)\)具有更小的系数，且定义域为整数域。 本质思想就是把有限域上的">
 <meta property="og:type" content="article">
-<meta property="og:title" content="DLP中常用算法">
-<meta property="og:url" content="https://sch01ar.github.io/2023/02/24/DLP%E4%B8%AD%E5%B8%B8%E7%94%A8%E7%AE%97%E6%B3%95/index.html">
+<meta property="og:title" content="Coppersmith相关攻击">
+<meta property="og:url" content="https://sch01ar.github.io/2023/03/07/Coppersmith%E6%94%BB%E5%87%BB/index.html">
 <meta property="og:site_name" content="Y&#39;s blog">
-<meta property="og:description" content="Pohlig-Hellman 算法（光滑阶） 给定 a,b,p，p 是素数，求 x，\(a^x \equiv b (mod\;p)\) 在模 p 下，设该群的生成元为 g，则有 \[ a \equiv g^{a1} (mod\;p) \newline b \equiv g^{b1} (mod\;p) \] 联立条件有 \[ g^{a1x} \equiv g^{b1} (mod\;p) \] 由欧拉">
+<meta property="og:description" content="原理 Coppersmith 定理是在一个 e 阶模 n 的多项式\(f(x)\)中，若有根小于\(n^{\frac{1}{e}}\)，则可以用 O(log n)的算法求出根。 直接求解\(f(x)\)的根可能比较困难，在此利用LLL算法求得多项式\(g(x)\)，求得的多项式与\(f(x)\)具有相同的根\(x_0\)，\(g(x)\)具有更小的系数，且定义域为整数域。 本质思想就是把有限域上的">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://sch01ar.github.io/img/mountain.heic">
-<meta property="article:published_time" content="2023-02-24T10:05:45.000Z">
-<meta property="article:modified_time" content="2023-03-04T06:03:05.157Z">
+<meta property="og:image" content="https://sch01ar.github.io/img/snow1.heic">
+<meta property="article:published_time" content="2023-03-07T02:05:45.000Z">
+<meta property="article:modified_time" content="2023-03-10T08:27:29.479Z">
 <meta property="article:author" content="Roo1e">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://sch01ar.github.io/img/mountain.heic">
+<meta name="twitter:image" content="https://sch01ar.github.io/img/snow1.heic">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>DLP中常用算法 - Y&#39;s blog</title>
+  <title>Coppersmith相关攻击 - Y&#39;s blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -228,7 +228,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="DLP中常用算法"></span>
+            <span id="subtitle" data-typed-text="Coppersmith相关攻击"></span>
           
         </div>
 
@@ -239,8 +239,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-02-24 18:05" pubdate>
-          2023年2月24日 晚上
+        <time datetime="2023-03-07 10:05" pubdate>
+          2023年3月7日 上午
         </time>
       </span>
     
@@ -251,7 +251,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          853 字
+          4.2k 字
         
       </span>
     
@@ -262,7 +262,7 @@
         
         
         
-          8 分钟
+          36 分钟
         
       </span>
     
@@ -308,48 +308,49 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">DLP中常用算法</h1>
+            <h1 style="display: none">Coppersmith相关攻击</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="pohlig-hellman-算法光滑阶">Pohlig-Hellman 算法（光滑阶）</h1>
-<p>给定 a,b,p，p 是素数，求 x，<span class="math inline">\(a^x \equiv b
-(mod\;p)\)</span> 在模 p 下，设该群的生成元为 g，则有</p>
+                <h1 id="原理">原理</h1>
+<p>Coppersmith 定理是在一个 e 阶模 n 的多项式<span
+class="math inline">\(f(x)\)</span>中，若有根小于<span
+class="math inline">\(n^{\frac{1}{e}}\)</span>，则可以用 O(log
+n)的算法求出根。</p>
+<p>直接求解<span
+class="math inline">\(f(x)\)</span>的根可能比较困难，在此利用<code>LLL</code>算法求得多项式<span
+class="math inline">\(g(x)\)</span>，求得的多项式与<span
+class="math inline">\(f(x)\)</span>具有相同的根<span
+class="math inline">\(x_0\)</span>，<span
+class="math inline">\(g(x)\)</span>具有更小的系数，且定义域为整数域。</p>
+<p>本质思想就是把有限域上的方程转化到整数域。</p>
+<h1 id="理论基础">理论基础</h1>
+<h2 id="howgrave-graham">Howgrave-Graham</h2>
+<p><img src="../img/Howgrave.png" srcset="/img/loading.gif" lazyload /> 需要构造一个系数更小的多项式，<span
+class="math inline">\(||g(x)||\)</span>代表范数，即最大的系数。构造方法如下
+<img src="../img/构造方法.png" srcset="/img/loading.gif" lazyload /></p>
+<h2 id="lll-算法">LLL 算法</h2>
+<p>格基约化算法，通过对构造出的格，从而约化产生符合约束的多项式。 <img
+src="../img/LLL.png" srcset="/img/loading.gif" lazyload /></p>
+<h2 id="p-高位攻击">p 高位攻击</h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> gmpy2<br><span class="hljs-keyword">from</span> Crypto.Util.number <span class="hljs-keyword">import</span> *<br><span class="hljs-keyword">from</span> flag <span class="hljs-keyword">import</span> flag<br><br>m=bytes_to_long(flag)<br>n = <span class="hljs-number">25348605574630284342864323710011622959543974652863854537355760576386763162531478272446867731299572532294812374775121121761898206639041068156270466457595336452690367719842145233764550634280981441631262047763246059814963741143303914063537003244814908763379320576260885158458898112416692583017869283284022878603506583499699525249773663841642694427307104140944360804367072787670581252816486834658346431010523135392357008103555699542414687172408709153334263858639251735462278292703380745537045458408951791720967957274781161667526873251066303708008043058246747534357368350540174588670636827470901518225473676343782182718627</span><br>e = <span class="hljs-number">65537</span><br><br>high_p = p&gt;&gt;<span class="hljs-number">462</span><br>c=<span class="hljs-built_in">pow</span>(m,e,n)<br><br><span class="hljs-built_in">print</span>(high_p)<br><span class="hljs-built_in">print</span>(c)<br><br><span class="hljs-comment">#c = 2838585968727601235811102000208810377763570403442263788723014651093563843294336508586280687833863346617299165812054489406097873361940320732653656106836742334351707641172590772691775696065643337783752853707871271348294775407491819788305857447836923575366699374649494685209530440846553788854498950165868767060103944397665695513568787251626526985821169261973233666633938348865538364532419767347878581021598781082997830762785442482278387265054844200419966175619215512361010529309496176507520460375493466772893213031156341155066854128910227539653777680017545678773463877481232404008355330164324877400343396249494527269803</span><br><span class="hljs-comment">#high_p = 14719840533805965441436310401180369285271789871612468412671201109363519708733266615333097147637913934699335461421648585440665652199846830713164628016025539243988107497052</span><br><br></code></pre></td></tr></table></figure>
+<h2 id="dp-高位攻击">dp 高位攻击</h2>
+<p>给定<span
+class="math inline">\(e,n,c,dp_0,k,\;dp_0=dp&gt;&gt;k\)</span></p>
 <p><span class="math display">\[
-a \equiv g^{a1} (mod\;p) \newline
-b \equiv g^{b1} (mod\;p)
+edp\equiv ed\equiv 1\;mod\;(p-1)\\
+edp=k(p-1)+1\\
+edp+k-1=kp\\
+edp+k-1 \equiv 0\; mod\; p\\
+\because dp&lt; p-1\\
+\because edp=k(p-1)+1\\
+\therefore e&gt;k\\
+\therefore e(dp_0 &lt;&lt; k+x)+k-1 \equiv 0\;mod\;p
 \]</span></p>
-<p>联立条件有</p>
-<p><span class="math display">\[
-g^{a1x} \equiv g^{b1} (mod\;p)
-\]</span></p>
-<p>由欧拉定理得<span
-class="math inline">\(\phi(p)\;=\;p-1\)</span>，则有<span
-class="math inline">\(a1x\;=b1\;(mod\;(p-1))\)</span></p>
-<p>1.将 p-1 分解，即 <span
-class="math inline">\(p-1=p_1^{k_1}p_2^{k_2}\cdots
-p_m^{k_m}\)</span></p>
-<p>2.将 x 表示成<span class="math inline">\(p_i\)</span> 进制, 列出方程
-<span class="math display">\[x\;=p_i^0a_0 +
-p_i^1a_1+...+p_i^{k_i-1}a*{k_i-1}\]</span></p>
-<p>3.令 r=1，求<span class="math inline">\((a^x)^{\frac{p-1}{p_i^r}}\;
-\equiv b^{\frac{p-1}{p_i^r}}(mod\; p)\)</span></p>
-<p>4.将 2 中的公式代入到 3，展开得到 <span
-class="math display">\[a^{a0*\frac{p-1}{p_i}}* a^{(p-1)a1} *
-a^{(p-1)p_ia_2}...a^{(p-1)p_i^{k_i-2}a_{k_i-1}} \equiv
-b^{\frac{p-1}{p_i}}(mod\;p)\]</span></p>
-<p>5.从第二项开始，后面每项都是 1，欧拉定理:<span
-class="math inline">\(a^{(p-1)} \equiv
-1(mod\;p)\)</span>，化简得到的式子为 <span
-class="math display">\[\newline a^{a0*\frac{p-1}{p_i}} \equiv
-b^{\frac{p-1}{p_i}}(mod \;p)\newline\]</span> 因为该方程只有 a0
-未知，所以可在[0,pi-1]范围内爆破出 a0</p>
-<p>6.再令 r = 2,3,4...ki，重复步骤 3，即可求出所有的<span
-class="math inline">\(a_2,a_3....a_{k_i-1}\)</span>，从而得到 m 个关于 x
-的方程，最后使用 CRT 进行求解即可。</p>
-<p>总结:将 p-1 的 m 个质因子，分别求出其方程内的所有系数 a，从而构造了 m
-个关于 x 的方程，最终利用 CRT 求解。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> Crypto.Util.number <span class="hljs-keyword">import</span> *<br><span class="hljs-keyword">import</span> gmpy2<br><br>p = getStrongPrime(<span class="hljs-number">512</span>)<br>q = getStrongPrime(<span class="hljs-number">512</span>)<br>n = p * q<br>phi = (p - <span class="hljs-number">1</span>) * (q - <span class="hljs-number">1</span>)<br>e = <span class="hljs-number">7621</span><br>d = gmpy2.invert(e, phi)<br><br>flag = <span class="hljs-string">b&quot;flag&#123;xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&#125;&quot;</span><br>c = <span class="hljs-built_in">pow</span>(bytes_to_long(flag), e, n)<br><br>dp = d % (p - <span class="hljs-number">1</span>)<br><span class="hljs-built_in">print</span>(dp &gt;&gt; <span class="hljs-number">200</span>)<br><span class="hljs-built_in">print</span>(c, e, n)<br><br><span class="hljs-string">&#x27;&#x27;&#x27;</span><br><span class="hljs-string"></span><br><span class="hljs-string">c = 46735962204857190520476434898881001530665718155698898882603422023484998388668858692912250418134186095459060506275961050676051693220280588047233628259880712415593039977585805890920089318643002597837000049626154900908543384761210358835843974072960080857150727010985827690190496793207012355214605393036388807616</span><br><span class="hljs-string">e = 7621</span><br><span class="hljs-string">n = 140376049134934822153964243403031201922239588054133319056483413311963385321279682186354948441840374124640187894619689719746347334298621083485494086361152915457458004998419817456902929318697902819798254427945343361548635794308362823239150919240307072688623000747781103375481834571274423004856276841225675241863</span><br><span class="hljs-string">&#x27;&#x27;&#x27;</span><br><br></code></pre></td></tr></table></figure>
+<h3 id="exp">EXP</h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> sage.<span class="hljs-built_in">all</span> <span class="hljs-keyword">import</span> *<br><br>n = <span class="hljs-number">140376049134934822153964243403031201922239588054133319056483413311963385321279682186354948441840374124640187894619689719746347334298621083485494086361152915457458004998419817456902929318697902819798254427945343361548635794308362823239150919240307072688623000747781103375481834571274423004856276841225675241863</span><br>e = <span class="hljs-number">7621</span><br>c = <span class="hljs-number">46735962204857190520476434898881001530665718155698898882603422023484998388668858692912250418134186095459060506275961050676051693220280588047233628259880712415593039977585805890920089318643002597837000049626154900908543384761210358835843974072960080857150727010985827690190496793207012355214605393036388807616</span><br>s = <span class="hljs-number">1153696846823715458342658568392537778171840014923745253759529432977932183322553944430236879985</span><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">coppersmith</span>(<span class="hljs-params">bits, k</span>):<br>    F.&lt;x&gt; = PolynomialRing(Zmod(n))<br>    invE = inverse_mod(e, n)<br>    f = (s &lt;&lt; bits) + x + (k - <span class="hljs-number">1</span>) * invE<br>    x0 = f.small_roots(X=<span class="hljs-number">2</span> ** bits, beta=<span class="hljs-number">0.44</span>, epsilon=<span class="hljs-number">1</span>/<span class="hljs-number">32</span>)<br>    <span class="hljs-keyword">return</span> x0<br><br><span class="hljs-keyword">for</span> k <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>, e):<br>    bits = <span class="hljs-number">200</span><br>    x0 = coppersmith(bits,k)<br>    <span class="hljs-keyword">if</span> <span class="hljs-built_in">len</span>(x0) != <span class="hljs-number">0</span>:<br>        x = Integer(x0[<span class="hljs-number">0</span>])<br>        dp = x + (s &lt;&lt; bits)<br>        p = (e*dp - <span class="hljs-number">1</span>) // k+<span class="hljs-number">1</span><br>        <span class="hljs-keyword">if</span> p != -<span class="hljs-number">1</span>:<br>            q = n // p<br>            <span class="hljs-keyword">assert</span> n == p * q<br>            phi = (p-<span class="hljs-number">1</span>)*(q-<span class="hljs-number">1</span>)<br>            d = inverse_mod(e,phi)<br>            m=<span class="hljs-built_in">pow</span>(c,d,n)<br><br></code></pre></td></tr></table></figure>
 
                 
               </div>
@@ -388,8 +389,8 @@ class="math inline">\(a_2,a_3....a_{k_i-1}\)</span>，从而得到 m 个关于 x
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>DLP中常用算法</div>
-      <div>https://sch01ar.github.io/2023/02/24/DLP中常用算法/</div>
+      <div>Coppersmith相关攻击</div>
+      <div>https://sch01ar.github.io/2023/03/07/Coppersmith攻击/</div>
     </div>
     <div class="license-meta">
       
@@ -401,7 +402,7 @@ class="math inline">\(a_2,a_3....a_{k_i-1}\)</span>，从而得到 m 个关于 x
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年2月24日</div>
+          <div>2023年3月7日</div>
         </div>
       
       
@@ -433,18 +434,12 @@ class="math inline">\(a_2,a_3....a_{k_i-1}\)</span>，从而得到 m 个关于 x
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/03/07/Coppersmith%E6%94%BB%E5%87%BB/" title="Coppersmith相关攻击">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Coppersmith相关攻击</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/02/20/%E8%BF%91%E6%9C%9F/" title="近期">
-                        <span class="hidden-mobile">近期</span>
+                      <a href="/2023/02/24/DLP%E4%B8%AD%E5%B8%B8%E7%94%A8%E7%AE%97%E6%B3%95/" title="DLP中常用算法">
+                        <span class="hidden-mobile">DLP中常用算法</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
