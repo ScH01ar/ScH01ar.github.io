@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://sch01ar.github.io/img/snow1.heic">
 <meta property="article:published_time" content="2023-03-07T02:05:45.000Z">
-<meta property="article:modified_time" content="2023-03-10T08:32:24.863Z">
+<meta property="article:modified_time" content="2023-03-10T11:29:08.266Z">
 <meta property="article:author" content="Roo1e">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://sch01ar.github.io/img/snow1.heic">
@@ -251,7 +251,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          4.2k 字
+          4.6k 字
         
       </span>
     
@@ -262,7 +262,7 @@
         
         
         
-          36 分钟
+          38 分钟
         
       </span>
     
@@ -326,6 +326,8 @@ class="math inline">\(x_0\)</span>，<span
 class="math inline">\(g(x)\)</span>具有更小的系数，且定义域为整数域。</p>
 <p>本质思想就是把有限域上的方程转化到整数域。</p>
 <h1 id="理论基础">理论基础</h1>
+<p><span class="math display">\[f(x,y) = \sum_{i=0}^{d}\sum_{j=0}^{e}
+a_{i,j}x^iy^j\]</span></p>
 <h2 id="howgrave-graham">Howgrave-Graham</h2>
 <p><img src="/img/Howgrave.png" srcset="/img/loading.gif" lazyload /> 需要构造一个系数更小的多项式，<span
 class="math inline">\(||g(x)||\)</span>代表范数，即最大的系数。构造方法如下
@@ -351,6 +353,10 @@ edp+k-1 \equiv 0\; mod\; p\\
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> Crypto.Util.number <span class="hljs-keyword">import</span> *<br><span class="hljs-keyword">import</span> gmpy2<br><br>p = getStrongPrime(<span class="hljs-number">512</span>)<br>q = getStrongPrime(<span class="hljs-number">512</span>)<br>n = p * q<br>phi = (p - <span class="hljs-number">1</span>) * (q - <span class="hljs-number">1</span>)<br>e = <span class="hljs-number">7621</span><br>d = gmpy2.invert(e, phi)<br><br>flag = <span class="hljs-string">b&quot;flag&#123;xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&#125;&quot;</span><br>c = <span class="hljs-built_in">pow</span>(bytes_to_long(flag), e, n)<br><br>dp = d % (p - <span class="hljs-number">1</span>)<br><span class="hljs-built_in">print</span>(dp &gt;&gt; <span class="hljs-number">200</span>)<br><span class="hljs-built_in">print</span>(c, e, n)<br><br><span class="hljs-string">&#x27;&#x27;&#x27;</span><br><span class="hljs-string"></span><br><span class="hljs-string">c = 46735962204857190520476434898881001530665718155698898882603422023484998388668858692912250418134186095459060506275961050676051693220280588047233628259880712415593039977585805890920089318643002597837000049626154900908543384761210358835843974072960080857150727010985827690190496793207012355214605393036388807616</span><br><span class="hljs-string">e = 7621</span><br><span class="hljs-string">n = 140376049134934822153964243403031201922239588054133319056483413311963385321279682186354948441840374124640187894619689719746347334298621083485494086361152915457458004998419817456902929318697902819798254427945343361548635794308362823239150919240307072688623000747781103375481834571274423004856276841225675241863</span><br><span class="hljs-string">&#x27;&#x27;&#x27;</span><br><br></code></pre></td></tr></table></figure>
 <h3 id="exp">EXP</h3>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> sage.<span class="hljs-built_in">all</span> <span class="hljs-keyword">import</span> *<br><br>n = <span class="hljs-number">140376049134934822153964243403031201922239588054133319056483413311963385321279682186354948441840374124640187894619689719746347334298621083485494086361152915457458004998419817456902929318697902819798254427945343361548635794308362823239150919240307072688623000747781103375481834571274423004856276841225675241863</span><br>e = <span class="hljs-number">7621</span><br>c = <span class="hljs-number">46735962204857190520476434898881001530665718155698898882603422023484998388668858692912250418134186095459060506275961050676051693220280588047233628259880712415593039977585805890920089318643002597837000049626154900908543384761210358835843974072960080857150727010985827690190496793207012355214605393036388807616</span><br>s = <span class="hljs-number">1153696846823715458342658568392537778171840014923745253759529432977932183322553944430236879985</span><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">coppersmith</span>(<span class="hljs-params">bits, k</span>):<br>    F.&lt;x&gt; = PolynomialRing(Zmod(n))<br>    invE = inverse_mod(e, n)<br>    f = (s &lt;&lt; bits) + x + (k - <span class="hljs-number">1</span>) * invE<br>    x0 = f.small_roots(X=<span class="hljs-number">2</span> ** bits, beta=<span class="hljs-number">0.44</span>, epsilon=<span class="hljs-number">1</span>/<span class="hljs-number">32</span>)<br>    <span class="hljs-keyword">return</span> x0<br><br><span class="hljs-keyword">for</span> k <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>, e):<br>    bits = <span class="hljs-number">200</span><br>    x0 = coppersmith(bits,k)<br>    <span class="hljs-keyword">if</span> <span class="hljs-built_in">len</span>(x0) != <span class="hljs-number">0</span>:<br>        x = Integer(x0[<span class="hljs-number">0</span>])<br>        dp = x + (s &lt;&lt; bits)<br>        p = (e*dp - <span class="hljs-number">1</span>) // k+<span class="hljs-number">1</span><br>        <span class="hljs-keyword">if</span> p != -<span class="hljs-number">1</span>:<br>            q = n // p<br>            <span class="hljs-keyword">assert</span> n == p * q<br>            phi = (p-<span class="hljs-number">1</span>)*(q-<span class="hljs-number">1</span>)<br>            d = inverse_mod(e,phi)<br>            m=<span class="hljs-built_in">pow</span>(c,d,n)<br><br></code></pre></td></tr></table></figure>
+<h2 id="多元-coppersmith">多元 coppersmith</h2>
+<p>原理学习[大佬博客][https://lordriot.live/2021/01/06/way-to-coppersmith/]
+论文学习[https://www.researchgate.net/publication/221010552_New_attacks_on_RSA_with_small_secret_CRT-exponents]、[https://eprint.iacr.org/2010/146.pdf]
+脚本来源[https://phot0n.com/2022/04/30/MRCTF2022/]</p>
 
                 
               </div>
