@@ -268,7 +268,7 @@
       
       <a class="index-excerpt " href="/2023/04/03/2023NKCTF/" target="_self">
         <div>
-          数字中国 Babysecret题目 123456789101112131415161718192021222324252627282930from Crypto.Util.number import *from secrets import flagassert len(flag) == 38t = 30p = getPrime(512)x = getPrime(512)while x &gt;
+          数字中国 Babysecret 题目 123456789101112131415161718192021222324252627282930from Crypto.Util.number import *from secrets import flagassert len(flag) == 38t = 30p = getPrime(512)x = getPrime(512)while x &gt;
         </div>
       </a>
 
@@ -328,7 +328,7 @@
       
       <a class="index-excerpt " href="/2023/03/28/DUTCTF2023/" target="_self">
         <div>
-          DUTCTF2023wp写在前面仔细一想自己学 CTF 也一年了，纪念一下最后一次参加校赛 🥹，明年可就是出题人了 🤓。但是感觉一年以来荒废了很多时间，在很多方面对题目不熟悉，总跑偏，甚至是自己复现过的一些方法都没意识到（hint 太到位了 😭）。 Crypto第一次 ak，好爽 😭 *老滚五百度搜龙语，耐心对着找就出了DUTCTF&#123;YOU_ARE_A_REAL_DRAGONBO
+          DUTCTF2023wp 写在前面 仔细一想自己学 CTF 也一年了，纪念一下最后一次参加校赛 🥹，明年可就是出题人了 🤓。但是感觉一年以来荒废了很多时间，在很多方面对题目不熟悉，总跑偏，甚至是自己复现过的一些方法都没意识到（hint 太到位了 😭）。 Crypto 第一次 ak，好爽 😭 *老滚五 百度搜龙语，耐心对着找就出了DUTCTF&#123;YOU_ARE_A_REAL_DRAG
         </div>
       </a>
 
@@ -388,7 +388,7 @@
       
       <a class="index-excerpt " href="/2023/03/07/Coppersmith%E6%94%BB%E5%87%BB/" target="_self">
         <div>
-          原理Coppersmith 定理是在一个 e 阶模 n 的多项式$f(x)$中，若有根小于$n^{\frac{1}{e}}$，则可以用 O(log n)的算法求出根。 直接求解$f(x)$的根可能比较困难，在此利用LLL算法求得多项式$g(x)$，求得的多项式与$f(x)$具有相同的根$x_0$，$g(x)$具有更小的系数，且定义域为整数域。 本质思想就是把有限域上的方程转化到整数域。 理论基础f
+          原理 Coppersmith 定理是在一个 e 阶模 n 的多项式\(f(x)\)中，若有根小于\(n^{\frac{1}{e}}\)，则可以用 O(log n)的算法求出根。 直接求解\(f(x)\)的根可能比较困难，在此利用LLL算法求得多项式\(g(x)\)，求得的多项式与\(f(x)\)具有相同的根\(x_0\)，\(g(x)\)具有更小的系数，且定义域为整数域。 本质思想就是把有限域上的
         </div>
       </a>
 
@@ -448,7 +448,7 @@
       
       <a class="index-excerpt " href="/2023/02/24/DLP%E4%B8%AD%E5%B8%B8%E7%94%A8%E7%AE%97%E6%B3%95/" target="_self">
         <div>
-          Pohlig-Hellman 算法（光滑阶）给定 a,b,p，p 是素数，求 x，$a^x \equiv b (mod\;p)$在模 p 下，设该群的生成元为 g，则有  a \equiv g^{a1} (mod\;p) \newline b \equiv g^{b1} (mod\;p)联立条件有  g^{a1x} \equiv g^{b1} (mod\;p)由欧拉定理得$\phi(p)\;=\;
+          Pohlig-Hellman 算法（光滑阶） 给定 a,b,p，p 是素数，求 x，\(a^x \equiv b (mod\;p)\) 在模 p 下，设该群的生成元为 g，则有 \[ a \equiv g^{a1} (mod\;p) \newline b \equiv g^{b1} (mod\;p) \] 联立条件有 \[ g^{a1x} \equiv g^{b1} (mod\;p) \] 由欧拉
         </div>
       </a>
 
@@ -508,7 +508,7 @@
       
       <a class="index-excerpt " href="/2023/02/20/%E8%BF%91%E6%9C%9F/" target="_self">
         <div>
-          ECC常用方程（维尔斯特拉斯标准形式） $y^2\;=x^3+ax+b$，判别式$\Delta=-16(4a^3+27b^2)\;mod\;p=0$ sage 环境进行简单运算 1234567a = 497b = 1768p = 9739E = EllipticCurve(GF(p), [a, b])Q = E(1539, 4742)R = E(4403,5202)P = E(2339, 2213
+          ECC 常用方程（维尔斯特拉斯标准形式） \(y^2\;=x^3+ax+b\)，判别式\(\Delta=-16(4a^3+27b^2)\;mod\;p=0\) sage 环境 进行简单运算 1234567a = 497b = 1768p = 9739E = EllipticCurve(GF(p), [a, b])Q = E(1539, 4742)R = E(4403,5202)P = E(2339
         </div>
       </a>
 
@@ -568,7 +568,7 @@
       
       <a class="index-excerpt " href="/2022/12/07/RSA%E8%A1%A5%E5%85%85/" target="_self">
         <div>
-          回顾RSA 中加、解密： 加密$c = m^e\quad mod\quad n$ 解密$m = c^d\quad mod\quad n$ 接下来证明一下解密过程，先引入欧拉定理。 欧拉定理对于互为质数的 m、n 两个数，有$m^{\phi(n)} = 1\quad mod\quad n$，其中$\phi(n)$表示小于 n 的质数的个数。 解密原理通过$c = m^e\quad mod\quad
+          回顾 RSA 中加、解密： 加密\(c = m^e\quad mod\quad n\) 解密\(m = c^d\quad mod\quad n\) 接下来证明一下解密过程，先引入欧拉定理。 欧拉定理 对于互为质数的 m、n 两个数，有\(m^{\phi(n)} = 1\quad mod\quad n\)，其中\(\phi(n)\)表示小于 n 的质数的个数。 解密原理 通过\(c = m^e\qu
         </div>
       </a>
 
@@ -628,7 +628,7 @@
       
       <a class="index-excerpt " href="/2022/11/30/2022DASCTF_NOV-lllcccgggwp/" target="_self">
         <div>
-          题目描述如题目名字一样，有好多个lcg，当时看晕了123456789101112131415161718192021222324252627282930313233343536373839404142434445from Crypto.Util.number import *key=b&#x27;*************&#x27;key=bytes_to_long(key)key=bin(ke
+          题目描述 如题目名字一样，有好多个lcg，当时看晕了 123456789101112131415161718192021222324252627282930313233343536373839404142434445from Crypto.Util.number import *key=b&#x27;*************&#x27;key=bytes_to_long(key)key=bin(
         </div>
       </a>
 
@@ -695,7 +695,7 @@
       
       <a class="index-excerpt " href="/2022/11/29/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%E7%AE%97%E6%B3%95/" target="_self">
         <div>
-          前言在一次CTF比赛中遇到了，写了10个for嵌套硬爆出来了，复现的时候发现是背包加密。  Merkle–Hellman 公钥加密算法整体加密流程12345678import numpyx = [1,0,0,1,0]#明文对应的2进制数a = [3,7,16,50,120]# 产生一个超递增序列，称作私钥#对私钥a进行加密，产生公钥b。m = 251#选取一个模数w = 300#选取一个乘数b =
+          前言 在一次CTF比赛中遇到了，写了10个for嵌套硬爆出来了，复现的时候发现是背包加密。  Merkle–Hellman 公钥加密算法 整体加密流程 12345678import numpyx = [1,0,0,1,0]#明文对应的2进制数a = [3,7,16,50,120]# 产生一个超递增序列，称作私钥#对私钥a进行加密，产生公钥b。m = 251#选取一个模数w = 300#选取一个乘数
         </div>
       </a>
 
@@ -756,7 +756,7 @@
       
       <a class="index-excerpt index-excerpt__noimg" href="/2022/11/28/hitcon2022-BabySSS/" target="_self">
         <div>
-          I implemented a toy Shamir’s Secret Sharing for fun. Can you help me check is there any issues with this? Shamir’s Secret Sharing密钥分享算法f(x)=a_0 + a_1x + a_2x^2 + …… + a_{k-1} x^{k-1} mod p题目源码12345678
+          I implemented a toy Shamir's Secret Sharing for fun. Can you help me check is there any issues with this? Shamir's Secret Sharing密钥分享算法 \[f(x)=a_0 + a_1x + a_2x^2 + …… + a_{k-1} x^{k-1} mod p \] 题目源码
         </div>
       </a>
 
@@ -817,7 +817,7 @@
       
       <a class="index-excerpt index-excerpt__noimg" href="/2022/11/24/Gauss%E6%A0%BC%E5%9F%BA%E7%BA%A6%E7%AE%80%E7%AE%97%E6%B3%95/" target="_self">
         <div>
-          由Gauss提出的二维格基约化算法 算法伪代码即对给定的两个基向量进行不断的相互约化，最终求得格上的最小向量 Loop    (a) If ||v2|| &lt; ||v1||, swap v1, v2    (b) Compute m = ⌊ v1∙v2 / v1∙v1 ⌉    (c) If m = 0, return v1, v2    (d) v2 = v2 - m*v1 Continue
+          由Gauss提出的二维格基约化算法 算法伪代码 即对给定的两个基向量进行不断的相互约化，最终求得格上的最小向量 Loop  If ||v2|| &lt; ||v1||, swap v1, v2 Compute m = ⌊ v1∙v2 / v1∙v1 ⌉ If m = 0, return v1, v2 v2 = v2 - m*v1  Continue Loop 代码实现 12345678910111
         </div>
       </a>
 
