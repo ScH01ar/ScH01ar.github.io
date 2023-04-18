@@ -252,6 +252,66 @@
     
     
       <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2023/04/18/Euler/" target="_self">
+          <img src="/img/Euler1.jpg" srcset="/img/loading.gif" lazyload alt="Euler&#39;s Factoring to RSA">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2023/04/18/Euler/" target="_self">
+          Euler&#39;s Factoring to RSA
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt " href="/2023/04/18/Euler/" target="_self">
+        <div>
+          Euler's Factoring to RSA Outline 对于 RSA 中\(N=(ma^2+nb^2)(mc^2+nd^2)\)的情况进行分析以及安全性评测。 Euler's factorization method 欧拉因式分解法是通过两种方式将数字写成两个平方和来分解数字的方法，对于一个合数\(N\)来说，若\(N=a^2+b^2\)，则可以将\(N\)进行因式分解，例如\(1000
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-04-18 14:05" pubdate>
+              2023-04-18
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/CTF/" class="category-chain-item">CTF</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
         <a href="/2023/04/08/NSSCTFRound11/" target="_self">
           <img src="/img/nss.jpg" srcset="/img/loading.gif" lazyload alt="NSSCTF Round11">
         </a>
@@ -612,23 +672,23 @@
     
     
       <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2023/02/20/%E8%BF%91%E6%9C%9F/" target="_self">
-          <img src="/img/snow1.heic" srcset="/img/loading.gif" lazyload alt="近期">
+        <a href="/2023/02/20/ECC/" target="_self">
+          <img src="/img/ECC.jpg" srcset="/img/loading.gif" lazyload alt="ECC学习">
         </a>
       </div>
     
     <article class="col-12 col-md-8 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2023/02/20/%E8%BF%91%E6%9C%9F/" target="_self">
-          近期
+        <a href="/2023/02/20/ECC/" target="_self">
+          ECC学习
         </a>
       </h1>
 
       
-      <a class="index-excerpt " href="/2023/02/20/%E8%BF%91%E6%9C%9F/" target="_self">
+      <a class="index-excerpt " href="/2023/02/20/ECC/" target="_self">
         <div>
-          ECC 常用方程（维尔斯特拉斯标准形式） \(y^2\;=x^3+ax+b\)，判别式\(\Delta=-16(4a^3+27b^2)\;mod\;p=0\) sage 环境 进行简单运算 1234567a = 497b = 1768p = 9739E = EllipticCurve(GF(p), [a, b])Q = E(1539, 4742)R = E(4403,5202)P = E(2339
+          ECC 椭圆曲线密码学(Elliptic Curve Cryptography)，是一种公开密钥加密的算法，基于椭圆曲线 常用方程 基于 ECC 的三大问题：密钥交换、数字签名、离散对数 椭圆曲线 椭圆曲线定义式：\(y^2\;=x^3+ax+b\)，（维尔斯特拉斯标准形式）。判别式\(\Delta=-16(4a^3+27b^2)\;mod\;p=0\) 曲线的一般形式：\(y^2+a_1xy+a
         </div>
       </a>
 
@@ -672,23 +732,23 @@
     
     
       <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2022/12/07/RSA%E8%A1%A5%E5%85%85/" target="_self">
-          <img src="/img/rsa.jpg" srcset="/img/loading.gif" lazyload alt="RSA补充">
+        <a href="/2022/12/07/RSA/" target="_self">
+          <img src="/img/rsa.jpg" srcset="/img/loading.gif" lazyload alt="RSA">
         </a>
       </div>
     
     <article class="col-12 col-md-8 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/12/07/RSA%E8%A1%A5%E5%85%85/" target="_self">
-          RSA补充
+        <a href="/2022/12/07/RSA/" target="_self">
+          RSA
         </a>
       </h1>
 
       
-      <a class="index-excerpt " href="/2022/12/07/RSA%E8%A1%A5%E5%85%85/" target="_self">
+      <a class="index-excerpt " href="/2022/12/07/RSA/" target="_self">
         <div>
-          回顾 RSA 中加、解密： 加密\(c = m^e\quad mod\quad n\) 解密\(m = c^d\quad mod\quad n\) 接下来证明一下解密过程，先引入欧拉定理。 欧拉定理 对于互为质数的 m、n 两个数，有\(m^{\phi(n)} = 1\quad mod\quad n\)，其中\(\phi(n)\)表示小于 n 的质数的个数。 解密原理 通过\(c = m^e\qu
+          基本原理 RSA 中加、解密： 加密\(c = m^e\quad mod\quad n\) 解密\(m = c^d\quad mod\quad n\) 接下来证明一下解密过程，先引入欧拉定理。 欧拉定理 对于互为质数的 m、n 两个数，有\(m^{\phi(n)} = 1\quad mod\quad n\)，其中\(\phi(n)\)表示小于 n 的质数的个数。 解密原理 通过\(c = m^e\
         </div>
       </a>
 
@@ -788,73 +848,6 @@
             <i class="iconfont icon-tags"></i>
             
               <a href="/tags/wp/">#wp</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2022/11/29/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%E7%AE%97%E6%B3%95/" target="_self">
-          <img src="/img/bag.png" srcset="/img/loading.gif" lazyload alt="背包加密算法">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/11/29/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%E7%AE%97%E6%B3%95/" target="_self">
-          背包加密算法
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt " href="/2022/11/29/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%E7%AE%97%E6%B3%95/" target="_self">
-        <div>
-          前言 在一次CTF比赛中遇到了，写了10个for嵌套硬爆出来了，复现的时候发现是背包加密。  Merkle–Hellman 公钥加密算法 整体加密流程 12345678import numpyx = [1,0,0,1,0]#明文对应的2进制数a = [3,7,16,50,120]# 产生一个超递增序列，称作私钥#对私钥a进行加密，产生公钥b。m = 251#选取一个模数w = 300#选取一个乘数
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-11-29 00:00" pubdate>
-              2022-11-29
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/CTF/" class="category-chain-item">CTF</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E9%9D%9E%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86/">#非对称加密</a>
             
           </div>
         
