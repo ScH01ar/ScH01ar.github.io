@@ -18,14 +18,14 @@
   
     <meta name="description" content="ECC 椭圆曲线密码学(Elliptic Curve Cryptography)，是一种公开密钥加密的算法，基于椭圆曲线 常用方程 基于 ECC 的三大问题：密钥交换、数字签名、离散对数 椭圆曲线 椭圆曲线定义式：\(y^2\;&#x3D;x^3+ax+b\)，（维尔斯特拉斯标准形式）。判别式\(\Delta&#x3D;-16(4a^3+27b^2)\;mod\;p&#x3D;0\) 曲线的一般形式：\(y^2+a_1xy+a">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ECC学习">
+<meta property="og:title" content="ECC">
 <meta property="og:url" content="https://sch01ar.github.io/2023/02/20/ECC/index.html">
 <meta property="og:site_name" content="Y&#39;s blog">
 <meta property="og:description" content="ECC 椭圆曲线密码学(Elliptic Curve Cryptography)，是一种公开密钥加密的算法，基于椭圆曲线 常用方程 基于 ECC 的三大问题：密钥交换、数字签名、离散对数 椭圆曲线 椭圆曲线定义式：\(y^2\;&#x3D;x^3+ax+b\)，（维尔斯特拉斯标准形式）。判别式\(\Delta&#x3D;-16(4a^3+27b^2)\;mod\;p&#x3D;0\) 曲线的一般形式：\(y^2+a_1xy+a">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://sch01ar.github.io/img/ECC.jpg">
 <meta property="article:published_time" content="2023-02-20T06:05:45.000Z">
-<meta property="article:modified_time" content="2023-04-18T11:15:00.514Z">
+<meta property="article:modified_time" content="2023-04-18T11:17:05.414Z">
 <meta property="article:author" content="Roo1e">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://sch01ar.github.io/img/ECC.jpg">
@@ -34,7 +34,7 @@
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>ECC学习 - Y&#39;s blog</title>
+  <title>ECC - Y&#39;s blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -228,7 +228,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="ECC学习"></span>
+            <span id="subtitle" data-typed-text="ECC"></span>
           
         </div>
 
@@ -251,7 +251,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          9.5k 字
+          11k 字
         
       </span>
     
@@ -262,7 +262,7 @@
         
         
         
-          80 分钟
+          95 分钟
         
       </span>
     
@@ -308,7 +308,7 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">ECC学习</h1>
+            <h1 style="display: none">ECC</h1>
             
             
               <div class="markdown-body">
@@ -384,6 +384,10 @@ class="math inline">\(s=k^{-1}(z+rd_A)\mod n\)</span>。</p>
 <p>3.计算点<span class="math inline">\(P=u_1G+u_2H_A\)</span></p>
 <p>当<span class="math inline">\(r=x_P\mod
 n\)</span>时，签名验证成功。</p>
+<h3 id="dsa-lcg">DSA-LCG</h3>
+<p><a
+target="_blank" rel="noopener" href="https://cseweb.ucsd.edu/~mihir/papers/dss-lcg.pdf">试试这个</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> hashlib <span class="hljs-keyword">import</span> sha384, sha256<br><span class="hljs-keyword">from</span> Crypto.Util.number <span class="hljs-keyword">import</span> inverse<br><span class="hljs-keyword">from</span> secret <span class="hljs-keyword">import</span> k,privkey,flag<br><span class="hljs-keyword">def</span> <span class="hljs-title function_">sign</span>(<span class="hljs-params">msg, privkey,k,order</span>):<br>    e = <span class="hljs-built_in">int</span>(sha384(msg).hexdigest(), <span class="hljs-number">16</span>)<br>    K = k*G<br>    r = <span class="hljs-built_in">int</span>(K[<span class="hljs-number">0</span>])<br>    k_ = inverse(k, order)<br>    s = k_ * (e + privkey * r) % order<br>    <span class="hljs-keyword">return</span> r, s<br><br>q = <span class="hljs-number">0xfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffeffffffff0000000000000000ffffffff</span><br>a = -<span class="hljs-number">3</span><br>b = <span class="hljs-number">0xb3312fa7e23ee7e4988e056be3f82d19181d9c6efe8141120314088f5013875ac656398d8a2ed19d2a85c8edd3ec2aef</span><br>M = <span class="hljs-number">8368031831458217786350512159882992957012870179737136526893923006288695827959478962195704930743648877201823593529339381563729143350454126812624495126388843</span><br>x = <span class="hljs-number">0xaa87ca22be8b05378eb1c71ef320ad746e1d3b628ba79b9859f741e082542a385502f25dbf55296c3a545e3872760ab7</span><br>y = <span class="hljs-number">0x3617de4a96262c6f5d9e98bf9292dc29f8f41dbd289a147ce9da3113b5f0b8c00a60b1ce1d7e819d7a431d7c90ea0e5f</span><br>E = EllipticCurve(GF(q), [<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,a, b])<br>G = E([x,y])<br>msg1=<span class="hljs-string">b&#x27;hello&#x27;</span><br>r1,s1=sign(msg1,privkey,k,q)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;r1 =&quot;</span>,r1)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;s1 =&quot;</span>,s1)<br>k2=(a*k+b) % M<br>msg2=<span class="hljs-string">b&#x27;world&#x27;</span><br>r2,s2=sign(msg2,privkey,k2,q)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;r2 =&quot;</span>,r2)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;s2 =&quot;</span>,s2)<br>key = sha256(<span class="hljs-built_in">str</span>(privkey).encode()).digest()<br>aes = AES.new(key, AES.MODE_ECB)<br>ct = base64.b64encode(aes.encrypt(pad(flag, <span class="hljs-number">16</span>))).decode()<br><br><span class="hljs-comment"># r1 = 34007466611771601516061414360911609922088882193344157567527189819210008217689485940426747623610209785764754548617752</span><br><span class="hljs-comment"># s1 = 371900949338744788274672150932790711380367554085093925552194085487875492160150324907657343202698707270323127656622</span><br><span class="hljs-comment"># r2 = 38135753943982836042572890793143465851493833988864701898930580343563479696256688655279135669457443358334628248476702</span><br><span class="hljs-comment"># s2 = 31206970698882787218208833552853920421221998187963884172949797755468379329952479963343252649210115334349094354726288</span><br><span class="hljs-comment"># ct = &quot;1Emwfale6VRBTlkcNZA3wiiNXrOqeifOC53/jXc+gT9Dv9r5I/q0EJKAgkt/sArW&quot;</span><br><br></code></pre></td></tr></table></figure>
 <h2 id="ecdlp离散对数">ECDLP（离散对数）</h2>
 <p>给定椭圆曲线 E，已知 P、Q 以及<span
 class="math inline">\(Q=kP\)</span>，求 k。</p>
@@ -456,7 +460,7 @@ class="math display">\[(x,y)\rightarrow\frac{y+tx}{y-tx}\]</span></p>
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>ECC学习</div>
+      <div>ECC</div>
       <div>https://sch01ar.github.io/2023/02/20/ECC/</div>
     </div>
     <div class="license-meta">
