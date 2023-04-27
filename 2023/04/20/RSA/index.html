@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://sch01ar.github.io/img/rsa.jpg">
 <meta property="article:published_time" content="2023-04-20T13:05:45.000Z">
-<meta property="article:modified_time" content="2023-04-21T00:32:57.240Z">
+<meta property="article:modified_time" content="2023-04-21T07:43:45.295Z">
 <meta property="article:author" content="Roo1e">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://sch01ar.github.io/img/rsa.jpg">
@@ -262,7 +262,7 @@
         
         
         
-          199 分钟
+          202 分钟
         
       </span>
     
@@ -406,6 +406,24 @@ class="math inline">\(\frac{e}{N}\)</span>的连分数展开，依次计算每�
 证明了可以精准覆盖<span class="math inline">\(\frac{k}{d}\)</span>。</p>
 <h2 id="exp-1">exp</h2>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> gmpy2<br><span class="hljs-keyword">def</span> <span class="hljs-title function_">transform</span>(<span class="hljs-params">x,y</span>):       <span class="hljs-comment">#使用辗转相处将分数 x/y 转为连分数的形式</span><br>    res=[]<br>    <span class="hljs-keyword">while</span> y:<br>        res.append(x//y)<br>        x,y=y,x%y<br>    <span class="hljs-keyword">return</span> res<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">continued_fraction</span>(<span class="hljs-params">sub_res</span>):<br>    numerator,denominator=<span class="hljs-number">1</span>,<span class="hljs-number">0</span><br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> sub_res[::-<span class="hljs-number">1</span>]:      <span class="hljs-comment">#从sublist的后面往前循环</span><br>        denominator,numerator=numerator,i*numerator+denominator<br>    <span class="hljs-keyword">return</span> denominator,numerator   <span class="hljs-comment">#得到渐进分数的分母和分子，并返回</span><br><br><br><span class="hljs-comment">#求解每个渐进分数</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">sub_fraction</span>(<span class="hljs-params">x,y</span>):<br>    res=transform(x,y)<br>    res=<span class="hljs-built_in">list</span>(<span class="hljs-built_in">map</span>(continued_fraction,(res[<span class="hljs-number">0</span>:i] <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>,<span class="hljs-built_in">len</span>(res)))))  <span class="hljs-comment">#将连分数的结果逐一截取以求渐进分数</span><br>    <span class="hljs-keyword">return</span> res<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">get_pq</span>(<span class="hljs-params">a,b,c</span>):      <span class="hljs-comment">#由p+q和pq的值通过维达定理来求解p和q</span><br>    par=gmpy2.isqrt(b*b-<span class="hljs-number">4</span>*a*c)   <span class="hljs-comment">#由上述可得，开根号一定是整数，因为有解</span><br>    x1,x2=(-b+par)//(<span class="hljs-number">2</span>*a),(-b-par)//(<span class="hljs-number">2</span>*a)<br>    <span class="hljs-keyword">return</span> x1,x2<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">wienerAttack</span>(<span class="hljs-params">e,n</span>):<br>    <span class="hljs-keyword">for</span> (d,k) <span class="hljs-keyword">in</span> sub_fraction(e,n):  <span class="hljs-comment">#用一个for循环来注意试探e/n的连续函数的渐进分数，直到找到一个满足条件的渐进分数</span><br>        <span class="hljs-keyword">if</span> k==<span class="hljs-number">0</span>:                     <span class="hljs-comment">#可能会出现连分数的第一个为0的情况，排除</span><br>            <span class="hljs-keyword">continue</span><br>        <span class="hljs-keyword">if</span> (e*d-<span class="hljs-number">1</span>)%k!=<span class="hljs-number">0</span>:             <span class="hljs-comment">#ed=1 (mod φ(n)) 因此如果找到了d的话，(ed-1)会整除φ(n),也就是存在k使得(e*d-1)//k=φ(n)</span><br>            <span class="hljs-keyword">continue</span><br><br>        phi=(e*d-<span class="hljs-number">1</span>)//k               <span class="hljs-comment">#这个结果就是 φ(n)</span><br>        px,qy=get_pq(<span class="hljs-number">1</span>,n-phi+<span class="hljs-number">1</span>,n)<br>        <span class="hljs-keyword">if</span> px*qy==n:<br>            p,q=<span class="hljs-built_in">abs</span>(<span class="hljs-built_in">int</span>(px)),<span class="hljs-built_in">abs</span>(<span class="hljs-built_in">int</span>(qy))     <span class="hljs-comment">#可能会得到两个负数，负负得正未尝不会出现</span><br>            d=gmpy2.invert(e,(p-<span class="hljs-number">1</span>)*(q-<span class="hljs-number">1</span>))     <span class="hljs-comment">#求ed=1 (mod  φ(n))的结果，也就是e关于 φ(n)的乘法逆元d</span><br>            <span class="hljs-keyword">return</span> d<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;该方法不适用&quot;</span>)<br><br><br>e = <span class="hljs-number">14058695417015334071588010346586749790539913287499707802938898719199384604316115908373997739604466972535533733290829894940306314501336291780396644520926473</span><br>n = <span class="hljs-number">33608051123287760315508423639768587307044110783252538766412788814888567164438282747809126528707329215122915093543085008547092423658991866313471837522758159</span><br>d=wienerAttack(e,n)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;d=&quot;</span>,d)`<br><br></code></pre></td></tr></table></figure>
+<h1 id="extending-wieners-attack">Extending Wiener's Attack</h1>
+<p>扩展维纳攻击是为了扩展到<span
+class="math inline">\(n\)</span>个加密指数<span
+class="math inline">\(e_i\)</span>,且<span
+class="math inline">\(d_i\)</span>都较小的情况。 由<span
+class="math inline">\(e*d-k*\lambda(N)=1\)</span>得</p>
+<p><span class="math display">\[d_ige_i-k_iN=g+k_is\]</span></p>
+<p>记为维纳等式<span class="math inline">\(W_i\)</span>。</p>
+<p>利用 Guo 的方法可得到关系式: <span
+class="math display">\[k_id_je_j-k_jd_ie_i=k_i-k_j\]</span></p>
+<p>记为郭等式<span
+class="math inline">\(G_{i,j}\)</span>。注意到两种等式的右侧都非常小。</p>
+<p>参考论文和 wiki
+中的做法，后续的思路是使用这两个式子的不同关系去构造格，进而格基约化求得<span
+class="math inline">\(\phi(N)\)</span>来实现<span
+class="math inline">\(N\)</span>的分解。</p>
+<h2 id="两个小解密指数">两个小解密指数</h2>
+<h2 id="三个小解密指数">三个小解密指数</h2>
 <h1 id="低加密指数广播攻击">低加密指数广播攻击</h1>
 <p>特点是 e 小，有多组 n，对应了多组 c</p>
 <p>m<sup>e</sup> = c1 mod n1</p>
