@@ -16,25 +16,25 @@
   <meta name="author" content="Roo1e">
   <meta name="keywords" content="">
   
-    <meta name="description" content="d3noisy 1234567891011121314151617181920212223242526272829303132333435from Crypto.Util.number import *import gmpy2with open(&amp;#x27;out.txt&amp;#x27;) as f:    n&#x3D;int(f.readline()[4:])    p&#x3D;eval(f.readline()[">
+    <meta name="description" content="LCG 线性同余（LCG）是产生伪随机数的方法。 基本形式： \[ X_{n+1}&#x3D;(aX_n+b)\;mod\;m \] 基本公式 公式一 求递归数组元素 \[X_n&#x3D;a^{-1}(X_{n+1}-b)\;mod\;m\] 公式二 求参数 a 利用两个递归式消去 b 得到 a \[a&#x3D;(X_{n+2}-X_{n+1})(X_{n+1}-X_n)^{-1}\] 公式三 求参数 b \[b&#x3D;(X_{">
 <meta property="og:type" content="article">
-<meta property="og:title" content="D^3CTF">
-<meta property="og:url" content="https://sch01ar.github.io/2023/05/07/d3ctf2023/index.html">
+<meta property="og:title" content="LCG">
+<meta property="og:url" content="https://sch01ar.github.io/2023/06/19/LCG/index.html">
 <meta property="og:site_name" content="Y&#39;s blog">
-<meta property="og:description" content="d3noisy 1234567891011121314151617181920212223242526272829303132333435from Crypto.Util.number import *import gmpy2with open(&amp;#x27;out.txt&amp;#x27;) as f:    n&#x3D;int(f.readline()[4:])    p&#x3D;eval(f.readline()[">
+<meta property="og:description" content="LCG 线性同余（LCG）是产生伪随机数的方法。 基本形式： \[ X_{n+1}&#x3D;(aX_n+b)\;mod\;m \] 基本公式 公式一 求递归数组元素 \[X_n&#x3D;a^{-1}(X_{n+1}-b)\;mod\;m\] 公式二 求参数 a 利用两个递归式消去 b 得到 a \[a&#x3D;(X_{n+2}-X_{n+1})(X_{n+1}-X_n)^{-1}\] 公式三 求参数 b \[b&#x3D;(X_{">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://sch01ar.github.io/img/d3logo.png">
-<meta property="article:published_time" content="2023-05-07T06:05:45.000Z">
-<meta property="article:modified_time" content="2023-05-10T12:22:25.734Z">
+<meta property="og:image" content="https://sch01ar.github.io/img/lcg.png">
+<meta property="article:published_time" content="2023-06-19T03:05:45.000Z">
+<meta property="article:modified_time" content="2023-06-19T08:23:15.592Z">
 <meta property="article:author" content="Roo1e">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://sch01ar.github.io/img/d3logo.png">
+<meta name="twitter:image" content="https://sch01ar.github.io/img/lcg.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>D^3CTF - Y&#39;s blog</title>
+  <title>LCG - Y&#39;s blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -228,7 +228,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="D^3CTF"></span>
+            <span id="subtitle" data-typed-text="LCG"></span>
           
         </div>
 
@@ -239,8 +239,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-05-07 14:05" pubdate>
-          2023年5月7日 下午
+        <time datetime="2023-06-19 11:05" pubdate>
+          2023年6月19日 上午
         </time>
       </span>
     
@@ -251,7 +251,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          652 字
+          3.1k 字
         
       </span>
     
@@ -262,7 +262,7 @@
         
         
         
-          6 分钟
+          26 分钟
         
       </span>
     
@@ -308,13 +308,41 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">D^3CTF</h1>
+            <h1 style="display: none">LCG</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="d3noisy">d3noisy</h1>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> Crypto.Util.number <span class="hljs-keyword">import</span> *<br><span class="hljs-keyword">import</span> gmpy2<br><span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">&#x27;out.txt&#x27;</span>) <span class="hljs-keyword">as</span> f:<br>    n=<span class="hljs-built_in">int</span>(f.readline()[<span class="hljs-number">4</span>:])<br>    p=<span class="hljs-built_in">eval</span>(f.readline()[<span class="hljs-number">4</span>:])<br>    s=<span class="hljs-built_in">eval</span>(f.readline()[<span class="hljs-number">4</span>:])<br>    c=<span class="hljs-built_in">eval</span>(f.readline()[<span class="hljs-number">4</span>:])<br><br>P0=<span class="hljs-number">1</span><br>L=[]<br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> p:<br>    P0=P0*i<br><span class="hljs-built_in">print</span>(P0)<br><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">15</span>):<br>    t=inverse(P0//p[i],p[i])<br>    L.append(t*(P0//p[i]))<br><br>B=getPrime(<span class="hljs-number">3211</span>)<br>M=matrix(ZZ,<span class="hljs-number">15</span>*<span class="hljs-number">15</span>+<span class="hljs-number">1</span>,<span class="hljs-number">15</span>*<span class="hljs-number">15</span>+<span class="hljs-number">1</span>)<br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">15</span>):<br>    <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">15</span>):<br>        t=i*<span class="hljs-number">15</span>+j<br>        M[t+<span class="hljs-number">1</span>,t+<span class="hljs-number">1</span>]=B<br>        M[t+<span class="hljs-number">1</span>,<span class="hljs-number">0</span>]=s[i][j]*L[i]<br>M[<span class="hljs-number">0</span>,<span class="hljs-number">0</span>]=P0<br>x=M.LLL()<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;LLL done&quot;</span>)<br>d=<span class="hljs-number">0</span><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">15</span>):<br>    d =(d ^^ <span class="hljs-built_in">int</span>(x[i][<span class="hljs-number">0</span>]))<br>d = gmpy2.next_prime(<span class="hljs-built_in">int</span>(d))<br><span class="hljs-built_in">print</span>(d)<br><span class="hljs-built_in">print</span>(long_to_bytes(<span class="hljs-built_in">pow</span>(c,d,n)))<br><span class="hljs-comment"># antd3ctf&#123;0c85f77e-bfee-da57-78f2-e961ffd4ca45&#125;</span><br></code></pre></td></tr></table></figure>
+                <h2 id="lcg">LCG</h2>
+<p>线性同余（LCG）是产生伪随机数的方法。</p>
+<h2 id="基本形式">基本形式：</h2>
+<p><span class="math display">\[
+X_{n+1}=(aX_n+b)\;mod\;m
+\]</span></p>
+<h2 id="基本公式">基本公式</h2>
+<h3 id="公式一">公式一</h3>
+<p><strong>求递归数组元素</strong></p>
+<p><span
+class="math display">\[X_n=a^{-1}(X_{n+1}-b)\;mod\;m\]</span></p>
+<h3 id="公式二">公式二</h3>
+<p><strong>求参数 a</strong> 利用两个递归式消去 b 得到 a</p>
+<p><span
+class="math display">\[a=(X_{n+2}-X_{n+1})(X_{n+1}-X_n)^{-1}\]</span></p>
+<h3 id="公式三">公式三</h3>
+<p><strong>求参数 b</strong> <span
+class="math display">\[b=(X_{n+1}-aX_{n})\;mod\;m\]</span></p>
+<h3 id="公式四">公式四</h3>
+<p><strong>求参数 m</strong> 设 <span
+class="math display">\[t_n=X_{n+1}-X_n\]</span> <span
+class="math display">\[t_n=(aX_n+b)-(aX_{n-1}+b)\;mod\;m\]</span> <span
+class="math display">\[t_{n+1}t_{n-1}-t_nt_n=0\;mod\;m\]</span> <span
+class="math display">\[T_n=t_{n+1}t_{n-1}-t_nt_n是 m 的倍数\]</span>
+<span class="math display">\[m=gcd(T_n,T_{n-1})\]</span></p>
+<h2 id="经典例题">经典例题</h2>
+<h3 id="lcg-1">lcg-1</h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> Crypto.Util.number <span class="hljs-keyword">import</span> *<br>flag = <span class="hljs-string">b&#x27;Spirit&#123;*****************************&#125;&#x27;</span><br><br>plaintext = bytes_to_long(flag)<br>length = plaintext.bit_length()<br><br>a = getPrime(length)<br>b = getPrime(length)<br>n = getPrime(length)<br><br>seed = plaintext<br><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">10</span>):<br>    seed = (a*seed+b)%n<br>ciphertext = seed<br><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;a = &quot;</span>,a)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;b = &quot;</span>,b)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;n = &quot;</span>,n)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;c = &quot;</span>,ciphertext)<br><span class="hljs-comment">#exp</span><br>a =  <span class="hljs-number">59398519837969938359106832224056187683937568250770488082448642852427682484407513407602969</span><br>b =  <span class="hljs-number">32787000674666987602016858366912565306237308217749461581158833948068732710645816477126137</span><br>n =  <span class="hljs-number">43520375935212094874930431059580037292338304730539718469760580887565958566208139467751467</span><br>c =  <span class="hljs-number">8594514452808046357337682911504074858048299513743867887936794439125949418153561841842276</span><br>seed=c<br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">10</span>):<br>    seed=((seed-b)*inverse(a,n))%n<br><span class="hljs-built_in">print</span>(long_to_bytes(seed))<br></code></pre></td></tr></table></figure>
+<h3 id="lcg-2">lcg-2</h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><code class="hljs python">flag = <span class="hljs-string">b&#x27;Spirit&#123;****************************************&#125;&#x27;</span><br><br>plaintext = bytes_to_long(flag)<br>length = plaintext.bit_length()<br><br>a = getPrime(length)<br>b = getPrime(length)<br>n = getPrime(length)<br><br>seed = plaintext<br>output = []<br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">10</span>):<br>    seed = (a*seed+b)%n<br>    output.append(seed)<br><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;output = &quot;</span>,output)<br><span class="hljs-comment">#exp</span><br><br>s =  [<span class="hljs-number">9997297986272510947766344959498975323136012075787120721424325775003840341552673589487134830298427997676238039214108</span>, <span class="hljs-number">4943092972488023184271739094993470430272327679424224016751930100362045115374960494124801675393555642497051610643836</span>, <span class="hljs-number">6774612894247319645272578624765063875876643849415903973872536662648051668240882405640569448229188596797636795502471</span>, <span class="hljs-number">9334780454901460926052785252362305555845335155501888087843525321238695716687151256717815518958670595053951084051571</span>, <span class="hljs-number">2615136943375677027346821049033296095071476608523371102901038444464314877549948107134114941301290458464611872942706</span>, <span class="hljs-number">11755491858586722647182265446253701221615594136571038555321378377363341368427070357031882725576677912630050307145062</span>, <span class="hljs-number">7752070270905673490804344757589080653234375679657568428025599872155387643476306575613147681330227562712490805492345</span>, <span class="hljs-number">8402957532602451691327737154745340793606649602871190615837661809359377788072256203797817090151599031273142680590748</span>, <span class="hljs-number">2802440081918604590502596146113670094262600952020687184659605307695151120589816943051322503094363578916773414004662</span>, <span class="hljs-number">5627226318035765837286789021891141596394835871645925685252241680021740265826179768429792645576780380635014113687982</span>]<br>t = []<br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">9</span>):<br>    t.append(s[i]-s[i-<span class="hljs-number">1</span>])<br>all_n = []<br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">7</span>):<br>    all_n.append(GCD((t[i+<span class="hljs-number">1</span>]*t[i-<span class="hljs-number">1</span>]-t[i]*t[i]), (t[i+<span class="hljs-number">2</span>]*t[i]-t[i+<span class="hljs-number">1</span>]*t[i+<span class="hljs-number">1</span>])))<br><br><span class="hljs-keyword">for</span> n <span class="hljs-keyword">in</span> all_n:<br>    n=<span class="hljs-built_in">abs</span>(n)<br>    <span class="hljs-keyword">if</span> n==<span class="hljs-number">1</span>:<br>        <span class="hljs-keyword">continue</span><br>    a=(s[<span class="hljs-number">2</span>]-s[<span class="hljs-number">1</span>])*inverse((s[<span class="hljs-number">1</span>]-s[<span class="hljs-number">0</span>]),n)%n<br>    ani=inverse(a,n)<br>    b=(s[<span class="hljs-number">1</span>]-a*s[<span class="hljs-number">0</span>])%n<br>    seed = (ani*(s[<span class="hljs-number">0</span>]-b))%n<br>    plaintext=seed<br>    <span class="hljs-built_in">print</span>(long_to_bytes(plaintext))<br><br></code></pre></td></tr></table></figure>
 
                 
               </div>
@@ -353,8 +381,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>D^3CTF</div>
-      <div>https://sch01ar.github.io/2023/05/07/d3ctf2023/</div>
+      <div>LCG</div>
+      <div>https://sch01ar.github.io/2023/06/19/LCG/</div>
     </div>
     <div class="license-meta">
       
@@ -366,7 +394,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年5月7日</div>
+          <div>2023年6月19日</div>
         </div>
       
       
@@ -398,18 +426,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/05/11/Lattice/" title="Lattice">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Lattice</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/04/20/RSA/" title="RSA(持续更新🫡)">
-                        <span class="hidden-mobile">RSA(持续更新🫡)</span>
+                      <a href="/2023/05/11/Lattice/" title="Lattice">
+                        <span class="hidden-mobile">Lattice</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

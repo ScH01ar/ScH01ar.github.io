@@ -16,25 +16,25 @@
   <meta name="author" content="Roo1e">
   <meta name="keywords" content="">
   
-    <meta name="description" content="d3noisy 1234567891011121314151617181920212223242526272829303132333435from Crypto.Util.number import *import gmpy2with open(&amp;#x27;out.txt&amp;#x27;) as f:    n&#x3D;int(f.readline()[4:])    p&#x3D;eval(f.readline()[">
+    <meta name="description" content="LWE 已知矩阵\(A\)和向量\(b\)，随机选取一个在固定范围内的随机数\(e\)作为噪音向量： \[b&#x3D;Ax+e\] 求解未知向量\(x\)。将还原\(x\)的过程就称作误差还原(Learning With Error)问题。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="D^3CTF">
-<meta property="og:url" content="https://sch01ar.github.io/2023/05/07/d3ctf2023/index.html">
+<meta property="og:title" content="Lattice">
+<meta property="og:url" content="https://sch01ar.github.io/2023/05/11/Lattice/index.html">
 <meta property="og:site_name" content="Y&#39;s blog">
-<meta property="og:description" content="d3noisy 1234567891011121314151617181920212223242526272829303132333435from Crypto.Util.number import *import gmpy2with open(&amp;#x27;out.txt&amp;#x27;) as f:    n&#x3D;int(f.readline()[4:])    p&#x3D;eval(f.readline()[">
+<meta property="og:description" content="LWE 已知矩阵\(A\)和向量\(b\)，随机选取一个在固定范围内的随机数\(e\)作为噪音向量： \[b&#x3D;Ax+e\] 求解未知向量\(x\)。将还原\(x\)的过程就称作误差还原(Learning With Error)问题。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://sch01ar.github.io/img/d3logo.png">
-<meta property="article:published_time" content="2023-05-07T06:05:45.000Z">
-<meta property="article:modified_time" content="2023-05-10T12:22:25.734Z">
+<meta property="og:image" content="https://sch01ar.github.io/img/nss.jpg">
+<meta property="article:published_time" content="2023-05-11T13:05:45.000Z">
+<meta property="article:modified_time" content="2023-06-19T08:23:03.672Z">
 <meta property="article:author" content="Roo1e">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://sch01ar.github.io/img/d3logo.png">
+<meta name="twitter:image" content="https://sch01ar.github.io/img/nss.jpg">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>D^3CTF - Y&#39;s blog</title>
+  <title>Lattice - Y&#39;s blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -228,7 +228,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="D^3CTF"></span>
+            <span id="subtitle" data-typed-text="Lattice"></span>
           
         </div>
 
@@ -239,8 +239,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-05-07 14:05" pubdate>
-          2023年5月7日 下午
+        <time datetime="2023-05-11 21:05" pubdate>
+          2023年5月11日 晚上
         </time>
       </span>
     
@@ -251,7 +251,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          652 字
+          111 字
         
       </span>
     
@@ -262,7 +262,7 @@
         
         
         
-          6 分钟
+          1 分钟
         
       </span>
     
@@ -308,13 +308,19 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">D^3CTF</h1>
+            <h1 style="display: none">Lattice</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="d3noisy">d3noisy</h1>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> Crypto.Util.number <span class="hljs-keyword">import</span> *<br><span class="hljs-keyword">import</span> gmpy2<br><span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">&#x27;out.txt&#x27;</span>) <span class="hljs-keyword">as</span> f:<br>    n=<span class="hljs-built_in">int</span>(f.readline()[<span class="hljs-number">4</span>:])<br>    p=<span class="hljs-built_in">eval</span>(f.readline()[<span class="hljs-number">4</span>:])<br>    s=<span class="hljs-built_in">eval</span>(f.readline()[<span class="hljs-number">4</span>:])<br>    c=<span class="hljs-built_in">eval</span>(f.readline()[<span class="hljs-number">4</span>:])<br><br>P0=<span class="hljs-number">1</span><br>L=[]<br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> p:<br>    P0=P0*i<br><span class="hljs-built_in">print</span>(P0)<br><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">15</span>):<br>    t=inverse(P0//p[i],p[i])<br>    L.append(t*(P0//p[i]))<br><br>B=getPrime(<span class="hljs-number">3211</span>)<br>M=matrix(ZZ,<span class="hljs-number">15</span>*<span class="hljs-number">15</span>+<span class="hljs-number">1</span>,<span class="hljs-number">15</span>*<span class="hljs-number">15</span>+<span class="hljs-number">1</span>)<br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">15</span>):<br>    <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">15</span>):<br>        t=i*<span class="hljs-number">15</span>+j<br>        M[t+<span class="hljs-number">1</span>,t+<span class="hljs-number">1</span>]=B<br>        M[t+<span class="hljs-number">1</span>,<span class="hljs-number">0</span>]=s[i][j]*L[i]<br>M[<span class="hljs-number">0</span>,<span class="hljs-number">0</span>]=P0<br>x=M.LLL()<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;LLL done&quot;</span>)<br>d=<span class="hljs-number">0</span><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">15</span>):<br>    d =(d ^^ <span class="hljs-built_in">int</span>(x[i][<span class="hljs-number">0</span>]))<br>d = gmpy2.next_prime(<span class="hljs-built_in">int</span>(d))<br><span class="hljs-built_in">print</span>(d)<br><span class="hljs-built_in">print</span>(long_to_bytes(<span class="hljs-built_in">pow</span>(c,d,n)))<br><span class="hljs-comment"># antd3ctf&#123;0c85f77e-bfee-da57-78f2-e961ffd4ca45&#125;</span><br></code></pre></td></tr></table></figure>
+                <h2 id="lwe">LWE</h2>
+<p>已知矩阵<span class="math inline">\(A\)</span>和向量<span
+class="math inline">\(b\)</span>，随机选取一个在固定范围内的随机数<span
+class="math inline">\(e\)</span>作为噪音向量： <span
+class="math display">\[b=Ax+e\]</span> 求解未知向量<span
+class="math inline">\(x\)</span>。将还原<span
+class="math inline">\(x\)</span>的过程就称作<strong>误差还原(Learning
+With Error)</strong>问题。</p>
 
                 
               </div>
@@ -353,8 +359,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>D^3CTF</div>
-      <div>https://sch01ar.github.io/2023/05/07/d3ctf2023/</div>
+      <div>Lattice</div>
+      <div>https://sch01ar.github.io/2023/05/11/Lattice/</div>
     </div>
     <div class="license-meta">
       
@@ -366,7 +372,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年5月7日</div>
+          <div>2023年5月11日</div>
         </div>
       
       
@@ -398,9 +404,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/05/11/Lattice/" title="Lattice">
+                      <a href="/2023/06/19/LCG/" title="LCG">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Lattice</span>
+                        <span class="hidden-mobile">LCG</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -408,8 +414,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/04/20/RSA/" title="RSA(持续更新🫡)">
-                        <span class="hidden-mobile">RSA(持续更新🫡)</span>
+                      <a href="/2023/05/07/d3ctf2023/" title="D^3CTF">
+                        <span class="hidden-mobile">D^3CTF</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
