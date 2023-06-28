@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://sch01ar.github.io/img/rsa.jpg">
 <meta property="article:published_time" content="2023-04-20T13:05:45.000Z">
-<meta property="article:modified_time" content="2023-04-21T07:43:45.295Z">
+<meta property="article:modified_time" content="2023-06-28T08:23:41.879Z">
 <meta property="article:author" content="Roo1e">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://sch01ar.github.io/img/rsa.jpg">
@@ -251,7 +251,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          24k 字
+          25k 字
         
       </span>
     
@@ -262,7 +262,7 @@
         
         
         
-          202 分钟
+          211 分钟
         
       </span>
     
@@ -424,6 +424,8 @@ class="math inline">\(\phi(N)\)</span>来实现<span
 class="math inline">\(N\)</span>的分解。</p>
 <h2 id="两个小解密指数">两个小解密指数</h2>
 <h2 id="三个小解密指数">三个小解密指数</h2>
+<h1 id="低加密指数攻击-e3">低加密指数攻击 e=3</h1>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> gmpy2<br><span class="hljs-keyword">from</span> Crypto.Util.number <span class="hljs-keyword">import</span> *<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">dec</span>(<span class="hljs-params">c, e, n</span>):<br>    k = <span class="hljs-number">0</span><br>    <span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:<br>        mm = c + n*k<br>        result, flag = gmpy2.iroot(mm, e)<br>        <span class="hljs-keyword">if</span> <span class="hljs-literal">True</span> == flag:<br>            <span class="hljs-keyword">return</span> result<br>        k += <span class="hljs-number">1</span><br>n= <span class="hljs-number">14067473525623615859223663589118945198091192669401088734569589535726733244095067264729942915265175903139441309376381225701454902095234966599914234681888481774607095853830772571665038109641511499155604914228117882196188074964226780922239011682486198651997912713999544628177959592818928976240251790858062449396082494272361535640237914373270152455829541596341184902017633404494979208958080467979235974182507427501682492000572071306960595992848840147393057648929439822116261337091431441205378542080755128597543738922210525692259529009107645032171097155449558362749512243918901171631681472217935131865121871798425854707759</span><br>e= <span class="hljs-number">3</span><br>c= <span class="hljs-number">2217344750798294937344050117513831761010547351781457575945714176628679412650463329423466955026804439931765627111856888102133234836914006818023839994342283023142702993182665344445325734299047409223354338948863171846780674244925724334091153701697864918695050507247415283070309</span><br><br>m=dec(c,e,n)<br><span class="hljs-built_in">print</span>(long_to_bytes(m))<br><br></code></pre></td></tr></table></figure>
 <h1 id="低加密指数广播攻击">低加密指数广播攻击</h1>
 <p>特点是 e 小，有多组 n，对应了多组 c</p>
 <p>m<sup>e</sup> = c1 mod n1</p>
