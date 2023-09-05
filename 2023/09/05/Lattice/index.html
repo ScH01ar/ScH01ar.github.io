@@ -16,19 +16,17 @@
   <meta name="author" content="Roo1e">
   <meta name="keywords" content="">
   
-    <meta name="description" content="LWE 已知矩阵\(A\)和向量\(b\)，随机选取一个在固定范围内的随机数\(e\)作为噪音向量： \[b&#x3D;Ax+e\] 求解未知向量\(x\)。将还原\(x\)的过程就称作误差还原(Learning With Error)问题。">
+    <meta name="description" content="LWE 已知矩阵AAA和向量bbb，随机选取一个在固定范围内的随机数eee作为噪音向量： b&#x3D;Ax+eb&#x3D;Ax+e b&#x3D;Ax+e 求解未知向量xxx。将还原xxx的过程就称作**误差还原(Learning With Error)**问题。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Lattice">
-<meta property="og:url" content="https://sch01ar.github.io/2023/05/11/Lattice/index.html">
+<meta property="og:url" content="https://sch01ar.github.io/2023/09/05/Lattice/index.html">
 <meta property="og:site_name" content="Y&#39;s blog">
-<meta property="og:description" content="LWE 已知矩阵\(A\)和向量\(b\)，随机选取一个在固定范围内的随机数\(e\)作为噪音向量： \[b&#x3D;Ax+e\] 求解未知向量\(x\)。将还原\(x\)的过程就称作误差还原(Learning With Error)问题。">
+<meta property="og:description" content="LWE 已知矩阵AAA和向量bbb，随机选取一个在固定范围内的随机数eee作为噪音向量： b&#x3D;Ax+eb&#x3D;Ax+e b&#x3D;Ax+e 求解未知向量xxx。将还原xxx的过程就称作**误差还原(Learning With Error)**问题。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://sch01ar.github.io/img/nss.jpg">
-<meta property="article:published_time" content="2023-05-11T13:05:45.000Z">
-<meta property="article:modified_time" content="2023-06-19T08:23:03.672Z">
+<meta property="article:published_time" content="2023-09-05T13:05:45.000Z">
+<meta property="article:modified_time" content="2023-09-05T05:49:44.833Z">
 <meta property="article:author" content="Roo1e">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://sch01ar.github.io/img/nss.jpg">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
@@ -239,8 +237,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-05-11 21:05" pubdate>
-          2023年5月11日 晚上
+        <time datetime="2023-09-05 21:05" pubdate>
+          2023年9月5日 晚上
         </time>
       </span>
     
@@ -251,7 +249,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          111 字
+          113 字
         
       </span>
     
@@ -313,14 +311,11 @@
             
               <div class="markdown-body">
                 
-                <h2 id="lwe">LWE</h2>
-<p>已知矩阵<span class="math inline">\(A\)</span>和向量<span
-class="math inline">\(b\)</span>，随机选取一个在固定范围内的随机数<span
-class="math inline">\(e\)</span>作为噪音向量： <span
-class="math display">\[b=Ax+e\]</span> 求解未知向量<span
-class="math inline">\(x\)</span>。将还原<span
-class="math inline">\(x\)</span>的过程就称作<strong>误差还原(Learning
-With Error)</strong>问题。</p>
+                <h2 id="lwe"><a class="markdownIt-Anchor" href="#lwe"></a> LWE</h2>
+<p>已知矩阵<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi></mrow><annotation encoding="application/x-tex">A</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">A</span></span></span></span>和向量<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi></mrow><annotation encoding="application/x-tex">b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal">b</span></span></span></span>，随机选取一个在固定范围内的随机数<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>e</mi></mrow><annotation encoding="application/x-tex">e</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">e</span></span></span></span>作为噪音向量：</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>b</mi><mo>=</mo><mi>A</mi><mi>x</mi><mo>+</mo><mi>e</mi></mrow><annotation encoding="application/x-tex">b=Ax+e
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal">b</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathnormal">A</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">e</span></span></span></span></span></p>
+<p>求解未知向量<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">x</span></span></span></span>。将还原<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">x</span></span></span></span>的过程就称作**误差还原(Learning With Error)**问题。</p>
 
                 
               </div>
@@ -360,7 +355,7 @@ With Error)</strong>问题。</p>
   <div class="license-box my-3">
     <div class="license-title">
       <div>Lattice</div>
-      <div>https://sch01ar.github.io/2023/05/11/Lattice/</div>
+      <div>https://sch01ar.github.io/2023/09/05/Lattice/</div>
     </div>
     <div class="license-meta">
       
@@ -372,7 +367,7 @@ With Error)</strong>问题。</p>
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年5月11日</div>
+          <div>2023年9月5日</div>
         </div>
       
       
@@ -404,18 +399,12 @@ With Error)</strong>问题。</p>
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/06/19/LCG/" title="LCG">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">LCG</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/05/07/d3ctf2023/" title="D^3CTF">
-                        <span class="hidden-mobile">D^3CTF</span>
+                      <a href="/2023/06/19/LCG/" title="LCG">
+                        <span class="hidden-mobile">LCG</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
