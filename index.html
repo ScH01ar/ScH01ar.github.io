@@ -251,60 +251,6 @@
   <div class="row mx-auto index-card">
     
     
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2023/09/05/Lattice/" target="_self">
-          Lattice
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2023/09/05/Lattice/" target="_self">
-        <div>
-          LWE 已知矩阵AAA和向量bbb，随机选取一个在固定范围内的随机数eee作为噪音向量： b=Ax+eb=Ax+e b=Ax+e 求解未知向量xxx。将还原xxx的过程就称作**误差还原(Learning With Error)**问题。
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2023-09-05 21:05" pubdate>
-              2023-09-05
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/CTF/" class="category-chain-item">CTF</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
       <div class="col-12 col-md-4 m-auto index-img">
         <a href="/2023/06/19/LCG/" target="_self">
           <img src="/img/lcg.png" srcset="/img/loading.gif" lazyload alt="LCG">
@@ -322,7 +268,7 @@
       
       <a class="index-excerpt " href="/2023/06/19/LCG/" target="_self">
         <div>
-          LCG 线性同余（LCG）是产生伪随机数的方法。  基本形式： Xn+1=(aXn+b)  mod  mX_{n+1}=(aX_n+b)\;mod\;m Xn+1​=(aXn​+b)modm  基本公式  公式一 求递归数组元素 Xn=a−1(Xn+1−b)  mod  mX_n=a^{-1}(X_{n+1}-b)\;mod\;m Xn​=a−1(Xn+1​−b)modm  公式二 求参数 a
+          LCG 线性同余（LCG）是产生伪随机数的方法。 基本形式： \[ X_{n+1}=(aX_n+b)\;mod\;m \] 基本公式 公式一 求递归数组元素 \[X_n=a^{-1}(X_{n+1}-b)\;mod\;m\] 公式二 求参数 a 利用两个递归式消去 b 得到 a \[a=(X_{n+2}-X_{n+1})(X_{n+1}-X_n)^{-1}\] 公式三 求参数 b \[b=(X_{
         </div>
       </a>
 
@@ -382,7 +328,7 @@
       
       <a class="index-excerpt " href="/2023/05/07/d3ctf2023/" target="_self">
         <div>
-          d3noisy 1234567891011121314151617181920212223242526272829303132333435from Crypto.Util.number import *import gmpy2with open(&#x27;out.txt&#x27;) as f:    n=int(f.readline()[4:])    p=eval(f.readline()
+          d3noisy 1234567891011121314151617181920212223242526272829303132333435from Crypto.Util.number import *import gmpy2with open(&#x27;out.txt&#x27;) as f:    n=int(f.readline()[4:])    p=eval(f.readline()[
         </div>
       </a>
 
@@ -442,7 +388,7 @@
       
       <a class="index-excerpt " href="/2023/04/20/RSA/" target="_self">
         <div>
-          基本原理 RSA 中加、解密： 加密c=memodnc = m^e\quad mod\quad nc=memodn 解密m=cdmodnm = c^d\quad mod\quad nm=cdmodn 接下来证明一下解密过程，先引入欧拉定理。  欧拉定理 对于互为质数的 m、n 两个数，有mϕ(n)=1modnm^{\phi(n)} = 1\quad mod\quad nmϕ(n)=1modn，其
+          基本原理 RSA 中加、解密： 加密\(c = m^e\quad mod\quad n\) 解密\(m = c^d\quad mod\quad n\) 接下来证明一下解密过程，先引入欧拉定理。 欧拉定理 对于互为质数的 m、n 两个数，有\(m^{\phi(n)} = 1\quad mod\quad n\)，其中\(\phi(n)\)表示小于 n 的质数的个数。 解密原理 通过\(c = m^e\
         </div>
       </a>
 
@@ -502,7 +448,7 @@
       
       <a class="index-excerpt " href="/2023/04/19/ECC/" target="_self">
         <div>
-          ECC 椭圆曲线密码学(Elliptic Curve Cryptography)，是一种基于椭圆曲线数学的公钥密码。 基于 ECC 的三大问题：密钥交换、数字签名、离散对数  椭圆曲线 椭圆曲线定义式：y2  =x3+ax+by^2\;=x^3+ax+by2=x3+ax+b，（维尔斯特拉斯标准形式） 曲线的一般形式：y2+a1xy+a3y  =x3+a2x2+a4x+a6y^2+a_1xy+a_
+          ECC 椭圆曲线密码学(Elliptic Curve Cryptography)，是一种基于椭圆曲线数学的公钥密码。 基于 ECC 的三大问题：密钥交换、数字签名、离散对数 椭圆曲线 椭圆曲线定义式：\(y^2\;=x^3+ax+b\)，（维尔斯特拉斯标准形式） 曲线的一般形式：\(y^2+a_1xy+a_3y\;=x^3+a_2x^2+a_4x+a_6\) 判别式\(\Delta=-16(4a^
         </div>
       </a>
 
@@ -562,7 +508,7 @@
       
       <a class="index-excerpt " href="/2023/04/18/Euler/" target="_self">
         <div>
-          Euler’s Factoring to RSA  Outline 对于 RSA 中N=(ma2+nb2)(mc2+nd2)N=(ma^2+nb^2)(mc^2+nd^2)N=(ma2+nb2)(mc2+nd2)的情况进行分析以及安全性评测。  Euler’s factorization method 欧拉因式分解法是通过两种方式将数字写成两个平方和来分解数字的方法，对于一个合数NNN来说，若N
+          Euler's Factoring to RSA Outline 对于 RSA 中\(N=(ma^2+nb^2)(mc^2+nd^2)\)的情况进行分析以及安全性评测。 Euler's factorization method 欧拉因式分解法是通过两种方式将数字写成两个平方和来分解数字的方法，对于一个合数\(N\)来说，若\(N=a^2+b^2\)，则可以将\(N\)进行因式分解，例如\(1000
         </div>
       </a>
 
@@ -622,7 +568,7 @@
       
       <a class="index-excerpt " href="/2023/04/08/NSSCTFRound11/" target="_self">
         <div>
-          最后 rank 排第 4，差一道 AK，可惜。  ez_enc 题目描述说了不是培根加密，所以考虑 AB 为二进制情况，192 位数判断，8 位为一组，简单写个脚本跑就行。NSSCTF&#123;mS4gT1Kv9L8NjPzx&#125;  MyMessage(2🩸)  题目 123456789101112131415161718192021from Crypto.Util.number im
+          最后 rank 排第 4，差一道 AK，可惜。 ez_enc 题目描述说了不是培根加密，所以考虑 AB 为二进制情况，192 位数判断，8 位为一组，简单写个脚本跑就行。NSSCTF&#123;mS4gT1Kv9L8NjPzx&#125; MyMessage(2🩸) 题目 123456789101112131415161718192021from Crypto.Util.number impor
         </div>
       </a>
 
@@ -682,7 +628,7 @@
       
       <a class="index-excerpt " href="/2023/04/04/2023NKCTF/" target="_self">
         <div>
-          数字中国 Babysecret 题目 123456789101112131415161718192021222324252627282930from Crypto.Util.number import *from secrets import flagassert len(flag) == 38t = 30p = getPrime(512)x = getPrime(512)while x &gt
+          数字中国 Babysecret 题目 123456789101112131415161718192021222324252627282930from Crypto.Util.number import *from secrets import flagassert len(flag) == 38t = 30p = getPrime(512)x = getPrime(512)while x &gt;
         </div>
       </a>
 
@@ -742,7 +688,7 @@
       
       <a class="index-excerpt " href="/2023/03/28/DUTCTF2023/" target="_self">
         <div>
-          DUTCTF2023wp  写在前面 仔细一想自己学 CTF 也一年了，纪念一下最后一次参加校赛 🥹，明年可就是出题人了 🤓。但是感觉一年以来荒废了很多时间，在很多方面对题目不熟悉，总跑偏，甚至是自己复现过的一些方法都没意识到（hint 太到位了 😭）。  Crypto 第一次 ak，好爽 😭  *老滚五 百度搜龙语，耐心对着找就出了DUTCTF&#123;YOU_ARE_A_REAL_
+          DUTCTF2023wp 写在前面 仔细一想自己学 CTF 也一年了，纪念一下最后一次参加校赛 🥹，明年可就是出题人了 🤓。但是感觉一年以来荒废了很多时间，在很多方面对题目不熟悉，总跑偏，甚至是自己复现过的一些方法都没意识到（hint 太到位了 😭）。 Crypto 第一次 ak，好爽 😭 *老滚五 百度搜龙语，耐心对着找就出了DUTCTF&#123;YOU_ARE_A_REAL_DRAG
         </div>
       </a>
 
@@ -802,7 +748,7 @@
       
       <a class="index-excerpt " href="/2023/03/07/Coppersmith%E6%94%BB%E5%87%BB/" target="_self">
         <div>
-          原理 Coppersmith 定理是在一个 e 阶模 n 的多项式f(x)f(x)f(x)中，若有根小于n1en^{\frac{1}{e}}ne1​，则可以用 O(log n)的算法求出根。 直接求解f(x)f(x)f(x)的根可能比较困难，在此利用LLL算法求得多项式g(x)g(x)g(x)，求得的多项式与f(x)f(x)f(x)具有相同的根x0x_0x0​，g(x)g(x)g(x)具有更小的
+          原理 Coppersmith 定理是在一个 e 阶模 n 的多项式\(f(x)\)中，若有根小于\(n^{\frac{1}{e}}\)，则可以用 O(log n)的算法求出根。 直接求解\(f(x)\)的根可能比较困难，在此利用LLL算法求得多项式\(g(x)\)，求得的多项式与\(f(x)\)具有相同的根\(x_0\)，\(g(x)\)具有更小的系数，且定义域为整数域。 本质思想就是把有限域上的
         </div>
       </a>
 
@@ -812,6 +758,66 @@
             <i class="iconfont icon-date"></i>
             <time datetime="2023-03-07 10:05" pubdate>
               2023-03-07
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/CTF/" class="category-chain-item">CTF</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2023/02/24/DLP%E4%B8%AD%E5%B8%B8%E7%94%A8%E7%AE%97%E6%B3%95/" target="_self">
+          <img src="/img/mountain.heic" srcset="/img/loading.gif" lazyload alt="DLP中常用算法">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2023/02/24/DLP%E4%B8%AD%E5%B8%B8%E7%94%A8%E7%AE%97%E6%B3%95/" target="_self">
+          DLP中常用算法
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt " href="/2023/02/24/DLP%E4%B8%AD%E5%B8%B8%E7%94%A8%E7%AE%97%E6%B3%95/" target="_self">
+        <div>
+          Pohlig-Hellman 算法（光滑阶） 给定 a,b,p，p 是素数，求 x，\(a^x \equiv b (mod\;p)\) 在模 p 下，设该群的生成元为 g，则有 \[ a \equiv g^{a1} (mod\;p) \newline b \equiv g^{b1} (mod\;p) \] 联立条件有 \[ g^{a1x} \equiv g^{b1} (mod\;p) \] 由欧拉
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-02-24 18:05" pubdate>
+              2023-02-24
             </time>
           </div>
         
