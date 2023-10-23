@@ -16,16 +16,16 @@
   <meta name="author" content="Roo1e">
   <meta name="keywords" content="">
   
-    <meta name="description" content="e2d1p 参考文章： 题目  Based on N1CTF 2022 “ezdlp”. Easy dlp too, try again : ).  12345678910111213141516171819202122232425from Crypto.Util.number import *import osFLAG &#x3D; os.environ.get(&amp;#x27;FLAG&amp;#x27;, b&amp;#">
+    <meta name="description" content="¶e2d1p 参考文章： 题目  Based on N1CTF 2022 “ezdlp”. Easy dlp too, try again : ).  &lt;!–code￼0–&gt; ¶0x01 恢复模数 p 给了 200 组 m、c 满足等式$65537^{m_i⊕mask}&#x3D;c_i (mod p)$ 异或运算在指数上，没有什么运算性质。但异或的本质还是按位异或，以下用 m[i]表示 m 的">
 <meta property="og:type" content="article">
 <meta property="og:title" content="N1CTF2023">
 <meta property="og:url" content="https://sch01ar.github.io/2023/10/23/N1CTF2023/index.html">
 <meta property="og:site_name" content="Y&#39;s blog">
-<meta property="og:description" content="e2d1p 参考文章： 题目  Based on N1CTF 2022 “ezdlp”. Easy dlp too, try again : ).  12345678910111213141516171819202122232425from Crypto.Util.number import *import osFLAG &#x3D; os.environ.get(&amp;#x27;FLAG&amp;#x27;, b&amp;#">
+<meta property="og:description" content="¶e2d1p 参考文章： 题目  Based on N1CTF 2022 “ezdlp”. Easy dlp too, try again : ).  &lt;!–code￼0–&gt; ¶0x01 恢复模数 p 给了 200 组 m、c 满足等式$65537^{m_i⊕mask}&#x3D;c_i (mod p)$ 异或运算在指数上，没有什么运算性质。但异或的本质还是按位异或，以下用 m[i]表示 m 的">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://sch01ar.github.io/img/djb.png">
 <meta property="article:published_time" content="2023-10-23T12:05:45.000Z">
-<meta property="article:modified_time" content="2023-10-23T13:37:31.388Z">
+<meta property="article:modified_time" content="2023-10-23T13:38:01.933Z">
 <meta property="article:author" content="Roo1e">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://sch01ar.github.io/img/djb.png">
@@ -251,7 +251,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.5k 字
+          843 字
         
       </span>
     
@@ -262,7 +262,7 @@
         
         
         
-          13 分钟
+          8 分钟
         
       </span>
     
@@ -313,44 +313,29 @@
             
               <div class="markdown-body">
                 
-                <h2 id="e2d1p">e2d1p</h2>
+                <h2 id="e2d1p"><a class="header-anchor" href="#e2d1p">¶</a>e2d1p</h2>
 <p>参考文章：</p>
 <p>题目</p>
 <blockquote>
 <p>Based on N1CTF 2022 “ezdlp”. Easy dlp too, try again : ).</p>
 </blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> Crypto.Util.number <span class="hljs-keyword">import</span> *<br><span class="hljs-keyword">import</span> os<br>FLAG = os.environ.get(<span class="hljs-string">&#x27;FLAG&#x27;</span>, <span class="hljs-string">b&#x27;n1ctf&#123;XXXXFAKE_FLAGXXXX&#125;&#x27;</span>)<br><span class="hljs-keyword">assert</span> FLAG[:<span class="hljs-number">6</span>] == <span class="hljs-string">b&#x27;n1ctf&#123;&#x27;</span> <span class="hljs-keyword">and</span> FLAG[-<span class="hljs-number">1</span>:] == <span class="hljs-string">b&#x27;&#125;&#x27;</span><br>FLAG = FLAG[<span class="hljs-number">6</span>:-<span class="hljs-number">1</span>]<br><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">keygen</span>(<span class="hljs-params">nbits</span>):<br>    <span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:<br>        q = getPrime(nbits)<br>        <span class="hljs-keyword">if</span> isPrime(<span class="hljs-number">2</span>*q+<span class="hljs-number">1</span>):<br>            <span class="hljs-keyword">if</span> <span class="hljs-built_in">pow</span>(<span class="hljs-number">0x10001</span>, q, <span class="hljs-number">2</span>*q+<span class="hljs-number">1</span>) == <span class="hljs-number">1</span>:<br>                <span class="hljs-keyword">return</span> <span class="hljs-number">2</span>*q+<span class="hljs-number">1</span><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">encrypt</span>(<span class="hljs-params">key, message, mask</span>):<br>    <span class="hljs-keyword">return</span> <span class="hljs-built_in">pow</span>(<span class="hljs-number">0x10001</span>, message^mask, key)<br><br><br>p = keygen(<span class="hljs-number">512</span>)<br>flag = bytes_to_long(FLAG)<br>messages = [getRandomNBitInteger(flag.bit_length()) <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">200</span>)]<br>enc = [encrypt(p, message, flag) <span class="hljs-keyword">for</span> message <span class="hljs-keyword">in</span> messages]<br><br><span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;message = <span class="hljs-subst">&#123;messages&#125;</span>&#x27;</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;enc = <span class="hljs-subst">&#123;enc&#125;</span>&#x27;</span>)<br></code></pre></td></tr></table></figure>
-<h3 id="x01-恢复模数-p">0x01 恢复模数 p</h3>
-<p>给了 200 组 m、c 满足等式<span
-class="math inline">\(65537^{m_i⊕mask}=c_i (mod p)\)</span></p>
-<p>异或运算在指数上，没有什么运算性质。但异或的本质还是按位异或，以下用
-m[i]表示 m 的第 i 位，对于一组 m 和 c 而言</p>
-<p><span class="math display">\[m\oplus mask = mask+
-\sum\limits_{j=0}\limits^{158}(m[j]\cdot2^i\cdot(-1)^{s[i]})\]</span>
-这样转换后即可把底数看作<span
-class="math inline">\(c_i=65537^{mask}\)</span>，下一步的目的就是找到某个向量<span
-class="math inline">\(e_i\)</span>使得<span
-class="math inline">\(c_i^{e_i}≡0\;mod\;p\)</span>，这样即可恢复出模数<span
-class="math inline">\(gcd(e_i,e_j)=p\)</span></p>
-<p>找到满足条件的<span class="math inline">\(e_i\)</span>需要<span
-class="math inline">\(m_i\)</span>，构造如下格：</p>
-<p><span class="math display">\[
-\begin{bmatrix}
-m_{0,0} &amp; m_{0,1} &amp; \ldots &amp; m_{0,158} &amp; 1 &amp; 0 &amp;
-\ldots &amp;0\\
-m_{1,0} &amp; m_{1,1} &amp; \ldots &amp; m_{1,158} &amp; 0 &amp; 1&amp;
-\ldots &amp;0\\
-\vdots &amp; \vdots &amp; \ddots &amp; \vdots &amp; \vdots &amp; \vdots
-&amp; \ddots &amp; \vdots\\
-m_{199,0} &amp; m_{199,1} &amp; \ldots &amp; m_{199,158} &amp; 0
-&amp;0&amp; \ldots &amp;1\\
-\end{bmatrix}
-\]</span></p>
-<p>利用<code>LLL</code>算法得到的<span
-class="math inline">\(e_i\)</span>满足<span
-class="math inline">\(\sum\limits_{i=1}\limits^{200}e_i=0\)</span>，那么也就满足<span
-class="math inline">\(\sum\limits_{i=1}\limits^{200}e_i\cdot
-m_i=\vec{0}\)</span></p>
+<p>&lt;!–code￼0–&gt;</p>
+<h3 id="0x01-恢复模数-p"><a class="header-anchor" href="#0x01-恢复模数-p">¶</a>0x01 恢复模数 p</h3>
+<p>给了 200 组 m、c 满足等式$65537^{m_i⊕mask}=c_i (mod p)$</p>
+<p>异或运算在指数上，没有什么运算性质。但异或的本质还是按位异或，以下用 m[i]表示 m 的第 i 位，对于一组 m 和 c 而言</p>
+<p>$$m\oplus mask = mask+ \sum\limits_{j=0}\limits<sup>{158}(m[j]\cdot2</sup>i\cdot(-1)^{s[i]})$$<br>
+这样转换后即可把底数看作$c_i=65537<sup>{mask}$，下一步的目的就是找到某个向量$e_i$使得$c_i</sup>{e_i}≡0;mod;p$，这样即可恢复出模数$gcd(e_i,e_j)=p$</p>
+<p>找到满足条件的$e_i$需要$m_i$，构造如下格：</p>
+<p>$$<br>
+\begin{bmatrix}<br>
+m_{0,0} &amp; m_{0,1} &amp; \ldots &amp; m_{0,158} &amp; 1 &amp; 0 &amp; \ldots &amp;0\<br>
+m_{1,0} &amp; m_{1,1} &amp; \ldots &amp; m_{1,158} &amp; 0 &amp; 1&amp; \ldots &amp;0\<br>
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots\<br>
+m_{199,0} &amp; m_{199,1} &amp; \ldots &amp; m_{199,158} &amp; 0 &amp;0&amp; \ldots &amp;1\<br>
+\end{bmatrix}<br>
+$$</p>
+<p>利用<code>LLL</code>算法得到的$e_i$满足$\sum\limits_{i=1}\limits<sup>{200}e_i=0$，那么也就满足$\sum\limits_{i=1}\limits</sup>{200}e_i\cdot m_i=\vec{0}$</p>
+<h3 id="求解-mask"><a class="header-anchor" href="#求解-mask">¶</a>求解 mask</h3>
 
                 
               </div>
