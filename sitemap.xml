@@ -11,15 +11,6 @@
   </url>
   
   <url>
-    <loc>https://sch01ar.github.io/2023/09/27/lattice/</loc>
-    
-    <lastmod>2023-09-27</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://sch01ar.github.io/2023/03/07/Coppersmith%E6%94%BB%E5%87%BB/</loc>
     
     <lastmod>2023-06-30</lastmod>
@@ -272,16 +263,7 @@
   </url>
   
   <url>
-    <loc>https://sch01ar.github.io/links/index.html</loc>
-    
-    <lastmod>2022-10-15</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://sch01ar.github.io/repository/index.html</loc>
+    <loc>https://sch01ar.github.io/categories/index.html</loc>
     
     <lastmod>2022-10-15</lastmod>
     
@@ -299,7 +281,16 @@
   </url>
   
   <url>
-    <loc>https://sch01ar.github.io/categories/index.html</loc>
+    <loc>https://sch01ar.github.io/repository/index.html</loc>
+    
+    <lastmod>2022-10-15</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://sch01ar.github.io/links/index.html</loc>
     
     <lastmod>2022-10-15</lastmod>
     

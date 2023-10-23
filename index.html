@@ -268,7 +268,7 @@
       
       <a class="index-excerpt " href="/2023/10/23/N1CTF2023/" target="_self">
         <div>
-          ¶e2d1p 参考文章： 题目  Based on N1CTF 2022 “ezdlp”. Easy dlp too, try again : ).  &lt;!–code￼0–&gt; ¶0x01 恢复模数 p 给了 200 组 m、c 满足等式$65537^{m_i⊕mask}=c_i (mod p)$ 异或运算在指数上，没有什么运算性质。但异或的本质还是按位异或，以下用 m[i]表示 m 的
+          e2d1p 参考文章： 题目  Based on N1CTF 2022 “ezdlp”. Easy dlp too, try again : ).  12345678910111213141516171819202122232425from Crypto.Util.number import *import osFLAG = os.environ.get(&#x27;FLAG&#x27;, b&#
         </div>
       </a>
 
@@ -302,39 +302,6 @@
 </span>
 
           </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2023/09/27/lattice/" target="_self">
-          
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2023/09/27/lattice/" target="_self">
-        <div>
-          
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2023-09-27 18:26" pubdate>
-              2023-09-27
-            </time>
-          </div>
-        
         
         
       </div>
@@ -791,6 +758,66 @@
             <i class="iconfont icon-date"></i>
             <time datetime="2023-03-28 10:05" pubdate>
               2023-03-28
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/CTF/" class="category-chain-item">CTF</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2023/03/07/Coppersmith%E6%94%BB%E5%87%BB/" target="_self">
+          <img src="/img/snow1.heic" srcset="/img/loading.gif" lazyload alt="Coppersmith相关攻击">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2023/03/07/Coppersmith%E6%94%BB%E5%87%BB/" target="_self">
+          Coppersmith相关攻击
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt " href="/2023/03/07/Coppersmith%E6%94%BB%E5%87%BB/" target="_self">
+        <div>
+          原理 Coppersmith 定理是在一个 e 阶模 n 的多项式\(f(x)\)中，若有根小于\(n^{\frac{1}{e}}\)，则可以用 O(log n)的算法求出根。 直接求解\(f(x)\)的根可能比较困难，在此利用LLL算法求得多项式\(g(x)\)，求得的多项式与\(f(x)\)具有相同的根\(x_0\)，\(g(x)\)具有更小的系数，且定义域为整数域。 本质思想就是把有限域上的
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-03-07 10:05" pubdate>
+              2023-03-07
             </time>
           </div>
         
