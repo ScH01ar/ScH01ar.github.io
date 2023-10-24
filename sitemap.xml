@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://sch01ar.github.io/about/index.html</loc>
+    <loc>https://sch01ar.github.io/2023/10/23/N1CTF2023/</loc>
     
     <lastmod>2023-10-24</lastmod>
     
@@ -11,7 +11,7 @@
   </url>
   
   <url>
-    <loc>https://sch01ar.github.io/2023/10/23/N1CTF2023/</loc>
+    <loc>https://sch01ar.github.io/about/index.html</loc>
     
     <lastmod>2023-10-24</lastmod>
     
@@ -254,7 +254,7 @@
   </url>
   
   <url>
-    <loc>https://sch01ar.github.io/books/index.html</loc>
+    <loc>https://sch01ar.github.io/categories/index.html</loc>
     
     <lastmod>2022-10-15</lastmod>
     
@@ -263,7 +263,7 @@
   </url>
   
   <url>
-    <loc>https://sch01ar.github.io/categories/index.html</loc>
+    <loc>https://sch01ar.github.io/tags/index.html</loc>
     
     <lastmod>2022-10-15</lastmod>
     
@@ -281,7 +281,7 @@
   </url>
   
   <url>
-    <loc>https://sch01ar.github.io/repository/index.html</loc>
+    <loc>https://sch01ar.github.io/books/index.html</loc>
     
     <lastmod>2022-10-15</lastmod>
     
@@ -290,7 +290,7 @@
   </url>
   
   <url>
-    <loc>https://sch01ar.github.io/tags/index.html</loc>
+    <loc>https://sch01ar.github.io/repository/index.html</loc>
     
     <lastmod>2022-10-15</lastmod>
     
@@ -336,14 +336,14 @@
   </url>
   
   <url>
-    <loc>https://sch01ar.github.io/tags/%E9%9D%9E%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86/</loc>
+    <loc>https://sch01ar.github.io/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</loc>
     <lastmod>2023-10-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://sch01ar.github.io/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</loc>
+    <loc>https://sch01ar.github.io/tags/%E9%9D%9E%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86/</loc>
     <lastmod>2023-10-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
