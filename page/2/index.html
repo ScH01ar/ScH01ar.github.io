@@ -268,7 +268,7 @@
       
       <a class="index-excerpt " href="/2023/02/24/DLP%E4%B8%AD%E5%B8%B8%E7%94%A8%E7%AE%97%E6%B3%95/" target="_self">
         <div>
-          Pohlig-Hellman 算法（光滑阶） 给定 a,b,p，p 是素数，求 x，\(a^x \equiv b (mod\;p)\) 在模 p 下，设该群的生成元为 g，则有 \[ a \equiv g^{a1} (mod\;p) \newline b \equiv g^{b1} (mod\;p) \] 联立条件有 \[ g^{a1x} \equiv g^{b1} (mod\;p) \] 由欧拉
+          Pohlig-Hellman 算法（光滑阶）给定 a,b,p，p 是素数，求 x，$a^x \equiv b (mod\;p)$在模 p 下，设该群的生成元为 g，则有  a \equiv g^{a1} (mod\;p) \newline b \equiv g^{b1} (mod\;p)联立条件有  g^{a1x} \equiv g^{b1} (mod\;p)由欧拉定理得$\phi(p)\;=\;
         </div>
       </a>
 
@@ -328,7 +328,7 @@
       
       <a class="index-excerpt " href="/2022/11/30/2022DASCTF_NOV-lllcccgggwp/" target="_self">
         <div>
-          题目描述 如题目名字一样，有好多个lcg，当时看晕了 123456789101112131415161718192021222324252627282930313233343536373839404142434445from Crypto.Util.number import *key=b&#x27;*************&#x27;key=bytes_to_long(key)key=bin(
+          题目描述如题目名字一样，有好多个lcg，当时看晕了123456789101112131415161718192021222324252627282930313233343536373839404142434445from Crypto.Util.number import *key=b&#x27;*************&#x27;key=bytes_to_long(key)key=bin(ke
         </div>
       </a>
 
@@ -395,7 +395,7 @@
       
       <a class="index-excerpt " href="/2022/11/29/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%E7%AE%97%E6%B3%95/" target="_self">
         <div>
-          前言 在一次CTF比赛中遇到了，写了10个for嵌套硬爆出来了，复现的时候发现是背包加密。  Merkle–Hellman 公钥加密算法 整体加密流程 12345678import numpyx = [1,0,0,1,0]#明文对应的2进制数a = [3,7,16,50,120]# 产生一个超递增序列，称作私钥#对私钥a进行加密，产生公钥b。m = 251#选取一个模数w = 300#选取一个乘数
+          前言在一次CTF比赛中遇到了，写了10个for嵌套硬爆出来了，复现的时候发现是背包加密。  Merkle–Hellman 公钥加密算法整体加密流程12345678import numpyx = [1,0,0,1,0]#明文对应的2进制数a = [3,7,16,50,120]# 产生一个超递增序列，称作私钥#对私钥a进行加密，产生公钥b。m = 251#选取一个模数w = 300#选取一个乘数b =
         </div>
       </a>
 
@@ -456,7 +456,7 @@
       
       <a class="index-excerpt index-excerpt__noimg" href="/2022/11/28/hitcon2022-BabySSS/" target="_self">
         <div>
-          I implemented a toy Shamir's Secret Sharing for fun. Can you help me check is there any issues with this? Shamir's Secret Sharing密钥分享算法 \[f(x)=a_0 + a_1x + a_2x^2 + …… + a_{k-1} x^{k-1} mod p \] 题目源码
+          I implemented a toy Shamir’s Secret Sharing for fun. Can you help me check is there any issues with this? Shamir’s Secret Sharing密钥分享算法f(x)=a_0 + a_1x + a_2x^2 + …… + a_{k-1} x^{k-1} mod p题目源码12345678
         </div>
       </a>
 
@@ -517,7 +517,7 @@
       
       <a class="index-excerpt index-excerpt__noimg" href="/2022/11/24/Gauss%E6%A0%BC%E5%9F%BA%E7%BA%A6%E7%AE%80%E7%AE%97%E6%B3%95/" target="_self">
         <div>
-          由Gauss提出的二维格基约化算法 算法伪代码 即对给定的两个基向量进行不断的相互约化，最终求得格上的最小向量 Loop  If ||v2|| &lt; ||v1||, swap v1, v2 Compute m = ⌊ v1∙v2 / v1∙v1 ⌉ If m = 0, return v1, v2 v2 = v2 - m*v1  Continue Loop 代码实现 12345678910111
+          由Gauss提出的二维格基约化算法 算法伪代码即对给定的两个基向量进行不断的相互约化，最终求得格上的最小向量 Loop    (a) If ||v2|| &lt; ||v1||, swap v1, v2    (b) Compute m = ⌊ v1∙v2 / v1∙v1 ⌉    (c) If m = 0, return v1, v2    (d) v2 = v2 - m*v1 Continue
         </div>
       </a>
 
@@ -639,7 +639,7 @@
       
       <a class="index-excerpt index-excerpt__noimg" href="/2022/10/30/2022-10-30-2022%E7%A5%A5%E4%BA%91%E6%9D%AFwp-crypto/" target="_self">
         <div>
-          little little fermat 题目源码 1234567891011121314151617181920212223242526272829303132333435from Crypto.Util.number import *from random import *from libnum import *import gmpy2from secret import xflag = b&
+          little little fermat题目源码1234567891011121314151617181920212223242526272829303132333435from Crypto.Util.number import *from random import *from libnum import *import gmpy2from secret import xflag = b&#x
         </div>
       </a>
 
@@ -700,7 +700,7 @@
       
       <a class="index-excerpt index-excerpt__noimg" href="/2022/10/27/2022NewStarCTF-flip_flop/" target="_self">
         <div>
-          flip-flop AES-CBC加密模式 题目 源码如下： 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748import osfrom Crypto.Cipher import AESfrom secret import FLAGauth_major_key = os.u
+          flip-flopAES-CBC加密模式 题目源码如下：123456789101112131415161718192021222324252627282930313233343536373839404142434445464748import osfrom Crypto.Cipher import AESfrom secret import FLAGauth_major_key = os.uran
         </div>
       </a>
 
@@ -761,7 +761,7 @@
       
       <a class="index-excerpt index-excerpt__noimg" href="/2022/10/26/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B020221026/" target="_self">
         <div>
-          RSA5 题目分析 给定e=65537 给了很多组n、c 由于e过大，所以不考虑使用CRT，由于m是同一个，因此遍历一下，求出两个n的最大公约数，即为p，后续就简单了。 EXP 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960
+          RSA5题目分析给定e=65537 给了很多组n、c 由于e过大，所以不考虑使用CRT，由于m是同一个，因此遍历一下，求出两个n的最大公约数，即为p，后续就简单了。 EXP123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616
         </div>
       </a>
 
@@ -822,7 +822,7 @@
       
       <a class="index-excerpt index-excerpt__noimg" href="/2022/10/23/2022DASCTF10%E6%9C%88%E6%8C%91%E6%88%98%E8%B5%9Bwp/" target="_self">
         <div>
-          RSA 题目如下 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152from Crypto.Util.number import *from secret import flagn_2 = 67583505674445012102400400833717093
+          RSA题目如下12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152from Crypto.Util.number import *from secret import flagn_2 = 6758350567444501210240040083371709373
         </div>
       </a>
 
