@@ -16,25 +16,23 @@
   <meta name="author" content="Roo1e">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Euler&#39;s Factoring to RSA Outline 对于 RSA 中\(N&#x3D;(ma^2+nb^2)(mc^2+nd^2)\)的情况进行分析以及安全性评测。 Euler&#39;s factorization method 欧拉因式分解法是通过两种方式将数字写成两个平方和来分解数字的方法，对于一个合数\(N\)来说，若\(N&#x3D;a^2+b^2\)，则可以将\(N\)进行因式分解，例如\(1000">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Euler&#39;s Factoring to RSA">
-<meta property="og:url" content="https://sch01ar.github.io/2023/04/18/Euler/index.html">
+    <meta property="og:type" content="article">
+<meta property="og:title" content="2023ACTF">
+<meta property="og:url" content="https://sch01ar.github.io/2023/10/30/2023ACTF/index.html">
 <meta property="og:site_name" content="Y&#39;s blog">
-<meta property="og:description" content="Euler&#39;s Factoring to RSA Outline 对于 RSA 中\(N&#x3D;(ma^2+nb^2)(mc^2+nd^2)\)的情况进行分析以及安全性评测。 Euler&#39;s factorization method 欧拉因式分解法是通过两种方式将数字写成两个平方和来分解数字的方法，对于一个合数\(N\)来说，若\(N&#x3D;a^2+b^2\)，则可以将\(N\)进行因式分解，例如\(1000">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://sch01ar.github.io/img/Euler1.jpg">
-<meta property="article:published_time" content="2023-04-18T06:05:45.000Z">
-<meta property="article:modified_time" content="2023-04-18T10:39:11.334Z">
+<meta property="og:image" content="https://sch01ar.github.io/img/actf2023.jpg">
+<meta property="article:published_time" content="2023-10-30T12:05:45.000Z">
+<meta property="article:modified_time" content="2023-10-30T02:44:53.325Z">
 <meta property="article:author" content="Roo1e">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://sch01ar.github.io/img/Euler1.jpg">
+<meta name="twitter:image" content="https://sch01ar.github.io/img/actf2023.jpg">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>Euler&#39;s Factoring to RSA - Y&#39;s blog</title>
+  <title>2023ACTF - Y&#39;s blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -222,13 +220,13 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/img/skate.heic') no-repeat center center; background-size: cover;">
+     style="background: url('/img/actf2023.jpg') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Euler&#39;s Factoring to RSA"></span>
+            <span id="subtitle" data-typed-text="2023ACTF"></span>
           
         </div>
 
@@ -239,8 +237,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-04-18 14:05" pubdate>
-          2023年4月18日 下午
+        <time datetime="2023-10-30 20:05" pubdate>
+          2023年10月30日 晚上
         </time>
       </span>
     
@@ -251,7 +249,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.2k 字
+          0 字
         
       </span>
     
@@ -262,7 +260,7 @@
         
         
         
-          19 分钟
+          1 分钟
         
       </span>
     
@@ -308,78 +306,12 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Euler&#39;s Factoring to RSA</h1>
+            <h1 style="display: none">2023ACTF</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="eulers-factoring-to-rsa">Euler's Factoring to RSA</h1>
-<h2 id="outline">Outline</h2>
-<p>对于 RSA 中<span
-class="math inline">\(N=(ma^2+nb^2)(mc^2+nd^2)\)</span>的情况进行分析以及安全性评测。</p>
-<h2 id="eulers-factorization-method">Euler's factorization method</h2>
-<p>欧拉因式分解法是通过两种方式将数字写成两个平方和来分解数字的方法，对于一个合数<span
-class="math inline">\(N\)</span>来说，若<span
-class="math inline">\(N=a^2+b^2\)</span>，则可以将<span
-class="math inline">\(N\)</span>进行因式分解，例如<span
-class="math inline">\(1000009=1000^2+3^2=972^2+235^2=293\cdot3413\)</span></p>
-<h2 id="theoretical-basis">Theoretical basis</h2>
-<p><strong>Brahmagupta-Fibonacci 恒等式</strong> <span
-class="math display">\[(a^2+b^2)(c^2+d^2)=(ac-bd)^2+(ad+bc)^2=(ac+bd)^2+(ad-bc)^2\]</span></p>
-<h2 id="proof">Proof</h2>
-<p><img src="/img/Euler.jpg" srcset="/img/loading.gif" lazyload /></p>
-<p><span class="math display">\[a-c=kl\]</span> <span
-class="math display">\[d-b=km\]</span> <span
-class="math display">\[a+c=hm\]</span> <span
-class="math display">\[d+b=hl\]</span> 运用<strong>Brahmagupta-Fibonacci
-恒等式</strong> <span
-class="math display">\[(k^2+h^2)(l^2+m^2)=(kl+hm)^2+(km-hl)^2=((a-c)+(a+c))^2+((d-b)-(d+b))^2=4a^2+4b^2=4n\]</span>
-所以得到 <span
-class="math display">\[n=((\frac{k}{2})^2+(\frac{h}{2})^2)(l^2+m^2)\]</span>
-后续求解如下： <span
-class="math display">\[khl^2+khm^2=(a-c)(d+b)+(a+c)(d-b)\]</span> <span
-class="math display">\[kh(l^2+m^2)=2ad-2bc\]</span> <span
-class="math display">\[l^2+m^2=GCD(ad-bc,n)\]</span></p>
-<h2 id="generally">Generally</h2>
-<p>对于更一般的<span class="math inline">\(N\)</span>来说，如果<span
-class="math inline">\(N=ma^2+nb^2=mc^2+nd^2\)</span>的情况应用<strong>欧拉分解</strong>是否可以进行？
-当然是可以的，但可惜欧拉在 1891 年失去了生命，没能继续进行他的研究。后世
-Lucas 和 Mathews 先后对这样的情况进行了分析推导，证明了<span
-class="math inline">\(N\)</span>是可分解的。</p>
-<h2 id="my-proof">My proof</h2>
-<p>对于<span class="math inline">\(a,b,c,d,m,n\in
-\mathbb{Z}^+,并且gcd(ma,nb)=gcd(mc,nd)=1\)</span> <span
-class="math display">\[N=ma^2+nb^2=mc^2+nd^2\]</span> <span
-class="math display">\[N=\frac{1}{2}[m(a^2+c^2)+n(b^2+d^2)]\]</span></p>
-<p><span
-class="math display">\[N(d^2-b^2)=\frac{1}{2}(ma^2d^2+mc^2d^2+nb^2d^2+nd^4-ma^2b^2-mc^2b^2-nb^4-nb^2d^2)\]</span>
-<span class="math display">\[\because n(d^2-b^2)=m(a^2-c^2)\]</span></p>
-<p><span class="math display">\[\therefore
-N=\frac{1}{2}[ma^2d^2-mb^2c^2+mc^2d^2-ma^2b^2+m(a^2-c^2)(d^2+b^2)]\]</span>
-<span class="math display">\[N=m(ad+bc)(ad-bc)\]</span>
-我们还需要另外一个等式，运用<strong>Brahmagupta-Fibonacci
-恒等式</strong>得到 <span
-class="math display">\[N^2=(ma^2+nb^2)(mc^2+nd^2)\]</span> <span
-class="math display">\[N^2=(mac-nbd)^2+mn(ad+bc)^2\]</span> 因为<span
-class="math inline">\(gcd(m,N)=1\)</span>,由此得到 <span
-class="math display">\[N=gcd(N,ad-bc)*
-\frac{N}{gcd(N,ad-bc)}\]</span></p>
-<h2 id="apply-to-rsa">Apply to RSA</h2>
-<p>在 RSA 传统加密中我们知道，<span
-class="math inline">\(N\)</span>的选取尤为重要，如果选取的<span
-class="math inline">\(N\)</span>易于分解，那么明文将不再安全。 对于<span
-class="math inline">\(N=(ma^2+nb^2)(mc^2+nd^2)\)</span>，即<span
-class="math inline">\(p=ma^2+nb^2,q=mc^2+nd^2\)</span></p>
-<p>针对这种看似数字很大的<span
-class="math inline">\(N\)</span>,下面进行一些实际的代码生成与攻击。</p>
-<h3 id="pq_generate">P、Q_generate</h3>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">genprime</span>(<span class="hljs-params">m,n</span>):<br>    <span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:<br>        x = random.getrandbits(<span class="hljs-number">150</span>)<br>        y = random.getrandbits(<span class="hljs-number">150</span>)<br>        p = m*x ** <span class="hljs-number">2</span> +  n*y ** <span class="hljs-number">2</span><br>        <span class="hljs-keyword">if</span> isPrime(p) :<br>            <span class="hljs-keyword">return</span> p, x, y<br></code></pre></td></tr></table></figure>
-<h3 id="abcd_generate">abcd_generate</h3>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:<br>    m = getPrime(<span class="hljs-number">212</span>)<br>    n = getPrime(<span class="hljs-number">212</span>)<br>    p, xp, yp = genprime(m,n)<br>    q, xq, yq = genprime(m,n)<br>    N = p * q<br>    a = <span class="hljs-built_in">abs</span>(m*xp * xq - n * yp * yq)<br>    b = <span class="hljs-built_in">abs</span>(xp * yq + xq * yp)<br>    <span class="hljs-keyword">assert</span> N == a ** <span class="hljs-number">2</span> + m*n * b ** <span class="hljs-number">2</span><br>    c = <span class="hljs-built_in">abs</span>(m*xp * xq + n * yp * yq)<br>    d = <span class="hljs-built_in">abs</span>(xp * yq - xq * yp)<br>    <span class="hljs-keyword">assert</span> N == c ** <span class="hljs-number">2</span> + m*n * d ** <span class="hljs-number">2</span><br>    <span class="hljs-keyword">if</span> a.bit_length() &lt;= <span class="hljs-number">512</span> <span class="hljs-keyword">and</span> b.bit_length() &lt;= <span class="hljs-number">300</span> <span class="hljs-keyword">and</span> c.bit_length() &lt;= <span class="hljs-number">512</span> <span class="hljs-keyword">and</span> d.bit_length() &lt;= <span class="hljs-number">300</span>:<br>        <span class="hljs-keyword">break</span><br><br></code></pre></td></tr></table></figure>
-<h3 id="encrypt">Encrypt</h3>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python">flag = <span class="hljs-string">b&quot;you_have_already_understood_this&quot;</span><br>N = p*q<br>e=<span class="hljs-number">65537</span><br>msg = bytes_to_long(flag)<br>Cipher = <span class="hljs-built_in">pow</span>(msg,e,N)<br></code></pre></td></tr></table></figure>
-<h3 id="attack">Attack</h3>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python">p=GCD(a*d-b*c,N)<br>q=N//p<br>d=gmpy2.invert(e,(p-<span class="hljs-number">1</span>)*(q-<span class="hljs-number">1</span>))<br>msg=long_to_bytes(<span class="hljs-built_in">pow</span>(Cipher,d,N))<br><span class="hljs-built_in">print</span>(msg)<br><span class="hljs-comment"># b&#x27;you_have_already_understood_this&#x27;</span><br><br></code></pre></td></tr></table></figure>
+                
 
                 
               </div>
@@ -418,8 +350,8 @@ class="math inline">\(N\)</span>,下面进行一些实际的代码生成与攻�
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Euler&#39;s Factoring to RSA</div>
-      <div>https://sch01ar.github.io/2023/04/18/Euler/</div>
+      <div>2023ACTF</div>
+      <div>https://sch01ar.github.io/2023/10/30/2023ACTF/</div>
     </div>
     <div class="license-meta">
       
@@ -431,7 +363,7 @@ class="math inline">\(N\)</span>,下面进行一些实际的代码生成与攻�
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年4月18日</div>
+          <div>2023年10月30日</div>
         </div>
       
       
@@ -463,18 +395,12 @@ class="math inline">\(N\)</span>,下面进行一些实际的代码生成与攻�
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/04/19/ECC/" title="ECC(持续更新🥱)">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">ECC(持续更新🥱)</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/04/08/NSSCTFRound11/" title="NSSCTF Round11">
-                        <span class="hidden-mobile">NSSCTF Round11</span>
+                      <a href="/2023/10/23/N1CTF2023/" title="2023N1CTF">
+                        <span class="hidden-mobile">2023N1CTF</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

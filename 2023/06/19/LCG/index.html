@@ -16,12 +16,12 @@
   <meta name="author" content="Roo1e">
   <meta name="keywords" content="">
   
-    <meta name="description" content="LCG线性同余（LCG）是产生伪随机数的方法。 基本形式： X_{n+1}&#x3D;(aX_n+b)\;mod\;m基本公式公式一求递归数组元素 X_n&#x3D;a^{-1}(X_{n+1}-b)\;mod\;m公式二求参数 a利用两个递归式消去 b 得到 a a&#x3D;(X_{n+2}-X_{n+1})(X_{n+1}-X_n)^{-1}公式三求参数 b b&#x3D;(X_{n+1}-aX_{n})\;mod\;m公式四求参">
+    <meta name="description" content="LCG 线性同余（LCG）是产生伪随机数的方法。 基本形式： \[ X_{n+1}&#x3D;(aX_n+b)\;mod\;m \] 基本公式 公式一 求递归数组元素 \[X_n&#x3D;a^{-1}(X_{n+1}-b)\;mod\;m\] 公式二 求参数 a 利用两个递归式消去 b 得到 a \[a&#x3D;(X_{n+2}-X_{n+1})(X_{n+1}-X_n)^{-1}\] 公式三 求参数 b \[b&#x3D;(X_{">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LCG">
 <meta property="og:url" content="https://sch01ar.github.io/2023/06/19/LCG/index.html">
 <meta property="og:site_name" content="Y&#39;s blog">
-<meta property="og:description" content="LCG线性同余（LCG）是产生伪随机数的方法。 基本形式： X_{n+1}&#x3D;(aX_n+b)\;mod\;m基本公式公式一求递归数组元素 X_n&#x3D;a^{-1}(X_{n+1}-b)\;mod\;m公式二求参数 a利用两个递归式消去 b 得到 a a&#x3D;(X_{n+2}-X_{n+1})(X_{n+1}-X_n)^{-1}公式三求参数 b b&#x3D;(X_{n+1}-aX_{n})\;mod\;m公式四求参">
+<meta property="og:description" content="LCG 线性同余（LCG）是产生伪随机数的方法。 基本形式： \[ X_{n+1}&#x3D;(aX_n+b)\;mod\;m \] 基本公式 公式一 求递归数组元素 \[X_n&#x3D;a^{-1}(X_{n+1}-b)\;mod\;m\] 公式二 求参数 a 利用两个递归式消去 b 得到 a \[a&#x3D;(X_{n+2}-X_{n+1})(X_{n+1}-X_n)^{-1}\] 公式三 求参数 b \[b&#x3D;(X_{">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://sch01ar.github.io/img/lcg.png">
 <meta property="article:published_time" content="2023-06-19T03:05:45.000Z">
@@ -251,7 +251,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.1k 字
+          1.2k 字
         
       </span>
     
@@ -313,13 +313,33 @@
             
               <div class="markdown-body">
                 
-                <h2 id="LCG"><a href="#LCG" class="headerlink" title="LCG"></a>LCG</h2><p>线性同余（LCG）是产生伪随机数的方法。</p>
-<h2 id="基本形式："><a href="#基本形式：" class="headerlink" title="基本形式："></a>基本形式：</h2><script type="math/tex; mode=display">
-X_{n+1}=(aX_n+b)\;mod\;m</script><h2 id="基本公式"><a href="#基本公式" class="headerlink" title="基本公式"></a>基本公式</h2><h3 id="公式一"><a href="#公式一" class="headerlink" title="公式一"></a>公式一</h3><p><strong>求递归数组元素</strong></p>
-<script type="math/tex; mode=display">X_n=a^{-1}(X_{n+1}-b)\;mod\;m</script><h3 id="公式二"><a href="#公式二" class="headerlink" title="公式二"></a>公式二</h3><p><strong>求参数 a</strong><br>利用两个递归式消去 b 得到 a</p>
-<script type="math/tex; mode=display">a=(X_{n+2}-X_{n+1})(X_{n+1}-X_n)^{-1}</script><h3 id="公式三"><a href="#公式三" class="headerlink" title="公式三"></a>公式三</h3><p><strong>求参数 b</strong></p>
-<script type="math/tex; mode=display">b=(X_{n+1}-aX_{n})\;mod\;m</script><h3 id="公式四"><a href="#公式四" class="headerlink" title="公式四"></a>公式四</h3><p><strong>求参数 m</strong></p>
-<script type="math/tex; mode=display">t_n=X_{n+1}-X_n</script><script type="math/tex; mode=display">t_n=(aX_n+b)-(aX_{n-1}+b)\;mod\;m</script><script type="math/tex; mode=display">t_{n+1}t_{n-1}-t_nt_n=0\;mod\;m</script><script type="math/tex; mode=display">T_n=t_{n+1}t_{n-1}-t_nt_n是 m 的倍数</script><script type="math/tex; mode=display">m=gcd(T_n,T_{n-1})</script><h2 id="相关求解代码"><a href="#相关求解代码" class="headerlink" title="相关求解代码"></a>相关求解代码</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> Crypto.Util.number <span class="hljs-keyword">import</span> *<br><span class="hljs-keyword">from</span> functools <span class="hljs-keyword">import</span> *<br><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">crack_unknown_increment</span>(<span class="hljs-params">states, modulus, multiplier</span>):  <span class="hljs-comment"># 求增量</span><br><br>    increment = (states[<span class="hljs-number">1</span>] - states[<span class="hljs-number">0</span>]*multiplier) % modulus<br><br>    <span class="hljs-keyword">return</span> modulus, multiplier, increment<br><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">crack_unknown_multiplier</span>(<span class="hljs-params">states, modulus</span>):  <span class="hljs-comment"># 求乘数</span><br><br>    multiplier = (states[<span class="hljs-number">2</span>] - states[<span class="hljs-number">1</span>]) * \<br>        inverse(states[<span class="hljs-number">1</span>] - states[<span class="hljs-number">0</span>], modulus) % modulus<br><br>    <span class="hljs-keyword">return</span> crack_unknown_increment(states, modulus, multiplier)<br><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">crack_unknown_modulus</span>(<span class="hljs-params">states</span>):  <span class="hljs-comment"># 求模数</span><br><br>    diffs = [s1 - s0 <span class="hljs-keyword">for</span> s0, s1 <span class="hljs-keyword">in</span> <span class="hljs-built_in">zip</span>(states, states[<span class="hljs-number">1</span>:])]<br><br>    zeroes = [t2*t0 - t1*t1 <span class="hljs-keyword">for</span> t0, t1, t2 <span class="hljs-keyword">in</span> <span class="hljs-built_in">zip</span>(diffs, diffs[<span class="hljs-number">1</span>:], diffs[<span class="hljs-number">2</span>:])]<br><br>    modulus = <span class="hljs-built_in">abs</span>(reduce(GCD, zeroes))<br><br>    <span class="hljs-keyword">return</span> crack_unknown_multiplier(states, modulus)<br><br><br><span class="hljs-built_in">print</span>(crack_unknown_modulus([<span class="hljs-number">2818206783446335158</span>, <span class="hljs-number">3026581076925130250</span>,<br>      <span class="hljs-number">136214319011561377</span>, <span class="hljs-number">359019108775045580</span>, <span class="hljs-number">2386075359657550866</span>, <span class="hljs-number">1705259547463444505</span>]))<br><br></code></pre></td></tr></table></figure>
+                <h2 id="lcg">LCG</h2>
+<p>线性同余（LCG）是产生伪随机数的方法。</p>
+<h2 id="基本形式">基本形式：</h2>
+<p><span class="math display">\[
+X_{n+1}=(aX_n+b)\;mod\;m
+\]</span></p>
+<h2 id="基本公式">基本公式</h2>
+<h3 id="公式一">公式一</h3>
+<p><strong>求递归数组元素</strong></p>
+<p><span
+class="math display">\[X_n=a^{-1}(X_{n+1}-b)\;mod\;m\]</span></p>
+<h3 id="公式二">公式二</h3>
+<p><strong>求参数 a</strong> 利用两个递归式消去 b 得到 a</p>
+<p><span
+class="math display">\[a=(X_{n+2}-X_{n+1})(X_{n+1}-X_n)^{-1}\]</span></p>
+<h3 id="公式三">公式三</h3>
+<p><strong>求参数 b</strong> <span
+class="math display">\[b=(X_{n+1}-aX_{n})\;mod\;m\]</span></p>
+<h3 id="公式四">公式四</h3>
+<p><strong>求参数 m</strong></p>
+<p><span class="math display">\[t_n=X_{n+1}-X_n\]</span> <span
+class="math display">\[t_n=(aX_n+b)-(aX_{n-1}+b)\;mod\;m\]</span> <span
+class="math display">\[t_{n+1}t_{n-1}-t_nt_n=0\;mod\;m\]</span> <span
+class="math display">\[T_n=t_{n+1}t_{n-1}-t_nt_n是 m 的倍数\]</span>
+<span class="math display">\[m=gcd(T_n,T_{n-1})\]</span></p>
+<h2 id="相关求解代码">相关求解代码</h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> Crypto.Util.number <span class="hljs-keyword">import</span> *<br><span class="hljs-keyword">from</span> functools <span class="hljs-keyword">import</span> *<br><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">crack_unknown_increment</span>(<span class="hljs-params">states, modulus, multiplier</span>):  <span class="hljs-comment"># 求增量</span><br><br>    increment = (states[<span class="hljs-number">1</span>] - states[<span class="hljs-number">0</span>]*multiplier) % modulus<br><br>    <span class="hljs-keyword">return</span> modulus, multiplier, increment<br><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">crack_unknown_multiplier</span>(<span class="hljs-params">states, modulus</span>):  <span class="hljs-comment"># 求乘数</span><br><br>    multiplier = (states[<span class="hljs-number">2</span>] - states[<span class="hljs-number">1</span>]) * \<br>        inverse(states[<span class="hljs-number">1</span>] - states[<span class="hljs-number">0</span>], modulus) % modulus<br><br>    <span class="hljs-keyword">return</span> crack_unknown_increment(states, modulus, multiplier)<br><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">crack_unknown_modulus</span>(<span class="hljs-params">states</span>):  <span class="hljs-comment"># 求模数</span><br><br>    diffs = [s1 - s0 <span class="hljs-keyword">for</span> s0, s1 <span class="hljs-keyword">in</span> <span class="hljs-built_in">zip</span>(states, states[<span class="hljs-number">1</span>:])]<br><br>    zeroes = [t2*t0 - t1*t1 <span class="hljs-keyword">for</span> t0, t1, t2 <span class="hljs-keyword">in</span> <span class="hljs-built_in">zip</span>(diffs, diffs[<span class="hljs-number">1</span>:], diffs[<span class="hljs-number">2</span>:])]<br><br>    modulus = <span class="hljs-built_in">abs</span>(reduce(GCD, zeroes))<br><br>    <span class="hljs-keyword">return</span> crack_unknown_multiplier(states, modulus)<br><br><br><span class="hljs-built_in">print</span>(crack_unknown_modulus([<span class="hljs-number">2818206783446335158</span>, <span class="hljs-number">3026581076925130250</span>,<br>      <span class="hljs-number">136214319011561377</span>, <span class="hljs-number">359019108775045580</span>, <span class="hljs-number">2386075359657550866</span>, <span class="hljs-number">1705259547463444505</span>]))<br><br></code></pre></td></tr></table></figure>
 
                 
               </div>
@@ -403,9 +423,9 @@ X_{n+1}=(aX_n+b)\;mod\;m</script><h2 id="基本公式"><a href="#基本公式" c
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/10/23/N1CTF2023/" title="N1CTF2023">
+                      <a href="/2023/10/23/N1CTF2023/" title="2023N1CTF">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">N1CTF2023</span>
+                        <span class="hidden-mobile">2023N1CTF</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
