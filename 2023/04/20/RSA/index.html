@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://sch01ar.github.io/img/rsa.jpg">
 <meta property="article:published_time" content="2023-04-20T13:05:45.000Z">
-<meta property="article:modified_time" content="2023-11-02T11:39:58.545Z">
+<meta property="article:modified_time" content="2023-11-02T11:43:55.270Z">
 <meta property="article:author" content="Roo1e">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://sch01ar.github.io/img/rsa.jpg">
@@ -530,10 +530,8 @@ class="math inline">\(\phi\)</span>的情况</p>
 <h1 id="明文相关攻击">明文相关攻击</h1>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">assert</span> flag == <span class="hljs-string">b&quot;dasctf&#123;&quot;</span> + secret + <span class="hljs-string">b&quot;&#125;&quot;</span><br><span class="hljs-built_in">print</span>(rsaencrypt(bytes_to_long(secret)))<br><span class="hljs-built_in">print</span>(rsaencrypt(bytes_to_long(flag)))<br></code></pre></td></tr></table></figure>
 <p>适用于</p>
-<p><span class="math display">\[
-C_1=M^e \; mod\; n\\
-C_2=(aM+b)^e \; mod \; n
-\]</span></p>
+<p>$$ C_1=M^e ; mod; n \</p>
+<p>C_2=(aM+b)^e ; mod ; n $$</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">related_message_attack</span>(<span class="hljs-params">c1, c2, diff, e, n</span>):<br>    PRx.&lt;x&gt; = PolynomialRing(Zmod(n))<br>    g1 = x^e - c1<br>    g2 = (x*<span class="hljs-number">256</span>+diff)^e - c2<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">gcd</span>(<span class="hljs-params">g1, g2</span>):<br>        <span class="hljs-keyword">while</span> g2:<br>            g1, g2 = g2, g1 % g2<br>        <span class="hljs-keyword">return</span> g1.monic()<br><br>    <span class="hljs-keyword">return</span> -gcd(g1, g2)[<span class="hljs-number">0</span>]<br><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">5</span>,<span class="hljs-number">200</span>):<br>    sl = i*<span class="hljs-number">8</span><br>    diff = bytes_to_long(<span class="hljs-string">b&quot;dasctf&#123;&quot;</span>)*<span class="hljs-number">2</span>^(sl+<span class="hljs-number">8</span>) + bytes_to_long(<span class="hljs-string">b&quot;&#125;&quot;</span>)<br>    <span class="hljs-comment">#print(long_to_bytes(diff))</span><br>    v = related_message_attack(C1, C2, diff, e, n)<br>    v = long_to_bytes(<span class="hljs-built_in">int</span>(v))<br>    <span class="hljs-keyword">if</span> <span class="hljs-built_in">all</span>(<span class="hljs-number">0x20</span>&lt;=k&lt;=<span class="hljs-number">0x7f</span> <span class="hljs-keyword">for</span> k <span class="hljs-keyword">in</span> v):<br>        <span class="hljs-built_in">print</span>(v)<br></code></pre></td></tr></table></figure>
 
                 
