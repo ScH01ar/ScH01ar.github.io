@@ -238,7 +238,7 @@
       
       <a class="index-excerpt index-excerpt__noimg" href="/2022/10/26/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B020221026/" target="_self">
         <div>
-          RSA5 题目分析 给定e=65537 给了很多组n、c 由于e过大，所以不考虑使用CRT，由于m是同一个，因此遍历一下，求出两个n的最大公约数，即为p，后续就简单了。 EXP 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960
+          RSA5  题目分析 给定e=65537 给了很多组n、c 由于e过大，所以不考虑使用CRT，由于m是同一个，因此遍历一下，求出两个n的最大公约数，即为p，后续就简单了。  EXP 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585
         </div>
       </a>
 
@@ -299,7 +299,7 @@
       
       <a class="index-excerpt index-excerpt__noimg" href="/2022/10/23/2022DASCTF10%E6%9C%88%E6%8C%91%E6%88%98%E8%B5%9Bwp/" target="_self">
         <div>
-          RSA 题目如下 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152from Crypto.Util.number import *from secret import flagn_2 = 67583505674445012102400400833717093
+          RSA  题目如下 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152from Crypto.Util.number import *from secret import flagn_2 = 675835056744450121024004008337170
         </div>
       </a>
 
@@ -360,7 +360,7 @@
       
       <a class="index-excerpt index-excerpt__noimg" href="/2022/10/22/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B020221022/" target="_self">
         <div>
-          RSA4 题目只给了三组n、c，采用中国剩余定理，具体推导如下 推导过程 me ≡ c1 mod n1 me ≡ c2 mod n2 me ≡ c3 mod n3 中国剩余定理（CRT） 中国剩余定理的内容是： 针对上述方程组，若n1、n2、n3互质，对于任意的c1、c2、c3，方程组都有解，使用条件是m^e &lt; n1、n2、n3。通解形式如下： 令N = n1 * n2 * n3，N1 =
+          RSA4 题目只给了三组n、c，采用中国剩余定理，具体推导如下  推导过程 me ≡ c1 mod n1 me ≡ c2 mod n2 me ≡ c3 mod n3  中国剩余定理（CRT） 中国剩余定理的内容是： 针对上述方程组，若n1、n2、n3互质，对于任意的c1、c2、c3，方程组都有解，使用条件是m^e &lt; n1、n2、n3。通解形式如下： 令N = n1 * n2 * n3，N
         </div>
       </a>
 
@@ -421,7 +421,7 @@
       
       <a class="index-excerpt index-excerpt__noimg" href="/2022/10/21/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B020221021/" target="_self">
         <div>
-          RSA2 题目给定n、e、dp、c 非预期解：直接分解n 下面考虑n不能分解的情况 推导过程 dp ≡ d mod (p-1) ed ≡ 1 mod (p-1) * (q-1) ed = 1 + k2(p-1)(q-1) 对1式两端同乘e，得 e * dp ≡ ed mod (p-1) e * dp = k1(p-1) + ed 代入ed得 e * dp = k1(p-1) + 1 + k2(p-
+          RSA2 题目给定n、e、dp、c 非预期解：直接分解n 下面考虑n不能分解的情况  推导过程 dp ≡ d mod (p-1) ed ≡ 1 mod (p-1) * (q-1) ed = 1 + k2(p-1)(q-1) 对1式两端同乘e，得 e * dp ≡ ed mod (p-1) e * dp = k1(p-1) + ed 代入ed得 e * dp = k1(p-1) + 1 + k2(
         </div>
       </a>
 
@@ -482,7 +482,7 @@
       
       <a class="index-excerpt index-excerpt__noimg" href="/2022/10/20/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B020221020/" target="_self">
         <div>
-          RSA1 给定dp、dq类型 dp ≡ d mod (p-1) dq ≡ d mod (q-1) m ≡ cd mod n m = cd + k * n m = cd +k * p * q 对上式两端同时对p、q分别取余，得：（中国剩余定理） m1 ≡ cd mod p m2 ≡ cd mod q 同理，可得到 cd = m1 +k * p 代入到 m2 ≡ cd mod q 中： m2 ≡ (m
+          RSA1 给定dp、dq类型 dp ≡ d mod (p-1) dq ≡ d mod (q-1) m ≡ cd mod n m = cd + k * n m = cd +k * p * q 对上式两端同时对p、q分别取余，得：（中国剩余定理） m1 ≡ cd mod p m2 ≡ cd mod q 同理，可得到 cd = m1 +k * p 代入到 m2 ≡ cd mod q 中： m2 ≡ (
         </div>
       </a>
 
@@ -532,24 +532,18 @@
   <div class="row mx-auto index-card">
     
     
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2022/10/16/2022BUUCTF%E6%96%B0%E7%94%9F%E8%B5%9B-RSA/" target="_self">
-          <img src="/img/rsa.jpg" srcset="/img/loading.gif" lazyload alt="2022BUUCTF新生赛-RSA">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
+    <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/10/16/2022BUUCTF%E6%96%B0%E7%94%9F%E8%B5%9B-RSA/" target="_self">
-          2022BUUCTF新生赛-RSA
+        <a href="/2022/10/16/2021ByteCTF-easyxor/" target="_self">
+          2021ByteCTF-easyxor
         </a>
       </h1>
 
       
-      <a class="index-excerpt " href="/2022/10/16/2022BUUCTF%E6%96%B0%E7%94%9F%E8%B5%9B-RSA/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/10/16/2021ByteCTF-easyxor/" target="_self">
         <div>
-          题目源码 123456789101112131415161718from Crypto.Util.number import *import gmpy2m = bytes_to_long(flag)p = getPrime(512)q = getPrime(512)n = p * p * qe = 0x10001d = inverse(e, p * (p-1) * (q-1))assert m &
+          题目源码如下 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152#! /usr/bin/env pythonfrom Crypto.Util.number import bytes_to_long, long_to_bytesfrom random impo
         </div>
       </a>
 
@@ -599,18 +593,24 @@
   <div class="row mx-auto index-card">
     
     
-    <article class="col-12 col-md-12 mx-auto index-info">
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2022/10/16/2022BUUCTF%E6%96%B0%E7%94%9F%E8%B5%9B-RSA/" target="_self">
+          <img src="/img/rsa.jpg" srcset="/img/loading.gif" lazyload alt="2022BUUCTF新生赛-RSA">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/10/16/2021ByteCTF-easyxor/" target="_self">
-          2021ByteCTF-easyxor
+        <a href="/2022/10/16/2022BUUCTF%E6%96%B0%E7%94%9F%E8%B5%9B-RSA/" target="_self">
+          2022BUUCTF新生赛-RSA
         </a>
       </h1>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/10/16/2021ByteCTF-easyxor/" target="_self">
+      <a class="index-excerpt " href="/2022/10/16/2022BUUCTF%E6%96%B0%E7%94%9F%E8%B5%9B-RSA/" target="_self">
         <div>
-          题目源码如下 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152#! /usr/bin/env pythonfrom Crypto.Util.number import bytes_to_long, long_to_bytesfrom random impor
+          题目源码 123456789101112131415161718from Crypto.Util.number import *import gmpy2m = bytes_to_long(flag)p = getPrime(512)q = getPrime(512)n = p * p * qe = 0x10001d = inverse(e, p * (p-1) * (q-1))assert m
         </div>
       </a>
 
@@ -671,7 +671,7 @@
       
       <a class="index-excerpt index-excerpt__noimg" href="/2022/10/15/%E6%A2%A6%E5%BC%80%E5%A7%8B%E7%9A%84%E5%9C%B0%E6%96%B9/" target="_self">
         <div>
-          Mac下利用Hexo和github pages搭建个人博客 环境配置 1.Node.js安装 下载地址：Node.js 2.淘宝镜像安装 12//打开终端terminal$ npm install -g cnpm --registry=https://registry.npm.taobao.org  3.安装Hexo 1234// 使用命令去安装Hexocnpm install -g hexo-c
+          Mac下利用Hexo和github pages搭建个人博客  环境配置  1.Node.js安装 下载地址：Node.js  2.淘宝镜像安装 12//打开终端terminal$ npm install -g cnpm --registry=https://registry.npm.taobao.org   3.安装Hexo 1234// 使用命令去安装Hexocnpm install -g h
         </div>
       </a>
 
@@ -732,7 +732,7 @@
       
       <a class="index-excerpt index-excerpt__noimg" href="/2022/10/15/hello-world/" target="_self">
         <div>
-          Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick
+          Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.  Quic
         </div>
       </a>
 
