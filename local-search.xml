@@ -42,6 +42,25 @@
   
   
   <entry>
+    <title>一些关于p^q问题剪枝算法</title>
+    <link href="/2023/10/30/%E5%89%AA%E6%9E%9D/"/>
+    <url>/2023/10/30/%E5%89%AA%E6%9E%9D/</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>此篇文章针对 RSA 中 p^q 相关问题及变种做一个总结。之前做过很多 p^q相关的问题，但是思路大差不差，周末打了鹏城杯，复现时发现要结合 copper 和dfs 来剪枝。</p></blockquote><h2 id="pq">p^q</h2><h3 id="搜索方式">搜索方式</h3><ul><li>从低位搜索，在已知 p^q 和 p*q的情况下，由于异或是按位进行的，对于每一位异或的结果来说，p、q该位的组合情况有 4 种<code>[1,0][0,1][1,1][0,0]</code></li></ul><h3 id="剪枝条件">剪枝条件</h3><ul><li>利用<code>p*q==n</code>这一条件来进行筛选，由于是从低位开始爆破，因此满足<spanclass="math inline">\(p_{low}*q_{low}==n_{low}\)</span></li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">get_pq</span>(<span class="hljs-params">n, x</span>):<br>    a = [<span class="hljs-number">0</span>]<br>    b = [<span class="hljs-number">0</span>]<br>    maskx = <span class="hljs-number">1</span><br>    maskn = <span class="hljs-number">2</span><br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1024</span>):<br>        xbit = (x &amp; maskx) &gt;&gt; i<br>        nbit = n % maskn<br>        t_a = []<br>        t_b = []<br>        <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(a)):<br>            <span class="hljs-keyword">for</span> aa <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">2</span>):<br>                <span class="hljs-keyword">for</span> bb <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">2</span>):<br>                    <span class="hljs-keyword">if</span> aa ^ bb == xbit:<br>                        tmp2 = n % maskn<br>                        tmp1 = (aa * maskn // <span class="hljs-number">2</span> + a[j]) * (bb * maskn // <span class="hljs-number">2</span> + b[j]) % maskn<br>                        <span class="hljs-keyword">if</span> tmp1 == tmp2:<br>                            t_a.append(aa * maskn // <span class="hljs-number">2</span> + a[j])<br>                            t_b.append(bb * maskn // <span class="hljs-number">2</span> + b[j])<br>        maskx *= <span class="hljs-number">2</span><br>        maskn *= <span class="hljs-number">2</span><br>        a = t_a<br>        b = t_b<br>    <span class="hljs-keyword">for</span> a1, b1 <span class="hljs-keyword">in</span> <span class="hljs-built_in">zip</span>(a, b):<br>        <span class="hljs-keyword">if</span> a1 * b1 == n1:<br>            <span class="hljs-keyword">return</span> a1, b1<br></code></pre></td></tr></table></figure><h2 id="pq_rev">p^q_rev</h2><h3 id="搜索方式-1">搜索方式</h3><ul><li>从两端爆破</li></ul><h3 id="剪枝条件-1">剪枝条件</h3><ul><li>将 p、q 未搜索到的位全填 0，乘积应小于 n</li><li>将 p、q 未搜索到的位全填 1，乘积应大于 n</li><li>p、q 低 k 位乘积再取低 k 位，应与 n 的低 k 位相同</li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python">p = getPrime(<span class="hljs-number">256</span>)<br>q = getPrime(<span class="hljs-number">256</span>)<br>_q = <span class="hljs-built_in">int</span>(<span class="hljs-built_in">bin</span>(q)[<span class="hljs-number">2</span>:][::-<span class="hljs-number">1</span>] , <span class="hljs-number">2</span>)<br>n = p * q<br>gift = p ^ q_<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>CTF</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>2023N1CTF</title>
     <link href="/2023/10/23/N1CTF2023/"/>
     <url>/2023/10/23/N1CTF2023/</url>
