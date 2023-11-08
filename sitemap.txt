@@ -33,8 +33,8 @@ https://sch01ar.github.io/2022/11/10/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%BB%BA%E7%AB%
 https://sch01ar.github.io/categories/index.html
 https://sch01ar.github.io/links/index.html
 https://sch01ar.github.io/repository/index.html
-https://sch01ar.github.io/books/index.html
 https://sch01ar.github.io/tags/index.html
+https://sch01ar.github.io/books/index.html
 https://sch01ar.github.io/
 https://sch01ar.github.io/tags/wp/
 https://sch01ar.github.io/tags/diary/
