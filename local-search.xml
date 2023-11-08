@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>格密码</title>
+    <link href="/2023/11/08/lattice/"/>
+    <url>/2023/11/08/lattice/</url>
+    
+    <content type="html"><![CDATA[<p>先回顾一下学校线代课程内的几个概念</p><h2 id="向量空间">向量空间</h2><p>设<span class="math inline">\(V\)</span>是 n 元向量的集合，如果<spanclass="math inline">\(V\)</span>非空，并且对于向量的线性运算封闭(即对任意<span class="math inline">\(v_1 \in V,v_2 \in V,k \in\mathbb{R}\)</span> ，都有 <span class="math inline">\(v_1+v_2 \inV,kv_1 \in V\)</span> )，则称 <span class="math inline">\(V\)</span>是一个<strong>向量空间</strong>。</p><h2 id="向量空间的基与维数">向量空间的基与维数</h2><p>向量空间<spanclass="math inline">\(V\)</span>的一个极大无关组叫做<spanclass="math inline">\(V\)</span>的一个<strong>基</strong>，<spanclass="math inline">\(V\)</span> 的秩叫做<spanclass="math inline">\(V\)</span>的<strong>维数</strong>，记作<spanclass="math inline">\(dim(V)\)</span>。若 <spanclass="math inline">\(dim(V)=r\)</span>，则称<spanclass="math inline">\(V\)</span>为<spanclass="math inline">\(r\)</span>维向量空间。</p><p>若已知<span class="math inline">\(r\)</span>维向量空间<spanclass="math inline">\(V\)</span>的基为<spanclass="math inline">\(v_1,v_2,\cdots,v_r\)</span>，则向量空间<spanclass="math inline">\(V\)</span>可以表示成</p><p><span class="math display">\[V=\{ v=x_1v_1+x_2v_2+\cdots +x_rv_r | x_1,x_2,\cdots,x_r \in\mathbb{R}\}\]</span></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>CTF</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>lattice</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>一些关于p^q问题剪枝算法</title>
     <link href="/2023/11/07/%E5%89%AA%E6%9E%9D/"/>
     <url>/2023/11/07/%E5%89%AA%E6%9E%9D/</url>
