@@ -16,12 +16,12 @@
   <meta name="author" content="Roo1e">
   <meta name="keywords" content="">
   
-    <meta name="description" content="DUTCTF2023wp ¶写在前面 仔细一想自己学 CTF 也一年了，纪念一下最后一次参加校赛 🥹，明年可就是出题人了 🤓。但是感觉一年以来荒废了很多时间，在很多方面对题目不熟悉，总跑偏，甚至是自己复现过的一些方法都没意识到（hint 太到位了 😭）。 ¶Crypto 第一次 ak，好爽 😭 ¶*老滚五 百度搜龙语，耐心对着找就出了DUTCTF&amp;#123;YOU_ARE_A_REAL_D">
+    <meta name="description" content="DUTCTF2023wp 写在前面 仔细一想自己学 CTF 也一年了，纪念一下最后一次参加校赛 🥹，明年可就是出题人了 🤓。但是感觉一年以来荒废了很多时间，在很多方面对题目不熟悉，总跑偏，甚至是自己复现过的一些方法都没意识到（hint 太到位了 😭）。 Crypto 第一次 ak，好爽 😭 *老滚五 百度搜龙语，耐心对着找就出了DUTCTF&amp;#123;YOU_ARE_A_REAL_DRAG">
 <meta property="og:type" content="article">
 <meta property="og:title" content="DUTCTF2023">
 <meta property="og:url" content="https://sch01ar.github.io/2023/03/28/DUTCTF2023/index.html">
 <meta property="og:site_name" content="Y&#39;s blog">
-<meta property="og:description" content="DUTCTF2023wp ¶写在前面 仔细一想自己学 CTF 也一年了，纪念一下最后一次参加校赛 🥹，明年可就是出题人了 🤓。但是感觉一年以来荒废了很多时间，在很多方面对题目不熟悉，总跑偏，甚至是自己复现过的一些方法都没意识到（hint 太到位了 😭）。 ¶Crypto 第一次 ak，好爽 😭 ¶*老滚五 百度搜龙语，耐心对着找就出了DUTCTF&amp;#123;YOU_ARE_A_REAL_D">
+<meta property="og:description" content="DUTCTF2023wp 写在前面 仔细一想自己学 CTF 也一年了，纪念一下最后一次参加校赛 🥹，明年可就是出题人了 🤓。但是感觉一年以来荒废了很多时间，在很多方面对题目不熟悉，总跑偏，甚至是自己复现过的一些方法都没意识到（hint 太到位了 😭）。 Crypto 第一次 ak，好爽 😭 *老滚五 百度搜龙语，耐心对着找就出了DUTCTF&amp;#123;YOU_ARE_A_REAL_DRAG">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://sch01ar.github.io/img/DUTCTF.png">
 <meta property="article:published_time" content="2023-03-28T02:05:45.000Z">
@@ -227,7 +227,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.7k 字
+          22k 字
         
       </span>
     
@@ -238,7 +238,7 @@
         
         
         
-          23 分钟
+          186 分钟
         
       </span>
     
@@ -289,104 +289,159 @@
             
               <div class="markdown-body">
                 
-                <h1>DUTCTF2023wp</h1>
-<h2 id="写在前面"><a class="header-anchor" href="#写在前面">¶</a>写在前面</h2>
-<p>仔细一想自己学 CTF 也一年了，纪念一下最后一次参加校赛 🥹，明年可就是出题人了 🤓。但是感觉一年以来荒废了很多时间，在很多方面对题目不熟悉，总跑偏，甚至是自己复现过的一些方法都没意识到（hint 太到位了 😭）。</p>
-<h2 id="Crypto"><a class="header-anchor" href="#Crypto">¶</a>Crypto</h2>
+                <h1 id="dutctf2023wp">DUTCTF2023wp</h1>
+<h2 id="写在前面">写在前面</h2>
+<p>仔细一想自己学 CTF 也一年了，纪念一下最后一次参加校赛
+🥹，明年可就是出题人了
+🤓。但是感觉一年以来荒废了很多时间，在很多方面对题目不熟悉，总跑偏，甚至是自己复现过的一些方法都没意识到（hint
+太到位了 😭）。</p>
+<h2 id="crypto">Crypto</h2>
 <p>第一次 ak，好爽 😭</p>
-<h3 id="老滚五"><a class="header-anchor" href="#老滚五">¶</a>*老滚五</h3>
+<h3 id="老滚五">*老滚五</h3>
 <p>百度搜龙语，耐心对着找就出了<code>DUTCTF&#123;YOU_ARE_A_REAL_DRAGONBORN&#125;</code></p>
-<h3 id="神奇的短信"><a class="header-anchor" href="#神奇的短信">¶</a>*神奇的短信</h3>
-<p>诺基亚手机，9 键，第一位代表哪个键，第二个代表第几个字母，<code>DUTCTF&#123;SCREW&#125;</code></p>
-<h3 id="随机数的力量"><a class="header-anchor" href="#随机数的力量">¶</a>随机数的力量</h3>
-<p>可先了解一下 MT19937 伪随机数原理，然后看一下<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_42557115/article/details/128228201?spm=1001.2014.3001.5506">破解方法</a>，对于梅森旋转算法之前<a href="https://sch01ar.github.io/2022/10/16/2021ByteCTF-easyxor/">博客</a>也详细推导过。这里针对题目分析一下，首先 ban 掉了 32 位的预测方法，通过了解到，<code>randcrack</code>库实际上是通过收取特定位数来实现预测，例如 32 位数，就需要 624 个，那么如果使用 64 位数，应该就需要 312 个。后续只要对收取的数字进行一下处理，转成 624 个 32 位数即可。<br>
-这里还有一个疑问就是，最大的 64 位数是$2<sup>{64}-1$，但是如果传$name=2</sup>{64}-1$就无法预测，而改成其余略小一点的 64 位数即可。</p>
-<h4 id="exp"><a class="header-anchor" href="#exp">¶</a>exp</h4>
-<p>&lt;!–code￼0–&gt;</p>
-<h3 id="shamir"><a class="header-anchor" href="#shamir">¶</a>shamir</h3>
-<p>直接找脚本跑，具体如何恢复 a0 系数就不细说了。之前 hitcon 有个也是 shamir 的题，也挺有意思的。<a href="https://sch01ar.github.io/2022/11/28/hitcon2022-BabySSS/">babysss</a></p>
-<p>&lt;!–code￼1–&gt;</p>
-<h3 id="ECC1"><a class="header-anchor" href="#ECC1">¶</a>ECC1</h3>
-<p>发现是 ECDSA 类型，于是现学。。。下面写一下 ECDSA 的签名与验证过程。</p>
-<h4 id="场景"><a class="header-anchor" href="#场景">¶</a>场景</h4>
-<p>Alice 想要使用她的私钥$d_A$来签名，Bob 想用 Alice 的公钥 $H_A$要验证签名$H_A=d_AG$。<br>
-只有 Alice 才能提供正确的签名，而每个人都可以验证签名。</p>
-<h4 id="签名"><a class="header-anchor" href="#签名">¶</a>签名</h4>
-<p>1.选定一条椭圆曲线$E_p(a,b)$。</p>
-<p>2.选取一个随机数$k,1&lt;k&lt;n-1$，$n$为椭圆曲线的阶。</p>
-<p>3.选取椭圆曲线的基点$G(a,b)$,计算 $K=k * G(a,b)$，令$r=K[0]\mod n$，即 r 是 K 点的横坐标（若 r 为 0，重新选 k 进行计算）。</p>
-<p>4.计算明文 M 的哈希，令$e=hash(M)$，计算$s=k^{-1}(z+rd_A)\mod n$。</p>
-<p>5.给出签名$(r,s)$</p>
-<h4 id="验证"><a class="header-anchor" href="#验证">¶</a>验证</h4>
-<p>1.计算 $u_1=s^{-1}z\mod n$</p>
-<p>2.计算 $u_2=s^{-1}r\mod n$</p>
-<p>3.计算点$P=u_1G+u_2H_A$</p>
-<p>当$r=x_P\mod n$时，签名验证成功。</p>
-<h4 id="解题过程"><a class="header-anchor" href="#解题过程">¶</a>解题过程</h4>
-<p>通过对题目的初步阅读，发现关键是求出私钥<code>d=privkey</code>，而想要求出$d$就要求出$k$，虽然$k$ 是以随机数的形式出现，但发现本题中每次签名过程的 k 并不是完全随机，而是线性伪随机$k = (a * k + b)\mod n$。这里我很想把$k$求出来，然后再去求私钥$d$。所以有没有一种可能，不用求$k$，如果把$k$消掉，方程里只剩一个未知数$d$，即可。细心一点进行数学推导，就会发现答案。<br>
-$$k_1s_1=e+r_1d\mod n$$<br>
-$$k_2s_2=e+r_2d\mod n$$<br>
-$$k_2=ak_1+b\mod n$$<br>
-$$k_2=ak_1+b+xn$$<br>
-$$s_1s_2k_2=s_1s_2ak_1+s_1s_2b+s_1s_2xn$$<br>
-$$s_1(e+r_2d)=s_2a(e+r_1d)+s_1s_2b \mod n$$<br>
-$$d=(s_1r_2-s_2ar_1)^{-1}(s_2ae-s_1e+s_1s_2b)\mod n$$</p>
-<p>这里两次的使用的$e$一样，是因为传的明文一样，$n$对应的是题目里给的$order$。这里还想说一下自己因为不细致走过的弯路，题目里通过$p$定义的曲线，所以误以为$curve.order$是$p$，这样就会导致前两个式子和第三个算式的模数不同。有趣的是，找到了一篇论文和文章进行了实现。<br>
-<a target="_blank" rel="noopener" href="https://cseweb.ucsd.edu/~mihir/papers/dss-lcg.pdf">论文</a><br>
-但其实$curve.order=order$所以上述所有都是在模$order的条件下$，所以进行一下推导就出了。</p>
-<h4 id="exp-v2"><a class="header-anchor" href="#exp-v2">¶</a>exp</h4>
-<p>&lt;!–code￼2–&gt;</p>
-<h3 id="ECC2"><a class="header-anchor" href="#ECC2">¶</a>ECC2</h3>
-<p>hint:二元 copper<br>
-看到 hint 瞬间知道怎么做了，前段时间刚学了一下多元 copper，感慨一下还是运用不熟练，没有一眼发现。</p>
-<h4 id="解题思路"><a class="header-anchor" href="#解题思路">¶</a>解题思路</h4>
-<p>同样是 ECDSA，相比于上题来说，k 是随机的，但是每次签名的时候会泄露 k 的高位。此题另外一个关键是，$r$是由私钥$d$生成的，所以不管传什么明文，所得到的$r$是一样的，利用这一点，我们可以构造一个二元方程。<br>
-$$s_1k_1=z_1+dr \mod n$$<br>
-$$s_2k_2=z_2+dr \mod n$$<br>
-$$k=kh+kl$$<br>
-$$s_1(k_1h+k_1l)-z_1=s_2(k_2h+k_2l)-z_2 \mod n$$<br>
-$$f(k_1l,k_2l)=s_1(k_1h+k_1l)-z_1-s_2(k_2h+k_2l)+z_2$$<br>
+<h3 id="神奇的短信">*神奇的短信</h3>
+<p>诺基亚手机，9
+键，第一位代表哪个键，第二个代表第几个字母，<code>DUTCTF&#123;SCREW&#125;</code></p>
+<h3 id="随机数的力量">随机数的力量</h3>
+<p>可先了解一下 MT19937 伪随机数原理，然后看一下<a
+target="_blank" rel="noopener" href="https://blog.csdn.net/qq_42557115/article/details/128228201?spm=1001.2014.3001.5506">破解方法</a>，对于梅森旋转算法之前<a
+href="https://sch01ar.github.io/2022/10/16/2021ByteCTF-easyxor/">博客</a>也详细推导过。这里针对题目分析一下，首先
+ban 掉了 32
+位的预测方法，通过了解到，<code>randcrack</code>库实际上是通过收取特定位数来实现预测，例如
+32 位数，就需要 624 个，那么如果使用 64 位数，应该就需要 312
+个。后续只要对收取的数字进行一下处理，转成 624 个 32 位数即可。
+这里还有一个疑问就是，最大的 64 位数是<span
+class="math inline">\(2^{64}-1\)</span>，但是如果传<span
+class="math inline">\(name=2^{64}-1\)</span>就无法预测，而改成其余略小一点的
+64 位数即可。</p>
+<h4 id="exp">exp</h4>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> pwn <span class="hljs-keyword">import</span> *<br><span class="hljs-keyword">from</span> Crypto.Util.number <span class="hljs-keyword">import</span> *<br><span class="hljs-keyword">from</span> randcrack <span class="hljs-keyword">import</span> RandCrack<br>r=remote(<span class="hljs-string">&quot;210.30.97.133&quot;</span>,<span class="hljs-string">&#x27;28032&#x27;</span>)<br>r.recvuntil(<span class="hljs-string">b&#x27;:&#x27;</span>)<br>name=<span class="hljs-number">2</span>**<span class="hljs-number">64</span>-<span class="hljs-number">2</span><br>name=long_to_bytes(name)<br><span class="hljs-built_in">print</span>(name)<br>r.send(name)<br>r.recv()<br>count=<span class="hljs-number">0</span><br>file = <span class="hljs-built_in">open</span>(<span class="hljs-string">&quot;random.txt&quot;</span>,<span class="hljs-string">&quot;w&quot;</span>)<br><span class="hljs-keyword">while</span> count&lt;<span class="hljs-number">312</span>:<br>    r.send(<span class="hljs-string">b&#x27;1&#x27;</span>)<br>    r.recvuntil(<span class="hljs-string">b&#x27;:&#x27;</span>)<br>    num=<span class="hljs-built_in">int</span>(r.recvuntil(<span class="hljs-string">b&#x27;\n&#x27;</span>)[:-<span class="hljs-number">1</span>])<br>    count+=<span class="hljs-number">1</span><br>    file.write(<span class="hljs-built_in">str</span>(num)+<span class="hljs-string">&quot;\n&quot;</span>)<br>file.close()<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;finish&quot;</span>)<br><br><span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">r&#x27;random.txt&#x27;</span>, <span class="hljs-string">&#x27;r&#x27;</span>) <span class="hljs-keyword">as</span> f:<br>    l = f.readlines()<br>l = [<span class="hljs-built_in">int</span>(i.strip()) <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> l]<br>t = []<br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(l)):<br>    t.append(l[i] &amp; (<span class="hljs-number">2</span> ** <span class="hljs-number">32</span> - <span class="hljs-number">1</span>))<br>    t.append(l[i] &gt;&gt; <span class="hljs-number">32</span>)<br><br>rc = RandCrack()<br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">len</span>(t))<br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> t:<br>    rc.submit(i)<br>guess=rc.predict_getrandbits(<span class="hljs-number">64</span>)<br>r.send(<span class="hljs-built_in">str</span>(guess).encode())<br><span class="hljs-built_in">print</span>(r.recvline())<br><span class="hljs-comment"># DUTCTF&#123;61cdf3eb-e4d9-4613-b533-ff4f7fb6c80a&#125;</span><br></code></pre></td></tr></table></figure>
+<h3 id="shamir">shamir</h3>
+<p>直接找脚本跑，具体如何恢复 a0 系数就不细说了。之前 hitcon 有个也是
+shamir 的题，也挺有意思的。<a
+href="https://sch01ar.github.io/2022/11/28/hitcon2022-BabySSS/">babysss</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> Crypto.Util.number <span class="hljs-keyword">import</span> *<br>P = PolynomialRing(GF(p), <span class="hljs-string">&#x27;x&#x27;</span>)<br>ret = P(<span class="hljs-number">0</span>)<br><span class="hljs-keyword">for</span> x, y <span class="hljs-keyword">in</span> shares:<br>    r = P(<span class="hljs-number">1</span>) * y<br>    <span class="hljs-keyword">for</span> xx, yy <span class="hljs-keyword">in</span> shares:<br>        <span class="hljs-keyword">if</span> x != xx:<br>            r = r * P((<span class="hljs-number">0</span> - xx) / (x - xx))<br>    ret = ret + r<br><span class="hljs-built_in">print</span>(ret)<br><br>P = PolynomialRing(GF(p), <span class="hljs-string">&#x27;x&#x27;</span>)<br>ret = P(<span class="hljs-number">0</span>)<br><span class="hljs-keyword">for</span> x, y <span class="hljs-keyword">in</span> shares:<br>    r = P(<span class="hljs-number">1</span>) * y<br>    <span class="hljs-keyword">for</span> xx, yy <span class="hljs-keyword">in</span> shares:<br>        <span class="hljs-keyword">if</span> x != xx:<br>            r = r * P(<span class="hljs-string">&#x27;(x - %d) / (%d - %d)&#x27;</span> % (xx, x, xx))<br>    ret = ret + r<br><br><span class="hljs-built_in">print</span>(long_to_bytes(<span class="hljs-built_in">int</span>(ret[<span class="hljs-number">0</span>])))<br><span class="hljs-comment"># b&#x27;DUTCTF&#123;23935a6d-a94d-4905-845a-aec9c8646e4d&#125;&#x27;</span><br></code></pre></td></tr></table></figure>
+<h3 id="ecc1">ECC1</h3>
+<p>发现是 ECDSA 类型，于是现学。。。下面写一下 ECDSA
+的签名与验证过程。</p>
+<h4 id="场景">场景</h4>
+<p>Alice 想要使用她的私钥<span
+class="math inline">\(d_A\)</span>来签名，Bob 想用 Alice 的公钥 <span
+class="math inline">\(H_A\)</span>要验证签名<span
+class="math inline">\(H_A=d_AG\)</span>。 只有 Alice
+才能提供正确的签名，而每个人都可以验证签名。</p>
+<h4 id="签名">签名</h4>
+<p>1.选定一条椭圆曲线<span class="math inline">\(E_p(a,b)\)</span>。</p>
+<p>2.选取一个随机数<span
+class="math inline">\(k,1&lt;k&lt;n-1\)</span>，<span
+class="math inline">\(n\)</span>为椭圆曲线的阶。</p>
+<p>3.选取椭圆曲线的基点<span class="math inline">\(G(a,b)\)</span>,计算
+<span class="math inline">\(K=k * G(a,b)\)</span>，令<span
+class="math inline">\(r=K[0]\mod n\)</span>，即 r 是 K 点的横坐标（若 r
+为 0，重新选 k 进行计算）。</p>
+<p>4.计算明文 M 的哈希，令<span
+class="math inline">\(e=hash(M)\)</span>，计算<span
+class="math inline">\(s=k^{-1}(z+rd_A)\mod n\)</span>。</p>
+<p>5.给出签名<span class="math inline">\((r,s)\)</span></p>
+<h4 id="验证">验证</h4>
+<p>1.计算 <span class="math inline">\(u_1=s^{-1}z\mod n\)</span></p>
+<p>2.计算 <span class="math inline">\(u_2=s^{-1}r\mod n\)</span></p>
+<p>3.计算点<span class="math inline">\(P=u_1G+u_2H_A\)</span></p>
+<p>当<span class="math inline">\(r=x_P\mod
+n\)</span>时，签名验证成功。</p>
+<h4 id="解题过程">解题过程</h4>
+<p>通过对题目的初步阅读，发现关键是求出私钥<code>d=privkey</code>，而想要求出<span
+class="math inline">\(d\)</span>就要求出<span
+class="math inline">\(k\)</span>，虽然<span
+class="math inline">\(k\)</span>
+是以随机数的形式出现，但发现本题中每次签名过程的 k
+并不是完全随机，而是线性伪随机<span class="math inline">\(k = (a * k +
+b)\mod n\)</span>。这里我很想把<span
+class="math inline">\(k\)</span>求出来，然后再去求私钥<span
+class="math inline">\(d\)</span>。所以有没有一种可能，不用求<span
+class="math inline">\(k\)</span>，如果把<span
+class="math inline">\(k\)</span>消掉，方程里只剩一个未知数<span
+class="math inline">\(d\)</span>，即可。细心一点进行数学推导，就会发现答案。
+<span class="math display">\[k_1s_1=e+r_1d\mod n\]</span> <span
+class="math display">\[k_2s_2=e+r_2d\mod n\]</span> <span
+class="math display">\[k_2=ak_1+b\mod n\]</span> <span
+class="math display">\[k_2=ak_1+b+xn\]</span> <span
+class="math display">\[s_1s_2k_2=s_1s_2ak_1+s_1s_2b+s_1s_2xn\]</span>
+<span class="math display">\[s_1(e+r_2d)=s_2a(e+r_1d)+s_1s_2b \mod
+n\]</span> <span
+class="math display">\[d=(s_1r_2-s_2ar_1)^{-1}(s_2ae-s_1e+s_1s_2b)\mod
+n\]</span></p>
+<p>这里两次的使用的<span
+class="math inline">\(e\)</span>一样，是因为传的明文一样，<span
+class="math inline">\(n\)</span>对应的是题目里给的<span
+class="math inline">\(order\)</span>。这里还想说一下自己因为不细致走过的弯路，题目里通过<span
+class="math inline">\(p\)</span>定义的曲线，所以误以为<span
+class="math inline">\(curve.order\)</span>是<span
+class="math inline">\(p\)</span>，这样就会导致前两个式子和第三个算式的模数不同。有趣的是，找到了一篇论文和文章进行了实现。
+<a target="_blank" rel="noopener" href="https://cseweb.ucsd.edu/~mihir/papers/dss-lcg.pdf">论文</a>
+但其实<span
+class="math inline">\(curve.order=order\)</span>所以上述所有都是在模<span
+class="math inline">\(order的条件下\)</span>，所以进行一下推导就出了。</p>
+<h4 id="exp-1">exp</h4>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> hashlib <span class="hljs-keyword">import</span> sha384, sha256<br><span class="hljs-keyword">import</span> gmpy2<br><span class="hljs-keyword">from</span> random <span class="hljs-keyword">import</span> randint<br><span class="hljs-keyword">from</span> Crypto.Cipher <span class="hljs-keyword">import</span> AES<br><span class="hljs-keyword">from</span> Crypto.Util.Padding <span class="hljs-keyword">import</span> pad<br><span class="hljs-keyword">import</span> base64<br>r1=<span class="hljs-number">3279878223466283028618950233302638071226405889025719666069973709805626015547691183378582347284741486262757601498554</span><br>s1=<span class="hljs-number">17384499590667625694725422408289434727888355224304513038330377593191514147527427495591599008735913255202229321517643</span><br>r2=<span class="hljs-number">35791573017068929691265773591779771913506228775796561985255300322790112181066670265127516180574601131688667017030763</span><br>s2=<span class="hljs-number">10828760915074235995526547174613537265169576586247069263719047150071416454765113291660131007073071569964390274403778</span><br>order = <span class="hljs-number">0xffffffffffffffffffffffffffffffffffffffffffffffffc7634d81f4372ddf581a0db248b0a77aecec196accc52973</span><br>a = -<span class="hljs-number">3</span><br>b = <span class="hljs-number">0xb3312fa7e23ee7e4988e056be3f82d19181d9c6efe8141120314088f5013875ac656398d8a2ed19d2a85c8edd3ec2aef</span><br><br>m=<span class="hljs-string">b&#x27;12&#x27;</span><br>e= <span class="hljs-built_in">int</span>(sha384(m).hexdigest(), <span class="hljs-number">16</span>)<br><br>d=((s2*a*e-s1*e+s1*s2*b)*gmpy2.invert(s1*r2-s2*a*r1,order))%order<br><br>privkey=d<br>ct=<span class="hljs-string">&quot;Iq2XtaYU4TrhdPN6Icyy4r5FQQRn4u/QY7Rv/GTMeo8mNESW7UMcHO969aP28owj&quot;</span><br>key = sha256(<span class="hljs-built_in">str</span>(privkey).encode()).digest()<br>aes = AES.new(key, AES.MODE_ECB)<br>flag = aes.decrypt(base64.b64decode(ct))<br><span class="hljs-built_in">print</span>(flag)<br><span class="hljs-comment"># b&#x27;DUTCTF&#123;03c77266-981a-49c7-985c-427dea8c3018&#125;\n\x03\x03\x03&#x27;</span><br></code></pre></td></tr></table></figure>
+<h3 id="ecc2">ECC2</h3>
+<p>hint:二元 copper 看到 hint 瞬间知道怎么做了，前段时间刚学了一下多元
+copper，感慨一下还是运用不熟练，没有一眼发现。</p>
+<h4 id="解题思路">解题思路</h4>
+<p>同样是 ECDSA，相比于上题来说，k 是随机的，但是每次签名的时候会泄露 k
+的高位。此题另外一个关键是，<span
+class="math inline">\(r\)</span>是由私钥<span
+class="math inline">\(d\)</span>生成的，所以不管传什么明文，所得到的<span
+class="math inline">\(r\)</span>是一样的，利用这一点，我们可以构造一个二元方程。
+<span class="math display">\[s_1k_1=z_1+dr \mod n\]</span> <span
+class="math display">\[s_2k_2=z_2+dr \mod n\]</span> <span
+class="math display">\[k=kh+kl\]</span> <span
+class="math display">\[s_1(k_1h+k_1l)-z_1=s_2(k_2h+k_2l)-z_2 \mod
+n\]</span> <span
+class="math display">\[f(k_1l,k_2l)=s_1(k_1h+k_1l)-z_1-s_2(k_2h+k_2l)+z_2\]</span>
 随后使用多元 copper 进行求解。具体可看上篇博客。</p>
-<p>&lt;!–code￼3–&gt;</p>
-<h3 id="ez-RSA"><a class="header-anchor" href="#ez-RSA">¶</a>ez_RSA</h3>
-<p>hint 1:<a target="_blank" rel="noopener" href="https://www.ijcsi.org/papers/IJCSI-9-2-1-311-314.pdf">论文</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> Crypto.Util.number <span class="hljs-keyword">import</span> *<br><span class="hljs-keyword">import</span> itertools<br><span class="hljs-keyword">import</span> gmpy2<br><span class="hljs-keyword">import</span> hashlib<br><span class="hljs-keyword">def</span> <span class="hljs-title function_">small_roots</span>(<span class="hljs-params">f, bounds, m=<span class="hljs-number">1</span>, d=<span class="hljs-literal">None</span></span>):<br>    <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> d:<br>        d = f.degree()<br>    R = f.base_ring()<br>    N = R.cardinality()<br><br>    f /= f.coefficients().pop(<span class="hljs-number">0</span>)<br>    f = f.change_ring(ZZ)<br><br>    G = <span class="hljs-type">Sequence</span>([], f.parent())<br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(m + <span class="hljs-number">1</span>):<br>        base = N ^ (m - i) * f ^ i<br>        <span class="hljs-keyword">for</span> shifts <span class="hljs-keyword">in</span> itertools.product(<span class="hljs-built_in">range</span>(d), repeat=f.nvariables()):<br>            g = base * prod(<span class="hljs-built_in">map</span>(power, f.variables(), shifts))<br>            G.append(g)<br><br>    B, monomials = G.coefficient_matrix()<br>    monomials = vector(monomials)<br><br>    factors = [monomial(*bounds) <span class="hljs-keyword">for</span> monomial <span class="hljs-keyword">in</span> monomials]<br>    <span class="hljs-keyword">for</span> i, factor <span class="hljs-keyword">in</span> <span class="hljs-built_in">enumerate</span>(factors):<br>        B.rescale_col(i, factor)<br><br>    B = B.dense_matrix().LLL()<br><br>    B = B.change_ring(QQ)<br>    <span class="hljs-keyword">for</span> i, factor <span class="hljs-keyword">in</span> <span class="hljs-built_in">enumerate</span>(factors):<br>        B.rescale_col(i, <span class="hljs-number">1</span> / factor)<br><br>    H = <span class="hljs-type">Sequence</span>([], f.parent().change_ring(QQ))<br>    <span class="hljs-keyword">for</span> h <span class="hljs-keyword">in</span> <span class="hljs-built_in">filter</span>(<span class="hljs-literal">None</span>, B * monomials):<br>        H.append(h)<br>        I = H.ideal()<br>        <span class="hljs-keyword">if</span> I.dimension() == -<span class="hljs-number">1</span>:<br>            H.pop()<br>        <span class="hljs-keyword">elif</span> I.dimension() == <span class="hljs-number">0</span>:<br>            roots = []<br>            <span class="hljs-keyword">for</span> root <span class="hljs-keyword">in</span> I.variety(ring=ZZ):<br>                root = <span class="hljs-built_in">tuple</span>(R(root[var]) <span class="hljs-keyword">for</span> var <span class="hljs-keyword">in</span> f.variables())<br>                roots.append(root)<br>            <span class="hljs-keyword">return</span> roots<br><br>    <span class="hljs-keyword">return</span> []<br><br>p=<span class="hljs-number">0xffffffffffffffffffffffffffffffffffffffffffffffffc7634d81f4372ddf581a0db248b0a77aecec196accc52973</span><br>z1=<span class="hljs-number">48635463943209834798109814161294753926839975257569795305637098542720658922315</span><br>s1=<span class="hljs-number">28960557153977955124105855928246892459194129539041010907864680412903817675556585052129118747753883286132889323816650</span><br>r1=<span class="hljs-number">10262329650789864528165246046678664604936098138502587549051188712903293032192883286179241289544424703403302125420513</span><br>kh1=<span class="hljs-number">30054462723734257949377771041701920514235184485792075736773676269952584122368</span><br><br>z2=<span class="hljs-number">96094161643976066833367867971426158458230048495430276217795328666133331159861</span><br>s2=<span class="hljs-number">32768223277193629352710157834142251230132284853883889815139295450898873765110205447982974111022207901310306828066654</span><br>kh2=<span class="hljs-number">72175458450676302934456504495778373001580390042980746283386923644015828008960</span><br>P.&lt;l1,l2&gt; = PolynomialRing(Zmod(p))<br>f = s1*(kh1+l1)-z1+z2-s2*(kh2+l2)<br>roots=small_roots(f,[<span class="hljs-number">2</span>^<span class="hljs-number">123</span>,<span class="hljs-number">2</span>^<span class="hljs-number">123</span>],m=<span class="hljs-number">4</span>,d=<span class="hljs-number">4</span>)<br><br>k1=kh1+roots[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>]<br><span class="hljs-built_in">print</span>(k1)<br>d=(s1*k1-z1)*gmpy2.invert(r1,p) %p<br><span class="hljs-built_in">print</span>(d)<br><br></code></pre></td></tr></table></figure>
+<h3 id="ez_rsa">ez_RSA</h3>
+<p>hint 1:<a
+target="_blank" rel="noopener" href="https://www.ijcsi.org/papers/IJCSI-9-2-1-311-314.pdf">论文</a></p>
 <p>hint 2:</p>
-<p>&lt;!–code￼4–&gt;</p>
-<h4 id="解题思路-v2"><a class="header-anchor" href="#解题思路-v2">¶</a>解题思路</h4>
-<p>通过论文，前半部分白给，按照论文造格，即可规约出$_P$。<br>
-接下来的问题就是如何求$_E$<br>
-$$c=rh+m \mod p$$<br>
-$$h=f^{-1}g \mod p$$<br>
-将一式带入二式<br>
-$$c=r(f^{-1}g)+m \mod p$$<br>
-$$cf=rg+mf \mod p$$<br>
-因为 r 是 1024 位，g 是 768 位，f 是 1024 位，m 是 128 位，p 是 2048 位，所以<br>
-$$rg+mf \mod p=rg+mf$$<br>
-$$cf \mod p=rg+mf$$<br>
-两边同时对$g$取模，即可消去未知数$r$，得到<br>
-$$m=(f*c \mod p)*f^{-1} \mod g$$</p>
-<h4 id="exp-v3"><a class="header-anchor" href="#exp-v3">¶</a>exp</h4>
-<p>&lt;!–code￼5–&gt;</p>
-<h2 id="misc"><a class="header-anchor" href="#misc">¶</a>misc</h2>
-<h3 id="签到"><a class="header-anchor" href="#签到">¶</a>*签到</h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python">_P = getPrime(<span class="hljs-number">512</span>)<br>_Q = getPrime(<span class="hljs-number">512</span>)<br>_E = getPrime(<span class="hljs-number">128</span>)<br></code></pre></td></tr></table></figure>
+<h4 id="解题思路-1">解题思路</h4>
+<p>通过论文，前半部分白给，按照论文造格，即可规约出<span
+class="math inline">\(_P\)</span>。 接下来的问题就是如何求<span
+class="math inline">\(_E\)</span> <span class="math display">\[c=rh+m
+\mod p\]</span> <span class="math display">\[h=f^{-1}g \mod p\]</span>
+将一式带入二式 <span class="math display">\[c=r(f^{-1}g)+m \mod
+p\]</span> <span class="math display">\[cf=rg+mf \mod p\]</span> 因为 r
+是 1024 位，g 是 768 位，f 是 1024 位，m 是 128 位，p 是 2048 位，所以
+<span class="math display">\[rg+mf \mod p=rg+mf\]</span> <span
+class="math display">\[cf \mod p=rg+mf\]</span> 两边同时对<span
+class="math inline">\(g\)</span>取模，即可消去未知数<span
+class="math inline">\(r\)</span>，得到 <span
+class="math display">\[m=(f*c \mod p)*f^{-1} \mod g\]</span></p>
+<h4 id="exp-2">exp</h4>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><code class="hljs python"><br><span class="hljs-keyword">import</span> gmpy2<br><span class="hljs-keyword">from</span> Crypto.Util.number <span class="hljs-keyword">import</span> *<br><br><br>N = [<span class="hljs-number">24488505552230772703898405057744092798020197662887100045928566607461798879415998969433911671592867423691193007893212171790448148496033832249754470467035859576039972852765027824033483902812925380301406741140813221150182954931965513380139064574526788102105668393014229432860117219535402978106934989998539012187109667064745849634399649647736413364618806713226228056106971513481416594701372170640645464293015870036724187258748076791656956875094445695553182473517994436554776090668857119474259698867998753960189992604478465847990459188823363076285013562416943842050784320042575258091833845135161380009815903587838764844701</span>, <span class="hljs-number">21942338208435084182385640211704681707801054068614769447992577290797559734360545040045515934790906815025864580810713391648536011436866691247019862082665443291278436035391244597094754164488282306715119916684441028200752060845757620891120126278315497677949907573669523197492597821720339218427123565023326747131520068041684678463047030113730829126604863370010551660281077018828022548643645226108297487424616446107497927195470395775786882432946367941603909313849788734757826143420030667354373800077810995031850751976273876305078673953634214542034076821701690757305733970718313282246021719246282428899044959387451493813721</span>, <span class="hljs-number">23497668455233023777086339110715316747963597549643382192342253292465976405928871970112373689839058903850148485020472785615984665835691940413204367982444656171214501783518611386935865837214185153287455312882873758597381603828243325547041133407750654379328638375958886679826484549746013150412316456105776249088635607093923492322952956766124054779608085768835524352691098655090967034048099181640575487096512809322011207592050807314037459121218823863349190706610153922549826130316241130228507499742267531513164868277365453995102439631325485240239658064278370772323955597197097645462559462696920075736717500412375072176467</span>, <span class="hljs-number">24602752336390525414690399431651054304570268658699514976379562458281671118195956305892712759109048179159883455858696847532969723511866788216663843505906403537667342180926673360088955074821393941870156428046985578754285100772721826939367053016610705219388473954106242835781778652607226825374256068393417345461655468867721352760378170127520095819323941371368236422448970366651248269187025683922130051664854342633071652748279316861774478515760339148013907026473066156906456471149913011825141372049833977982484234333570458678135686171332929999460166919896376717386857118613691507888393949301977627819777979592178896966623</span>, <span class="hljs-number">18953499185208189736030572848209776079906463657279533180726462147347299551041367061731767581264798291046925335336327748600462387056921448905471076513661226975709082926810559345546174299411679334921753473024289680372398629669189901701373013365576241051181536865537903618404021542712933154242921449622232452683929678888579145745315642541459705378712865701616368909067164933131032658834080355333776051792137130753989546439723368685913285626433094254606871447681788888268092549602747826573836417735293177348298419537651913321751942895245511550484631808345929882169885236619551016828298778897908525366562962685667912389997</span>, <span class="hljs-number">26058997074784206404795420975966370332956308684314157918342868748891408356160719486198464051733976893317939197082091977103538589213919661919071445422553112631329635223235217838410237178255375880503961177672498539855597740321555211143834639913980706595866117350864736716804583363460558182596815041999893879570562385793992073242663001875888252374638338786999498583269912809638941228890064879230976750529250265485928246165002061153079962922548580197649819298400367411220374463545622395097310522274479190791404838638086998257879095579646234740048206108128561416400963440017838636610491341835198236244222159900729586179917</span>, <span class="hljs-number">20129288490597244863994508524683286916543923374256909422701726115895380145135775471811451623704583730973416890276995662068307971557772661682030720361327963488534216410626882836351191572216702896255347307172468393873617456534444076131643183095198850704362841759392439604384236671314273401344802110069810756951497132798868529183844409689240676486910668076940982100512452093237882154916463456686838284295430539114311525041035893514486445447797574059480052756975515999613849122461978469862438350168200833428502345669466715840072957576654100577765563579448919948971960189182499058054213819157835509700663218459190524786481</span>, <span class="hljs-number">25772226888628216378889012105665796465806282302724456587869873910973423334812434127373733072599928022616753628676669330475503814215217145564188824369324420571202597054472716155179526532355187639821238629970447579319002750207485409261447903974934743921421644358692562332522542087034591326117205324672579857803562028718153429724027759486210144857662620406921986137992325725929734137942692560079628569267164743942853035640478323806095958927790086262013882385080985080476481526342090748836288133196655325636773255199453976910823102554721967925125346896277653138394770159352125883696418264884829676269343523006494765489493</span>, <span class="hljs-number">28180917678264096364213130554312518769321694756137354982942466799600070334989648086800577578199737775401103316802639534494851192425673873971245152762518574367704605203711578476934662035721848792226778740807648983742493303616228706844886115523257289936262329494196476301758716578131772761063410479805704963231509036888772912085068364409900628643478825960092268089737383336074494922924828657292311276635453573546156537729462748165148899289836500996916977979364330535388109166791384761518107152445520068189599143970118706438070727813977600299673995541318641712212956428068655583090081599129833822672148472274657395494311</span>, <span class="hljs-number">24096520981594733135540041445045293573841960767599910205052334165000928248824939510537161616790497646941116274229120870236655788506537976075387985908332620383393482411221069123523398118152293411915859727395926627459816089411701261045912226055104998834013378345004735522524517047738956815571358744380828133660488637141981661993087692525146337627421105058036188111847939723347406549254328070707781083013868559585263821261988100254326668273025331949480627178076069223680391626817412433551120273746233452706538363782378142581856137151539947066350167731639115192474458725211790700741814914076862192417315078235105797677087</span>]<br>e = [<span class="hljs-number">14990816743505654628622165338185393514788304851681933876648378016378133833004552588239572072513331166211546424386679543805403883223923897158291656742820659945559107645757683415181516223375888892537454654274671604670730747216886153077537316948532577370868893079392334339867710645123984583810773407647889550347449753485123831550537129872419324613572762662943117457398292227733753412373200584443331215704089181076331725835197653425535473266783470265927502335277809501441179341787793626320140280547900249747914540629687582748709954430668955769537357213201938032236484707582662514737019038265736833188979186130912521585863</span>, <span class="hljs-number">13980763827627068753802142437506147756961327147120384846585792065753477874831749262150192356232427534646403824833533108774540560060637613211774874146149413276494249299817871570564680188453788941137026336224153892313514846782554574856039742426326880334039809963027869250565380677631559930557470002669597495218354140744423266568608599391371104543521898824208746495592540223292285013253969918044073047052609539584913355840849256854717119937629706258126113370733925178495605830457126093047938416483351881694926018583377081560677662700573997147306413923358544678275002331286891558769920350415867546838176106256496063304591</span>, <span class="hljs-number">14780579063990891009355254665451991842503160008305503704320535457678300669711337036613671205753152064334928698447349080369975612980241221790534610771459317421130389318122536272425617948089698175341164528907013863717279614308846442304043798865582825561326523712699604113706443659794242165306104800524140375312705427738731082746546483455937494834598516633798602613773983973082013405488005834441952593810114149056842051193479897318422863626404580404473988124447913889995503058357464905293074956766641790136082627384940112558905750637675896060873962861100183982056080416496196938621664845449511253953693501170360085128903</span>, <span class="hljs-number">16711214191457281887756669342902780733937448803879374453283083153045867559930627177819085640533933761065820583745596344138637603092032409736562935244419493366400643159102093212367352079844413274114447848612728357893278528717959336656627368619208606671105396151558788997816807664937857266355753831602315622410363783260969617861338922264348857939060068689390352416811884902181820721198554329654234974727685100909871157125199506067300247610609375498829939581959252431781213219581899029244337677995603856416381628617372391009770342970567780661612096558829742694823690274654577788829371605600329173594776863959477520982103</span>, <span class="hljs-number">18594117439975066482790234032790248484174823520961644528083330915871018572967431566501699139228578176001011256220804587663135499149059407383901633734350030924262764120967872313971006208598335484653360543538290425602814914998281169215776238281191659744867774608489555339417931965559389905685260689276642846548237827078605788634420231309087514322505420366400886676286045230690585373663959941903912684043605972772430437021974723246305737570908098822722309519738296040046616628592027960453261069541838924103183139583780034839530714165332756110278585636399031079295623434558699098474195076126900986950380911451241239011623</span>, <span class="hljs-number">19559194708926966384760572911017873704390901879016615709461235634857479293981826218552827124678431912373841237544670086117088143163449428902590870488332804443126943800454719812933352578428975217906573009588458046733219592409163112257629384965561668227155289274870789279692570923323341070702638493390067659325308762774741975186341363197445143155212450927975486461028431348416961669886795040925540481784741277337652763782276077736249466953316651582151597935395446083479237519148263818662252163299112568786641111937462894974201544836218414635476953190320368111973284227681772063712004605784879340270632621230933987836403</span>, <span class="hljs-number">5824897109429461861038559948506819313355946138347155891819686064252333158962143819073087399430296860592162523314581575301694562287944866650117694395235555843552189332034264692080727548447621159473572891967606750661558342895087758387175261905746359083324985663989695094130538863365332293493187900142223849133010181832891103712795299278734353222329578233927239011173519663168582557337156776620015916288674042041517496559833923719141125286924436626406982998776488087846464518298748666520211469343659082499491328257233064132961965360640582912978294198510457897250297734712016272553820127075579291175789492076788909484903</span>, <span class="hljs-number">20093930684870093704403628731447520798260787667650361930073915794127380334852577783044260869395685576326078666945720832081037254077260101666695730827561930288288626012593987518548527306424423460475649408280260551546890648986667166140359311359169025356693571920643668500080642858683961398169608007993750190342851289303457474260980188486985907096713430933611341247919058812281901199513792393764217087020138671598226265365230063697174126442928938906561077393855304164795051437164668523033528227661541499372034727485518105697908307910643724070408695313764548498315363035914104961938999577929197200252814942475110976180871</span>, <span class="hljs-number">13869037204167094886192017467762072572783689922376209408114704992930196660451733740128770089390429756385424487822227154417591526218831614700313009517560442765341004656007062383066045588028985918307953894476640133705870038747226187376945281065288052642888278440278584213451675290377535235274143342509678251099489519546607275875817452579354452528872170870264159683907581449035523356408903151369434094661409904630205371744727229020444462773195914556915394012165505241756167908324547409015797008797997989972788159358702567092724994056441270029746996952711879409266397452428164494981358551995284408128900801847197898197703</span>, <span class="hljs-number">16428914441257851380586127106058764321964408189162357989041855273182059205104249998708456730725826756916884625752948925439260021807286451208792938938383227370712775700520945386124870496736574155128284017251496087747219850551258429445192925803640362009834613809916245072076167924064602020863892399904864291654032814159981274305358311150518930746678429624443100376055916453000181475668378167017592583982166064823738703442241236483326956657714675862739661758651886000087664689028808007926485550765412244122793538316265219584816933243708850098752213795555147857155308284006310944783836011777029728050734557927695090450463</span>]<br>h = <span class="hljs-number">17057560302480534379234311167711354032439973325482676122782839023838935814408613403284668375931576462858905421541683065236603421317254300086508655626651873266040666001440382609416143327328595694650892654181322169131419137499521806171136667190680286550054757614439176120722968245637537762536027151112462471175128228332115872386914009028917282712969864162014534349894097630435981616397927996659304774192119923204194457170407620951605854984132096323757248091094843032025335275329879498464954795905069479922445973408638012299137799439137333602346053104379692214857680138658746271359584207903024337671041791120368370062433</span><br>p = <span class="hljs-number">23179145952004786572757983799234920430633779535677420935312084200876619976669209523097965011942953301009181896712798356246795541216866485028100154585670368454638903095414689361363165856795506643767180784134469175448265110332780161626935638201727064861000660550974538859215360585812084437914540257823591140036538883159605868368631634046489596162666365138195416471349119538264390305637634631928131927917205635961354890675410476331906772088716752701051345455548022086136550213407689965095213596763864324407875037568058288772731307077778493908925797859779443512010698291195779124551476846827399730849219310626324177039013</span><br>c = <span class="hljs-number">15328778973393120290854691400883441405718565831853248832402785901824594060217263898505045095423915117607252735027062529235271181273369158106663012261516839968695274180392897131714116184427167484636074174222379080262947055141246928560805523812182030937490501937675882728123658706241797231583047415776685427205848679710458819937970889433693918217229443853850611378434132748815873718734347796950384002864988580300986131985895380275684001917985319042538513477446695790524025775222264595925792957208966818239868486709939779314546467392281422991680454815958889806132331710070011646205598326181711484973483426663596859525513</span><br>ct = <span class="hljs-number">92211459133895146158316008050625159602789832393085884570037939094818571988249290759248366005098334922507923902443804233324386547155962452204674766600765935956870916648760769384276856753284267120760668354671997896119514989451662121408491558308921051289732075282614190244970934960030795710538169872218350493341</span><br><span class="hljs-comment"># 求E</span><br>M = Matrix([[<span class="hljs-number">1</span>, h], [<span class="hljs-number">0</span>, p]])<br>fg = M.LLL()[<span class="hljs-number">0</span>]<br>f, g = <span class="hljs-built_in">abs</span>(fg[<span class="hljs-number">0</span>]), <span class="hljs-built_in">abs</span>(fg[<span class="hljs-number">1</span>])<br>a = f * c % p<br>E = a * gmpy2.invert(f, g)%g<br><span class="hljs-built_in">print</span>(E.bit_length())<br><span class="hljs-comment"># 求P</span><br>t=<span class="hljs-number">10</span><br>B=Matrix(ZZ,t+<span class="hljs-number">1</span>,t+<span class="hljs-number">1</span>)<br>M=gmpy2.iroot(<span class="hljs-built_in">int</span>(N[t-<span class="hljs-number">1</span>]),<span class="hljs-built_in">int</span>(<span class="hljs-number">2</span>))[<span class="hljs-number">0</span>]<br>B[<span class="hljs-number">0</span>,<span class="hljs-number">0</span>]=M<br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>,t+<span class="hljs-number">1</span>):<br>    B[i,i]=-N[i-<span class="hljs-number">1</span>]<br>    B[<span class="hljs-number">0</span>,i]=e[i-<span class="hljs-number">1</span>]<br>Blll=B.LLL()<br>P=<span class="hljs-built_in">int</span>(<span class="hljs-built_in">abs</span>(Blll[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>]//M))<br><br>phi=P-<span class="hljs-number">1</span><br>D=gmpy2.invert(E,phi)<br><span class="hljs-built_in">print</span>(long_to_bytes((<span class="hljs-built_in">pow</span>(ct,D,P))))<br><span class="hljs-comment"># DUTCTF&#123;RsA_1s_rS@_aNd_1att1ce&#125;</span><br><br></code></pre></td></tr></table></figure>
+<h2 id="misc">misc</h2>
+<h3 id="签到">*签到</h3>
 <p>b 站 21 级 pwn 例会评论区</p>
-<h3 id="我在哪"><a class="header-anchor" href="#我在哪">¶</a>我在哪</h3>
+<h3 id="我在哪">我在哪</h3>
 <p>放大图片看到十八中，搜索临江十八中，发现是重庆十八中，地图上搜一下附近地铁站，挨着桥的就是，曾家岩。</p>
-<h3 id="不要更新"><a class="header-anchor" href="#不要更新">¶</a>不要更新</h3>
-<p>流量分析题，wireshark 里过滤一下 http，找到 github 网页<br>
-<img src="/img/web.png" srcset="/img/loading.gif" lazyload alt=""><br>
-根据 hint 查看历史提交记录，发现假 flag，对于密码手来说一眼凯撒，移位 13。<br>
-<img src="/img/kaisa.png" srcset="/img/loading.gif" lazyload alt=""></p>
-<h2 id="web"><a class="header-anchor" href="#web">¶</a>web</h2>
-<h3 id="Trenja"><a class="header-anchor" href="#Trenja">¶</a>*Trenja</h3>
+<h3 id="不要更新">不要更新</h3>
+<p>流量分析题，wireshark 里过滤一下 http，找到 github 网页 <img
+src="/img/web.png" srcset="/img/loading.gif" lazyload /> 根据 hint 查看历史提交记录，发现假
+flag，对于密码手来说一眼凯撒，移位 13。 <img src="/img/kaisa.png" srcset="/img/loading.gif" lazyload /></p>
+<h2 id="web">web</h2>
+<h3 id="trenja">*Trenja</h3>
 <p>F12 打开开发者工具，搜索 flag 字段即可。</p>
-<h2 id="pwn"><a class="header-anchor" href="#pwn">¶</a>pwn</h2>
-<h3 id="中间人"><a class="header-anchor" href="#中间人">¶</a>*中间人</h3>
-<p>太好玩了，原理是汽车滚动码。bob 来开车门，截断，开门失败。bob 再开车门，截断，发送第一次截断信号，bob 开门成功。bob 离开，我们发送第二次截断的信号，打开车门！</p>
-<h2 id="reverse"><a class="header-anchor" href="#reverse">¶</a>reverse</h2>
-<h3 id="贪吃蛇"><a class="header-anchor" href="#贪吃蛇">¶</a>*贪吃蛇</h3>
+<h2 id="pwn">pwn</h2>
+<h3 id="中间人">*中间人</h3>
+<p>太好玩了，原理是汽车滚动码。bob 来开车门，截断，开门失败。bob
+再开车门，截断，发送第一次截断信号，bob 开门成功。bob
+离开，我们发送第二次截断的信号，打开车门！</p>
+<h2 id="reverse">reverse</h2>
+<h3 id="贪吃蛇">*贪吃蛇</h3>
 <p>拖入 IDA，alt+t 搜索 DUT 即可</p>
-<h3 id="GAME"><a class="header-anchor" href="#GAME">¶</a>*GAME</h3>
+<h3 id="game">*GAME</h3>
 <p>下棋赢了就出了</p>
 
                 
