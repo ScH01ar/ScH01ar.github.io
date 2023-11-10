@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://sch01ar.github.io/img/lattice.png">
 <meta property="article:published_time" content="2023-11-10T13:05:45.000Z">
-<meta property="article:modified_time" content="2023-11-10T08:09:06.107Z">
+<meta property="article:modified_time" content="2023-11-10T08:21:35.994Z">
 <meta property="article:author" content="Roo1e">
 <meta property="article:tag" content="lattice">
 <meta name="twitter:card" content="summary_large_image">
@@ -228,7 +228,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.8k 字
+          3.1k 字
         
       </span>
     
@@ -239,7 +239,7 @@
         
         
         
-          24 分钟
+          26 分钟
         
       </span>
     
@@ -322,13 +322,23 @@ V=\{ \boldsymbol{v}=x_1\boldsymbol{v_1}+x_2\boldsymbol{v_2}+\cdots
 \]</span></p>
 <h3
 id="向量正交与施密特schmidt正交化">向量正交与施密特(Schmidt)正交化</h3>
-<ul>
-<li><p>当<span class="math inline">\(\boldsymbol{a\neq 0,b\neq
+<p>当<span class="math inline">\(\boldsymbol{a\neq 0,b\neq
 0}\)</span>时，当<span
 class="math inline">\((\boldsymbol{a,b}=0)\)</span>，即<span
 class="math inline">\(\boldsymbol{a^Tb}=0\)</span>时，称向量<span
-class="math inline">\(\boldsymbol{a,b}\)</span>正交。</p></li>
-<li><p>由两两正交的非零向量组成的向量组称为<strong>正交向量组</strong>，由单位向量组成的正交向量组称为<strong>标准正交向量组</strong>。</p></li>
+class="math inline">\(\boldsymbol{a,b}\)</span>正交。</p>
+<p>由两两正交的非零向量组成的向量组称为<strong>正交向量组</strong>，由单位向量组成的正交向量组称为<strong>标准正交向量组</strong>。</p>
+<p><span
+class="math inline">\(n\)</span>维欧氏空间求解正交基,一组基底为<span
+class="math inline">\((\alpha_1,\alpha_2,\cdots,\alpha_n)\)</span></p>
+<ul>
+<li>Step1:令 <span class="math inline">\(\beta_1=\alpha_1\)</span></li>
+<li>Step2:计算<span class="math inline">\(\alpha_2\)</span>在<span
+class="math inline">\(\beta_1\)</span>方向上的投影，并做差得到 <span
+class="math display">\[\beta_2=\alpha-\frac{(\beta_1,\alpha_2)}{(\beta_1,\beta_1)}\beta_1\]</span></li>
+<li>Step3:计算<span class="math inline">\(\alpha_3\)</span>在向量<span
+class="math inline">\(\beta_1,\beta_2\)</span>方向的投影，继续做差得到<span
+class="math inline">\(\beta_3\)</span></li>
 </ul>
 <h2 id="格">格</h2>
 <p><span class="math inline">\(n\)</span>元向量的集合 <span
