@@ -16,16 +16,16 @@
   <meta name="author" content="Roo1e">
   <meta name="keywords" content="">
   
-    <meta name="description" content="线性代数基础  先回顾一下学校线代课程讲过的几个概念  向量空间 设\(V\)是 n 元向量的集合，如果\(V\)非空，并且对于向量的线性运算封闭(即对任意 \(\boldsymbol{v_1} \in V,\boldsymbol{v_2} \in V,k \in \mathbb{R}\) ，都有 \(\boldsymbol{v_1+v_2} \in V,k\boldsymbol{v_1} \in">
+    <meta name="description" content="线性代数前置知识  先回顾一下学校线代课程讲过的几个概念  向量空间 设\(V\)是 n 元向量的集合，如果\(V\)非空，并且对于向量的线性运算封闭(即对任意 \(\boldsymbol{v_1} \in V,\boldsymbol{v_2} \in V,k \in \mathbb{R}\) ，都有 \(\boldsymbol{v_1+v_2} \in V,k\boldsymbol{v_1} \">
 <meta property="og:type" content="article">
 <meta property="og:title" content="格密码">
-<meta property="og:url" content="https://sch01ar.github.io/2023/11/09/lattice/index.html">
+<meta property="og:url" content="https://sch01ar.github.io/2023/11/10/lattice/index.html">
 <meta property="og:site_name" content="Y&#39;s blog">
-<meta property="og:description" content="线性代数基础  先回顾一下学校线代课程讲过的几个概念  向量空间 设\(V\)是 n 元向量的集合，如果\(V\)非空，并且对于向量的线性运算封闭(即对任意 \(\boldsymbol{v_1} \in V,\boldsymbol{v_2} \in V,k \in \mathbb{R}\) ，都有 \(\boldsymbol{v_1+v_2} \in V,k\boldsymbol{v_1} \in">
+<meta property="og:description" content="线性代数前置知识  先回顾一下学校线代课程讲过的几个概念  向量空间 设\(V\)是 n 元向量的集合，如果\(V\)非空，并且对于向量的线性运算封闭(即对任意 \(\boldsymbol{v_1} \in V,\boldsymbol{v_2} \in V,k \in \mathbb{R}\) ，都有 \(\boldsymbol{v_1+v_2} \in V,k\boldsymbol{v_1} \">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://sch01ar.github.io/img/lattice.png">
-<meta property="article:published_time" content="2023-11-09T13:05:45.000Z">
-<meta property="article:modified_time" content="2023-11-09T03:00:50.462Z">
+<meta property="article:published_time" content="2023-11-10T13:05:45.000Z">
+<meta property="article:modified_time" content="2023-11-10T07:56:35.954Z">
 <meta property="article:author" content="Roo1e">
 <meta property="article:tag" content="lattice">
 <meta name="twitter:card" content="summary_large_image">
@@ -216,8 +216,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-11-09 21:05" pubdate>
-          2023年11月9日 晚上
+        <time datetime="2023-11-10 21:05" pubdate>
+          2023年11月10日 晚上
         </time>
       </span>
     
@@ -228,7 +228,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.7k 字
+          2.6k 字
         
       </span>
     
@@ -239,7 +239,7 @@
         
         
         
-          14 分钟
+          22 分钟
         
       </span>
     
@@ -290,7 +290,7 @@
             
               <div class="markdown-body">
                 
-                <h2 id="线性代数基础">线性代数基础</h2>
+                <h2 id="线性代数前置知识">线性代数前置知识</h2>
 <blockquote>
 <p>先回顾一下学校线代课程讲过的几个概念</p>
 </blockquote>
@@ -330,13 +330,25 @@ class="math inline">\(\boldsymbol{a^Tb}=0\)</span>时，称向量<span
 class="math inline">\(\boldsymbol{a,b}\)</span>正交。</p></li>
 <li><p>由两两正交的非零向量组成的向量组称为<strong>正交向量组</strong>，由单位向量组成的正交向量组称为<strong>标准正交向量组</strong>。</p></li>
 </ul>
-<h3 id="格">格</h3>
+<h2 id="格">格</h2>
 <p><span class="math inline">\(n\)</span>元向量的集合 <span
 class="math inline">\(v_1,\cdots,v_n \in
 \mathbb{R}^n\)</span>，格（Lattices）就是这些向量的线性组合</p>
 <p><span class="math display">\[L=\{a_1v_1+a_2v_2+\cdots+a_nv_n \mid
 a_1,a_2,\cdots,a_n \in \mathbb{Z}\}\]</span></p>
 <p>对比向量空间的定义，可以发现系数是整数，因此定义出来的格空间是一些格点，而非连续的向量空间。</p>
+<p>下图是一个二维格，平行四边形的一组邻边是格的基底。通过对这两个向量不断进行线性组合，那么就产生了很多格点，就形成了一个格。
+<img src="/img/lattice.png" srcset="/img/loading.gif" lazyload /></p>
+<h3 id="基本域">基本域</h3>
+<p>假定 <span class="math inline">\(v_1,v_2,\cdots,v_n\)</span> 是格
+<span class="math inline">\(L\)</span> 的基，<span
+class="math inline">\(F\{v_1,v_2,\cdots,v_n\}=\{a_1v_1+a_2v_2+\cdots+a_nv_n
+\mid a_1,a_2,\cdots,a_n \in [0,1]\}\)</span></p>
+<p><img src="/img/lattice.png" srcset="/img/loading.gif" lazyload /></p>
+<p>这个图中的平行四边形，就是二维格中一组基底构成的基本域。</p>
+<p>格基本域的<strong>体积</strong>等于格的<strong>行列式</strong>的值，基本域的体积就是积分，而这也正是行列式的几何意义，<span
+class="math inline">\(Volume(F\{v_1,v_2,\cdots,v_n\})=det(L)\)</span></p>
+<h3 id="矩阵表示">矩阵表示</h3>
 <p>假定 <span class="math inline">\(v_1,v_2,\cdots,v_n\)</span> 是格
 <span class="math inline">\(L\)</span> 的基，<span
 class="math inline">\(w_1,w_2,\cdots,w_n \in
@@ -371,6 +383,31 @@ class="math inline">\(\boldsymbol{w}=A * \boldsymbol{v}\)</span></p>
 <blockquote>
 <p>最短向量问题(Shortest Vector Problem，SVP)</p>
 </blockquote>
+<p>这是最基本的一个问题，后续很多格问题最终都转换成了<code>SVP</code>问题，从<code>LLL</code>算法中我们也可以看出，最终得到的是格上的最短正交向量组。</p>
+<p>下面从一个例子来介绍格的构造和 LLL 的应用。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python">p = getPrime(<span class="hljs-number">1023</span>)<br>q = getPrime(<span class="hljs-number">1023</span>)<br>f = getPrime(<span class="hljs-number">2048</span>)<br>g = getPrime(<span class="hljs-number">2048</span>)<br>f =<br>g =<br><span class="hljs-keyword">assert</span> (p * f - <span class="hljs-number">58</span> * f + q) % g == <span class="hljs-number">44</span><br></code></pre></td></tr></table></figure>
+<p><span class="math display">\[(p*f - 58 * f + q) \% g = 44\]</span>
+<span class="math display">\[k\cdot g+44=(p-58)\cdot f+q\]</span>
+我们目的是通过<span class="math inline">\(f,g\)</span>求出<span
+class="math inline">\(p,q\)</span>，从代码的定义可以看到，<span
+class="math inline">\(p,q\)</span>的位数相比于<span
+class="math inline">\(f,g\)</span>来说很小，因此可以应用格的思路，构造一个合适的格，规约出<span
+class="math inline">\((p,q)\)</span></p>
+<p>写出如下方程组 <span class="math display">\[k\cdot g-(p-58)\cdot
+f=q-44\]</span> <span class="math display">\[k\cdot 0-(p-58)\cdot
+(-1)=p-58\]</span>
+可以看到第二个式子是一个恒等式，在构造格时我们通常需要加入这样的恒等式。</p>
+<p>下面将方程组转换为矩阵。</p>
+<p><span class="math display">\[(k,
+p-58) \begin{bmatrix}0&amp;g\\1&amp;-f \end{bmatrix}=(p-58,q-44)\]</span></p>
+<p>得到了<span
+class="math inline">\(v*B=w\)</span>的形式。在这个式子中我们关心的是<span
+class="math inline">\(w\)</span>向量是否是格<span
+class="math inline">\(B\)</span>上的最短向量，<span
+class="math inline">\(v\)</span>这是线性组合的系数并不用过多关注。</p>
+<p>在介绍<strong>高斯启发式</strong>的时候，提到了格上最短向量的<strong>欧几里得范数</strong>的大致范围，我们现在验证一下，看看<span
+class="math inline">\(w\)</span>是否是格<span
+class="math inline">\(B\)</span>上的最短向量。</p>
 
                 
               </div>
@@ -417,7 +454,7 @@ class="math inline">\(\boldsymbol{w}=A * \boldsymbol{v}\)</span></p>
   <div class="license-box my-3">
     <div class="license-title">
       <div>格密码</div>
-      <div>https://sch01ar.github.io/2023/11/09/lattice/</div>
+      <div>https://sch01ar.github.io/2023/11/10/lattice/</div>
     </div>
     <div class="license-meta">
       
@@ -429,7 +466,7 @@ class="math inline">\(\boldsymbol{w}=A * \boldsymbol{v}\)</span></p>
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年11月9日</div>
+          <div>2023年11月10日</div>
         </div>
       
       
