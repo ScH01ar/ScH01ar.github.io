@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://sch01ar.github.io/img/lattice.png">
 <meta property="article:published_time" content="2023-11-10T13:05:45.000Z">
-<meta property="article:modified_time" content="2023-11-11T01:05:19.662Z">
+<meta property="article:modified_time" content="2023-11-11T01:24:42.882Z">
 <meta property="article:author" content="Roo1e">
 <meta property="article:tag" content="lattice">
 <meta name="twitter:card" content="summary_large_image">
@@ -228,7 +228,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.8k 字
+          4k 字
         
       </span>
     
@@ -239,7 +239,7 @@
         
         
         
-          32 分钟
+          34 分钟
         
       </span>
     
@@ -393,7 +393,10 @@ target="_blank" rel="noopener" href="https://github.com/keeganryan/flatter">flat
 <p>下图是高斯启发式，为我们展示了格上最短向量的<strong>欧几里得范数</strong>的大致范围。
 <img src="/img/gsqf.png" srcset="/img/loading.gif" lazyload /></p>
 <p>这样我们就知道构造出来的格，是否可以规约出我们的目标向量，也为我们调整格的平衡提供了思路。接下来我们在以下几个问题当中具体看一下<code>LLL</code>算法的应用。</p>
-<h3 id="lll-解决-svp-问题">LLL 解决 SVP 问题</h3>
+<h2 id="lattice-应用">lattice 应用</h2>
+<p>下面将首先介绍两个最基本问题<code>SVP</code>和<code>CVP</code>，这是格上的两个困难问题，都属于
+NP 完全问题。因此在这两个困难问题上也将延伸出很多格密码体系。</p>
+<h3 id="svp">SVP</h3>
 <blockquote>
 <p>最短向量问题(Shortest Vector Problem，SVP)</p>
 </blockquote>
@@ -432,6 +435,17 @@ class="math inline">\(B\)</span>上的最短向量，构造格<span
 class="math inline">\(B\)</span>进行<code>LLL</code>算法即可。</p>
 <p>还有个例子可以看<a
 href="https://sch01ar.github.io/2022/11/29/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%E7%AE%97%E6%B3%95/">背包加密</a></p>
+<h3 id="cvp">CVP</h3>
+<blockquote>
+<p>最近向量问题(Closest Vector Problem)，格上另一个最常见的问题。</p>
+</blockquote>
+<p>给定格<span class="math inline">\(L\)</span>的一组基与向量<span
+class="math inline">\(v\)</span>，找到在<span
+class="math inline">\(L\)</span>上离<span
+class="math inline">\(v\)</span>最近的一个向量。</p>
+<p>方便理解还是看一下几何意义，在连续空间中任找一点<span
+class="math inline">\(p\)</span>（注意：不一定在格上），要找到格上距离点<span
+class="math inline">\(p\)</span>最近的一个点。</p>
 <h3 id="lwe">LWE</h3>
 <blockquote>
 <p>LWE 问题(Learn With Error)</p>
