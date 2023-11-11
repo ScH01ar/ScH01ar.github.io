@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://sch01ar.github.io/img/lattice.png">
 <meta property="article:published_time" content="2023-11-10T13:05:45.000Z">
-<meta property="article:modified_time" content="2023-11-10T08:39:46.375Z">
+<meta property="article:modified_time" content="2023-11-11T01:00:34.709Z">
 <meta property="article:author" content="Roo1e">
 <meta property="article:tag" content="lattice">
 <meta name="twitter:card" content="summary_large_image">
@@ -228,7 +228,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.1k 字
+          3.8k 字
         
       </span>
     
@@ -239,7 +239,7 @@
         
         
         
-          27 分钟
+          32 分钟
         
       </span>
     
@@ -433,7 +433,38 @@ class="math inline">\(B\)</span>进行<code>LLL</code>算法即可。</p>
 <p>还有个例子可以看<a
 href="https://sch01ar.github.io/2022/11/29/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%E7%AE%97%E6%B3%95/">背包加密</a></p>
 <h3 id="lwe">LWE</h3>
-<h3 id="agcd">AGCD</h3>
+<h3 id="acd">ACD</h3>
+<blockquote>
+<p>ACD 问题(<a target="_blank" rel="noopener" href="https://eprint.iacr.org/2016/215.pdf">Approximate
+Common Divisor</a>)，近似公约数(应该也可以叫 AGCD)</p>
+</blockquote>
+<p>给定<span class="math inline">\(t\)</span>组<span
+class="math inline">\(x_i\)</span>满足：<span
+class="math inline">\(x_i=pq_i+r_i\)</span></p>
+<p><span class="math inline">\(x_i\)</span> 已知，<span
+class="math inline">\(p\)</span> 为 <span
+class="math inline">\(\alpha\)</span> 位，<span
+class="math inline">\(q_i\)</span> 为 <span
+class="math inline">\(\beta\)</span> 位 ，<span
+class="math inline">\(r_i\)</span> 为 <span
+class="math inline">\(\rho\)</span> 位（<span class="math inline">\(\rho
+\lt\lt \alpha\)</span>），求 <span
+class="math inline">\(p\)</span>。</p>
+<p><span class="math inline">\(p\)</span>相当于<span
+class="math inline">\(t\)</span>组<span
+class="math inline">\(x\)</span>的近似公约数，因此要求了<span
+class="math inline">\(r_i \lt\lt p\)</span></p>
+<p>构造</p>
+<p><span class="math display">\[(q_0,q_1,\cdots,q_t)\begin{bmatrix}
+2^{\rho} &amp; x_1 &amp; x_2 &amp; \cdots &amp; x_t \newline 0 &amp;
+-x_0 &amp; 0 &amp; \cdots &amp; 0 \newline 0 &amp; 0 &amp; -x_0 &amp;
+\cdots &amp; 0 \newline \vdots &amp; \vdots &amp; \vdots &amp; \ddots
+&amp; \vdots \newline 0 &amp; 0 &amp; 0 &amp; \cdots &amp;
+-x_0\end{bmatrix}=(q_02^{\rho},q_0x_1-q_1x_0,\cdots,q_0x_t-q_tx_0)=(q_02^{\rho},q_0r_1-q_1r_0,\cdots,q_0r_t-q_tr_0)\]</span></p>
+<p>记为 <span class="math inline">\(v\cdot B=w\)</span>。</p>
+<p>使用<code>LLL</code>算法得到 <span
+class="math inline">\(q_02^{\rho}\)</span>后就可以求出<span
+class="math inline">\(p\)</span>。</p>
 <h3 id="hnp">HNP</h3>
 
                 
