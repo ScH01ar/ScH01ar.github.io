@@ -16,12 +16,12 @@
   <meta name="author" content="Roo1e">
   <meta name="keywords" content="">
   
-    <meta name="description" content="¶线性代数前置知识  先回顾一下学校线代课程讲过的几个概念  ¶向量空间 设$V$是 n 元向量的集合，如果$V$非空，并且对于向量的线性运算封闭(即对任意 $\boldsymbol{v_1} \in V,\boldsymbol{v_2} \in V,k \in \mathbb{R}$ ，都有 $\boldsymbol{v_1+v_2} \in V,k\boldsymbol{v_1} \in V$">
+    <meta name="description" content="线性代数前置知识  先回顾一下学校线代课程讲过的几个概念  向量空间 设\(V\)是 n 元向量的集合，如果\(V\)非空，并且对于向量的线性运算封闭(即对任意 \(\boldsymbol{v_1} \in V,\boldsymbol{v_2} \in V,k \in \mathbb{R}\) ，都有 \(\boldsymbol{v_1+v_2} \in V,k\boldsymbol{v_1} \">
 <meta property="og:type" content="article">
 <meta property="og:title" content="格密码">
 <meta property="og:url" content="https://sch01ar.github.io/2023/11/10/lattice/index.html">
 <meta property="og:site_name" content="Y&#39;s blog">
-<meta property="og:description" content="¶线性代数前置知识  先回顾一下学校线代课程讲过的几个概念  ¶向量空间 设$V$是 n 元向量的集合，如果$V$非空，并且对于向量的线性运算封闭(即对任意 $\boldsymbol{v_1} \in V,\boldsymbol{v_2} \in V,k \in \mathbb{R}$ ，都有 $\boldsymbol{v_1+v_2} \in V,k\boldsymbol{v_1} \in V$">
+<meta property="og:description" content="线性代数前置知识  先回顾一下学校线代课程讲过的几个概念  向量空间 设\(V\)是 n 元向量的集合，如果\(V\)非空，并且对于向量的线性运算封闭(即对任意 \(\boldsymbol{v_1} \in V,\boldsymbol{v_2} \in V,k \in \mathbb{R}\) ，都有 \(\boldsymbol{v_1+v_2} \in V,k\boldsymbol{v_1} \">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://sch01ar.github.io/img/lattice.png">
 <meta property="article:published_time" content="2023-11-10T13:05:45.000Z">
@@ -228,7 +228,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.7k 字
+          4k 字
         
       </span>
     
@@ -239,7 +239,7 @@
         
         
         
-          32 分钟
+          34 分钟
         
       </span>
     
@@ -290,111 +290,199 @@
             
               <div class="markdown-body">
                 
-                <h2 id="线性代数前置知识"><a class="header-anchor" href="#线性代数前置知识">¶</a>线性代数前置知识</h2>
+                <h2 id="线性代数前置知识">线性代数前置知识</h2>
 <blockquote>
 <p>先回顾一下学校线代课程讲过的几个概念</p>
 </blockquote>
-<h3 id="向量空间"><a class="header-anchor" href="#向量空间">¶</a>向量空间</h3>
-<p>设$V$是 n 元向量的集合，如果$V$非空，并且对于向量的线性运算封闭(即对任意 $\boldsymbol{v_1} \in V,\boldsymbol{v_2} \in V,k \in \mathbb{R}$ ，都有 $\boldsymbol{v_1+v_2} \in V,k\boldsymbol{v_1} \in V$ )，则称 $V$ 是一个<strong>向量空间</strong>。</p>
-<h3 id="向量空间的基与维数"><a class="header-anchor" href="#向量空间的基与维数">¶</a>向量空间的基与维数</h3>
-<p>向量空间$V$的一个极大无关组叫做$V$的一个<strong>基</strong>，$V$ 的秩叫做$V$的<strong>维数</strong>，记作$dim(V)$。若 $dim(V)=r$，则称$V$为$r$维向量空间。</p>
-<p>若已知$r$维向量空间$V$的基为$\boldsymbol{v_1,v_2,\cdots,v_r}$，则向量空间$V$可以表示成</p>
-<p>$$<br>
-V={ \boldsymbol{v}=x_1\boldsymbol{v_1}+x_2\boldsymbol{v_2}+\cdots +x_r\boldsymbol{v_r} | x_1,x_2,\cdots,x_r \in \mathbb{R}}<br>
-$$</p>
-<h3 id="向量正交与施密特-Schmidt-正交化"><a class="header-anchor" href="#向量正交与施密特-Schmidt-正交化">¶</a>向量正交与施密特(Schmidt)正交化</h3>
-<p>当$\boldsymbol{a\neq 0,b\neq 0}$时，当$(\boldsymbol{a,b}=0)$，即$\boldsymbol{a^Tb}=0$时，称向量$\boldsymbol{a,b}$正交。</p>
+<h3 id="向量空间">向量空间</h3>
+<p>设<span class="math inline">\(V\)</span>是 n 元向量的集合，如果<span
+class="math inline">\(V\)</span>非空，并且对于向量的线性运算封闭(即对任意
+<span class="math inline">\(\boldsymbol{v_1} \in V,\boldsymbol{v_2} \in
+V,k \in \mathbb{R}\)</span> ，都有 <span
+class="math inline">\(\boldsymbol{v_1+v_2} \in V,k\boldsymbol{v_1} \in
+V\)</span> )，则称 <span class="math inline">\(V\)</span>
+是一个<strong>向量空间</strong>。</p>
+<h3 id="向量空间的基与维数">向量空间的基与维数</h3>
+<p>向量空间<span
+class="math inline">\(V\)</span>的一个极大无关组叫做<span
+class="math inline">\(V\)</span>的一个<strong>基</strong>，<span
+class="math inline">\(V\)</span> 的秩叫做<span
+class="math inline">\(V\)</span>的<strong>维数</strong>，记作<span
+class="math inline">\(dim(V)\)</span>。若 <span
+class="math inline">\(dim(V)=r\)</span>，则称<span
+class="math inline">\(V\)</span>为<span
+class="math inline">\(r\)</span>维向量空间。</p>
+<p>若已知<span class="math inline">\(r\)</span>维向量空间<span
+class="math inline">\(V\)</span>的基为<span
+class="math inline">\(\boldsymbol{v_1,v_2,\cdots,v_r}\)</span>，则向量空间<span
+class="math inline">\(V\)</span>可以表示成</p>
+<p><span class="math display">\[
+V=\{ \boldsymbol{v}=x_1\boldsymbol{v_1}+x_2\boldsymbol{v_2}+\cdots
++x_r\boldsymbol{v_r} | x_1,x_2,\cdots,x_r \in \mathbb{R}\}
+\]</span></p>
+<h3
+id="向量正交与施密特schmidt正交化">向量正交与施密特(Schmidt)正交化</h3>
+<p>当<span class="math inline">\(\boldsymbol{a\neq 0,b\neq
+0}\)</span>时，当<span
+class="math inline">\((\boldsymbol{a,b}=0)\)</span>，即<span
+class="math inline">\(\boldsymbol{a^Tb}=0\)</span>时，称向量<span
+class="math inline">\(\boldsymbol{a,b}\)</span>正交。</p>
 <p>由两两正交的非零向量组成的向量组称为<strong>正交向量组</strong>，由单位向量组成的正交向量组称为<strong>标准正交向量组</strong>。</p>
-<p>$n$维欧氏空间求解正交基,一组基底为$(\alpha_1,\alpha_2,\cdots,\alpha_n)$</p>
+<p><span
+class="math inline">\(n\)</span>维欧氏空间求解正交基,一组基底为<span
+class="math inline">\((\alpha_1,\alpha_2,\cdots,\alpha_n)\)</span></p>
 <ul>
-<li>Step1:令 $\beta_1=\alpha_1$</li>
-<li>Step2:计算$\alpha_2$在$\beta_1$方向上的投影，并做差得到<br>
-$$\beta_2=\alpha-\frac{(\beta_1,\alpha_2)}{(\beta_1,\beta_1)}\beta_1$$</li>
-<li>Step3:计算$\alpha_3$在向量$\beta_1,\beta_2$方向的投影，继续做差得到$\beta_3$</li>
+<li>Step1:令 <span class="math inline">\(\beta_1=\alpha_1\)</span></li>
+<li>Step2:计算<span class="math inline">\(\alpha_2\)</span>在<span
+class="math inline">\(\beta_1\)</span>方向上的投影，并做差得到 <span
+class="math display">\[\beta_2=\alpha-\frac{(\beta_1,\alpha_2)}{(\beta_1,\beta_1)}\beta_1\]</span></li>
+<li>Step3:计算<span class="math inline">\(\alpha_3\)</span>在向量<span
+class="math inline">\(\beta_1,\beta_2\)</span>方向的投影，继续做差得到<span
+class="math inline">\(\beta_3\)</span></li>
 </ul>
-<h2 id="格"><a class="header-anchor" href="#格">¶</a>格</h2>
-<p>$n$元向量的集合 $v_1,\cdots,v_n \in \mathbb{R}^n$，格（Lattices）就是这些向量的线性组合</p>
-<p>$$L={a_1v_1+a_2v_2+\cdots+a_nv_n \mid a_1,a_2,\cdots,a_n \in \mathbb{Z}}$$</p>
+<h2 id="格">格</h2>
+<p><span class="math inline">\(n\)</span>元向量的集合 <span
+class="math inline">\(v_1,\cdots,v_n \in
+\mathbb{R}^n\)</span>，格（Lattices）就是这些向量的线性组合</p>
+<p><span class="math display">\[L=\{a_1v_1+a_2v_2+\cdots+a_nv_n \mid
+a_1,a_2,\cdots,a_n \in \mathbb{Z}\}\]</span></p>
 <p>对比向量空间的定义，可以发现系数是整数，因此定义出来的格空间是一些格点，而非连续的向量空间。</p>
-<p>下图是一个二维格，平行四边形的一组邻边是格的基底。通过对这两个向量不断进行线性组合，那么就产生了很多格点，就形成了一个格。<br>
-<img src="/img/lattice.png" srcset="/img/loading.gif" lazyload alt=""></p>
-<h3 id="基本域"><a class="header-anchor" href="#基本域">¶</a>基本域</h3>
-<p>假定 $v_1,v_2,\cdots,v_n$ 是格 $L$ 的基，$F{v_1,v_2,\cdots,v_n}={a_1v_1+a_2v_2+\cdots+a_nv_n \mid a_1,a_2,\cdots,a_n \in [0,1]}$</p>
+<p>下图是一个二维格，平行四边形的一组邻边是格的基底。通过对这两个向量不断进行线性组合，那么就产生了很多格点，就形成了一个格。
+<img src="/img/lattice.png" srcset="/img/loading.gif" lazyload /></p>
+<h3 id="基本域">基本域</h3>
+<p>假定 <span class="math inline">\(v_1,v_2,\cdots,v_n\)</span> 是格
+<span class="math inline">\(L\)</span> 的基，<span
+class="math inline">\(F\{v_1,v_2,\cdots,v_n\}=\{a_1v_1+a_2v_2+\cdots+a_nv_n
+\mid a_1,a_2,\cdots,a_n \in [0,1]\}\)</span></p>
 <p>上图中的平行四边形，就是二维格中一组基底构成的基本域。</p>
-<p>格基本域的<strong>体积</strong>等于格的<strong>行列式</strong>的值，基本域的体积就是积分，而这也正是行列式的几何意义，$Volume(F{v_1,v_2,\cdots,v_n})=det(L)$</p>
-<h3 id="矩阵表示"><a class="header-anchor" href="#矩阵表示">¶</a>矩阵表示</h3>
-<p>假定 $v_1,v_2,\cdots,v_n$ 是格 $L$ 的基，$w_1,w_2,\cdots,w_n \in L$，则必然存在整系数 $a_{ij}$ 使得：</p>
-<p>$$<br>
-\begin{cases} w_1=a_{11}v_1+a_{12}v_2+\cdots+a_{1n}v_n \ w_2=a_{21}v_1+a_{22}v_2+\cdots+a_{2n}v_n \ \vdots \ w_n=a_{n1}v_1+a_{n2}v_2+\cdots+a_{nn}v_n \end{cases}<br>
-$$</p>
+<p>格基本域的<strong>体积</strong>等于格的<strong>行列式</strong>的值，基本域的体积就是积分，而这也正是行列式的几何意义，<span
+class="math inline">\(Volume(F\{v_1,v_2,\cdots,v_n\})=det(L)\)</span></p>
+<h3 id="矩阵表示">矩阵表示</h3>
+<p>假定 <span class="math inline">\(v_1,v_2,\cdots,v_n\)</span> 是格
+<span class="math inline">\(L\)</span> 的基，<span
+class="math inline">\(w_1,w_2,\cdots,w_n \in
+L\)</span>，则必然存在整系数 <span class="math inline">\(a_{ij}\)</span>
+使得：</p>
+<p><span class="math display">\[
+\begin{cases} w_1=a_{11}v_1+a_{12}v_2+\cdots+a_{1n}v_n \\
+w_2=a_{21}v_1+a_{22}v_2+\cdots+a_{2n}v_n \\ \vdots \\
+w_n=a_{n1}v_1+a_{n2}v_2+\cdots+a_{nn}v_n \end{cases}
+\]</span></p>
 <p>可以提取出一个系数矩阵</p>
-<p>$$<br>
-A=<br>
-\begin{bmatrix}<br>
-a_{1,1} &amp; a_{1,2} &amp; \ldots &amp; a_{1,n}\<br>
-a_{2,1} &amp; a_{2,2} &amp; \ldots &amp; a_{2,n}\<br>
-\vdots &amp; \vdots &amp; \ddots &amp; \vdots \<br>
-a_{n,1} &amp; a_{n,2} &amp; \ldots &amp; a_{n,n}<br>
-\end{bmatrix}<br>
-$$</p>
-<p>进而将上述方程组转换为矩阵表示$\boldsymbol{w}=A * \boldsymbol{v}$</p>
-<h2 id="LLL-BKZ-算法"><a class="header-anchor" href="#LLL-BKZ-算法">¶</a>LLL/BKZ 算法</h2>
+<p><span class="math display">\[
+A=
+\begin{bmatrix}
+a_{1,1} &amp; a_{1,2} &amp; \ldots &amp; a_{1,n}\\
+a_{2,1} &amp; a_{2,2} &amp; \ldots &amp; a_{2,n}\\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+a_{n,1} &amp; a_{n,2} &amp; \ldots &amp; a_{n,n}
+\end{bmatrix}
+\]</span></p>
+<p>进而将上述方程组转换为矩阵表示<span
+class="math inline">\(\boldsymbol{w}=A * \boldsymbol{v}\)</span></p>
+<h2 id="lllbkz-算法">LLL/BKZ 算法</h2>
 <blockquote>
-<p>之前打国际赛看到 discord 里一直有人赞美 <a target="_blank" rel="noopener" href="https://github.com/keeganryan/flatter">flatter</a>，应该是加速 LLL 用的，我还没配好环境。</p>
+<p>之前打国际赛看到 discord 里一直有人赞美 <a
+target="_blank" rel="noopener" href="https://github.com/keeganryan/flatter">flatter</a>，应该是加速 LLL
+用的，我还没配好环境。</p>
 </blockquote>
 <p>一种<strong>格基约简</strong>算法，可以找到格上的一组最短的<strong>正交基</strong>。</p>
 <p>在<code>Sagemath</code>中可以直接调用函数。</p>
 <p>但对于函数的实现以及算法的原理没必要深究，在具体题目当中会使用即可。</p>
-<p>&lt;!–code￼0–&gt;</p>
-<p>下图是高斯启发式，为我们展示了格上最短向量的<strong>欧几里得范数</strong>的大致范围。<br>
-<img src="/img/gsqf.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python">M = matrix(ZZ,[[],[]])<br>L = M.LLL()<br>L = M.BKZ(block_size=<span class="hljs-number">2</span>)<br>x = L[<span class="hljs-number">0</span>]<br></code></pre></td></tr></table></figure>
+<p>下图是高斯启发式，为我们展示了格上最短向量的<strong>欧几里得范数</strong>的大致范围。
+<img src="/img/gsqf.png" srcset="/img/loading.gif" lazyload /></p>
 <p>这样我们就知道构造出来的格，是否可以规约出我们的目标向量，也为我们调整格的平衡提供了思路。接下来我们在以下几个问题当中具体看一下<code>LLL</code>算法的应用。</p>
-<h2 id="lattice-应用"><a class="header-anchor" href="#lattice-应用">¶</a>lattice 应用</h2>
-<p>下面将首先介绍两个最基本问题<code>SVP</code>和<code>CVP</code>，这是格上的两个困难问题，都属于 NP 完全问题。因此在这两个困难问题上也将延伸出很多格密码体系。</p>
-<h3 id="SVP"><a class="header-anchor" href="#SVP">¶</a>SVP</h3>
+<h2 id="lattice-应用">lattice 应用</h2>
+<p>下面将首先介绍两个最基本问题<code>SVP</code>和<code>CVP</code>，这是格上的两个困难问题，都属于
+NP 完全问题。因此在这两个困难问题上也将延伸出很多格密码体系。</p>
+<h3 id="svp">SVP</h3>
 <blockquote>
 <p>最短向量问题(Shortest Vector Problem，SVP)</p>
 </blockquote>
 <p>这是最基本的一个问题，后续很多格问题最终都转换成了<code>SVP</code>问题，从<code>LLL</code>算法中我们也可以看出，最终得到的是格上的最短正交向量组。</p>
 <p>下面从一个例子来介绍格的构造和 LLL 的应用。</p>
-<p>&lt;!–code￼1–&gt;</p>
-<p>$$(p*f - 58 * f + q) % g = 44$$<br>
-$$k\cdot g+44=(p-58)\cdot f+q$$<br>
-我们目的是通过$f,g$求出$p,q$，从代码的定义可以看到，$p,q$的位数相比于$f,g$来说很小，因此可以应用格的思路，构造一个合适的格，规约出$(p,q)$</p>
-<p>写出如下方程组<br>
-$$k\cdot g-(p-58)\cdot f=q-44$$<br>
-$$k\cdot 0-(p-58)\cdot (-1)=p-58$$<br>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python">p = getPrime(<span class="hljs-number">1023</span>)<br>q = getPrime(<span class="hljs-number">1023</span>)<br>f = getPrime(<span class="hljs-number">2048</span>)<br>g = getPrime(<span class="hljs-number">2048</span>)<br>f =<br>g =<br><span class="hljs-keyword">assert</span> (p * f - <span class="hljs-number">58</span> * f + q) % g == <span class="hljs-number">44</span><br></code></pre></td></tr></table></figure>
+<p><span class="math display">\[(p*f - 58 * f + q) \% g = 44\]</span>
+<span class="math display">\[k\cdot g+44=(p-58)\cdot f+q\]</span>
+我们目的是通过<span class="math inline">\(f,g\)</span>求出<span
+class="math inline">\(p,q\)</span>，从代码的定义可以看到，<span
+class="math inline">\(p,q\)</span>的位数相比于<span
+class="math inline">\(f,g\)</span>来说很小，因此可以应用格的思路，构造一个合适的格，规约出<span
+class="math inline">\((p,q)\)</span></p>
+<p>写出如下方程组 <span class="math display">\[k\cdot g-(p-58)\cdot
+f=q-44\]</span> <span class="math display">\[k\cdot 0-(p-58)\cdot
+(-1)=p-58\]</span>
 可以看到第二个式子是一个恒等式，在构造格时我们通常需要加入这样的恒等式。</p>
 <p>下面将方程组转换为矩阵。</p>
-<p>$$(k, p-58) \begin{bmatrix}0&amp;g\1&amp;-f \end{bmatrix}=(p-58,q-44)$$</p>
-<p>得到了$v*B=w$的形式。在这个式子中我们关心的是$w$向量是否是格$B$上的最短向量，$v$这是线性组合的系数并不用过多关注。</p>
-<p>在介绍<strong>高斯启发式</strong>的时候，提到了格上最短向量的<strong>欧几里得范数</strong>的大致范围，我们现在验证一下，看看$w$是否是格$B$上的最短向量，即比较长度$||w||$和高斯期望值$\sigma(det(B))$</p>
-<p>$$||w|| = \sqrt{(p-58)<sup>2+(q-44)</sup>2}\approx 2^{1024}$$<br>
-$$\sigma(det(B))\approx det(B)^{1/2}=\sqrt{g}\approx 2^{1024}$$</p>
-<p>于是$w$大概率为格$B$上的最短向量，构造格$B$进行<code>LLL</code>算法即可。</p>
-<p>还有个例子可以看<a href="https://sch01ar.github.io/2022/11/29/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%E7%AE%97%E6%B3%95/">背包加密</a></p>
-<h3 id="CVP"><a class="header-anchor" href="#CVP">¶</a>CVP</h3>
+<p><span class="math display">\[(k,
+p-58) \begin{bmatrix}0&amp;g\\1&amp;-f \end{bmatrix}=(p-58,q-44)\]</span></p>
+<p>得到了<span
+class="math inline">\(v*B=w\)</span>的形式。在这个式子中我们关心的是<span
+class="math inline">\(w\)</span>向量是否是格<span
+class="math inline">\(B\)</span>上的最短向量，<span
+class="math inline">\(v\)</span>这是线性组合的系数并不用过多关注。</p>
+<p>在介绍<strong>高斯启发式</strong>的时候，提到了格上最短向量的<strong>欧几里得范数</strong>的大致范围，我们现在验证一下，看看<span
+class="math inline">\(w\)</span>是否是格<span
+class="math inline">\(B\)</span>上的最短向量，即比较长度<span
+class="math inline">\(||w||\)</span>和高斯期望值<span
+class="math inline">\(\sigma(det(B))\)</span></p>
+<p><span class="math display">\[||w|| = \sqrt{(p-58)^2+(q-44)^2}\approx
+2^{1024}\]</span> <span class="math display">\[\sigma(det(B))\approx
+det(B)^{1/2}=\sqrt{g}\approx 2^{1024}\]</span></p>
+<p>于是<span class="math inline">\(w\)</span>大概率为格<span
+class="math inline">\(B\)</span>上的最短向量，构造格<span
+class="math inline">\(B\)</span>进行<code>LLL</code>算法即可。</p>
+<p>还有个例子可以看<a
+href="https://sch01ar.github.io/2022/11/29/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%E7%AE%97%E6%B3%95/">背包加密</a></p>
+<h3 id="cvp">CVP</h3>
 <blockquote>
 <p>最近向量问题(Closest Vector Problem)，格上另一个最常见的问题。</p>
 </blockquote>
-<p>给定格$L$的一组基与向量$v$，找到在$L$上离$v$最近的一个向量。</p>
-<p>方便理解还是看一下几何意义，在连续空间中任找一点$p$（注意：不一定在格上），要找到格上距离点$p$最近的一个点。</p>
-<h3 id="LWE"><a class="header-anchor" href="#LWE">¶</a>LWE</h3>
+<p>给定格<span class="math inline">\(L\)</span>的一组基与向量<span
+class="math inline">\(v\)</span>，找到在<span
+class="math inline">\(L\)</span>上离<span
+class="math inline">\(v\)</span>最近的一个向量。</p>
+<p>方便理解还是看一下几何意义，在连续空间中任找一点<span
+class="math inline">\(p\)</span>（注意：不一定在格上），要找到格上距离点<span
+class="math inline">\(p\)</span>最近的一个点。</p>
+<h3 id="lwe">LWE</h3>
 <blockquote>
 <p>LWE 问题(Learn With Error)</p>
 </blockquote>
-<h3 id="ACD"><a class="header-anchor" href="#ACD">¶</a>ACD</h3>
+<h3 id="acd">ACD</h3>
 <blockquote>
-<p>ACD 问题(<a target="_blank" rel="noopener" href="https://eprint.iacr.org/2016/215.pdf">Approximate Common Divisor</a>)，近似公约数(应该也可以叫 AGCD)</p>
+<p>ACD 问题(<a target="_blank" rel="noopener" href="https://eprint.iacr.org/2016/215.pdf">Approximate
+Common Divisor</a>)，近似公约数(应该也可以叫 AGCD)</p>
 </blockquote>
-<p>给定$t$组$x_i$满足：$x_i=pq_i+r_i$</p>
-<p>$x_i$ 已知，$p$ 为 $\alpha$ 位，$q_i$ 为 $\beta$ 位 ，$r_i$ 为 $\rho$ 位（$\rho \lt\lt \alpha$），求 $p$。</p>
-<p>$p$相当于$t$组$x$的近似公约数，因此要求了$r_i \lt\lt p$</p>
+<p>给定<span class="math inline">\(t\)</span>组<span
+class="math inline">\(x_i\)</span>满足：<span
+class="math inline">\(x_i=pq_i+r_i\)</span></p>
+<p><span class="math inline">\(x_i\)</span> 已知，<span
+class="math inline">\(p\)</span> 为 <span
+class="math inline">\(\alpha\)</span> 位，<span
+class="math inline">\(q_i\)</span> 为 <span
+class="math inline">\(\beta\)</span> 位 ，<span
+class="math inline">\(r_i\)</span> 为 <span
+class="math inline">\(\rho\)</span> 位（<span class="math inline">\(\rho
+\lt\lt \alpha\)</span>），求 <span
+class="math inline">\(p\)</span>。</p>
+<p><span class="math inline">\(p\)</span>相当于<span
+class="math inline">\(t\)</span>组<span
+class="math inline">\(x\)</span>的近似公约数，因此要求了<span
+class="math inline">\(r_i \lt\lt p\)</span></p>
 <p>构造</p>
-<p>$$(q_0,q_1,\cdots,q_t)\begin{bmatrix} 2^{\rho} &amp; x_1 &amp; x_2 &amp; \cdots &amp; x_t \newline 0 &amp; -x_0 &amp; 0 &amp; \cdots &amp; 0 \newline 0 &amp; 0 &amp; -x_0 &amp; \cdots &amp; 0 \newline \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \newline 0 &amp; 0 &amp; 0 &amp; \cdots &amp; -x_0\end{bmatrix}=(q_02<sup>{\rho},q_0x_1-q_1x_0,\cdots,q_0x_t-q_tx_0)=(q_02</sup>{\rho},q_0r_1-q_1r_0,\cdots,q_0r_t-q_tr_0)$$</p>
-<p>记为 $v\cdot B=w$。</p>
-<p>使用<code>LLL</code>算法得到 $q_02^{\rho}$后就可以求出$p$。</p>
-<h3 id="HNP"><a class="header-anchor" href="#HNP">¶</a>HNP</h3>
+<p><span class="math display">\[(q_0,q_1,\cdots,q_t)\begin{bmatrix}
+2^{\rho} &amp; x_1 &amp; x_2 &amp; \cdots &amp; x_t \newline 0 &amp;
+-x_0 &amp; 0 &amp; \cdots &amp; 0 \newline 0 &amp; 0 &amp; -x_0 &amp;
+\cdots &amp; 0 \newline \vdots &amp; \vdots &amp; \vdots &amp; \ddots
+&amp; \vdots \newline 0 &amp; 0 &amp; 0 &amp; \cdots &amp;
+-x_0\end{bmatrix}=(q_02^{\rho},q_0x_1-q_1x_0,\cdots,q_0x_t-q_tx_0)=(q_02^{\rho},q_0r_1-q_1r_0,\cdots,q_0r_t-q_tr_0)\]</span></p>
+<p>记为 <span class="math inline">\(v\cdot B=w\)</span>。</p>
+<p>使用<code>LLL</code>算法得到 <span
+class="math inline">\(q_02^{\rho}\)</span>后就可以求出<span
+class="math inline">\(p\)</span>。</p>
+<h3 id="hnp">HNP</h3>
 
                 
               </div>

@@ -16,12 +16,12 @@
   <meta name="author" content="Roo1e">
   <meta name="keywords" content="">
   
-    <meta name="description" content="RSA2 题目给定n、e、dp、c 非预期解：直接分解n 下面考虑n不能分解的情况 ¶推导过程 dp ≡ d mod (p-1) ed ≡ 1 mod (p-1) * (q-1) ed &#x3D; 1 + k2(p-1)(q-1) 对1式两端同乘e，得 e * dp ≡ ed mod (p-1) e * dp &#x3D; k1(p-1) + ed 代入ed得 e * dp &#x3D; k1(p-1) + 1 + k2(p">
+    <meta name="description" content="RSA2 题目给定n、e、dp、c 非预期解：直接分解n 下面考虑n不能分解的情况 推导过程 dp ≡ d mod (p-1) ed ≡ 1 mod (p-1) * (q-1) ed &#x3D; 1 + k2(p-1)(q-1) 对1式两端同乘e，得 e * dp ≡ ed mod (p-1) e * dp &#x3D; k1(p-1) + ed 代入ed得 e * dp &#x3D; k1(p-1) + 1 + k2(p-">
 <meta property="og:type" content="article">
 <meta property="og:title" content="BUU刷题日记20221021">
 <meta property="og:url" content="https://sch01ar.github.io/2022/10/21/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B020221021/index.html">
 <meta property="og:site_name" content="Y&#39;s blog">
-<meta property="og:description" content="RSA2 题目给定n、e、dp、c 非预期解：直接分解n 下面考虑n不能分解的情况 ¶推导过程 dp ≡ d mod (p-1) ed ≡ 1 mod (p-1) * (q-1) ed &#x3D; 1 + k2(p-1)(q-1) 对1式两端同乘e，得 e * dp ≡ ed mod (p-1) e * dp &#x3D; k1(p-1) + ed 代入ed得 e * dp &#x3D; k1(p-1) + 1 + k2(p">
+<meta property="og:description" content="RSA2 题目给定n、e、dp、c 非预期解：直接分解n 下面考虑n不能分解的情况 推导过程 dp ≡ d mod (p-1) ed ≡ 1 mod (p-1) * (q-1) ed &#x3D; 1 + k2(p-1)(q-1) 对1式两端同乘e，得 e * dp ≡ ed mod (p-1) e * dp &#x3D; k1(p-1) + ed 代入ed得 e * dp &#x3D; k1(p-1) + 1 + k2(p-">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-10-20T16:00:00.000Z">
 <meta property="article:modified_time" content="2022-12-08T05:42:21.849Z">
@@ -226,7 +226,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          698 字
+          4.1k 字
         
       </span>
     
@@ -237,7 +237,7 @@
         
         
         
-          6 分钟
+          35 分钟
         
       </span>
     
@@ -288,11 +288,11 @@
             
               <div class="markdown-body">
                 
-                <h1>RSA2</h1>
+                <h1 id="rsa2">RSA2</h1>
 <p>题目给定n、e、dp、c</p>
 <p>非预期解：直接分解n</p>
 <p>下面考虑n不能分解的情况</p>
-<h2 id="推导过程"><a class="header-anchor" href="#推导过程">¶</a>推导过程</h2>
+<h2 id="推导过程">推导过程</h2>
 <p>dp ≡ d mod (p-1)</p>
 <p>ed ≡ 1 mod (p-1) * (q-1)</p>
 <p>ed = 1 + k2(p-1)(q-1)</p>
@@ -312,9 +312,9 @@
 <p>通过遍历k然后找到(e * dp - 1)可以整除k的情况即可。</p>
 <p>(跑了一下发现限制条件还不够)</p>
 <p>因此再加一个n能否整除p即可。</p>
-<h2 id="EXP"><a class="header-anchor" href="#EXP">¶</a>EXP</h2>
-<p>&lt;!–code￼0–&gt;</p>
-<h1>RSA3</h1>
+<h2 id="exp">EXP</h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> gmpy2<br><span class="hljs-keyword">from</span> Crypto.Util.number <span class="hljs-keyword">import</span> long_to_bytes<br>e = <span class="hljs-number">65537</span><br>n = <span class="hljs-number">248254007851526241177721526698901802985832766176221609612258877371620580060433101538328030305219918697643619814200930679612109885533801335348445023751670478437073055544724280684733298051599167660303645183146161497485358633681492129668802402065797789905550489547645118787266601929429724133167768465309665906113</span><br>dp = <span class="hljs-number">905074498052346904643025132879518330691925174573054004621877253318682675055421970943552016695528560364834446303196939207056642927148093290374440210503657</span><br>c = <span class="hljs-number">140423670976252696807533673586209400575664282100684119784203527124521188996403826597436883766041879067494280957410201958935737360380801845453829293997433414188838725751796261702622028587211560353362847191060306578510511380965162133472698713063592621028959167072781482562673683090590521214218071160287665180751</span><br><span class="hljs-comment"># p = 13468634736343473907717969603434376212206335187555458742257940406618189481177835992217885676243155145465521141546915941147336786447889325606555333350540003</span><br><span class="hljs-comment"># q = 18432009829596386103558375461387837845170621179295293289126504231317130550979989727125205467379713835047300158256398009229511746203459540859429194971855371</span><br><span class="hljs-keyword">for</span> k <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>,e):<br>    <span class="hljs-keyword">if</span> (e*dp-<span class="hljs-number">1</span>)%k == <span class="hljs-number">0</span>:<br>        p=(e*dp-<span class="hljs-number">1</span>)//k + <span class="hljs-number">1</span><br>        <span class="hljs-keyword">if</span> n%p == <span class="hljs-number">0</span>:<br>            <span class="hljs-built_in">print</span>(p)<br>            <span class="hljs-keyword">break</span><br>q=n//p<br>phi= (p-<span class="hljs-number">1</span>)*(q-<span class="hljs-number">1</span>)<br>d= gmpy2.invert(e,phi)<br>m=<span class="hljs-built_in">pow</span>(c,d,n)<br><span class="hljs-built_in">print</span>(long_to_bytes(m))<br><span class="hljs-comment">#flag&#123;wow_leaking_dp_breaks_rsa?_98924743502&#125;</span><br></code></pre></td></tr></table></figure>
+<h1 id="rsa3">RSA3</h1>
 <p>给定n、e1、c1、e2、c2。</p>
 <p>m ≡ c1^e1 mod n</p>
 <p>m ≡ c2^e2 mod n</p>
@@ -322,14 +322,14 @@
 <p>扩展欧几里得算法：给定两个整数a、b，必定存在x、y，使得gcd(a,b)=ax+by</p>
 <p>对应到本题当中，由于e1、e2互为素数，因此gcd(e1,e2)=1，从而存在s1、s2使得:</p>
 <p>s1 * e1 + s2 * e2 = 1</p>
-<h2 id="推导过程-v2"><a class="header-anchor" href="#推导过程-v2">¶</a>推导过程</h2>
+<h2 id="推导过程-1">推导过程</h2>
 <p>m = m % n</p>
 <p>m = m^(s1 * e1 + s2 * e2)^ % n</p>
 <p>m = m^(e1 * s1)^ * m^(e2 * s2)^ % n</p>
 <p>m = (m^(e1 * s1)^ % n) * (m^(e2 * s2)^ % n) % n</p>
 <p>m = (c1<sup>s1</sup> % n) * (c2<sup>s2</sup> % n) % n</p>
-<h2 id="EXP-v2"><a class="header-anchor" href="#EXP-v2">¶</a>EXP</h2>
-<p>&lt;!–code￼1–&gt;</p>
+<h2 id="exp-1">EXP</h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> gmpy2<br><span class="hljs-keyword">from</span> Crypto.Util.number <span class="hljs-keyword">import</span> long_to_bytes<br>c1=<span class="hljs-number">22322035275663237041646893770451933509324701913484303338076210603542612758956262869640822486470121149424485571361007421293675516338822195280313794991136048140918842471219840263536338886250492682739436410013436651161720725855484866690084788721349555662019879081501113222996123305533009325964377798892703161521852805956811219563883312896330156298621674684353919547558127920925706842808914762199011054955816534977675267395009575347820387073483928425066536361482774892370969520740304287456555508933372782327506569010772537497541764311429052216291198932092617792645253901478910801592878203564861118912045464959832566051361</span><br>n=<span class="hljs-number">22708078815885011462462049064339185898712439277226831073457888403129378547350292420267016551819052430779004755846649044001024141485283286483130702616057274698473611149508798869706347501931583117632710700787228016480127677393649929530416598686027354216422565934459015161927613607902831542857977859612596282353679327773303727004407262197231586324599181983572622404590354084541788062262164510140605868122410388090174420147752408554129789760902300898046273909007852818474030770699647647363015102118956737673941354217692696044969695308506436573142565573487583507037356944848039864382339216266670673567488871508925311154801</span><br>e1=<span class="hljs-number">11187289</span><br>c2=<span class="hljs-number">18702010045187015556548691642394982835669262147230212731309938675226458555210425972429418449273410535387985931036711854265623905066805665751803269106880746769003478900791099590239513925449748814075904017471585572848473556490565450062664706449128415834787961947266259789785962922238701134079720414228414066193071495304612341052987455615930023536823801499269773357186087452747500840640419365011554421183037505653461286732740983702740822671148045619497667184586123657285604061875653909567822328914065337797733444640351518775487649819978262363617265797982843179630888729407238496650987720428708217115257989007867331698397</span><br>e2=<span class="hljs-number">9647291</span><br><br>r,s1,s2=gmpy2.gcdext(e1,e2)<br>m=(<span class="hljs-built_in">pow</span>(c1,s1,n) * <span class="hljs-built_in">pow</span>(c2,s2,n)) %n<br><span class="hljs-built_in">print</span>(long_to_bytes(m))<br><span class="hljs-comment">#flag&#123;49d91077a1abcb14f1a9d546c80be9ef&#125;</span><br></code></pre></td></tr></table></figure>
 
                 
               </div>
