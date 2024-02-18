@@ -23,12 +23,12 @@
 <meta property="og:site_name" content="Y&#39;s blog">
 <meta property="og:description" content="crypto basiccry 1234567891011121314import random from Crypto.Util.number import *flag &#x3D; b&amp;#x27;********************************&amp;#x27;m &#x3D; bytes_to_long(flag)rr &#x3D; matrix(ZZ,[random_vector(ZZ,256,0,2) fo">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://sch01ar.github.io/img/2024vnctf.jpg">
+<meta property="og:image" content="https://sch01ar.github.io/img/2024vnctf.png">
 <meta property="article:published_time" content="2024-02-18T06:05:45.000Z">
-<meta property="article:modified_time" content="2024-02-18T06:31:34.893Z">
+<meta property="article:modified_time" content="2024-02-18T06:34:05.340Z">
 <meta property="article:author" content="Roo1e">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://sch01ar.github.io/img/2024vnctf.jpg">
+<meta name="twitter:image" content="https://sch01ar.github.io/img/2024vnctf.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
@@ -198,7 +198,7 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/img/2024vnctf.jpg') no-repeat center center; background-size: cover;">
+     style="background: url('/img/2024vnctf.png') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
@@ -303,8 +303,10 @@ ii，由于rr是01矩阵，ii是向量，那么可以看作是一个背包，ii�
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> signal<br><span class="hljs-keyword">import</span> os<br><span class="hljs-keyword">import</span> sys<br><span class="hljs-keyword">import</span> random<br>flag = <span class="hljs-string">&quot;************************&quot;</span><br><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">timeout</span>(<span class="hljs-params">*args</span>):<br>    sys.exit(<span class="hljs-number">0</span>)<br><br><br>q = <span class="hljs-number">11769445852166501942131444325164359907623906505859865854871085543754710159882777389890225783970170353153967463136054852998337865848469266919651006863215539</span><br>p = <span class="hljs-number">23538891704333003884262888650328719815247813011719731709742171087509420319765554779780451567940340706307934926272109705996675731696938533839302013726431079</span><br>g = <span class="hljs-number">2</span><br><span class="hljs-keyword">assert</span> q*<span class="hljs-number">2</span>+<span class="hljs-number">1</span> == p<br><br>x = random.getrandbits(<span class="hljs-number">48</span>)<br>y = <span class="hljs-built_in">pow</span>(g, <span class="hljs-built_in">pow</span>(g, x, q), p)<br><span class="hljs-built_in">print</span>(y)<br><span class="hljs-built_in">print</span>(x)<br><span class="hljs-keyword">try</span>:<br>    _x = <span class="hljs-built_in">int</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&#x27;&gt; &#x27;</span>))<br>    <span class="hljs-keyword">if</span> x == _x:<br>        <span class="hljs-built_in">print</span>(flag)<br>    <span class="hljs-keyword">else</span>:<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Error...&quot;</span>)<br><span class="hljs-keyword">except</span>:<br>    exit(<span class="hljs-number">0</span>)<br></code></pre></td></tr></table></figure>
 <p>题目给的p、q都比较安全，结合题目关键点<code>y = pow(g, pow(g, x, q), p)</code>考虑进行<code>BSGS</code>拆分。
 <span class="math display">\[
-y = g^{g^x}\;mod\;p\\
-g^{g^x} \equiv g^{g^{i+j*\sqrt{n}}}\;mod\;p\\
+y = g^{g^x}\;mod\;p
+\]</span> <span class="math display">\[
+g^{g^x} \equiv g^{g^{i+j*\sqrt{n}}}\;mod\;p
+\]</span> <span class="math display">\[
 y^{g^{-i}} \equiv g^{g^{j*\sqrt{n}}}\;mod\;p
 \]</span>
 也是根据常规dlp的思路进行的推导，接下来就分别遍历i、j求得左右集合，从而找到满足等式的i、j。</p>
